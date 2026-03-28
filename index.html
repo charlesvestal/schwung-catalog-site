@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schwung Modules</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Schwung Modules</h1>
+            <p class="subtitle">Browse modules for Ableton Move</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="controls">
+            <div class="filters" role="tablist">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="sound_generator" role="tab">Synths</button>
+                <button class="filter-btn" data-filter="audio_fx" role="tab">Audio FX</button>
+                <button class="filter-btn" data-filter="midi_fx" role="tab">MIDI FX</button>
+                <button class="filter-btn" data-filter="overtake" role="tab">Overtake</button>
+                <button class="filter-btn" data-filter="tool" role="tab">Tools</button>
+                <button class="filter-btn" data-filter="utility" role="tab">Utilities</button>
+            </div>
+            <div class="sort-controls">
+                <label for="sort-select">Sort:</label>
+                <select id="sort-select">
+                    <option value="popular">Popular</option>
+                    <option value="name">A–Z</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="module-count"></div>
+        <div class="module-grid" id="module-grid"></div>
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+        </p>
+    </footer>
+
+    <script src="data/audio-previews.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

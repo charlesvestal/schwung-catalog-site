@@ -1,0 +1,80 @@
+name: Update catalog and download counts
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6am UTC
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch module catalog
+        run: |
+          curl -sSfL \
+            "https://raw.githubusercontent.com/charlesvestal/schwung/main/module-catalog.json" \
+            -o data/module-catalog.json
+
+      - name: Fetch download counts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo '{' > data/download-counts.json
+
+          # Parse module repos from catalog
+          repos=$(jq -r '.modules[] | "\(.id)|\(.github_repo)"' data/module-catalog.json)
+
+          first=true
+          while IFS='|' read -r id repo; do
+            [ -z "$repo" ] && continue
+
+            # Get total downloads across all releases
+            count=$(gh api "repos/${repo}/releases" --jq '[.[].assets[].download_count] | add // 0' 2>/dev/null || echo "0")
+
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo ',' >> data/download-counts.json
+            fi
+            printf '  "%s": %s' "$id" "$count" >> data/download-counts.json
+
+          done <<< "$repos"
+
+          echo '' >> data/download-counts.json
+          echo '}' >> data/download-counts.json
+
+          # Validate JSON
+          jq . data/download-counts.json > /dev/null
+
+      - name: Build audio preview list
+        run: |
+          # Generate list of available audio previews
+          echo -n 'window.AUDIO_PREVIEWS = [' > data/audio-previews.js
+          first=true
+          for f in audio/*.mp3; do
+            [ -f "$f" ] || continue
+            id=$(basename "$f" .mp3)
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo -n ',' >> data/audio-previews.js
+            fi
+            echo -n "\"$id\"" >> data/audio-previews.js
+          done
+          echo '];' >> data/audio-previews.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet && exit 0
+          git commit -m "Update catalog and download counts"
+          git push

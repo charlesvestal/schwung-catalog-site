@@ -1,0 +1,322 @@
+:root {
+    --bg: #111111;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222222;
+    --text: #e0e0e0;
+    --text-muted: #888888;
+    --accent: #e8a84c;
+    --accent-dim: #b87a30;
+    --border: #333333;
+    --badge-synth: #4a9e8e;
+    --badge-fx: #c06040;
+    --badge-midi: #7070c0;
+    --badge-overtake: #a060a0;
+    --badge-tool: #6090c0;
+    --badge-utility: #808080;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 1.5rem 1.5rem;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-dim);
+    color: var(--text);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #1a1a2e;
+    font-weight: 600;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+#sort-select {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.module-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Grid */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+}
+
+/* Card */
+.module-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.module-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-dim);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.module-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.module-name a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.module-name a:hover {
+    color: var(--accent);
+}
+
+.badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+}
+
+.badge-sound_generator { background: var(--badge-synth); color: #fff; }
+.badge-audio_fx { background: var(--badge-fx); color: #fff; }
+.badge-midi_fx { background: var(--badge-midi); color: #fff; }
+.badge-overtake { background: var(--badge-overtake); color: #fff; }
+.badge-tool { background: var(--badge-tool); color: #fff; }
+.badge-utility { background: var(--badge-utility); color: #fff; }
+
+.module-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.module-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.module-requires {
+    font-size: 0.8rem;
+    color: var(--accent-dim);
+    font-style: italic;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.4rem;
+}
+
+.download-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.download-count svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Audio preview */
+.audio-preview {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.play-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--accent);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+}
+
+.play-btn:hover {
+    background: var(--accent);
+    color: #1a1a2e;
+    border-color: var(--accent);
+}
+
+.play-btn.playing {
+    background: var(--accent);
+    color: #1a1a2e;
+    border-color: var(--accent);
+}
+
+.play-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .module-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+    header {
+        padding: 1.5rem 1rem 1rem;
+    }
+    main {
+        padding: 1rem;
+    }
+}
