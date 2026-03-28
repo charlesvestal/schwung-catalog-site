@@ -270,7 +270,7 @@ function seekAudio(e, bar) {
 
 function formatDate(dateStr) {
     const d = new Date(dateStr + 'T00:00:00Z');
-    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+    return d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' });
 }
 
 function formatCount(n) {
