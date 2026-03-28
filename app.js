@@ -16,6 +16,7 @@ const DOWNLOAD_ICON = '<svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4
 
 let catalog = [];
 let downloadCounts = {};
+let downloadCounts7d = {};
 let currentFilter = 'all';
 let currentSort = 'popular';
 let currentAudio = null;
@@ -23,9 +24,10 @@ let currentPlayBtn = null;
 
 async function init() {
     try {
-        const [catalogRes, countsRes] = await Promise.all([
+        const [catalogRes, countsRes, historyRes] = await Promise.all([
             fetch('data/module-catalog.json'),
             fetch('data/download-counts.json'),
+            fetch('data/download-counts-history.json'),
         ]);
         const catalogData = await catalogRes.json();
         catalog = catalogData.modules || [];
@@ -34,6 +36,13 @@ async function init() {
             downloadCounts = await countsRes.json();
         } catch {
             downloadCounts = {};
+        }
+
+        try {
+            const history = await historyRes.json();
+            downloadCounts7d = compute7dCounts(downloadCounts, history);
+        } catch {
+            downloadCounts7d = {};
         }
     } catch (e) {
         console.error('Failed to load data:', e);
@@ -80,6 +89,9 @@ function getFiltered() {
         case 'popular':
             modules.sort((a, b) => (downloadCounts[b.id] || 0) - (downloadCounts[a.id] || 0));
             break;
+        case 'popular7d':
+            modules.sort((a, b) => (downloadCounts7d[b.id] || 0) - (downloadCounts7d[a.id] || 0));
+            break;
         case 'name':
             modules.sort((a, b) => a.name.localeCompare(b.name));
             break;
@@ -112,7 +124,9 @@ function render() {
 }
 
 function cardHTML(m) {
-    const count = downloadCounts[m.id] || 0;
+    const count = currentSort === 'popular7d'
+        ? (downloadCounts7d[m.id] || 0)
+        : (downloadCounts[m.id] || 0);
     const badgeLabel = CATEGORY_LABELS[m.component_type] || m.component_type;
     const repoUrl = `https://github.com/${m.github_repo}`;
     const hasAudio = audioExists(m.id);
@@ -214,6 +228,28 @@ function esc(s) {
     const el = document.createElement('span');
     el.textContent = s;
     return el.innerHTML;
+}
+
+function compute7dCounts(current, history) {
+    const dates = Object.keys(history).sort();
+    if (dates.length === 0) return { ...current };
+
+    // Find the snapshot closest to 7 days ago
+    const target = new Date();
+    target.setDate(target.getDate() - 7);
+    const targetStr = target.toISOString().slice(0, 10);
+
+    let bestDate = dates[0];
+    for (const d of dates) {
+        if (d <= targetStr) bestDate = d;
+    }
+
+    const baseline = history[bestDate] || {};
+    const result = {};
+    for (const id of Object.keys(current)) {
+        result[id] = Math.max(0, (current[id] || 0) - (baseline[id] || 0));
+    }
+    return result;
 }
 
 init();

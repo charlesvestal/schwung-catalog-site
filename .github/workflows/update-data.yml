@@ -53,6 +53,26 @@ jobs:
           # Validate JSON
           jq . data/download-counts.json > /dev/null
 
+      - name: Update download count history
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          HISTORY_FILE=data/download-counts-history.json
+
+          # Initialize history if missing
+          if [ ! -f "$HISTORY_FILE" ] || ! jq . "$HISTORY_FILE" > /dev/null 2>&1; then
+            echo '{}' > "$HISTORY_FILE"
+          fi
+
+          # Add today's counts to history
+          jq --arg date "$TODAY" --slurpfile counts data/download-counts.json \
+            '. + {($date): $counts[0]}' "$HISTORY_FILE" > tmp-history.json
+
+          # Prune entries older than 14 days
+          CUTOFF=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
+          jq --arg cutoff "$CUTOFF" 'to_entries | map(select(.key >= $cutoff)) | from_entries' \
+            tmp-history.json > "$HISTORY_FILE"
+          rm tmp-history.json
+
       - name: Build audio preview list
         run: |
           # Generate list of available audio previews
