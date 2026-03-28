@@ -1,5 +1,5 @@
 const CATEGORY_LABELS = {
-    sound_generator: 'Synth',
+    sound_generator: 'Sound Generator',
     audio_fx: 'Audio FX',
     midi_fx: 'MIDI FX',
     overtake: 'Overtake',
