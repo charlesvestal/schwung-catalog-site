@@ -53,6 +53,45 @@ jobs:
           # Validate JSON
           jq . data/download-counts.json > /dev/null
 
+      - name: Fetch release metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo '{' > data/release-metadata.json
+
+          repos=$(jq -r '.modules[] | "\(.id)|\(.github_repo)"' data/module-catalog.json)
+
+          first=true
+          while IFS='|' read -r id repo; do
+            [ -z "$repo" ] && continue
+
+            # Get all releases sorted by date
+            releases=$(gh api "repos/${repo}/releases" --jq 'sort_by(.published_at)' 2>/dev/null || echo "[]")
+
+            first_date=$(echo "$releases" | jq -r '.[0].published_at // empty' | cut -c1-10)
+            [ -z "$first_date" ] && first_date="unknown"
+
+            latest_date=$(echo "$releases" | jq -r '.[-1].published_at // empty' | cut -c1-10)
+            [ -z "$latest_date" ] && latest_date="unknown"
+
+            latest_version=$(echo "$releases" | jq -r '.[-1].tag_name // empty')
+            [ -z "$latest_version" ] && latest_version="unknown"
+
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo ',' >> data/release-metadata.json
+            fi
+            printf '  "%s": {"first_release": "%s", "last_updated": "%s", "version": "%s"}' \
+              "$id" "$first_date" "$latest_date" "$latest_version" >> data/release-metadata.json
+
+          done <<< "$repos"
+
+          echo '' >> data/release-metadata.json
+          echo '}' >> data/release-metadata.json
+
+          jq . data/release-metadata.json > /dev/null
+
       - name: Update download count history
         run: |
           TODAY=$(date -u +%Y-%m-%d)

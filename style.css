@@ -190,8 +190,24 @@ main {
     line-height: 1.45;
 }
 
-.module-author {
+.module-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.module-version {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+.module-dates {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
 }
 

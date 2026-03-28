@@ -17,6 +17,7 @@ const DOWNLOAD_ICON = '<svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4
 let catalog = [];
 let downloadCounts = {};
 let downloadCounts7d = {};
+let releaseMetadata = {};
 let historyDayCount = 0;
 let currentFilter = 'all';
 let currentSort = 'popular';
@@ -25,10 +26,11 @@ let currentPlayBtn = null;
 
 async function init() {
     try {
-        const [catalogRes, countsRes, historyRes] = await Promise.all([
+        const [catalogRes, countsRes, historyRes, metaRes] = await Promise.all([
             fetch('data/module-catalog.json'),
             fetch('data/download-counts.json'),
             fetch('data/download-counts-history.json'),
+            fetch('data/release-metadata.json'),
         ]);
         const catalogData = await catalogRes.json();
         catalog = catalogData.modules || [];
@@ -46,6 +48,12 @@ async function init() {
         } catch {
             downloadCounts7d = {};
         }
+
+        try {
+            releaseMetadata = await metaRes.json();
+        } catch {
+            releaseMetadata = {};
+        }
     } catch (e) {
         console.error('Failed to load data:', e);
         document.getElementById('module-grid').innerHTML =
@@ -56,6 +64,17 @@ async function init() {
     if (historyDayCount >= 2) {
         document.getElementById('sort-7d').hidden = false;
     }
+
+    // Hide filter tabs for empty categories
+    const visibleTypes = new Set(
+        catalog.filter(m => m.component_type !== 'system' && m.component_type !== 'featured')
+            .map(m => m.component_type)
+    );
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+        if (btn.dataset.filter !== 'all' && !visibleTypes.has(btn.dataset.filter)) {
+            btn.hidden = true;
+        }
+    });
 
     setupControls();
     render();
@@ -102,8 +121,21 @@ function getFiltered() {
             modules.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case 'newest':
-            // Reverse catalog order (newest entries tend to be at the end)
-            modules.reverse();
+            modules.sort((a, b) => {
+                const da = (releaseMetadata[a.id] || {}).first_release || '0000';
+                const db = (releaseMetadata[b.id] || {}).first_release || '0000';
+                return db.localeCompare(da);
+            });
+            break;
+        case 'updated':
+            modules.sort((a, b) => {
+                const da = (releaseMetadata[a.id] || {}).last_updated || '0000';
+                const db = (releaseMetadata[b.id] || {}).last_updated || '0000';
+                return db.localeCompare(da);
+            });
+            break;
+        case 'author':
+            modules.sort((a, b) => a.author.localeCompare(b.author));
             break;
     }
 
@@ -134,6 +166,10 @@ function cardHTML(m) {
         ? (downloadCounts7d[m.id] || 0)
         : (downloadCounts[m.id] || 0);
     const badgeLabel = CATEGORY_LABELS[m.component_type] || m.component_type;
+    const meta = releaseMetadata[m.id] || {};
+    const firstDate = meta.first_release && meta.first_release !== 'unknown' ? formatDate(meta.first_release) : null;
+    const lastDate = meta.last_updated && meta.last_updated !== 'unknown' ? formatDate(meta.last_updated) : null;
+    const version = meta.version && meta.version !== 'unknown' ? meta.version : null;
     const repoUrl = `https://github.com/${m.github_repo}`;
     const hasAudio = audioExists(m.id);
 
@@ -144,7 +180,14 @@ function cardHTML(m) {
             <span class="badge badge-${m.component_type}">${esc(badgeLabel)}</span>
         </div>
         <div class="module-description">${esc(m.description)}</div>
-        <div class="module-author">by ${esc(m.author)}</div>
+        <div class="module-meta">
+            <span class="module-author">by ${esc(m.author)}</span>
+            ${version ? `<span class="module-version">${esc(version)}</span>` : ''}
+        </div>
+        <div class="module-dates">
+            ${firstDate ? `<span>Released ${firstDate}</span>` : ''}
+            ${lastDate && lastDate !== firstDate ? `<span>Updated ${lastDate}</span>` : ''}
+        </div>
         ${m.requires ? `<div class="module-requires">Requires: ${esc(m.requires)}</div>` : ''}
         <div class="card-footer">
             <div class="download-count">${DOWNLOAD_ICON} ${formatCount(count)}</div>
@@ -223,6 +266,11 @@ function seekAudio(e, bar) {
     const rect = bar.getBoundingClientRect();
     const pct = (e.clientX - rect.left) / rect.width;
     currentAudio.currentTime = pct * currentAudio.duration;
+}
+
+function formatDate(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00Z');
+    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 }
 
 function formatCount(n) {
