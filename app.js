@@ -17,6 +17,7 @@ const DOWNLOAD_ICON = '<svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4
 let catalog = [];
 let downloadCounts = {};
 let downloadCounts7d = {};
+let historyDayCount = 0;
 let currentFilter = 'all';
 let currentSort = 'popular';
 let currentAudio = null;
@@ -40,6 +41,7 @@ async function init() {
 
         try {
             const history = await historyRes.json();
+            historyDayCount = Object.keys(history).length;
             downloadCounts7d = compute7dCounts(downloadCounts, history);
         } catch {
             downloadCounts7d = {};
@@ -49,6 +51,10 @@ async function init() {
         document.getElementById('module-grid').innerHTML =
             '<p style="color: var(--text-muted)">Failed to load module catalog.</p>';
         return;
+    }
+
+    if (historyDayCount >= 2) {
+        document.getElementById('sort-7d').hidden = false;
     }
 
     setupControls();
