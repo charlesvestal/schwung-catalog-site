@@ -2,7 +2,7 @@ name: Update catalog and download counts
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # Daily at 6am UTC
+    - cron: '0 * * * *'  # Hourly
   push:
     branches: [main]
   workflow_dispatch:
