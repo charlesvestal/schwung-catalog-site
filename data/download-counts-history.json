@@ -602,10 +602,10 @@
     "genera": 224
   },
   "2026-04-07": {
-    "dexed": 1077,
-    "sf2": 1542,
-    "sfz": 660,
-    "m8": 1388,
+    "dexed": 1078,
+    "sf2": 1543,
+    "sfz": 661,
+    "m8": 1389,
     "minijv": 1126,
     "obxd": 868,
     "cloudseed": 968,
@@ -641,11 +641,11 @@
     "nusaw": 762,
     "usefulity": 881,
     "samplerobot": 450,
-    "waveform-editor": 1266,
+    "waveform-editor": 1267,
     "stretch": 874,
     "stems": 721,
     "plaits": 526,
-    "granular": 820,
+    "granular": 821,
     "superboom": 549,
     "performance-fx": 513,
     "dj": 474,
@@ -654,14 +654,14 @@
     "tuner": 345,
     "dragonfly-hall": 400,
     "punchfx": 499,
-    "structor": 411,
+    "structor": 412,
     "weird-dreams": 476,
     "dissolver": 419,
     "spectra": 397,
-    "essaim": 202,
+    "essaim": 203,
     "chowtape": 250,
     "wurl": 178,
     "denis": 172,
-    "genera": 243
+    "genera": 245
   }
 }
