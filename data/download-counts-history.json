@@ -677,7 +677,7 @@
     "tapedelay": 1659,
     "junologue-chorus": 813,
     "sidcontrol": 735,
-    "braids": 841,
+    "braids": 842,
     "hera": 819,
     "surge": 818,
     "moog": 1208,
@@ -693,13 +693,13 @@
     "chiptune": 1115,
     "keydetect": 1143,
     "vocoder": 783,
-    "osirus": 1251,
+    "osirus": 1253,
     "superarp": 1001,
     "eucalypso": 834,
     "granny": 1208,
     "freak": 490,
     "mrdrums": 745,
-    "rex": 1012,
+    "rex": 1013,
     "hush1": 1033,
     "nusaw": 771,
     "usefulity": 890,
@@ -725,6 +725,6 @@
     "chowtape": 266,
     "wurl": 197,
     "denis": 193,
-    "genera": 346
+    "genera": 348
   }
 }
