@@ -41,7 +41,7 @@
   "waveform-editor": {"first_release": "2026-03-02", "last_updated": "2026-03-29", "version": "v0.7.0"},
   "stretch": {"first_release": "2026-03-02", "last_updated": "2026-03-29", "version": "v0.3.2"},
   "stems": {"first_release": "2026-03-02", "last_updated": "2026-03-29", "version": "v0.3.2"},
-  "plaits": {"first_release": "2026-03-03", "last_updated": "2026-03-16", "version": "v0.5.0"},
+  "plaits": {"first_release": "2026-03-03", "last_updated": "2026-04-09", "version": "v0.5.1"},
   "granular": {"first_release": "2026-03-05", "last_updated": "2026-03-31", "version": "v0.3.1"},
   "superboom": {"first_release": "2026-03-13", "last_updated": "2026-03-24", "version": "v1.4.0"},
   "performance-fx": {"first_release": "2026-03-10", "last_updated": "2026-03-10", "version": "v0.0.2"},
