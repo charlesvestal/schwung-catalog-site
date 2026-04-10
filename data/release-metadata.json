@@ -54,7 +54,7 @@
   "structor": {"first_release": "2026-03-18", "last_updated": "2026-04-06", "version": "v0.3.1"},
   "weird-dreams": {"first_release": "2026-03-20", "last_updated": "2026-04-07", "version": "v0.2.5"},
   "dissolver": {"first_release": "2026-03-26", "last_updated": "2026-03-31", "version": "v0.2.2"},
-  "spectra": {"first_release": "2026-03-27", "last_updated": "2026-03-31", "version": "v0.1.1"},
+  "spectra": {"first_release": "2026-03-27", "last_updated": "2026-04-10", "version": "v0.2.0"},
   "essaim": {"first_release": "2026-04-01", "last_updated": "2026-04-07", "version": "v0.2.5"},
   "chowtape": {"first_release": "2026-03-31", "last_updated": "2026-03-31", "version": "v0.1.0"},
   "wurl": {"first_release": "2026-03-26", "last_updated": "2026-03-26", "version": "v0.1.0"},
