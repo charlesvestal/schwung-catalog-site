@@ -24,7 +24,7 @@
   "clap": 827,
   "gate": 1324,
   "control": 1425,
-  "chiptune": 1171,
+  "chiptune": 1172,
   "keydetect": 1201,
   "vocoder": 840,
   "osirus": 1434,
@@ -38,7 +38,7 @@
   "nusaw": 827,
   "usefulity": 948,
   "samplerobot": 517,
-  "waveform-editor": 1378,
+  "waveform-editor": 1379,
   "stretch": 973,
   "stems": 820,
   "plaits": 683,
@@ -59,6 +59,6 @@
   "chowtape": 341,
   "wurl": 273,
   "denis": 272,
-  "genera": 690,
+  "genera": 691,
   "branchage": 166
 }
