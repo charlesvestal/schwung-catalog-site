@@ -14,7 +14,7 @@
   "braids": {"first_release": "2026-02-11", "last_updated": "2026-03-02", "version": "v0.2.5"},
   "hera": {"first_release": "2026-02-11", "last_updated": "2026-03-02", "version": "v0.1.5"},
   "surge": {"first_release": "2026-02-05", "last_updated": "2026-03-10", "version": "v0.1.9"},
-  "moog": {"first_release": "2026-02-18", "last_updated": "2026-03-02", "version": "v0.2.3"},
+  "moog": {"first_release": "unknown", "last_updated": "unknown", "version": "unknown"},
   "webstream": {"first_release": "2026-02-07", "last_updated": "2026-04-09", "version": "v0.3.0"},
   "nam": {"first_release": "2026-02-14", "last_updated": "2026-03-02", "version": "v0.1.4"},
   "ducker": {"first_release": "2026-02-14", "last_updated": "2026-03-12", "version": "v0.1.2"},
