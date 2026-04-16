@@ -77,13 +77,17 @@ jobs:
             latest_version=$(echo "$releases" | jq -r '.[-1].tag_name // empty')
             [ -z "$latest_version" ] && latest_version="unknown"
 
+            # Collect all release dates as JSON array
+            all_dates=$(echo "$releases" | jq -c '[.[].published_at | . [:10]] | map(select(. != null))')
+            [ -z "$all_dates" ] || [ "$all_dates" = "null" ] && all_dates="[]"
+
             if [ "$first" = true ]; then
               first=false
             else
               echo ',' >> data/release-metadata.json
             fi
-            printf '  "%s": {"first_release": "%s", "last_updated": "%s", "version": "%s"}' \
-              "$id" "$first_date" "$latest_date" "$latest_version" >> data/release-metadata.json
+            printf '  "%s": {"first_release": "%s", "last_updated": "%s", "version": "%s", "release_dates": %s}' \
+              "$id" "$first_date" "$latest_date" "$latest_version" "$all_dates" >> data/release-metadata.json
 
           done <<< "$repos"
 

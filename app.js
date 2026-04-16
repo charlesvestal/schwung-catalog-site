@@ -327,9 +327,9 @@ function computeWindowCounts(current, history, days) {
     return result;
 }
 
-// Trending: weight daily downloads by distance from last update.
-// Downloads right after an update are discounted (likely existing users updating).
-// Downloads far from an update get full weight (organic interest).
+// Trending: weight daily downloads by distance from the nearest preceding release.
+// Downloads right after any release are discounted (likely existing users updating).
+// Downloads far from any release get full weight (organic interest).
 function computeTrending(current, history, metadata) {
     const dates = Object.keys(history).sort();
     if (dates.length < 2) return { ...current };
@@ -349,7 +349,11 @@ function computeTrending(current, history, metadata) {
     const scores = {};
 
     for (const id of moduleIds) {
-        const lastUpdated = (metadata[id] || {}).last_updated;
+        const meta = metadata[id] || {};
+        // Use full release history if available, fall back to last_updated
+        const releaseDates = (meta.release_dates || [])
+            .filter(d => d && d !== 'unknown')
+            .sort();
         let score = 0;
 
         for (let i = 1; i < allDates.length; i++) {
@@ -361,14 +365,31 @@ function computeTrending(current, history, metadata) {
 
             if (delta === 0) continue;
 
-            // Weight by distance from last update
+            // Find nearest preceding release date
             let weight = 1;
-            if (lastUpdated && lastUpdated !== 'unknown') {
-                const updateDate = new Date(lastUpdated + 'T00:00:00Z');
+            if (releaseDates.length > 0) {
+                const dlDate = new Date(curDate + 'T00:00:00Z');
+                let nearestDays = Infinity;
+                for (const rd of releaseDates) {
+                    const releaseDate = new Date(rd + 'T00:00:00Z');
+                    const days = (dlDate - releaseDate) / (1000 * 60 * 60 * 24);
+                    // Only consider releases on or before this download date
+                    if (days >= 0 && days < nearestDays) {
+                        nearestDays = days;
+                    }
+                }
+                // Linear ramp: 0 on release day, full weight at 7+ days post-release
+                if (nearestDays < Infinity) {
+                    weight = Math.min(1, nearestDays / 7);
+                }
+            } else if (meta.last_updated && meta.last_updated !== 'unknown') {
+                // Fallback for modules without release_dates yet
+                const updateDate = new Date(meta.last_updated + 'T00:00:00Z');
                 const dlDate = new Date(curDate + 'T00:00:00Z');
                 const daysSinceUpdate = (dlDate - updateDate) / (1000 * 60 * 60 * 24);
-                // Linear ramp: 0 at update day, full weight at 7+ days
-                weight = Math.max(0, Math.min(1, daysSinceUpdate / 7));
+                if (daysSinceUpdate >= 0) {
+                    weight = Math.min(1, daysSinceUpdate / 7);
+                }
             }
 
             score += delta * weight;
