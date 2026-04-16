@@ -351,9 +351,11 @@ function computeTrending(current, history, metadata) {
     for (const id of moduleIds) {
         const meta = metadata[id] || {};
         // Use full release history if available, fall back to last_updated
-        const releaseDates = (meta.release_dates || [])
+        const allReleaseDates = (meta.release_dates || [])
             .filter(d => d && d !== 'unknown')
             .sort();
+        // Don't discount downloads near the first release (those are new users, not updaters)
+        const releaseDates = allReleaseDates.slice(1);
         let score = 0;
 
         for (let i = 1; i < allDates.length; i++) {
@@ -365,7 +367,7 @@ function computeTrending(current, history, metadata) {
 
             if (delta === 0) continue;
 
-            // Find nearest preceding release date
+            // Find nearest preceding release date (excluding first release)
             let weight = 1;
             if (releaseDates.length > 0) {
                 const dlDate = new Date(curDate + 'T00:00:00Z');
@@ -382,7 +384,7 @@ function computeTrending(current, history, metadata) {
                 if (nearestDays < Infinity) {
                     weight = Math.min(1, nearestDays / 7);
                 }
-            } else if (meta.last_updated && meta.last_updated !== 'unknown') {
+            } else if (allReleaseDates.length === 0 && meta.last_updated && meta.last_updated !== 'unknown') {
                 // Fallback for modules without release_dates yet
                 const updateDate = new Date(meta.last_updated + 'T00:00:00Z');
                 const dlDate = new Date(curDate + 'T00:00:00Z');
