@@ -17,6 +17,9 @@ const DOWNLOAD_ICON = '<svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4
 let catalog = [];
 let downloadCounts = {};
 let downloadCounts7d = {};
+let downloadCounts30d = {};
+let trendingScores = {};
+let downloadHistory = {};
 let releaseMetadata = {};
 let historyDayCount = 0;
 let currentFilter = 'all';
@@ -42,11 +45,14 @@ async function init() {
         }
 
         try {
-            const history = await historyRes.json();
-            historyDayCount = Object.keys(history).length;
-            downloadCounts7d = compute7dCounts(downloadCounts, history);
+            downloadHistory = await historyRes.json();
+            historyDayCount = Object.keys(downloadHistory).length;
+            downloadCounts7d = computeWindowCounts(downloadCounts, downloadHistory, 7);
+            downloadCounts30d = computeWindowCounts(downloadCounts, downloadHistory, 30);
         } catch {
+            downloadHistory = {};
             downloadCounts7d = {};
+            downloadCounts30d = {};
         }
 
         try {
@@ -61,8 +67,14 @@ async function init() {
         return;
     }
 
+    trendingScores = computeTrending(downloadCounts, downloadHistory, releaseMetadata);
+
     if (historyDayCount >= 2) {
         document.getElementById('sort-7d').hidden = false;
+        document.getElementById('sort-trending').hidden = false;
+    }
+    if (historyDayCount >= 8) {
+        document.getElementById('sort-30d').hidden = false;
     }
 
     // Hide filter tabs for empty categories
@@ -117,6 +129,12 @@ function getFiltered() {
         case 'popular7d':
             modules.sort((a, b) => (downloadCounts7d[b.id] || 0) - (downloadCounts7d[a.id] || 0));
             break;
+        case 'popular30d':
+            modules.sort((a, b) => (downloadCounts30d[b.id] || 0) - (downloadCounts30d[a.id] || 0));
+            break;
+        case 'trending':
+            modules.sort((a, b) => (trendingScores[b.id] || 0) - (trendingScores[a.id] || 0));
+            break;
         case 'name':
             modules.sort((a, b) => a.name.localeCompare(b.name));
             break;
@@ -164,6 +182,10 @@ function render() {
 function cardHTML(m) {
     const count = currentSort === 'popular7d'
         ? (downloadCounts7d[m.id] || 0)
+        : currentSort === 'popular30d'
+        ? (downloadCounts30d[m.id] || 0)
+        : currentSort === 'trending'
+        ? Math.round(trendingScores[m.id] || 0)
         : (downloadCounts[m.id] || 0);
     const badgeLabel = CATEGORY_LABELS[m.component_type] || m.component_type;
     const meta = releaseMetadata[m.id] || {};
@@ -284,13 +306,12 @@ function esc(s) {
     return el.innerHTML;
 }
 
-function compute7dCounts(current, history) {
+function computeWindowCounts(current, history, days) {
     const dates = Object.keys(history).sort();
     if (dates.length === 0) return { ...current };
 
-    // Find the snapshot closest to 7 days ago
     const target = new Date();
-    target.setDate(target.getDate() - 7);
+    target.setDate(target.getDate() - days);
     const targetStr = target.toISOString().slice(0, 10);
 
     let bestDate = dates[0];
@@ -304,6 +325,59 @@ function compute7dCounts(current, history) {
         result[id] = Math.max(0, (current[id] || 0) - (baseline[id] || 0));
     }
     return result;
+}
+
+// Trending: weight daily downloads by distance from last update.
+// Downloads right after an update are discounted (likely existing users updating).
+// Downloads far from an update get full weight (organic interest).
+function computeTrending(current, history, metadata) {
+    const dates = Object.keys(history).sort();
+    if (dates.length < 2) return { ...current };
+
+    // Build daily deltas from consecutive snapshots
+    // Also include today's counts as the latest "snapshot"
+    const allDates = [...dates];
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const snapshots = { ...history };
+    if (!snapshots[todayStr]) {
+        snapshots[todayStr] = current;
+        if (!allDates.includes(todayStr)) allDates.push(todayStr);
+        allDates.sort();
+    }
+
+    const moduleIds = Object.keys(current);
+    const scores = {};
+
+    for (const id of moduleIds) {
+        const lastUpdated = (metadata[id] || {}).last_updated;
+        let score = 0;
+
+        for (let i = 1; i < allDates.length; i++) {
+            const prevDate = allDates[i - 1];
+            const curDate = allDates[i];
+            const prev = (snapshots[prevDate] || {})[id] || 0;
+            const cur = (snapshots[curDate] || {})[id] || 0;
+            const delta = Math.max(0, cur - prev);
+
+            if (delta === 0) continue;
+
+            // Weight by distance from last update
+            let weight = 1;
+            if (lastUpdated && lastUpdated !== 'unknown') {
+                const updateDate = new Date(lastUpdated + 'T00:00:00Z');
+                const dlDate = new Date(curDate + 'T00:00:00Z');
+                const daysSinceUpdate = (dlDate - updateDate) / (1000 * 60 * 60 * 24);
+                // Linear ramp: 0 at update day, full weight at 7+ days
+                weight = Math.max(0, Math.min(1, daysSinceUpdate / 7));
+            }
+
+            score += delta * weight;
+        }
+
+        scores[id] = score;
+    }
+
+    return scores;
 }
 
 init();

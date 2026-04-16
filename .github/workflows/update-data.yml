@@ -106,8 +106,8 @@ jobs:
           jq --arg date "$TODAY" --slurpfile counts data/download-counts.json \
             '. + {($date): $counts[0]}' "$HISTORY_FILE" > tmp-history.json
 
-          # Prune entries older than 14 days
-          CUTOFF=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
+          # Prune entries older than 35 days (supports 30-day lookback)
+          CUTOFF=$(date -u -d "35 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-35d +%Y-%m-%d)
           jq --arg cutoff "$CUTOFF" 'to_entries | map(select(.key >= $cutoff)) | from_entries' \
             tmp-history.json > "$HISTORY_FILE"
           rm tmp-history.json
