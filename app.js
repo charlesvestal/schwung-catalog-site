@@ -125,6 +125,9 @@ function getFiltered() {
         case 'popular':
             modules.sort((a, b) => (downloadCounts[b.id] || 0) - (downloadCounts[a.id] || 0));
             break;
+        case 'perRelease':
+            modules.sort((a, b) => downloadsPerRelease(b.id) - downloadsPerRelease(a.id));
+            break;
         case 'popular7d':
             modules.sort((a, b) => (downloadCounts7d[b.id] || 0) - (downloadCounts7d[a.id] || 0));
             break;
@@ -185,6 +188,8 @@ function cardHTML(m) {
         ? (downloadCounts30d[m.id] || 0)
         : currentSort === 'trending'
         ? Math.round(trendingScores[m.id] || 0)
+        : currentSort === 'perRelease'
+        ? Math.round(downloadsPerRelease(m.id))
         : (downloadCounts[m.id] || 0);
     const badgeLabel = CATEGORY_LABELS[m.component_type] || m.component_type;
     const meta = releaseMetadata[m.id] || {};
@@ -303,6 +308,12 @@ function esc(s) {
     const el = document.createElement('span');
     el.textContent = s;
     return el.innerHTML;
+}
+
+function downloadsPerRelease(id) {
+    const total = downloadCounts[id] || 0;
+    const releases = ((releaseMetadata[id] || {}).release_dates || []).length;
+    return releases > 0 ? total / releases : total;
 }
 
 function computeWindowCounts(current, history, days) {
