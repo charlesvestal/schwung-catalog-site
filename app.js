@@ -72,6 +72,9 @@ async function init() {
     if (historyDayCount >= 2) {
         document.getElementById('sort-7d').hidden = false;
         document.getElementById('sort-trending').hidden = false;
+        // Default to Popular (organic) when we have enough history
+        currentSort = 'trending';
+        document.getElementById('sort-select').value = 'trending';
     }
     if (historyDayCount >= 8) {
         document.getElementById('sort-30d').hidden = false;
