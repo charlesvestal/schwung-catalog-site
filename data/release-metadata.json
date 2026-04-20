@@ -19,7 +19,7 @@
   "nam": {"first_release": "2026-02-14", "last_updated": "2026-03-02", "version": "v0.1.4", "release_dates": ["2026-02-14","2026-02-14","2026-02-26","2026-03-02"]},
   "ducker": {"first_release": "2026-02-14", "last_updated": "2026-03-12", "version": "v0.1.2", "release_dates": ["2026-02-14","2026-03-02","2026-03-12"]},
   "radiogarden": {"first_release": "2026-02-14", "last_updated": "2026-03-11", "version": "v0.2.2", "release_dates": ["2026-02-14","2026-02-16","2026-03-02","2026-03-11"]},
-  "airplay": {"first_release": "2026-02-14", "last_updated": "2026-03-10", "version": "v0.1.4", "release_dates": ["2026-02-14","2026-02-22","2026-03-02","2026-03-10"]},
+  "airplay": {"first_release": "2026-02-14", "last_updated": "2026-04-20", "version": "v0.1.5", "release_dates": ["2026-02-14","2026-02-22","2026-03-02","2026-03-10","2026-04-20"]},
   "streamrtsp": {"first_release": "2026-03-27", "last_updated": "2026-03-28", "version": "v0.1.7", "release_dates": ["2026-03-27","2026-03-27","2026-03-28"]},
   "clap": {"first_release": "2026-02-14", "last_updated": "2026-03-05", "version": "v0.3.9", "release_dates": ["2026-02-14","2026-02-15","2026-02-15","2026-02-15","2026-03-02","2026-03-05"]},
   "gate": {"first_release": "2026-02-15", "last_updated": "2026-03-02", "version": "v0.1.1", "release_dates": ["2026-02-15","2026-03-02"]},
