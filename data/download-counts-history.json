@@ -1165,11 +1165,11 @@
     "nam": 1034,
     "ducker": 1127,
     "radiogarden": 1272,
-    "airplay": 1560,
+    "airplay": 1565,
     "streamrtsp": 508,
     "clap": 993,
     "gate": 1484,
-    "control": 1596,
+    "control": 1597,
     "chiptune": 1336,
     "keydetect": 1360,
     "vocoder": 1000,
@@ -1190,7 +1190,7 @@
     "plaits": 934,
     "granular": 1125,
     "superboom": 797,
-    "performance-fx": 750,
+    "performance-fx": 751,
     "dj": 693,
     "slicer": 482,
     "verglas": 585,
@@ -1206,8 +1206,8 @@
     "wurl": 468,
     "denis": 471,
     "genera": 466,
-    "euclidrum": 93,
-    "branchage": 481,
-    "twinsampler": 119
+    "euclidrum": 95,
+    "branchage": 482,
+    "twinsampler": 123
   }
 }
