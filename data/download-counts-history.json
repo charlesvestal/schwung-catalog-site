@@ -1149,7 +1149,7 @@
     "sf2": 1770,
     "sfz": 934,
     "m8": 1628,
-    "minijv": 1572,
+    "minijv": 1573,
     "obxd": 1099,
     "cloudseed": 1217,
     "tapescam": 1204,
@@ -1161,7 +1161,7 @@
     "hera": 1039,
     "surge": 1050,
     "moog": 1419,
-    "webstream": 1666,
+    "webstream": 1667,
     "nam": 1025,
     "ducker": 1119,
     "radiogarden": 1265,
@@ -1173,7 +1173,7 @@
     "chiptune": 1329,
     "keydetect": 1353,
     "vocoder": 992,
-    "osirus": 1689,
+    "osirus": 1690,
     "superarp": 1218,
     "eucalypso": 1045,
     "granny": 1458,
@@ -1194,7 +1194,7 @@
     "dj": 685,
     "slicer": 474,
     "verglas": 578,
-    "tuner": 569,
+    "tuner": 570,
     "dragonfly-hall": 624,
     "punchfx": 741,
     "structor": 777,
@@ -1206,8 +1206,8 @@
     "wurl": 460,
     "denis": 463,
     "genera": 451,
-    "euclidrum": 78,
-    "branchage": 469,
-    "twinsampler": 98
+    "euclidrum": 79,
+    "branchage": 470,
+    "twinsampler": 99
   }
 }
