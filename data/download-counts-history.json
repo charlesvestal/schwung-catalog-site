@@ -1211,7 +1211,7 @@
     "twinsampler": 126
   },
   "2026-04-21": {
-    "dexed": 1381,
+    "dexed": 1385,
     "sf2": 1794,
     "sfz": 962,
     "m8": 1654,
@@ -1231,7 +1231,7 @@
     "nam": 1051,
     "ducker": 1145,
     "radiogarden": 1291,
-    "airplay": 1611,
+    "airplay": 1613,
     "streamrtsp": 522,
     "clap": 1008,
     "gate": 1500,
@@ -1250,9 +1250,9 @@
     "nusaw": 1006,
     "usefulity": 1130,
     "samplerobot": 698,
-    "waveform-editor": 1608,
-    "stretch": 1183,
-    "stems": 1029,
+    "waveform-editor": 1609,
+    "stretch": 1184,
+    "stems": 1030,
     "plaits": 952,
     "granular": 1141,
     "superboom": 814,
@@ -1272,8 +1272,8 @@
     "wurl": 485,
     "denis": 488,
     "genera": 491,
-    "euclidrum": 121,
+    "euclidrum": 122,
     "branchage": 502,
-    "twinsampler": 149
+    "twinsampler": 150
   }
 }
