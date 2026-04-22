@@ -1277,7 +1277,7 @@
     "twinsampler": 158
   },
   "2026-04-22": {
-    "dexed": 1410,
+    "dexed": 1414,
     "sf2": 1803,
     "sfz": 973,
     "m8": 1663,
@@ -1297,7 +1297,7 @@
     "nam": 1060,
     "ducker": 1154,
     "radiogarden": 1300,
-    "airplay": 1632,
+    "airplay": 1636,
     "streamrtsp": 532,
     "clap": 1017,
     "gate": 1509,
@@ -1340,6 +1340,6 @@
     "genera": 502,
     "euclidrum": 133,
     "branchage": 513,
-    "twinsampler": 162
+    "twinsampler": 163
   }
 }
