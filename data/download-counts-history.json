@@ -1277,7 +1277,7 @@
     "twinsampler": 158
   },
   "2026-04-22": {
-    "dexed": 1427,
+    "dexed": 1432,
     "sf2": 1809,
     "sfz": 979,
     "m8": 1669,
@@ -1297,7 +1297,7 @@
     "nam": 1066,
     "ducker": 1160,
     "radiogarden": 1305,
-    "airplay": 1645,
+    "airplay": 1649,
     "streamrtsp": 538,
     "clap": 1025,
     "gate": 1515,
@@ -1322,7 +1322,7 @@
     "plaits": 969,
     "granular": 1157,
     "superboom": 829,
-    "performance-fx": 782,
+    "performance-fx": 783,
     "dj": 722,
     "slicer": 512,
     "verglas": 614,
@@ -1338,8 +1338,8 @@
     "wurl": 502,
     "denis": 504,
     "genera": 510,
-    "euclidrum": 140,
+    "euclidrum": 142,
     "branchage": 520,
-    "twinsampler": 169
+    "twinsampler": 171
   }
 }
