@@ -1437,7 +1437,7 @@
     "chiptune": 1384,
     "keydetect": 1407,
     "vocoder": 1048,
-    "osirus": 1763,
+    "osirus": 1764,
     "superarp": 1275,
     "eucalypso": 1100,
     "granny": 1522,
@@ -1472,7 +1472,7 @@
     "genera": 537,
     "euclidrum": 168,
     "branchage": 542,
-    "twinsampler": 196,
-    "impressive-chords": 10
+    "twinsampler": 197,
+    "impressive-chords": 12
   }
 }
