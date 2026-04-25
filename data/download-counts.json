@@ -1,5 +1,5 @@
 {
-  "dexed": 1506,
+  "dexed": 1507,
   "sf2": 1843,
   "sfz": 1016,
   "m8": 1699,
@@ -19,7 +19,7 @@
   "nam": 1095,
   "ducker": 1192,
   "radiogarden": 1337,
-  "airplay": 1707,
+  "airplay": 1708,
   "streamrtsp": 566,
   "clap": 1055,
   "gate": 1545,
@@ -27,7 +27,7 @@
   "chiptune": 1397,
   "keydetect": 1421,
   "vocoder": 1061,
-  "osirus": 1780,
+  "osirus": 1781,
   "superarp": 1287,
   "eucalypso": 1111,
   "granny": 1535,
@@ -63,5 +63,5 @@
   "euclidrum": 182,
   "branchage": 555,
   "twinsampler": 212,
-  "impressive-chords": 42
+  "impressive-chords": 43
 }
