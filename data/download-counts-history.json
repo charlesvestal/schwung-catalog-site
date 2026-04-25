@@ -1476,7 +1476,7 @@
     "impressive-chords": 22
   },
   "2026-04-25": {
-    "dexed": 1499,
+    "dexed": 1500,
     "sf2": 1839,
     "sfz": 1012,
     "m8": 1695,
@@ -1496,7 +1496,7 @@
     "nam": 1091,
     "ducker": 1188,
     "radiogarden": 1333,
-    "airplay": 1700,
+    "airplay": 1701,
     "streamrtsp": 562,
     "clap": 1051,
     "gate": 1541,
@@ -1540,6 +1540,6 @@
     "euclidrum": 179,
     "branchage": 552,
     "twinsampler": 208,
-    "impressive-chords": 34
+    "impressive-chords": 35
   }
 }
