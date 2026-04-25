@@ -1,5 +1,5 @@
 {
-  "dexed": 1497,
+  "dexed": 1498,
   "sf2": 1839,
   "sfz": 1012,
   "m8": 1695,
@@ -11,7 +11,7 @@
   "tapedelay": 1954,
   "junologue-chorus": 1099,
   "sidcontrol": 1002,
-  "braids": 1140,
+  "braids": 1141,
   "hera": 1108,
   "surge": 1122,
   "moog": 1489,
@@ -27,7 +27,7 @@
   "chiptune": 1393,
   "keydetect": 1417,
   "vocoder": 1057,
-  "osirus": 1774,
+  "osirus": 1775,
   "superarp": 1284,
   "eucalypso": 1108,
   "granny": 1532,
@@ -59,9 +59,9 @@
   "chowtape": 588,
   "wurl": 531,
   "denis": 535,
-  "genera": 547,
+  "genera": 548,
   "euclidrum": 179,
   "branchage": 552,
   "twinsampler": 208,
-  "impressive-chords": 28
+  "impressive-chords": 29
 }
