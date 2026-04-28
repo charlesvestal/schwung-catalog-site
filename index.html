@@ -3,54 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schwung Modules</title>
+    <title>Schwung — open up your Ableton Move</title>
+    <meta name="description" content="Schwung turns your Ableton Move into an open, modular instrument — opening it up to new sounds, effects, tools, and workflows.">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1>Schwung Modules</h1>
-            <p class="subtitle">Schwung Module Catalog</p>
+<body class="page-overview">
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Schwung</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link active" href="index.html" aria-current="page">Overview</a>
+                <a class="nav-link" href="catalog.html">Catalog</a>
+                <a class="nav-link" href="install.html">Install</a>
+                <a class="nav-link" href="about.html">About</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <div class="controls">
-            <div class="filters" role="tablist">
-                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-                <button class="filter-btn" data-filter="sound_generator" role="tab">Sound Generators</button>
-                <button class="filter-btn" data-filter="audio_fx" role="tab">Audio FX</button>
-                <button class="filter-btn" data-filter="midi_fx" role="tab">MIDI FX</button>
-                <button class="filter-btn" data-filter="overtake" role="tab">Overtake</button>
-                <button class="filter-btn" data-filter="tool" role="tab">Tools</button>
-                <button class="filter-btn" data-filter="utility" role="tab">Utilities</button>
+        <section class="hero">
+            <h1>Open up your <span class="accent">Ableton&nbsp;Move</span> to new sounds, effects, tools, and workflows.</h1>
+            <p class="hero-lede">
+                Schwung is an open, modular framework that runs alongside Move's stock firmware — adding a Shadow UI, a sampler-grade resampler, song mode, and an ecosystem of community-built synths and effects.
+            </p>
+            <p class="hero-disclaimer">Independent project. Not approved, endorsed, or supported by Ableton.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="install.html">Install Schwung</a>
+                <a class="btn btn-secondary" href="catalog.html">Browse Catalog</a>
             </div>
-            <div class="sort-controls">
-                <label for="sort-select">Sort:</label>
-                <select id="sort-select">
-                    <option value="popular">Downloads (All Time)</option>
-                    <option value="perRelease">Downloads / Release</option>
-                    <option value="popular7d" id="sort-7d" hidden>Downloads (7 Days)</option>
-                    <option value="popular30d" id="sort-30d" hidden>Downloads (30 Days)</option>
-                    <option value="newest">Newest</option>
-                    <option value="updated">Last Updated</option>
-                    <option value="name">A–Z</option>
-                    <option value="author">Author</option>
-                </select>
-            </div>
-        </div>
+            <p class="installer-version" id="installer-version" hidden>
+                Latest installer:
+                <a id="installer-version-link" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">
+                    <code id="installer-version-tag">v—</code>
+                </a>
+            </p>
+        </section>
 
-        <div class="module-count"></div>
-        <div class="module-grid" id="module-grid"></div>
+        <section class="section">
+            <div class="section-header">
+                <h2>What is Schwung?</h2>
+            </div>
+            <div class="section-prose">
+                <p>
+                    Schwung (formerly <em>Move Everything</em>) is an unofficial framework for the Ableton Move. It adds a Shadow UI that runs in parallel with stock Move, letting you layer additional synths, effects, and overtake apps on top of the device you already use. Move keeps working normally — Schwung just opens it up.
+                </p>
+                <p>
+                    It's MIT-licensed, built on top of the <a href="https://github.com/bobbydigitales/move-anything" target="_blank" rel="noopener">Move Anything</a> project, and developed in public on GitHub.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>What Schwung adds</h2>
+                <p>Platform-level capabilities that ship with the host — no separate install.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Shadow UI</h3>
+                    <p>Runs custom signal chains alongside stock Move so additional synths and effects layer in without leaving the device.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Skipback</h3>
+                    <p>Shift+Capture writes the last 30 seconds of audio to disk — recover happy accidents you weren't recording.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Quantized Resampler</h3>
+                    <p>Bar-locked resampling of Schwung synths or Move input. Recording starts on a note event or play.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Song Mode</h3>
+                    <p>Arrange clips from your set into ordered steps that advance automatically by bar timing across all 4 tracks.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>RNBO Runner</h3>
+                    <p>Host RNBO graphs as an overtake module with full pad/knob control and per-set state.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Schwung Manager</h3>
+                    <p>Web UI at <code>move.local:7700</code> for managing modules, files, settings, and updates from any browser.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Screen Reader</h3>
+                    <p>Optional TTS announcements for accessibility — toggle from Shadow UI settings or Shift+Menu.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Native Sampler Bridge</h3>
+                    <p>Route Schwung's master output into Move's native sampling workflow as a Line In source.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Module ecosystem</h2>
+                <p id="module-count-blurb">Community-built synths, effects, and tools you install on top of Schwung.</p>
+            </div>
+            <div class="category-grid" id="category-grid">
+                <a class="category-card" href="catalog.html?filter=sound_generator">
+                    <h3>Sound Generators</h3>
+                    <span class="count" data-category="sound_generator">—</span>
+                    <span class="arrow">Browse →</span>
+                </a>
+                <a class="category-card" href="catalog.html?filter=audio_fx">
+                    <h3>Audio FX</h3>
+                    <span class="count" data-category="audio_fx">—</span>
+                    <span class="arrow">Browse →</span>
+                </a>
+                <a class="category-card" href="catalog.html?filter=midi_fx">
+                    <h3>MIDI FX</h3>
+                    <span class="count" data-category="midi_fx">—</span>
+                    <span class="arrow">Browse →</span>
+                </a>
+                <a class="category-card" href="catalog.html?filter=tool">
+                    <h3>Tools</h3>
+                    <span class="count" data-category="tool">—</span>
+                    <span class="arrow">Browse →</span>
+                </a>
+                <a class="category-card" href="catalog.html?filter=overtake">
+                    <h3>Overtake</h3>
+                    <span class="count" data-category="overtake">—</span>
+                    <span class="arrow">Browse →</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="cta-strip">
+            <h2>Ready to try it?</h2>
+            <div class="actions">
+                <a class="btn btn-primary" href="install.html">Install Schwung</a>
+                <a class="btn btn-secondary" href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn btn-secondary" href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
+            </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>
             <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+            ·
+            <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
         </p>
     </footer>
 
-    <script src="data/audio-previews.js"></script>
-    <script src="app.js"></script>
+    <script>
+        // Populate category counts from the catalog data
+        fetch('data/module-catalog.json')
+            .then(r => r.json())
+            .then(data => {
+                const counts = {};
+                (data.modules || []).forEach(m => {
+                    if (m.component_type === 'system' || m.component_type === 'featured') return;
+                    counts[m.component_type] = (counts[m.component_type] || 0) + 1;
+                });
+                document.querySelectorAll('.count[data-category]').forEach(el => {
+                    const c = counts[el.dataset.category] || 0;
+                    el.textContent = `${c} module${c === 1 ? '' : 's'}`;
+                });
+                const total = Object.values(counts).reduce((a, b) => a + b, 0);
+                const blurb = document.getElementById('module-count-blurb');
+                if (blurb && total > 0) {
+                    blurb.textContent = `${total} community-built synths, effects, and tools you install on top of Schwung.`;
+                }
+            })
+            .catch(() => {});
+
+        // Show latest installer version (data file maintained by update-data.yml)
+        fetch('data/installer-release.json')
+            .then(r => r.ok ? r.json() : null)
+            .then(data => {
+                if (!data || !data.version) return;
+                const el = document.getElementById('installer-version');
+                const tag = document.getElementById('installer-version-tag');
+                const link = document.getElementById('installer-version-link');
+                tag.textContent = data.version;
+                if (data.html_url) link.href = data.html_url;
+                el.hidden = false;
+            })
+            .catch(() => {});
+    </script>
 </body>
 </html>

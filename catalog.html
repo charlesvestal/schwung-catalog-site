@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog · Schwung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-catalog">
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Schwung</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html">Overview</a>
+                <a class="nav-link active" href="catalog.html" aria-current="page">Catalog</a>
+                <a class="nav-link" href="install.html">Install</a>
+                <a class="nav-link" href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-heading">
+            <h1>Module Catalog</h1>
+            <p class="subtitle">Synths, effects, and tools you can install on Move.</p>
+        </div>
+
+        <div class="controls">
+            <div class="filters" role="tablist">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="sound_generator" role="tab">Sound Generators</button>
+                <button class="filter-btn" data-filter="audio_fx" role="tab">Audio FX</button>
+                <button class="filter-btn" data-filter="midi_fx" role="tab">MIDI FX</button>
+                <button class="filter-btn" data-filter="overtake" role="tab">Overtake</button>
+                <button class="filter-btn" data-filter="tool" role="tab">Tools</button>
+                <button class="filter-btn" data-filter="utility" role="tab">Utilities</button>
+            </div>
+            <div class="sort-controls">
+                <label for="sort-select">Sort:</label>
+                <select id="sort-select">
+                    <option value="popular">Downloads (All Time)</option>
+                    <option value="perRelease">Downloads / Release</option>
+                    <option value="popular7d" id="sort-7d" hidden>Downloads (7 Days)</option>
+                    <option value="popular30d" id="sort-30d" hidden>Downloads (30 Days)</option>
+                    <option value="newest">Newest</option>
+                    <option value="updated">Last Updated</option>
+                    <option value="name">A–Z</option>
+                    <option value="author">Author</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="module-count"></div>
+        <div class="module-grid" id="module-grid"></div>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+            ·
+            <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
+        </p>
+    </footer>
+
+    <script src="data/audio-previews.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

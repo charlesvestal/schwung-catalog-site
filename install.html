@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install · Schwung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-install">
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Schwung</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html">Overview</a>
+                <a class="nav-link" href="catalog.html">Catalog</a>
+                <a class="nav-link active" href="install.html" aria-current="page">Install</a>
+                <a class="nav-link" href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-heading" style="max-width: 1200px; margin: 2rem auto 0; padding: 0 1.5rem;">
+            <h1>Install Schwung</h1>
+            <p class="subtitle">Schwung runs alongside stock Move firmware. Your Move keeps working normally — Schwung adds a Shadow UI for additional synths, effects, and tools.</p>
+            <p class="hero-disclaimer" style="margin-top: 0.5rem;">Independent project. Not approved, endorsed, or supported by Ableton.</p>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Before you start</h2>
+            </div>
+            <ul class="bullet-list">
+                <li>Ableton Move connected to Wi-Fi.</li>
+                <li>A computer on the same network.</li>
+                <li>Windows users installing via the command line will need <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git Bash</a>.</li>
+                <li>Back up important sets and samples first. This software modifies your Move; familiarize yourself with <a href="https://ableton.centercode.com/project/article/item.html?cap=ecd3942a1fe3405eb27a806608401a0b&arttypeid=%7Be70be312-f44a-418b-bb74-ed1030e3a49a%7D&artid=%7BC0A2D9E2-D52F-4DEB-8BEE-356B65C8942E%7D" target="_blank" rel="noopener">DFU restore mode</a> in case you need to recover.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Desktop installer (recommended)</h2>
+                <p>Graphical app that handles SSH setup, module selection, and upgrades. Accessible via screen reader.</p>
+            </div>
+            <div class="platform-buttons">
+                <a class="btn btn-primary" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">macOS</a>
+                <a class="btn btn-primary" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">Windows</a>
+                <a class="btn btn-primary" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">Linux</a>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+                Each link opens the latest release on GitHub — pick the asset matching your platform.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Command line</h2>
+                <p>One-liner install, for people comfortable in a terminal.</p>
+            </div>
+            <div class="code-block">
+                <button class="copy-btn" type="button" data-copy="curl-install">Copy</button>
+                <pre id="curl-install">curl -L https://raw.githubusercontent.com/charlesvestal/schwung/main/scripts/install.sh | sh</pre>
+            </div>
+
+            <h3 style="font-size: 1rem; margin-top: 1.5rem; color: var(--text);">Accessible install (screen reader only)</h3>
+            <div class="code-block">
+                <button class="copy-btn" type="button" data-copy="curl-sr">Copy</button>
+                <pre id="curl-sr">curl -sL https://raw.githubusercontent.com/charlesvestal/schwung/main/scripts/install.sh | sh -s -- --enable-screen-reader --disable-shadow-ui</pre>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+                Uses silent mode for minimal output, suitable for screen readers.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>After install</h2>
+            </div>
+            <ul class="bullet-list">
+                <li>Open the Shadow UI: <strong>Shift+Vol+Track</strong> (or +Menu), or long-press Track/Menu.</li>
+                <li>Install modules from the in-device Module Store, or via the desktop installer.</li>
+                <li>See <a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener">MANUAL.md</a> for shortcuts, workflows, and feature documentation.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Uninstall</h2>
+            </div>
+            <div class="code-block">
+                <button class="copy-btn" type="button" data-copy="curl-uninstall">Copy</button>
+                <pre id="curl-uninstall">curl -L https://raw.githubusercontent.com/charlesvestal/schwung/main/scripts/uninstall.sh | sh</pre>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+                By default, uninstall exports inactive Set Pages backups before removing Schwung. To skip the backup and purge data, append <code>-s -- --purge-data</code>.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Help &amp; community</h2>
+            </div>
+            <ul class="bullet-list">
+                <li><a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener">MANUAL.md</a> — usage, shortcuts, troubleshooting</li>
+                <li><a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub Issues</a> — bug reports and feature requests</li>
+                <li><a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a> — community chat and support</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+            ·
+            <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
+        </p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const target = document.getElementById(btn.dataset.copy);
+                if (!target) return;
+                try {
+                    await navigator.clipboard.writeText(target.textContent);
+                    const orig = btn.textContent;
+                    btn.textContent = 'Copied';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = orig;
+                        btn.classList.remove('copied');
+                    }, 1500);
+                } catch {}
+            });
+        });
+    </script>
+</body>
+</html>

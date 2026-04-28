@@ -1,18 +1,29 @@
+@font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/plus-jakarta-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/plus-jakarta-sans-500.woff2') format('woff2'); }
+@font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/plus-jakarta-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/plus-jakarta-sans-700.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/ibm-plex-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/ibm-plex-mono-600.woff2') format('woff2'); }
+
 :root {
-    --bg: #111111;
-    --bg-card: #1a1a1a;
-    --bg-card-hover: #222222;
-    --text: #e0e0e0;
+    --font-stack: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+    --font-mono: "IBM Plex Mono", "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    --bg: #0a0a0a;
+    --bg-card: #141414;
+    --bg-card-hover: #1c1c1c;
+    --text: #f2f2f2;
     --text-muted: #888888;
-    --accent: #e8a84c;
-    --accent-dim: #b87a30;
-    --border: #333333;
-    --badge-synth: #4a9e8e;
-    --badge-fx: #c06040;
-    --badge-midi: #7070c0;
-    --badge-overtake: #a060a0;
-    --badge-tool: #6090c0;
-    --badge-utility: #808080;
+    --accent: #f2f2f2;
+    --accent-dim: #aaaaaa;
+    --border: #555555;
+    --badge-synth: #3a3a3a;
+    --badge-fx: #4a4a4a;
+    --badge-midi: #5a5a5a;
+    --badge-overtake: #6a6a6a;
+    --badge-tool: #444444;
+    --badge-utility: #2c2c2c;
+    --radius: 2px;
+    --radius-tight: 1px;
 }
 
 * {
@@ -22,21 +33,65 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-stack);
     background: var(--bg);
     color: var(--text);
     line-height: 1.5;
     min-height: 100vh;
 }
 
-header {
-    border-bottom: 1px solid var(--border);
-    padding: 2rem 1.5rem 1.5rem;
+/* Site nav (shared across all pages) */
+.site-nav {
+    border-bottom: 2px dotted var(--border);
+    padding: 1rem 1.5rem;
+    background: var(--bg);
 }
 
-.header-content {
+.nav-inner {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-brand {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-link:hover {
+    color: var(--text);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Page heading (catalog/install/about top of <main>) */
+.page-heading {
+    margin-bottom: 1.25rem;
 }
 
 h1 {
@@ -76,10 +131,10 @@ main {
 
 .filter-btn {
     background: transparent;
-    border: 1px solid var(--border);
+    border: 2px dotted var(--border);
     color: var(--text-muted);
     padding: 0.4rem 0.8rem;
-    border-radius: 6px;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 0.85rem;
     transition: all 0.15s ease;
@@ -107,10 +162,10 @@ main {
 
 #sort-select {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 2px dotted var(--border);
     color: var(--text);
     padding: 0.4rem 0.6rem;
-    border-radius: 6px;
+    border-radius: 2px;
     font-size: 0.85rem;
     cursor: pointer;
 }
@@ -131,8 +186,8 @@ main {
 /* Card */
 .module-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    border: 2px dotted var(--border);
+    border-radius: 3px;
     padding: 1.2rem;
     transition: background 0.15s ease, border-color 0.15s ease;
     display: flex;
@@ -170,7 +225,7 @@ main {
     font-size: 0.7rem;
     font-weight: 600;
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    border-radius: 1px;
     white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -201,7 +256,7 @@ main {
 .module-version {
     font-size: 0.75rem;
     color: var(--text-muted);
-    font-family: monospace;
+    font-family: var(--font-mono);
 }
 
 .module-dates {
@@ -248,7 +303,7 @@ main {
 
 .play-btn {
     background: none;
-    border: 1px solid var(--border);
+    border: 2px dotted var(--border);
     color: var(--accent);
     width: 32px;
     height: 32px;
@@ -297,21 +352,393 @@ main {
 }
 
 /* Footer */
-footer {
-    border-top: 1px solid var(--border);
+footer,
+.site-footer {
+    border-top: 2px dotted var(--border);
     padding: 1.5rem;
     text-align: center;
     margin-top: 3rem;
-}
-
-footer a {
-    color: var(--accent);
-    text-decoration: none;
+    color: var(--text-muted);
     font-size: 0.85rem;
 }
 
-footer a:hover {
+footer a,
+.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover,
+.site-footer a:hover {
     text-decoration: underline;
+}
+
+/* Hero (landing page) */
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2.5rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: var(--text);
+    max-width: 22ch;
+    margin: 0 auto 1rem;
+}
+
+.hero h1 .accent {
+    color: var(--accent);
+}
+
+.hero-lede {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 60ch;
+    margin: 0 auto 1.25rem;
+    line-height: 1.6;
+}
+
+.hero-disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1.75rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.installer-version {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.installer-version a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.installer-version a:hover {
+    text-decoration: underline;
+}
+
+.installer-version code {
+    font-family: var(--font-mono);
+    color: var(--text);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px dotted transparent;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #1a1a2e;
+    border-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent-dim);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-dim);
+    color: var(--accent);
+}
+
+/* Generic content section */
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+.section + .section {
+    border-top: 2px dotted var(--border);
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 65ch;
+}
+
+.section-prose {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 65ch;
+}
+
+.section-prose p + p {
+    margin-top: 0.9rem;
+}
+
+.section-prose a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.section-prose a:hover {
+    text-decoration: underline;
+}
+
+/* Feature grid (What Schwung adds) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 2px dotted var(--border);
+    border-radius: 3px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.feature-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+}
+
+.feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Category grid (Module ecosystem) */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.category-card {
+    background: var(--bg-card);
+    border: 2px dotted var(--border);
+    border-radius: 3px;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s ease, border-color 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.category-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-dim);
+}
+
+.category-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+}
+
+.category-card .count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.category-card .arrow {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+/* CTA strip */
+.cta-strip {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 2.5rem 1.5rem;
+    border-top: 2px dotted var(--border);
+    text-align: center;
+}
+
+.cta-strip h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.cta-strip .actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Callout (Ableton disclaimer on About) */
+.callout {
+    border: 2px dotted var(--accent-dim);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    border-radius: 3px;
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.callout strong {
+    color: var(--accent);
+}
+
+/* Code block (install page) */
+.code-block {
+    position: relative;
+    background: var(--bg-card);
+    border: 2px dotted var(--border);
+    border-radius: 2px;
+    padding: 1rem 3rem 1rem 1rem;
+    overflow-x: auto;
+    margin: 0.6rem 0;
+}
+
+.code-block pre {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--bg);
+    border: 2px dotted var(--border);
+    color: var(--text-muted);
+    border-radius: 2px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.copy-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+}
+
+.copy-btn.copied {
+    color: var(--accent);
+}
+
+/* Install page: platform download row */
+.platform-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0 0.4rem;
+}
+
+/* Generic content list */
+.bullet-list {
+    list-style: disc;
+    padding-left: 1.4rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.bullet-list li + li {
+    margin-top: 0.25rem;
+}
+
+.bullet-list strong {
+    color: var(--text);
+}
+
+.bullet-list a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.bullet-list a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive overrides for new sections */
+@media (max-width: 900px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .hero {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .feature-grid,
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .section {
+        padding: 2rem 1rem;
+    }
 }
 
 /* Responsive */

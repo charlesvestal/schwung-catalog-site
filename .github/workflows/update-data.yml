@@ -96,6 +96,29 @@ jobs:
 
           jq . data/release-metadata.json > /dev/null
 
+      - name: Fetch installer release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          release=$(gh api "repos/charlesvestal/schwung-installer/releases/latest" 2>/dev/null || echo "{}")
+          version=$(echo "$release" | jq -r '.tag_name // empty')
+          html_url=$(echo "$release" | jq -r '.html_url // empty')
+          published_at=$(echo "$release" | jq -r '.published_at // empty' | cut -c1-10)
+
+          if [ -z "$version" ]; then
+            version="unknown"
+            html_url="https://github.com/charlesvestal/schwung-installer/releases/latest"
+          fi
+
+          jq -n \
+            --arg version "$version" \
+            --arg html_url "$html_url" \
+            --arg published_at "$published_at" \
+            '{version: $version, html_url: $html_url, published_at: $published_at}' \
+            > data/installer-release.json
+
+          jq . data/installer-release.json > /dev/null
+
       - name: Update download count history
         run: |
           TODAY=$(date -u +%Y-%m-%d)

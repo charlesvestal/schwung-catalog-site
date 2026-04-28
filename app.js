@@ -87,8 +87,35 @@ async function init() {
         }
     });
 
+    applyFilterFromURL(visibleTypes);
     setupControls();
     render();
+}
+
+function applyFilterFromURL(visibleTypes) {
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('filter');
+    if (!requested || requested === 'all') return;
+    if (!visibleTypes.has(requested)) return;
+    const target = document.querySelector(`.filter-btn[data-filter="${requested}"]`);
+    if (!target) return;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+    });
+    target.classList.add('active');
+    target.setAttribute('aria-selected', 'true');
+    currentFilter = requested;
+}
+
+function updateFilterURL(filter) {
+    const url = new URL(window.location.href);
+    if (filter && filter !== 'all') {
+        url.searchParams.set('filter', filter);
+    } else {
+        url.searchParams.delete('filter');
+    }
+    window.history.replaceState({}, '', url);
 }
 
 function setupControls() {
@@ -101,6 +128,7 @@ function setupControls() {
             btn.classList.add('active');
             btn.setAttribute('aria-selected', 'true');
             currentFilter = btn.dataset.filter;
+            updateFilterURL(currentFilter);
             render();
         });
     });
