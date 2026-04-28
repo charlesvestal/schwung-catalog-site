@@ -1,11 +1,11 @@
 {
-  "version": "v0.3.10",
-  "html_url": "https://github.com/charlesvestal/schwung-installer/releases/tag/v0.3.10",
-  "published_at": "2026-04-10",
-  "mac_arm64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.3.10/Schwung.Installer-0.3.10-mac-arm64.zip",
-  "mac_x64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.3.10/Schwung.Installer-0.3.10-mac-x64.zip",
-  "win_x64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.3.10/Schwung.Installer-0.3.10-win-x64.exe",
-  "win_arm64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.3.10/Schwung.Installer-0.3.10-win-arm64.exe",
-  "linux_amd64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.3.10/Schwung.Installer-0.3.10-linux-amd64.deb",
-  "linux_arm64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.3.10/Schwung.Installer-0.3.10-linux-arm64.deb"
+  "version": "v0.4.1",
+  "html_url": "https://github.com/charlesvestal/schwung-installer/releases/tag/v0.4.1",
+  "published_at": "2026-04-28",
+  "mac_arm64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.4.1/Schwung.Installer-0.4.1-mac-arm64.zip",
+  "mac_x64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.4.1/Schwung.Installer-0.4.1-mac-x64.zip",
+  "win_x64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.4.1/Schwung.Installer-0.4.1-win-x64.exe",
+  "win_arm64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.4.1/Schwung.Installer-0.4.1-win-arm64.exe",
+  "linux_amd64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.4.1/Schwung.Installer-0.4.1-linux-amd64.deb",
+  "linux_arm64_url": "https://github.com/charlesvestal/schwung-installer/releases/download/v0.4.1/Schwung.Installer-0.4.1-linux-arm64.deb"
 }
