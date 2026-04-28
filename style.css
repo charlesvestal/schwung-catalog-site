@@ -138,6 +138,12 @@ a:hover {
     background: rgba(255, 255, 255, 0.08);
 }
 
+.hero-already-installed {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
 /* Page heading (catalog/install/about top of <main>) */
 .page-heading {
     margin-bottom: 1.25rem;
