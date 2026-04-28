@@ -43,14 +43,14 @@
                 <details class="faq-item">
                     <summary>What do I need before installing?</summary>
                     <div class="faq-body">
-                        <p>An Ableton Move on your Wi-Fi network, a computer on the same network, and (if you're using the CLI on Windows) <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git Bash</a>. Back up important sets and samples first, and familiarise yourself with <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Ableton's CenterCode before you start.</p>
+                        <p>An Ableton Move on your Wi-Fi network, a computer on the same network, and (if you're using Windows) <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git Bash</a>. Back up important sets and samples first, and familiarise yourself with <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Ableton's CenterCode before you start.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>How do I update Schwung?</summary>
                     <div class="faq-body">
-                        <p>Re-run the desktop installer (or the install curl one-liner) to update to the latest release. Your modules and settings are preserved.</p>
+                        <p>Updates can be done from the GUI Installer or directly from the Schwung manager at <a href="http://move.local:7700" target="_blank" rel="noopener">move.local:7700</a>. Your modules and settings are preserved.</p>
                     </div>
                 </details>
 
@@ -73,7 +73,7 @@
                 <details class="faq-item">
                     <summary>How do I open the Shadow UI?</summary>
                     <div class="faq-body">
-                        <p>Press <strong>Shift+Vol+Track</strong> (or <strong>Shift+Vol+Menu</strong>), or long-press Track or Menu. The trigger style is configurable under <em>Global Settings → Shortcuts</em>.</p>
+                        <p>Long-press Track,  Menu, or setings (Shift+Step 2). Other trigger syles like a shift+vol shortcut are configurable in <em>Global Settings → Shortcuts</em>.</p>
                     </div>
                 </details>
 
@@ -112,32 +112,32 @@
                         <p>To wire it up:</p>
                         <ol>
                             <li>On the Move track, set <strong>MIDI Out</strong> to a channel (1–4).</li>
-                            <li>Open the matching Schwung slot and set <strong>Receive Ch</strong> to the same number.</li>
+                            <li>Open the matching Schwung slot and set <strong>Receive Ch</strong> to the same number (this should be set automatically).</li>
                             <li>Play the Move track — its notes will now trigger the Schwung synth.</li>
                         </ol>
-                        <p>To prevent the native Move synth from doubling on top of the Schwung synth, load an empty Drum Rack or Sampler preset on that Move track. The track still sends MIDI but its native sound is silenced.</p>
+                        <p>To prevent the native Move synth from doubling on top of the Schwung synth, load an empty Drum Rack or Sampler template on that Move track. The track still sends MIDI but its native sound is silenced.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>I want to run Move's audio through a Schwung effect (CloudSeed, NAM, etc.).</summary>
+                    <summary>I want to run Move's audio through a Schwung effect (CloudSeed, TAPESCAM, Ducker etc.).</summary>
                     <div class="faq-body">
                         <p>Use <strong>Link Audio</strong>. It requires Move firmware 2.0.0 or later, and is off by default.</p>
                         <ol>
                             <li>Make sure your Move is on firmware <strong>2.0.0+</strong>.</li>
-                            <li>On Move: <em>Settings → Link</em> — toggle Link <strong>on</strong>.</li>
-                            <li>In Schwung: open <em>Global Settings</em> (<strong>Shift+Vol+Step 2</strong>) → <em>Audio</em> → toggle <strong>Move → Schwung</strong> on.</li>
+                            <li>On Move: <em>Settings → Link</em> — toggle Link to <strong>Tempo</strong> or <strong>Start/Stop</strong>.</li>
+                            <li>In Schwung: open <em>Global Settings</em> (<strong>Long Press Shift+Step 2</strong>) → <em>Audio</em> → toggle <strong>Move → Schwung</strong> on.</li>
                             <li>Each Move track now routes to its matching Schwung slot. Load any audio FX in that slot and the track will play through it.</li>
                         </ol>
                         <p>If you've enabled routing but Move tracks still aren't being processed, try restarting Move — the Link Audio subscriber sometimes needs a fresh boot to start capturing audio.</p>
-                        <p>One trade-off worth knowing: when Link Audio is on, Schwung rebuilds the mix from Move's per-track streams, so Move's <em>native</em> Master FX is bypassed. Schwung's Master FX still applies to the combined output.</p>
+                        <p>One trade-off worth knowing: when Link Audio is on, Schwung rebuilds the mix from Move's per-track streams, so Move's <em>native</em> Master FX is bypassed. Schwung's Master FX still apply to the combined output.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>I broke something — how do I recover my Move?</summary>
                     <div class="faq-body">
-                        <p>Try the uninstaller first if Schwung is still running. If not, use <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Ableton's CenterCode — it lets you flash stock firmware back onto your Move.</p>
+                        <p>Try the uninstaller first if Schwung is still running. If not, use <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Ableton's CenterCode — it lets you flash stock firmware back onto your Move. If you need help, feel free to join the <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>. We're friendly!</p>
                     </div>
                 </details>
 
@@ -158,14 +158,14 @@
                 <details class="faq-item">
                     <summary>How do I install modules?</summary>
                     <div class="faq-body">
-                        <p>From any browser on the same network: open <a href="http://move.local:7700" target="_blank" rel="noopener">Schwung Manager</a> and use the built-in module management..</p>
+                        <p>From any browser on the same network: open <a href="http://move.local:7700" target="_blank" rel="noopener">Schwung Manager</a> and use the built-in module management.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>Why does this module ask for ROMs / samples / soundfonts?</summary>
                     <div class="faq-body">
-                        <p>Some modules need external assets (ROM files for hardware emulators, soundfonts for samplers, etc.). The catalog entry lists what each module requires under "Requires", and the desktop installer prompts for them at install time.</p>
+                        <p>Some modules need external assets (ROM files for hardware emulators, soundfonts for samplers, etc.). The catalog entry lists what each module requires under "Requires", and the desktop installer prompts for them at install time. <em>We cannot and will not help you obtain copyrighted assets.</em></p>
                     </div>
                 </details>
 
@@ -200,28 +200,28 @@
                 <details class="faq-item">
                     <summary>Will installing Schwung void my warranty?</summary>
                     <div class="faq-body">
-                        <p>Possibly. Schwung modifies software on your Move. We can't speak for Ableton's warranty policy — if that's a concern, check directly with Ableton before installing.</p>
+                        <p>Unlikely, but possibly. Schwung modifies software on your Move. Ableton will not support you with Schwung installed, but uninstalling or doing a DFU restore <em>should</em> always be possible. We can't speak for Ableton's warranty policy — if that's a concern, check directly with Ableton before installing.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>Does my Move still work normally with Schwung installed?</summary>
                     <div class="faq-body">
-                        <p>Yes. Schwung runs <em>alongside</em> stock Move firmware as a "Shadow UI" — your Move keeps working the way it always has, and you can layer Schwung's synths, effects, and tools on top when you want them.</p>
+                        <p>Yes. Schwung runs <em>alongside</em> stock Move firmware as a "Shadow UI" — your Move keeps working the way it always has, and you can layer Schwung's synths, effects, and tools on top when you want them. It is additional software with additional overhead, so there will be a slight performance impact even with no synths running.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>Does Schwung cost money?</summary>
                     <div class="faq-body">
-                        <p>No. Schwung and the modules in the catalog are open source and free to use under their respective licenses (the Schwung host is MIT-licensed). If you'd like to support the project, contributions, bug reports, and module submissions are all welcome.</p>
+                        <p>No. Schwung and the modules in the catalog are open source and free to use under their respective licenses (the Schwung host is MIT-licensed). If you'd like to support the project, contributions, bug reports, and module submissions are all welcome. If you still want to support the project, donate to your local food bank or vote against your local fascist.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Why is so much of Schwung written by coding agents?</summary>
+                    <summary>Is Schwung written by coding agents?</summary>
                     <div class="faq-body">
-                        <p>Schwung is heavily written by coding agents with human supervision. If that approach makes you uncomfortable, that's a totally fair reaction — the source is open and you're welcome to read, audit, and fork it. See the <a href="about.html">About</a> page for more.</p>
+                        <p>Schwung is heavily written by coding agents with human supervision. If that approach makes you uncomfortable, that's a totally fair reaction — the source is open and you're welcome to read, audit, and fork it. This is all for fun, and no one has to install it. See the <a href="about.html">About</a> page for more.</p>
                     </div>
                 </details>
             </div>
