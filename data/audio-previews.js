@@ -1,1 +1,1 @@
-window.AUDIO_PREVIEWS = {"braids":"m4a","chiptune":"m4a","denis":"m4a","dexed":"m4a","essaim":"m4a","granny":"m4a","hera":"m4a","hush1":"m4a","minijv":"m4a","moog":"m4a","nusaw":"m4a","obxd":"m4a","osirus":"m4a","plaits":"m4a","weird-dreams":"m4a","wurl":"m4a"};
+window.AUDIO_PREVIEWS = {"braids":"m4a","chiptune":"m4a","denis":"m4a","dexed":"m4a","essaim":"m4a","granny":"m4a","hera":"m4a","hush1":"m4a","minijv":"m4a","moog":"m4a","nusaw":"m4a","obxd":"m4a","osirus":"m4a","plaits":"m4a","surge":"m4a","weird-dreams":"m4a","wurl":"m4a"};
