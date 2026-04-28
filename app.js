@@ -255,15 +255,22 @@ function cardHTML(m) {
     </div>`;
 }
 
+function audioExt(id) {
+    const src = window.AUDIO_PREVIEWS;
+    if (!src) return null;
+    // Map form: { "<id>": "mp3" | "m4a" }. Legacy array form still supported.
+    if (Array.isArray(src)) return src.includes(id) ? 'mp3' : null;
+    return src[id] || null;
+}
+
 function audioExists(id) {
-    // Check against a known list of available previews
-    // This gets populated by the build/data step
-    return (window.AUDIO_PREVIEWS || []).includes(id);
+    return audioExt(id) !== null;
 }
 
 function toggleAudio(btn) {
     const moduleId = btn.dataset.module;
-    const src = `audio/${moduleId}.mp3`;
+    const ext = audioExt(moduleId) || 'mp3';
+    const src = `audio/${moduleId}.${ext}`;
 
     // Stop current
     if (currentAudio) {

@@ -176,22 +176,50 @@ jobs:
             tmp-history.json > "$HISTORY_FILE"
           rm tmp-history.json
 
+      - name: Fetch module preview audio
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Pulls a `preview.mp3` or `preview.m4a` asset from each module's
+          # latest GitHub release into audio/<id>.<ext>. Only fetches when
+          # no local file exists (in either format), so manually-committed
+          # previews are sticky and authors can fill gaps by attaching
+          # preview.mp3 / preview.m4a to their releases.
+          mkdir -p audio
+          repos=$(jq -r '.modules[] | "\(.id)|\(.github_repo)"' data/module-catalog.json)
+          while IFS='|' read -r id repo; do
+            [ -z "$repo" ] && continue
+            [ -f "audio/${id}.mp3" ] && continue
+            [ -f "audio/${id}.m4a" ] && continue
+            for ext in m4a mp3; do
+              url=$(gh api "repos/${repo}/releases/latest" \
+                --jq ".assets[]? | select(.name == \"preview.${ext}\") | .browser_download_url" \
+                2>/dev/null | head -1)
+              [ -z "$url" ] && continue
+              echo "Fetching preview.${ext} for ${id} from ${repo}"
+              curl -sSfL -o "audio/${id}.${ext}" "$url" || { rm -f "audio/${id}.${ext}"; continue; }
+              break
+            done
+          done <<< "$repos"
+
       - name: Build audio preview list
         run: |
-          # Generate list of available audio previews
-          echo -n 'window.AUDIO_PREVIEWS = [' > data/audio-previews.js
+          # Map each module id to the extension of its preview file (mp3 or m4a)
+          echo -n 'window.AUDIO_PREVIEWS = {' > data/audio-previews.js
           first=true
-          for f in audio/*.mp3; do
+          for f in audio/*.mp3 audio/*.m4a; do
             [ -f "$f" ] || continue
-            id=$(basename "$f" .mp3)
+            base=$(basename "$f")
+            ext="${base##*.}"
+            id="${base%.*}"
             if [ "$first" = true ]; then
               first=false
             else
               echo -n ',' >> data/audio-previews.js
             fi
-            echo -n "\"$id\"" >> data/audio-previews.js
+            printf '"%s":"%s"' "$id" "$ext" >> data/audio-previews.js
           done
-          echo '];' >> data/audio-previews.js
+          echo '};' >> data/audio-previews.js
 
       - name: Commit and push if changed
         run: |
