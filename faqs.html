@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs · Schwung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-faqs">
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html" aria-label="Schwung home">
+                <img src="images/schwung-logo-wordmark.png" alt="Schwung" class="brand-logo">
+            </a>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html">Overview</a>
+                <a class="nav-link" href="catalog.html">Catalog</a>
+                <a class="nav-link" href="install.html">Install</a>
+                <a class="nav-link active" href="faqs.html" aria-current="page">FAQs</a>
+                <a class="nav-link" href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-heading" style="max-width: 1200px; margin: 2rem auto 0; padding: 0 1.5rem;">
+            <h1>Frequently asked questions</h1>
+            <p class="subtitle">If your question isn't here, ask in the <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a> or open a <a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub issue</a>.</p>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Getting Schwung running</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do I install Schwung?</summary>
+                    <div class="faq-body">
+                        <p>Use the <a href="install.html">desktop installer</a> (recommended — handles SSH setup, module selection, and uninstall through a GUI). Power users can also install via the curl one-liner shown on the <a href="install.html">Install page</a>.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What do I need before installing?</summary>
+                    <div class="faq-body">
+                        <p>An Ableton Move on your Wi-Fi network, a computer on the same network, and (if you're using the CLI on Windows) <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git Bash</a>. Back up important sets and samples first, and familiarise yourself with <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Ableton's CenterCode before you start.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do I update Schwung?</summary>
+                    <div class="faq-body">
+                        <p>Re-run the desktop installer (or the install curl one-liner) to update to the latest release. Your modules and settings are preserved.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do I uninstall?</summary>
+                    <div class="faq-body">
+                        <p>The desktop installer can uninstall for you. From the terminal:</p>
+                        <pre><code>curl -L https://raw.githubusercontent.com/charlesvestal/schwung/main/scripts/uninstall.sh | sh</code></pre>
+                        <p>By default the uninstaller exports any inactive Set Pages backups to your User Library before removing Schwung. Append <code>-s -- --purge-data</code> to skip the backup and remove all Schwung data.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Using Schwung</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do I open the Shadow UI?</summary>
+                    <div class="faq-body">
+                        <p>Press <strong>Shift+Vol+Track</strong> (or <strong>Shift+Vol+Menu</strong>), or long-press Track or Menu. The trigger style is configurable under <em>Global Settings → Shortcuts</em>.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is Schwung Manager and how do I open it?</summary>
+                    <div class="faq-body">
+                        <p>A web interface for managing modules, files, settings, and updates from any browser on the same network. Open <a href="http://move.local:7700" target="_blank" rel="noopener"><code>http://move.local:7700</code></a> while your Move is on.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Where do my recordings go?</summary>
+                    <div class="faq-body">
+                        <p>Skipback writes to <code>Samples/Schwung/Skipback/YYYY-MM-DD/</code>. The Quantized Resampler writes to <code>Samples/Schwung/Resampler/YYYY-MM-DD/</code>. Song Mode renders go to <code>Recordings/Song Mode/</code> with the set name in the filename.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I'm using a screen reader — is Schwung accessible?</summary>
+                    <div class="faq-body">
+                        <p>Yes. Schwung includes optional TTS announcements; the desktop installer is screen-reader-friendly, and there's a CLI install variant designed for screen readers (see the <a href="install.html#command-line">accessible install</a> command on the Install page). Toggle TTS from Shadow UI settings, or via <strong>Shift+Menu</strong> when Shadow UI is disabled.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Troubleshooting</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>I don't hear any sound from my Schwung module.</summary>
+                    <div class="faq-body">
+                        <p>Schwung's synths are triggered by MIDI from a Move track — a slot won't play unless its <strong>Receive Ch</strong> matches a Move track's <strong>MIDI Out</strong> channel.</p>
+                        <p>To wire it up:</p>
+                        <ol>
+                            <li>On the Move track, set <strong>MIDI Out</strong> to a channel (1–4).</li>
+                            <li>Open the matching Schwung slot and set <strong>Receive Ch</strong> to the same number.</li>
+                            <li>Play the Move track — its notes will now trigger the Schwung synth.</li>
+                        </ol>
+                        <p>To prevent the native Move synth from doubling on top of the Schwung synth, load an empty Drum Rack or Sampler preset on that Move track. The track still sends MIDI but its native sound is silenced.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I want to run Move's audio through a Schwung effect (CloudSeed, NAM, etc.).</summary>
+                    <div class="faq-body">
+                        <p>Use <strong>Link Audio</strong>. It requires Move firmware 2.0.0 or later, and is off by default.</p>
+                        <ol>
+                            <li>Make sure your Move is on firmware <strong>2.0.0+</strong>.</li>
+                            <li>On Move: <em>Settings → Link</em> — toggle Link <strong>on</strong>.</li>
+                            <li>In Schwung: open <em>Global Settings</em> (<strong>Shift+Vol+Step 2</strong>) → <em>Audio</em> → toggle <strong>Move → Schwung</strong> on.</li>
+                            <li>Each Move track now routes to its matching Schwung slot. Load any audio FX in that slot and the track will play through it.</li>
+                        </ol>
+                        <p>If you've enabled routing but Move tracks still aren't being processed, try restarting Move — the Link Audio subscriber sometimes needs a fresh boot to start capturing audio.</p>
+                        <p>One trade-off worth knowing: when Link Audio is on, Schwung rebuilds the mix from Move's per-track streams, so Move's <em>native</em> Master FX is bypassed. Schwung's Master FX still applies to the combined output.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I broke something — how do I recover my Move?</summary>
+                    <div class="faq-body">
+                        <p>Try the uninstaller first if Schwung is still running. If not, use <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Ableton's CenterCode — it lets you flash stock firmware back onto your Move.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Where do I report a bug?</summary>
+                    <div class="faq-body">
+                        <p><a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub Issues</a> on the main repo, or for module-specific issues use that module's own repo (linked from each catalog entry). Quick questions are usually faster on <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Modules</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do I install modules?</summary>
+                    <div class="faq-body">
+                        <p>Two ways. From your computer: select modules during the desktop installer flow (or re-run it any time to add more). From any browser on the same network: open <a href="http://move.local:7700" target="_blank" rel="noopener">Schwung Manager</a> and use the in-built Module Store.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Why does this module ask for ROMs / samples / soundfonts?</summary>
+                    <div class="faq-body">
+                        <p>Some modules need external assets (ROM files for hardware emulators, soundfonts for samplers, etc.). The catalog entry lists what each module requires under "Requires", and the desktop installer prompts for them at install time.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I write my own module?</summary>
+                    <div class="faq-body">
+                        <p>Yes — Schwung has a JavaScript module API and a documented architecture. Start with <a href="https://github.com/charlesvestal/schwung/blob/main/docs/MODULES.md" target="_blank" rel="noopener">docs/MODULES.md</a> and <a href="https://github.com/charlesvestal/schwung/blob/main/docs/API.md" target="_blank" rel="noopener">docs/API.md</a> in the main repo.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How does a module get added to the catalog?</summary>
+                    <div class="faq-body">
+                        <p>Add a <code>release.json</code> to your module repo, publish a release, then submit a PR to <a href="https://github.com/charlesvestal/schwung/blob/main/module-catalog.json" target="_blank" rel="noopener"><code>module-catalog.json</code></a> in the main repo with your entry. Drop into <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a> if you want a hand.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>About the project</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Is Schwung made or supported by Ableton?</summary>
+                    <div class="faq-body">
+                        <p>No. Schwung is an independent, community-built project. It is not approved, endorsed, or supported by Ableton in any way. Don't contact Ableton support for help with Schwung — use our <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a> or <a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub issues</a> instead.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Will installing Schwung void my warranty?</summary>
+                    <div class="faq-body">
+                        <p>Possibly. Schwung modifies software on your Move. We can't speak for Ableton's warranty policy — if that's a concern, check directly with Ableton before installing.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Does my Move still work normally with Schwung installed?</summary>
+                    <div class="faq-body">
+                        <p>Yes. Schwung runs <em>alongside</em> stock Move firmware as a "Shadow UI" — your Move keeps working the way it always has, and you can layer Schwung's synths, effects, and tools on top when you want them.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Does Schwung cost money?</summary>
+                    <div class="faq-body">
+                        <p>No. Schwung and the modules in the catalog are open source and free to use under their respective licenses (the Schwung host is MIT-licensed). If you'd like to support the project, contributions, bug reports, and module submissions are all welcome.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Why is so much of Schwung written by coding agents?</summary>
+                    <div class="faq-body">
+                        <p>Schwung is heavily written by coding agents with human supervision. If that approach makes you uncomfortable, that's a totally fair reaction — the source is open and you're welcome to read, audit, and fork it. See the <a href="about.html">About</a> page for more.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+            ·
+            <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -105,6 +105,10 @@ jobs:
           html_url=$(echo "$release" | jq -r '.html_url // empty')
           published_at=$(echo "$release" | jq -r '.published_at // empty' | cut -c1-10)
 
+          # Pick dominant per-platform asset URLs by substring match on asset name
+          mac_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("mac-arm64"))] | .[0].browser_download_url // empty')
+          win_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("win-x64"))] | .[0].browser_download_url // empty')
+
           if [ -z "$version" ]; then
             version="unknown"
             html_url="https://github.com/charlesvestal/schwung-installer/releases/latest"
@@ -114,10 +118,35 @@ jobs:
             --arg version "$version" \
             --arg html_url "$html_url" \
             --arg published_at "$published_at" \
-            '{version: $version, html_url: $html_url, published_at: $published_at}' \
+            --arg mac_url "$mac_url" \
+            --arg win_url "$win_url" \
+            '{version: $version, html_url: $html_url, published_at: $published_at, mac_url: $mac_url, win_url: $win_url}' \
             > data/installer-release.json
 
           jq . data/installer-release.json > /dev/null
+
+      - name: Fetch Schwung host release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          release=$(gh api "repos/charlesvestal/schwung/releases/latest" 2>/dev/null || echo "{}")
+          version=$(echo "$release" | jq -r '.tag_name // empty')
+          html_url=$(echo "$release" | jq -r '.html_url // empty')
+          published_at=$(echo "$release" | jq -r '.published_at // empty' | cut -c1-10)
+
+          if [ -z "$version" ]; then
+            version="unknown"
+            html_url="https://github.com/charlesvestal/schwung/releases/latest"
+          fi
+
+          jq -n \
+            --arg version "$version" \
+            --arg html_url "$html_url" \
+            --arg published_at "$published_at" \
+            '{version: $version, html_url: $html_url, published_at: $published_at}' \
+            > data/schwung-release.json
+
+          jq . data/schwung-release.json > /dev/null
 
       - name: Update download count history
         run: |

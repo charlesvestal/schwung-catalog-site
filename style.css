@@ -63,6 +63,44 @@ body {
     font-size: 1.25rem;
     letter-spacing: -0.01em;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand-logo {
+    /* 1x source (111x18); display 1:1 — no scaling */
+    height: 18px;
+    width: auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    display: block;
+}
+
+.hero-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+}
+
+.hero-logo-balls,
+.hero-logo-mark {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    display: block;
+    width: auto;
+}
+
+.hero-logo-balls {
+    /* asset pre-scaled 3x (384x108); display 1:1 */
+    height: 108px;
+}
+
+.hero-logo-mark {
+    /* asset pre-scaled 3x (333x54); display 1:1 */
+    height: 54px;
 }
 
 .nav-links {
@@ -487,6 +525,13 @@ footer a:hover,
     margin-bottom: 1.5rem;
 }
 
+/* When the section's body is prose (not a grid), center the header column too */
+.section:has(> .section-prose) .section-header {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .section-header h2 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -506,6 +551,8 @@ footer a:hover,
     font-size: 1rem;
     line-height: 1.7;
     max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-prose p + p {
@@ -519,6 +566,52 @@ footer a:hover,
 
 .section-prose a:hover {
     text-decoration: underline;
+}
+
+/* "At a glance" list — pixel-art bullet markers, generous spacing */
+.glance-list {
+    list-style: none;
+    margin: 0.6rem auto 0;
+    padding: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 65ch;
+}
+
+.glance-list li {
+    position: relative;
+    padding: 0.55rem 0 0.55rem 1.6rem;
+    border-bottom: 2px dotted var(--border);
+}
+
+.glance-list li:last-child {
+    border-bottom: none;
+}
+
+.glance-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+.glance-list a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-dim);
+}
+
+.glance-list a:hover {
+    border-bottom-style: solid;
+}
+
+.glance-list b {
+    font-weight: 600;
 }
 
 /* Feature grid (What Schwung adds) */
@@ -709,6 +802,93 @@ footer a:hover,
 
 .bullet-list a:hover {
     text-decoration: underline;
+}
+
+/* FAQ items (native <details>/<summary>) */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 2px dotted var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: color 0.15s ease;
+}
+
+.faq-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item > summary::after {
+    content: '+';
+    color: var(--accent-dim);
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.faq-item[open] > summary::after {
+    content: '−';
+}
+
+.faq-item > summary:hover {
+    color: var(--accent);
+}
+
+.faq-body {
+    padding: 0 1rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 70ch;
+}
+
+.faq-body p + p {
+    margin-top: 0.6rem;
+}
+
+.faq-body a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.faq-body a:hover {
+    text-decoration: underline;
+}
+
+.faq-body pre {
+    background: var(--bg);
+    border: 2px dotted var(--border);
+    border-radius: 2px;
+    padding: 0.6rem 0.8rem;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text);
+}
+
+.faq-body code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--text);
 }
 
 /* Responsive overrides for new sections */

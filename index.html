@@ -10,11 +10,14 @@
 <body class="page-overview">
     <header class="site-nav">
         <div class="nav-inner">
-            <a class="nav-brand" href="index.html">Schwung</a>
+            <a class="nav-brand" href="index.html" aria-label="Schwung home">
+                <img src="images/schwung-logo-wordmark.png" alt="Schwung" class="brand-logo">
+            </a>
             <nav class="nav-links" aria-label="Primary">
                 <a class="nav-link active" href="index.html" aria-current="page">Overview</a>
                 <a class="nav-link" href="catalog.html">Catalog</a>
                 <a class="nav-link" href="install.html">Install</a>
+                <a class="nav-link" href="faqs.html">FAQs</a>
                 <a class="nav-link" href="about.html">About</a>
             </nav>
         </div>
@@ -22,19 +25,23 @@
 
     <main>
         <section class="hero">
-            <h1>Open up your <span class="accent">Ableton&nbsp;Move</span> to new sounds, effects, tools, and workflows.</h1>
+            <div class="hero-logo" aria-hidden="true">
+                <img src="images/schwung-balls.gif" alt="" class="hero-logo-balls">
+                <img src="images/schwung-wordmark.png" alt="" class="hero-logo-mark">
+            </div>
+            <h1>Give your <span class="accent">Move</span> some momentum.</h1>
             <p class="hero-lede">
-                Schwung is an open, modular framework that runs alongside Move's stock firmware — adding a Shadow UI, a sampler-grade resampler, song mode, and an ecosystem of community-built synths and effects.
+                Schwung brings an ecosystem of community built synths, effects and tools to your Ableton Move, opening up new sounds and workflows alongside stock firmware.
             </p>
             <p class="hero-disclaimer">Independent project. Not approved, endorsed, or supported by Ableton.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="install.html">Install Schwung</a>
                 <a class="btn btn-secondary" href="catalog.html">Browse Catalog</a>
             </div>
-            <p class="installer-version" id="installer-version" hidden>
-                Latest installer:
-                <a id="installer-version-link" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">
-                    <code id="installer-version-tag">v—</code>
+            <p class="installer-version" id="schwung-version" hidden>
+                Latest Schwung:
+                <a id="schwung-version-link" href="https://github.com/charlesvestal/schwung/releases/latest" target="_blank" rel="noopener">
+                    <code id="schwung-version-tag">v—</code>
                 </a>
             </p>
         </section>
@@ -45,8 +52,17 @@
             </div>
             <div class="section-prose">
                 <p>
-                    Schwung (formerly <em>Move Everything</em>) is an unofficial framework for the Ableton Move. It adds a Shadow UI that runs in parallel with stock Move, letting you layer additional synths, effects, and overtake apps on top of the device you already use. Move keeps working normally — Schwung just opens it up.
+                    Schwung is an unofficial framework for the Ableton Move. It adds a paralelle ("Shadow") UI that runs alongside stock Move, letting you layer additional synths and effects and run completely new tools on top of the device you already use. Move keeps working normally — Schwung just opens it up.
                 </p>
+                <p>At a glance:</p>
+                <ul class="glance-list">
+                    <li>Emulations of <a href="catalog.html?filter=sound_generator"><b>classic synthesizers</b></a>, and entirely new possibilities like <a href="https://github.com/handcraftedcc/move-everything-granny" target="_blank" rel="noopener"><b>granular synthesis</b></a> and advanced <a href="https://github.com/charlesvestal/schwung-sf2" target="_blank" rel="noopener"><b>soundfont support</b></a>.</li>
+                    <li>New sampling sources like <a href="https://github.com/charlesvestal/schwung-airplay" target="_blank" rel="noopener"><b>AirPlay</b></a>, <a href="https://github.com/charlesvestal/schwung-webstream" target="_blank" rel="noopener"><b>YouTube and SoundCloud</b></a> streaming, or the serendipitous <a href="https://charlesvestal.github.io/schwung-webstream/cratedig.html" target="_blank" rel="noopener"><b>Crate Dig</b></a>.</li>
+                    <li>Audio effects like <a href="https://github.com/charlesvestal/schwung-space-delay" target="_blank" rel="noopener"><b>tape delay</b></a>, luscious <a href="https://github.com/charlesvestal/schwung-cloudseed" target="_blank" rel="noopener"><b>reverbs</b></a>, <a href="https://github.com/charlesvestal/schwung-vocoder" target="_blank" rel="noopener"><b>vocoders</b></a>, and <a href="https://github.com/charlesvestal/schwung-tapescam" target="_blank" rel="noopener"><b>tape distortion</b></a>.</li>
+                    <li>Tools like an on-device <a href="https://github.com/charlesvestal/schwung-waveform-editor" target="_blank" rel="noopener"><b>waveform editor</b></a>, <a href="https://github.com/charlesvestal/schwung-stretch" target="_blank" rel="noopener"><b>timestretching</b></a>, and <a href="https://github.com/charlesvestal/schwung-stems" target="_blank" rel="noopener"><b>stem separation</b></a>.</li>
+                    <li>Workflow enhancements like <a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md#song-mode" target="_blank" rel="noopener"><b>Song Mode</b></a>, always-running <a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener"><b>skipback recording</b></a>, and a <a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener"><b>quantized resampler</b></a>.</li>
+                    <li>All managed from an easy-to-use <a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener">web interface</a>.</li>
+                </ul>
                 <p>
                     It's MIT-licensed, built on top of the <a href="https://github.com/bobbydigitales/move-anything" target="_blank" rel="noopener">Move Anything</a> project, and developed in public on GitHub.
                 </p>
@@ -64,16 +80,20 @@
                     <p>Runs custom signal chains alongside stock Move so additional synths and effects layer in without leaving the device.</p>
                 </div>
                 <div class="feature-card">
+                    <h3>Song Mode</h3>
+                    <p>Arrange clips from your set into ordered steps that advance automatically by bar timing across all 4 tracks.</p>
+                </div>
+                <div class="feature-card">
                     <h3>Skipback</h3>
                     <p>Shift+Capture writes the last 30 seconds of audio to disk — recover happy accidents you weren't recording.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Quantized Resampler</h3>
-                    <p>Bar-locked resampling of Schwung synths or Move input. Recording starts on a note event or play.</p>
+                    <p>Bar-locked resampling of Move audio to make perfect loops.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Song Mode</h3>
-                    <p>Arrange clips from your set into ordered steps that advance automatically by bar timing across all 4 tracks.</p>
+                    <h3>Screen Mirroring</h3>
+                    <p>View your Move's screen in a web browser for screencasting or giving your eyes a break.</p>
                 </div>
                 <div class="feature-card">
                     <h3>RNBO Runner</h3>
@@ -85,11 +105,7 @@
                 </div>
                 <div class="feature-card">
                     <h3>Screen Reader</h3>
-                    <p>Optional TTS announcements for accessibility — toggle from Shadow UI settings or Shift+Menu.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Native Sampler Bridge</h3>
-                    <p>Route Schwung's master output into Move's native sampling workflow as a Line In source.</p>
+                    <p>Optional TTS announcements for accessibility making Move the first musical instrument with an on-device screen reader..</p>
                 </div>
             </div>
         </section>
@@ -163,19 +179,19 @@
                 const total = Object.values(counts).reduce((a, b) => a + b, 0);
                 const blurb = document.getElementById('module-count-blurb');
                 if (blurb && total > 0) {
-                    blurb.textContent = `${total} community-built synths, effects, and tools you install on top of Schwung.`;
+                    blurb.textContent = `${total} (and counting) community-built synths, effects, and tools you install on top of Schwung.`;
                 }
             })
             .catch(() => {});
 
-        // Show latest installer version (data file maintained by update-data.yml)
-        fetch('data/installer-release.json')
+        // Show latest Schwung host version (data file maintained by update-data.yml)
+        fetch('data/schwung-release.json')
             .then(r => r.ok ? r.json() : null)
             .then(data => {
                 if (!data || !data.version) return;
-                const el = document.getElementById('installer-version');
-                const tag = document.getElementById('installer-version-tag');
-                const link = document.getElementById('installer-version-link');
+                const el = document.getElementById('schwung-version');
+                const tag = document.getElementById('schwung-version-tag');
+                const link = document.getElementById('schwung-version-link');
                 tag.textContent = data.version;
                 if (data.html_url) link.href = data.html_url;
                 el.hidden = false;

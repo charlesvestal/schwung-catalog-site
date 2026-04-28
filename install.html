@@ -9,11 +9,14 @@
 <body class="page-install">
     <header class="site-nav">
         <div class="nav-inner">
-            <a class="nav-brand" href="index.html">Schwung</a>
+            <a class="nav-brand" href="index.html" aria-label="Schwung home">
+                <img src="images/schwung-logo-wordmark.png" alt="Schwung" class="brand-logo">
+            </a>
             <nav class="nav-links" aria-label="Primary">
                 <a class="nav-link" href="index.html">Overview</a>
                 <a class="nav-link" href="catalog.html">Catalog</a>
                 <a class="nav-link active" href="install.html" aria-current="page">Install</a>
+                <a class="nav-link" href="faqs.html">FAQs</a>
                 <a class="nav-link" href="about.html">About</a>
             </nav>
         </div>
@@ -22,9 +25,21 @@
     <main>
         <div class="page-heading" style="max-width: 1200px; margin: 2rem auto 0; padding: 0 1.5rem;">
             <h1>Install Schwung</h1>
-            <p class="subtitle">Schwung runs alongside stock Move firmware. Your Move keeps working normally — Schwung adds a Shadow UI for additional synths, effects, and tools.</p>
+            <p class="subtitle">Schwung runs alongside stock Move firmware. Your Move keeps working normally — Schwung adds a parallel UI layer for additional synths, effects, and tools.</p>
             <p class="hero-disclaimer" style="margin-top: 0.5rem;">Independent project. Not approved, endorsed, or supported by Ableton.</p>
         </div>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Desktop installer (recommended)</h2>
+                <p>Graphical app that handles SSH setup, installation, upgrades, and uninstall. Accessible via screen reader.</p>
+            </div>
+            <div class="platform-buttons">
+                <a class="btn btn-primary" id="dl-mac" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">macOS (Apple Silicon)</a>
+                <a class="btn btn-primary" id="dl-win" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">Windows (x64)</a>
+                <a class="btn btn-secondary" id="dl-other" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">Linux + other architectures</a>
+            </div>
+        </section>
 
         <section class="section">
             <div class="section-header">
@@ -33,24 +48,9 @@
             <ul class="bullet-list">
                 <li>Ableton Move connected to Wi-Fi.</li>
                 <li>A computer on the same network.</li>
-                <li>Windows users installing via the command line will need <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git Bash</a>.</li>
-                <li>Back up important sets and samples first. This software modifies your Move; familiarize yourself with <a href="https://ableton.centercode.com/project/article/item.html?cap=ecd3942a1fe3405eb27a806608401a0b&arttypeid=%7Be70be312-f44a-418b-bb74-ed1030e3a49a%7D&artid=%7BC0A2D9E2-D52F-4DEB-8BEE-356B65C8942E%7D" target="_blank" rel="noopener">DFU restore mode</a> in case you need to recover.</li>
+                <li>Windows users will need <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git Bash</a>.</li>
+                <li>Back up important sets and samples first. This software modifies your Move; familiarize yourself with DFU restore mode, as documented on <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">Ableton's CenterCode</a> in case you need to recover.</li>
             </ul>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <h2>Desktop installer (recommended)</h2>
-                <p>Graphical app that handles SSH setup, module selection, and upgrades. Accessible via screen reader.</p>
-            </div>
-            <div class="platform-buttons">
-                <a class="btn btn-primary" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">macOS</a>
-                <a class="btn btn-primary" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">Windows</a>
-                <a class="btn btn-primary" href="https://github.com/charlesvestal/schwung-installer/releases/latest" target="_blank" rel="noopener">Linux</a>
-            </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                Each link opens the latest release on GitHub — pick the asset matching your platform.
-            </p>
         </section>
 
         <section class="section">
@@ -79,7 +79,7 @@
             </div>
             <ul class="bullet-list">
                 <li>Open the Shadow UI: <strong>Shift+Vol+Track</strong> (or +Menu), or long-press Track/Menu.</li>
-                <li>Install modules from the in-device Module Store, or via the desktop installer.</li>
+                <li>Visit <a href="http://move.local:7700" target="_blank" rel="noopener">move.local:7700</a>to browse and install modules.</li>
                 <li>See <a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener">MANUAL.md</a> for shortcuts, workflows, and feature documentation.</li>
             </ul>
         </section>
@@ -88,6 +88,9 @@
             <div class="section-header">
                 <h2>Uninstall</h2>
             </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+                The desktop installer above also uninstalls Schwung. If you'd rather use the terminal:
+            </p>
             <div class="code-block">
                 <button class="copy-btn" type="button" data-copy="curl-uninstall">Copy</button>
                 <pre id="curl-uninstall">curl -L https://raw.githubusercontent.com/charlesvestal/schwung/main/scripts/uninstall.sh | sh</pre>
@@ -102,6 +105,7 @@
                 <h2>Help &amp; community</h2>
             </div>
             <ul class="bullet-list">
+                <li><a href="faqs.html">FAQs</a> — answers to common questions</li>
                 <li><a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener">MANUAL.md</a> — usage, shortcuts, troubleshooting</li>
                 <li><a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub Issues</a> — bug reports and feature requests</li>
                 <li><a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a> — community chat and support</li>
@@ -118,6 +122,18 @@
     </footer>
 
     <script>
+        // Populate platform download links from data/installer-release.json
+        // (refreshed hourly by .github/workflows/update-data.yml)
+        fetch('data/installer-release.json')
+            .then(r => r.ok ? r.json() : null)
+            .then(data => {
+                if (!data) return;
+                if (data.mac_url) document.getElementById('dl-mac').href = data.mac_url;
+                if (data.win_url) document.getElementById('dl-win').href = data.win_url;
+                if (data.html_url) document.getElementById('dl-other').href = data.html_url;
+            })
+            .catch(() => {});
+
         document.querySelectorAll('.copy-btn').forEach(btn => {
             btn.addEventListener('click', async () => {
                 const target = document.getElementById(btn.dataset.copy);
