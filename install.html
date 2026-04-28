@@ -124,15 +124,71 @@
     <script>
         // Populate platform download links from data/installer-release.json
         // (refreshed hourly by .github/workflows/update-data.yml)
-        fetch('data/installer-release.json')
-            .then(r => r.ok ? r.json() : null)
-            .then(data => {
-                if (!data) return;
-                if (data.mac_url) document.getElementById('dl-mac').href = data.mac_url;
-                if (data.win_url) document.getElementById('dl-win').href = data.win_url;
-                if (data.html_url) document.getElementById('dl-other').href = data.html_url;
-            })
-            .catch(() => {});
+        // Detects host arch via UA Client Hints when available, falls back to
+        // dominant arch (mac arm64 / win x64 / linux amd64).
+        (async () => {
+            const data = await fetch('data/installer-release.json')
+                .then(r => r.ok ? r.json() : null)
+                .catch(() => null);
+            if (!data) return;
+
+            let platform = null, arch = null;
+            if (navigator.userAgentData?.getHighEntropyValues) {
+                try {
+                    const ua = await navigator.userAgentData.getHighEntropyValues(
+                        ['architecture', 'bitness', 'platform']);
+                    const pf = (ua.platform || '').toLowerCase();
+                    if (pf.includes('mac')) platform = 'mac';
+                    else if (pf.includes('win')) platform = 'win';
+                    else if (pf.includes('linux')) platform = 'linux';
+                    const a = (ua.architecture || '').toLowerCase();
+                    if (a === 'arm') arch = 'arm64';
+                    else if (a === 'x86' && ua.bitness === '64') arch = 'x64';
+                } catch {}
+            }
+            if (!platform) {
+                const ua = navigator.userAgent.toLowerCase();
+                if (ua.includes('mac')) platform = 'mac';
+                else if (ua.includes('win')) platform = 'win';
+                else if (ua.includes('linux')) platform = 'linux';
+            }
+
+            const macBtn = document.getElementById('dl-mac');
+            const winBtn = document.getElementById('dl-win');
+            const otherBtn = document.getElementById('dl-other');
+
+            // Mac: show Intel only when explicitly detected; otherwise default to arm64
+            if (platform === 'mac' && arch === 'x64') {
+                macBtn.textContent = 'macOS (Intel)';
+                if (data.mac_x64_url) macBtn.href = data.mac_x64_url;
+            } else if (data.mac_arm64_url) {
+                macBtn.href = data.mac_arm64_url;
+            }
+
+            // Windows: show ARM only when detected; otherwise default to x64
+            if (platform === 'win' && arch === 'arm64') {
+                winBtn.textContent = 'Windows (ARM64)';
+                if (data.win_arm64_url) winBtn.href = data.win_arm64_url;
+            } else if (data.win_x64_url) {
+                winBtn.href = data.win_x64_url;
+            }
+
+            // Linux user: promote the third button to a direct Linux download
+            if (platform === 'linux') {
+                otherBtn.textContent = arch === 'arm64' ? 'Linux (.deb arm64)' : 'Linux (.deb)';
+                otherBtn.classList.remove('btn-secondary');
+                otherBtn.classList.add('btn-primary');
+                const linuxUrl = arch === 'arm64' ? data.linux_arm64_url : data.linux_amd64_url;
+                if (linuxUrl) otherBtn.href = linuxUrl;
+            } else if (data.html_url) {
+                otherBtn.href = data.html_url;
+            }
+
+            // Highlight the detected platform's button
+            if (platform === 'mac') macBtn.classList.add('detected');
+            else if (platform === 'win') winBtn.classList.add('detected');
+            else if (platform === 'linux') otherBtn.classList.add('detected');
+        })();
 
         document.querySelectorAll('.copy-btn').forEach(btn => {
             btn.addEventListener('click', async () => {

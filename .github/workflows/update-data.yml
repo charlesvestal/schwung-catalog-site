@@ -105,9 +105,13 @@ jobs:
           html_url=$(echo "$release" | jq -r '.html_url // empty')
           published_at=$(echo "$release" | jq -r '.published_at // empty' | cut -c1-10)
 
-          # Pick dominant per-platform asset URLs by substring match on asset name
-          mac_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("mac-arm64"))] | .[0].browser_download_url // empty')
-          win_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("win-x64"))] | .[0].browser_download_url // empty')
+          # Per-platform / per-arch asset URLs (substring match on asset names)
+          mac_arm64_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("mac-arm64"))] | .[0].browser_download_url // empty')
+          mac_x64_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("mac-x64"))] | .[0].browser_download_url // empty')
+          win_x64_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("win-x64"))] | .[0].browser_download_url // empty')
+          win_arm64_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("win-arm64"))] | .[0].browser_download_url // empty')
+          linux_amd64_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("linux-amd64"))] | .[0].browser_download_url // empty')
+          linux_arm64_url=$(echo "$release" | jq -r '[.assets[]? | select(.name | test("linux-arm64"))] | .[0].browser_download_url // empty')
 
           if [ -z "$version" ]; then
             version="unknown"
@@ -118,9 +122,13 @@ jobs:
             --arg version "$version" \
             --arg html_url "$html_url" \
             --arg published_at "$published_at" \
-            --arg mac_url "$mac_url" \
-            --arg win_url "$win_url" \
-            '{version: $version, html_url: $html_url, published_at: $published_at, mac_url: $mac_url, win_url: $win_url}' \
+            --arg mac_arm64_url "$mac_arm64_url" \
+            --arg mac_x64_url "$mac_x64_url" \
+            --arg win_x64_url "$win_x64_url" \
+            --arg win_arm64_url "$win_arm64_url" \
+            --arg linux_amd64_url "$linux_amd64_url" \
+            --arg linux_arm64_url "$linux_arm64_url" \
+            '{version: $version, html_url: $html_url, published_at: $published_at, mac_arm64_url: $mac_arm64_url, mac_x64_url: $mac_x64_url, win_x64_url: $win_x64_url, win_arm64_url: $win_arm64_url, linux_amd64_url: $linux_amd64_url, linux_arm64_url: $linux_arm64_url}' \
             > data/installer-release.json
 
           jq . data/installer-release.json > /dev/null
