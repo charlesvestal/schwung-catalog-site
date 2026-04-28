@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-catalog">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header class="site-nav">
         <div class="nav-inner">
             <a class="nav-brand" href="index.html" aria-label="Schwung home">
@@ -22,21 +23,21 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <div class="page-heading">
             <h1>Module Catalog</h1>
             <p class="subtitle">Synths, effects, and tools you can install on Move.</p>
         </div>
 
         <div class="controls">
-            <div class="filters" role="tablist">
-                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-                <button class="filter-btn" data-filter="sound_generator" role="tab">Sound Generators</button>
-                <button class="filter-btn" data-filter="audio_fx" role="tab">Audio FX</button>
-                <button class="filter-btn" data-filter="midi_fx" role="tab">MIDI FX</button>
-                <button class="filter-btn" data-filter="overtake" role="tab">Overtake</button>
-                <button class="filter-btn" data-filter="tool" role="tab">Tools</button>
-                <button class="filter-btn" data-filter="utility" role="tab">Utilities</button>
+            <div class="filters" role="group" aria-label="Filter modules by category">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="sound_generator" aria-pressed="false">Sound Generators</button>
+                <button class="filter-btn" data-filter="audio_fx" aria-pressed="false">Audio FX</button>
+                <button class="filter-btn" data-filter="midi_fx" aria-pressed="false">MIDI FX</button>
+                <button class="filter-btn" data-filter="overtake" aria-pressed="false">Overtake</button>
+                <button class="filter-btn" data-filter="tool" aria-pressed="false">Tools</button>
+                <button class="filter-btn" data-filter="utility" aria-pressed="false">Utilities</button>
             </div>
             <div class="sort-controls">
                 <label for="sort-select">Sort:</label>

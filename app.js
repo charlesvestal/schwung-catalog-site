@@ -101,10 +101,10 @@ function applyFilterFromURL(visibleTypes) {
     if (!target) return;
     document.querySelectorAll('.filter-btn').forEach(b => {
         b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
+        b.setAttribute('aria-pressed', 'false');
     });
     target.classList.add('active');
-    target.setAttribute('aria-selected', 'true');
+    target.setAttribute('aria-pressed', 'true');
     currentFilter = requested;
 }
 
@@ -123,10 +123,10 @@ function setupControls() {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => {
                 b.classList.remove('active');
-                b.setAttribute('aria-selected', 'false');
+                b.setAttribute('aria-pressed', 'false');
             });
             btn.classList.add('active');
-            btn.setAttribute('aria-selected', 'true');
+            btn.setAttribute('aria-pressed', 'true');
             currentFilter = btn.dataset.filter;
             updateFilterURL(currentFilter);
             render();
@@ -230,7 +230,7 @@ function cardHTML(m) {
     return `
     <div class="module-card">
         <div class="card-header">
-            <div class="module-name"><a href="${repoUrl}" target="_blank" rel="noopener">${esc(m.name)}</a></div>
+            <h3 class="module-name"><a href="${repoUrl}" target="_blank" rel="noopener">${esc(m.name)}</a></h3>
             <span class="badge badge-${m.component_type}">${esc(badgeLabel)}</span>
         </div>
         <div class="module-description">${esc(m.description)}</div>
@@ -247,7 +247,7 @@ function cardHTML(m) {
             <div class="download-count">${DOWNLOAD_ICON} ${formatCount(count)}</div>
             ${hasAudio ? `
             <div class="audio-preview">
-                <button class="play-btn" data-module="${m.id}" aria-label="Play preview">${PLAY_ICON}</button>
+                <button class="play-btn" data-module="${m.id}" aria-label="Play ${esc(m.name)} preview" aria-pressed="false">${PLAY_ICON}</button>
                 <div class="progress-bar" data-module="${m.id}"><div class="progress-fill"></div></div>
             </div>
             ` : ''}
@@ -279,6 +279,10 @@ function toggleAudio(btn) {
         if (currentPlayBtn) {
             currentPlayBtn.innerHTML = PLAY_ICON;
             currentPlayBtn.classList.remove('playing');
+            currentPlayBtn.setAttribute('aria-pressed', 'false');
+            const prevName = currentPlayBtn.getAttribute('aria-label') || '';
+            currentPlayBtn.setAttribute('aria-label',
+                prevName.replace(/^Stop /, 'Play '));
         }
     }
 
@@ -294,6 +298,9 @@ function toggleAudio(btn) {
     currentPlayBtn = btn;
     btn.innerHTML = STOP_ICON;
     btn.classList.add('playing');
+    btn.setAttribute('aria-pressed', 'true');
+    btn.setAttribute('aria-label',
+        (btn.getAttribute('aria-label') || '').replace(/^Play /, 'Stop '));
 
     const progressFill = btn.closest('.module-card').querySelector('.progress-fill');
 
@@ -307,6 +314,9 @@ function toggleAudio(btn) {
     currentAudio.addEventListener('ended', () => {
         btn.innerHTML = PLAY_ICON;
         btn.classList.remove('playing');
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label',
+            (btn.getAttribute('aria-label') || '').replace(/^Stop /, 'Play '));
         progressFill.style.width = '0%';
         currentAudio = null;
         currentPlayBtn = null;
@@ -315,6 +325,9 @@ function toggleAudio(btn) {
     currentAudio.play().catch(() => {
         btn.innerHTML = PLAY_ICON;
         btn.classList.remove('playing');
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label',
+            (btn.getAttribute('aria-label') || '').replace(/^Stop /, 'Play '));
         currentAudio = null;
         currentPlayBtn = null;
     });
