@@ -1746,14 +1746,14 @@
     "impressive-chords": 177
   },
   "2026-04-29": {
-    "dexed": 1622,
+    "dexed": 1623,
     "sf2": 1898,
     "sfz": 1073,
     "m8": 1753,
-    "minijv": 1745,
+    "minijv": 1746,
     "obxd": 1234,
-    "cloudseed": 1362,
-    "midiverb": 50,
+    "cloudseed": 1363,
+    "midiverb": 51,
     "tapescam": 1343,
     "psxverb": 1144,
     "tapedelay": 2018,
@@ -1772,7 +1772,7 @@
     "clap": 1105,
     "gate": 1596,
     "control": 1720,
-    "chiptune": 1450,
+    "chiptune": 1451,
     "keydetect": 1474,
     "vocoder": 1113,
     "osirus": 1842,
@@ -1786,7 +1786,7 @@
     "nusaw": 1102,
     "usefulity": 1225,
     "samplerobot": 795,
-    "waveform-editor": 1768,
+    "waveform-editor": 1769,
     "stretch": 1296,
     "stems": 1139,
     "plaits": 1075,
@@ -1810,7 +1810,7 @@
     "genera": 625,
     "euclidrum": 257,
     "branchage": 621,
-    "twinsampler": 319,
+    "twinsampler": 320,
     "impressive-chords": 187
   }
 }
