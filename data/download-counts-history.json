@@ -1751,7 +1751,7 @@
     "sfz": 1073,
     "m8": 1753,
     "minijv": 1745,
-    "obxd": 1233,
+    "obxd": 1234,
     "cloudseed": 1362,
     "midiverb": 48,
     "tapescam": 1343,
@@ -1763,10 +1763,10 @@
     "hera": 1169,
     "surge": 1188,
     "moog": 1546,
-    "webstream": 1834,
+    "webstream": 1835,
     "nam": 1152,
     "ducker": 1252,
-    "radiogarden": 1392,
+    "radiogarden": 1393,
     "airplay": 1806,
     "streamrtsp": 613,
     "clap": 1105,
@@ -1810,7 +1810,7 @@
     "genera": 624,
     "euclidrum": 256,
     "branchage": 621,
-    "twinsampler": 313,
+    "twinsampler": 315,
     "impressive-chords": 186
   }
 }
