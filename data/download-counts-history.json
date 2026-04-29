@@ -1746,14 +1746,14 @@
     "impressive-chords": 177
   },
   "2026-04-29": {
-    "dexed": 1620,
+    "dexed": 1621,
     "sf2": 1898,
     "sfz": 1073,
     "m8": 1753,
     "minijv": 1745,
     "obxd": 1233,
     "cloudseed": 1362,
-    "midiverb": 45,
+    "midiverb": 47,
     "tapescam": 1343,
     "psxverb": 1144,
     "tapedelay": 2017,
@@ -1767,7 +1767,7 @@
     "nam": 1152,
     "ducker": 1252,
     "radiogarden": 1392,
-    "airplay": 1804,
+    "airplay": 1805,
     "streamrtsp": 613,
     "clap": 1105,
     "gate": 1596,
@@ -1786,7 +1786,7 @@
     "nusaw": 1102,
     "usefulity": 1225,
     "samplerobot": 795,
-    "waveform-editor": 1763,
+    "waveform-editor": 1764,
     "stretch": 1296,
     "stems": 1139,
     "plaits": 1075,
@@ -1810,7 +1810,7 @@
     "genera": 622,
     "euclidrum": 255,
     "branchage": 620,
-    "twinsampler": 308,
-    "impressive-chords": 184
+    "twinsampler": 309,
+    "impressive-chords": 185
   }
 }
