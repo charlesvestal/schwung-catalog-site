@@ -1821,7 +1821,7 @@
     "minijv": 1758,
     "obxd": 1243,
     "cloudseed": 1371,
-    "midiverb": 66,
+    "midiverb": 67,
     "tapescam": 1353,
     "psxverb": 1153,
     "tapedelay": 2028,
@@ -1854,7 +1854,7 @@
     "nusaw": 1111,
     "usefulity": 1235,
     "samplerobot": 803,
-    "waveform-editor": 1791,
+    "waveform-editor": 1792,
     "stretch": 1306,
     "stems": 1152,
     "plaits": 1084,
@@ -1878,7 +1878,7 @@
     "genera": 635,
     "euclidrum": 267,
     "branchage": 629,
-    "twinsampler": 348,
-    "impressive-chords": 203
+    "twinsampler": 349,
+    "impressive-chords": 204
   }
 }
