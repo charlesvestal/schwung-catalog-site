@@ -1835,7 +1835,7 @@
     "nam": 1162,
     "ducker": 1262,
     "radiogarden": 1406,
-    "airplay": 1821,
+    "airplay": 1822,
     "streamrtsp": 622,
     "clap": 1112,
     "gate": 1606,
@@ -1854,9 +1854,9 @@
     "nusaw": 1111,
     "usefulity": 1235,
     "samplerobot": 803,
-    "waveform-editor": 1795,
-    "stretch": 1307,
-    "stems": 1152,
+    "waveform-editor": 1796,
+    "stretch": 1308,
+    "stems": 1153,
     "plaits": 1084,
     "granular": 1264,
     "superboom": 921,
@@ -1878,9 +1878,9 @@
     "genera": 638,
     "euclidrum": 268,
     "branchage": 629,
-    "twinsampler": 351,
+    "twinsampler": 354,
     "impressive-chords": 205,
-    "303": 9,
-    "tb3po": 23
+    "303": 11,
+    "tb3po": 25
   }
 }
