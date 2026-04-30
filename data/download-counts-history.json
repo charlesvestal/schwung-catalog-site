@@ -1821,7 +1821,7 @@
     "minijv": 1758,
     "obxd": 1243,
     "cloudseed": 1371,
-    "midiverb": 68,
+    "midiverb": 69,
     "tapescam": 1354,
     "psxverb": 1153,
     "tapedelay": 2028,
@@ -1854,7 +1854,7 @@
     "nusaw": 1111,
     "usefulity": 1235,
     "samplerobot": 803,
-    "waveform-editor": 1794,
+    "waveform-editor": 1795,
     "stretch": 1307,
     "stems": 1152,
     "plaits": 1084,
@@ -1875,12 +1875,12 @@
     "chowtape": 662,
     "wurl": 602,
     "denis": 600,
-    "genera": 636,
-    "euclidrum": 267,
+    "genera": 637,
+    "euclidrum": 268,
     "branchage": 629,
-    "twinsampler": 350,
-    "impressive-chords": 204,
-    "303": 5,
-    "tb3po": 18
+    "twinsampler": 351,
+    "impressive-chords": 205,
+    "303": 8,
+    "tb3po": 21
   }
 }
