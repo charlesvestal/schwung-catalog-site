@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual · Schwung</title>
+    <meta name="description" content="How Schwung works on your Move — concepts, shortcuts, signal chain, routing, recording, and the limitations worth knowing.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-manual">
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html" aria-label="Schwung home">
+                <img src="images/schwung-logo-wordmark.png" alt="Schwung" class="brand-logo">
+            </a>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html">Overview</a>
+                <a class="nav-link" href="catalog.html">Catalog</a>
+                <a class="nav-link" href="install.html">Install</a>
+                <a class="nav-link active" href="manual.html" aria-current="page">Manual</a>
+                <a class="nav-link" href="faqs.html">FAQs</a>
+                <a class="nav-link" href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="page-heading" style="max-width: 1200px; margin: 2rem auto 0; padding: 0 1.5rem;">
+            <h1>Manual</h1>
+            <p class="subtitle">How Schwung works on your Move — concepts, shortcuts, signal chain, routing, recording, and the limitations worth knowing.</p>
+            <p class="subtitle">Already installed? Open <a href="http://move.local:7700" target="_blank" rel="noopener">Schwung Manager</a>. Need to install? See the <a href="install.html">Install</a> page.</p>
+        </div>
+
+        <div class="manual-shell">
+            <aside class="manual-toc" aria-label="Manual contents">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#concepts">Concepts</a></li>
+                    <li><a href="#getting-around">Getting around</a></li>
+                    <li><a href="#manager">Schwung Manager</a></li>
+                    <li><a href="#slots">Slots &amp; signal chain</a></li>
+                    <li><a href="#midi-routing">MIDI routing</a></li>
+                    <li><a href="#lfos">LFOs</a></li>
+                    <li><a href="#master-fx">Master FX</a></li>
+                    <li><a href="#link-audio">Routing Move audio</a></li>
+                    <li><a href="#recording">Recording &amp; sampling</a></li>
+                    <li><a href="#sets">Sets &amp; pages</a></li>
+                    <li><a href="#tools">Tools menu</a></li>
+                    <li><a href="#overtake">Overtake modules</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                    <li><a href="#limitations">Limitations &amp; gotchas</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#help">Help &amp; community</a></li>
+                </ol>
+            </aside>
+
+            <div class="manual-content">
+
+                <section class="manual-section" id="concepts">
+                    <h2>1 · Concepts</h2>
+                    <p>Schwung adds an unofficial UI and audio layer that runs <em>alongside</em> stock Move firmware. Move keeps working normally; Schwung opens it up.</p>
+                    <p>Four ideas are worth getting clear before anything else:</p>
+                    <ul>
+                        <li><strong>Shadow UI</strong> — a parallel UI you summon with a gesture. Stock Move stays running underneath; you switch back by exiting Shadow.</li>
+                        <li><strong>Slots</strong> — four instrument slots (one per Move track) plus a Master FX slot. Each slot is a self-contained signal chain.</li>
+                        <li><strong>Modules</strong> — the synths, audio FX, and MIDI FX that load into a slot. Modules are installed from the Module Store; the catalog is community-maintained.</li>
+                        <li><strong>Overtake modules</strong> — full-screen tools (e.g. RNBO Runner, MIDI controllers) that take over Move's display and pads instead of running in a slot.</li>
+                    </ul>
+                    <p class="note"><strong>Important.</strong> Schwung is unofficial software that modifies your Move. Back up sets and samples before installing, and read up on <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Centercode in case you need to recover. Move itself is not damaged by Schwung — uninstall and DFU restore both return you to stock.</p>
+                </section>
+
+                <section class="manual-section" id="getting-around">
+                    <h2>2 · Getting around</h2>
+                    <p>There are two ways to open Shadow UI: a chord with the <strong>Shift</strong> button while touching the volume knob, or a long-press of certain buttons. Pick whichever feels less accidental — or use both. Configure under <strong>Global Settings → Shortcuts → Shadow UI Trigger</strong> (<em>Long Press</em>, <em>Shift+Vol</em>, or <em>Both</em>, default).</p>
+                    <h3>Long-press</h3>
+                    <table class="shortcut-table">
+                        <thead><tr><th>Gesture</th><th>Action</th></tr></thead>
+                        <tbody>
+                            <tr><td>Hold <kbd>Track 1–4</kbd> 500 ms</td><td>Open that slot's editor</td></tr>
+                            <tr><td>Hold <kbd>Note/Session</kbd> 500 ms</td><td>Open Master FX</td></tr>
+                            <tr><td><kbd>Shift</kbd> + hold <kbd>Step 2</kbd></td><td>Open Global Settings</td></tr>
+                            <tr><td><kbd>Shift</kbd> + <kbd>Step 13</kbd></td><td>Open Tools menu (immediate)</td></tr>
+                            <tr><td>Tap <kbd>Track</kbd> or <kbd>Note/Session</kbd></td><td>Dismiss Shadow UI when shown</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Shift + touch Volume</h3>
+                    <table class="shortcut-table">
+                        <thead><tr><th>Combo</th><th>Action</th></tr></thead>
+                        <tbody>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>Jog Click</kbd></td><td>Open Overtake menu / exit Overtake</td></tr>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>Back</kbd></td><td>Suspend Overtake module (keeps running)</td></tr>
+                            <tr><td><kbd>Shift</kbd> + <kbd>Sample</kbd></td><td>Open Quantized Sampler</td></tr>
+                            <tr><td><kbd>Shift</kbd> + <kbd>Capture</kbd></td><td>Skipback — save the last 30 s</td></tr>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>←/→</kbd></td><td>Switch Set Page (when enabled)</td></tr>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>Track 1–4</kbd></td><td>Open that slot's editor</td></tr>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd></td><td>Open Master FX</td></tr>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>Step 2</kbd></td><td>Open Global Settings</td></tr>
+                            <tr><td><kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd></td><td>Open Tools menu</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Knob overlay</h3>
+                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay Knobs</strong>: <em>+Shift</em> (default), <em>+Jog Touch</em>, <em>Off</em>, or <em>Native</em>. Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
+                </section>
+
+                <section class="manual-section" id="manager">
+                    <h2>3 · Schwung Manager (web)</h2>
+                    <p>Most day-to-day management lives in the web UI rather than on Move's display. Open <a href="http://move.local:7700" target="_blank" rel="noopener"><code>http://move.local:7700</code></a> from any browser on the same network while Move is on.</p>
+                    <ul>
+                        <li><strong>Modules</strong> — browse, install, uninstall, update modules. Install custom modules from a GitHub URL or tarball.</li>
+                        <li><strong>Files</strong> — browse, upload, download, rename, delete files on the device. Useful for managing module assets (soundfonts, patches, ROMs).</li>
+                        <li><strong>Config</strong> — adjust display, audio, screen reader, and feature settings. Changes apply instantly.</li>
+                        <li><strong>System</strong> — version, debug logs, upgrade Schwung.</li>
+                        <li><strong>Help</strong> — on-device help for Schwung and installed modules.</li>
+                        <li><strong>Screen Mirroring</strong> — quick access at <a href="http://move.local:7700/mirror" target="_blank" rel="noopener"><code>move.local:7700/mirror</code></a>.</li>
+                    </ul>
+                    <p class="note"><strong>No authentication.</strong> Schwung Manager has no password — anyone on the network can access it. Settings sync between web UI and device in real time. <code>move.local:80</code> remains the stock Move manager, untouched by Schwung.</p>
+
+                    <h3>Display Mirror</h3>
+                    <p>Streams Move's 128×64 OLED to any browser at ~30 fps — both stock Move UI and Shadow UI. Off by default. Toggle on at <strong>Global Settings → Display → Mirror Display</strong>, then open <a href="http://move.local:7700/mirror" target="_blank" rel="noopener"><code>move.local:7700/mirror</code></a> (or <code>move.local:7681</code>). Up to 8 simultaneous viewers. Setting persists across reboots.</p>
+                </section>
+
+                <section class="manual-section" id="slots">
+                    <h2>4 · Slots &amp; signal chain</h2>
+                    <p>Each instrument slot holds a fixed signal chain:</p>
+                    <pre>MIDI FX → Sound Generator → Audio FX 1 → Audio FX 2 → Settings</pre>
+                    <p>Inside a slot:</p>
+                    <ul>
+                        <li><strong>Jog wheel</strong> — scroll between chain positions.</li>
+                        <li><strong>Jog click</strong> — enter the selected position; on an empty position, opens the module picker.</li>
+                        <li><strong>Back</strong> — go up one level.</li>
+                        <li><strong>Shift + Jog click</strong> on a loaded module — swap it out without clearing the slot first.</li>
+                    </ul>
+                    <p>Most modules expose a preset browser (jog to scroll, click to select), a parameter menu organized hierarchically, and assignments for knobs 1–8.</p>
+
+                    <h3>Slot settings</h3>
+                    <p>The last position in each slot is its settings page:</p>
+                    <table class="shortcut-table">
+                        <thead><tr><th>Setting</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td>Knob 1–8</td><td>Assign any module parameter to a knob. Works in normal Move mode too — hold Shift and turn the knob.</td></tr>
+                            <tr><td>Volume</td><td>Slot volume.</td></tr>
+                            <tr><td>Receive Ch</td><td>MIDI channel the slot listens on. Match this to the Move track's MIDI Out.</td></tr>
+                            <tr><td>Forward Ch</td><td>MIDI channel sent to the synth module — see deep-dive below.</td></tr>
+                            <tr><td>MIDI FX</td><td><em>Schw</em> (default) or <em>Schw+Move</em> — where the slot's MIDI FX output lands.</td></tr>
+                            <tr><td>LFO 1 / LFO 2</td><td>Per-slot modulation, see <a href="#lfos">§5</a>.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Slot presets</h3>
+                    <ul>
+                        <li><strong>Save / Save As</strong> — saves the entire slot configuration: every loaded module plus its settings.</li>
+                        <li><strong>Load</strong> — scroll left to the slot overview, click to see saved presets.</li>
+                        <li><strong>Delete</strong> — removes a saved preset.</li>
+                    </ul>
+                    <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§9</a>.</p>
+                </section>
+
+                <section class="manual-section" id="midi-routing">
+                    <h2>5 · MIDI routing</h2>
+                    <p>To play a Schwung synth, send it MIDI from a Move track:</p>
+                    <ol>
+                        <li>On the Move track, set <strong>MIDI Out</strong> to a channel (1–4).</li>
+                        <li>On the matching Schwung slot, set <strong>Receive Ch</strong> to the same number (usually auto-set).</li>
+                        <li>Play the Move track — its notes trigger the slot's synth.</li>
+                    </ol>
+                    <p>Pitch bend, mod wheel, sustain, and other CCs from external controllers are forwarded too.</p>
+
+                    <p class="note"><strong>Stop the native synth doubling.</strong> Load an empty Drum Rack or Sampler preset on the Move track. The track still sends MIDI but its own sound is silenced.</p>
+
+                    <p class="note"><strong>MIDI clock.</strong> Some modules (e.g. Arp) need MIDI clock for tempo sync. Set Move's <em>MIDI Clock</em> to <em>Out</em> so they pick it up.</p>
+
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>Forward Channel modes (Auto / Thru / 1–16)</summary>
+                            <div class="faq-body">
+                                <ul>
+                                    <li><strong>Auto</strong> (default) — remaps incoming MIDI to the slot's Receive Ch. If Receive Ch is set to <em>All</em>, MIDI passes through unchanged.</li>
+                                    <li><strong>Thru</strong> — passes the original MIDI channel through unchanged. Useful for multitimbral synths that respond differently per channel.</li>
+                                    <li><strong>1–16</strong> — forces all MIDI to a specific channel regardless of what was received.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>MIDI FX output: Schw vs Schw+Move</summary>
+                            <div class="faq-body">
+                                <p><strong>Schw</strong> (default) — the slot's MIDI FX output goes only to the slot synth. Move's native track instrument keeps playing whatever you played on the pad.</p>
+                                <p><strong>Schw+Move</strong> — the MIDI FX output is also injected back into Move's MIDI input on the slot's forward channel, so Move's native track instrument plays the transformed stream <em>in addition</em> to the slot synth.</p>
+                                <p>Best use: a <strong>Chord</strong> MIDI FX. Hold one pad — Move plays the root, while the chord's harmony notes also play on Move's native track.</p>
+                                <p><strong>Limitation.</strong> A generator-style MIDI FX (e.g. Arp) emitting the same pitch you're holding on the pad won't retrigger that pitch on Move — its pattern is silent on Move for a single-pad hold. This is a technical limitation of telling our injected echoes apart from your pad release on the same note. Chord works because it emits harmony pitches that are distinct from the pad's note.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <section class="manual-section" id="lfos">
+                    <h2>6 · LFOs</h2>
+                    <p>Each slot has two independent LFOs. Each one can modulate any parameter of any module in the slot's chain — synth, audio FX, MIDI FX — or each other.</p>
+                    <table class="shortcut-table">
+                        <thead><tr><th>Setting</th><th>Options</th></tr></thead>
+                        <tbody>
+                            <tr><td>Target</td><td>Component + parameter to modulate.</td></tr>
+                            <tr><td>Enabled</td><td>On / Off.</td></tr>
+                            <tr><td>Shape</td><td>Sine, Tri, Saw, Square, S&amp;H, Swishy (smooth random walk).</td></tr>
+                            <tr><td>Sync</td><td>Free-running (Hz) or tempo-synced (16 bars to 1/32T, including triplets).</td></tr>
+                            <tr><td>Depth</td><td>0–100%.</td></tr>
+                            <tr><td>Polarity</td><td>Unipolar (0 to depth) or Bipolar (-depth to +depth).</td></tr>
+                            <tr><td>Phase</td><td>0–360°.</td></tr>
+                            <tr><td>Retrigger</td><td>Reset phase on the first note-on of a new phrase.</td></tr>
+                        </tbody>
+                    </table>
+                    <p>An indicator (<code>~1</code>, <code>~2</code>, or <code>~1+2</code>) appears above any component being targeted by an LFO. LFOs can also target each other's depth, rate, or phase for compound modulation. Master FX has its own pair of LFOs that operate on the master chain.</p>
+                </section>
+
+                <section class="manual-section" id="master-fx">
+                    <h2>7 · Master FX</h2>
+                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). Master FX is a chain of four audio effect slots that processes the mixed output of all four instrument slots.</p>
+                    <p>Master FX has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in the Master FX menu) that target any parameter of the loaded master effects.</p>
+                </section>
+
+                <section class="manual-section" id="link-audio">
+                    <h2>8 · Routing Move audio (Link Audio)</h2>
+                    <p>By default, Schwung synths run in parallel to Move and are mixed in. To run <em>Move's own track audio</em> through Schwung effects (e.g. CloudSeed reverb on a Move drum kit), enable Link Audio. Requires Move firmware <strong>2.0.0+</strong>; off by default.</p>
+                    <ol>
+                        <li>On Move: <em>Settings → Link</em> → toggle on.</li>
+                        <li>Install or update Schwung — the installer enables Link Audio support.</li>
+                        <li>In Schwung: <strong>Global Settings → Audio</strong> → toggle <strong>Move→Schwung</strong> on.</li>
+                    </ol>
+                    <p>Each Move track is captured separately and routed through the matching slot's audio FX. A slot can have both a synth (triggered by MIDI) and audio FX (processing the Move track's audio) running at once.</p>
+
+                    <p class="note warning"><strong>Restart may be needed.</strong> If you don't hear Move tracks being processed after enabling routing, restart Move — the Link Audio subscriber sometimes needs a fresh boot to start capturing.</p>
+
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>Tradeoffs: what changes when Link Audio is on</summary>
+                            <div class="faq-body">
+                                <p>Schwung intercepts Move's per-track streams <em>before</em> the native mix, so it has to rebuild the mix itself. That changes the path:</p>
+                                <ul>
+                                    <li>Move's <strong>native Master FX is bypassed</strong> when Link Audio is on. Schwung's Master FX still applies to the combined output.</li>
+                                    <li>Pressing Play introduces a brief delay (Move syncs to the Link quantum).</li>
+                                </ul>
+                                <p>With Link Audio off, Move's audio runs its normal path including native Master FX, then everything is summed into Schwung Master FX.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <section class="manual-section" id="recording">
+                    <h2>9 · Recording &amp; sampling</h2>
+
+                    <h3>Sampling Schwung into Move (Sample Src)</h3>
+                    <p>Feed Schwung's audio into Move's native sampling path so you can capture a Schwung synth, Webstream, AirPlay, Radio Garden, or any other Schwung output straight into a drum pad or sampler clip — using all of Move's normal sampling tools (Auto-Sample, count-in, slicing, drum-pad capture).</p>
+                    <p>Configure under <strong>Global Settings → Audio → Sample Src</strong>:</p>
+                    <ul>
+                        <li><strong>Native</strong> (default) — Move's sampler uses Move's normal input (line-in / mic).</li>
+                        <li><strong>Schwung Mix</strong> — replaces the sampler's input with Schwung's master output, so anything you can hear from Schwung becomes recordable on Move.</li>
+                    </ul>
+                    <p>Recommended setup to avoid feedback while <em>Schwung Mix</em> is selected:</p>
+                    <ol>
+                        <li>Set <strong>Sample Src</strong> to <strong>Schwung Mix</strong>.</li>
+                        <li>In Move's native Sampler, set the source to <strong>Line In</strong>.</li>
+                        <li>Set monitoring to <strong>Off</strong>.</li>
+                    </ol>
+                    <p>If monitoring is on, or routing is configured differently, audio feedback may occur.</p>
+
+                    <h3>Quantized Sampler</h3>
+                    <p>Open with <kbd>Shift</kbd> + <kbd>Sample</kbd>. Records Move's audio output (including Schwung synths) to WAV files, quantized to bars.</p>
+                    <ul>
+                        <li><strong>Source</strong> — <em>Resample</em> (Move's mixed output incl. Schwung) or <em>Move Input</em> (whatever Move's sample input is set to: line-in, mic, etc.).</li>
+                        <li><strong>Duration</strong> — Until stopped, 1, 2, 4, 8, or 16 bars.</li>
+                    </ul>
+                    <ol>
+                        <li>Open the sampler with <kbd>Shift</kbd>+<kbd>Sample</kbd>.</li>
+                        <li>Use the jog wheel to choose source and duration.</li>
+                        <li>Recording starts on the next note event or when you press Play.</li>
+                        <li>Press <kbd>Sample</kbd> to stop early — otherwise it stops at the chosen duration.</li>
+                    </ol>
+                    <p>Files save to <code>Samples/Schwung/Resampler/YYYY-MM-DD/</code>. Bar timing uses MIDI clock when available, else project tempo. Move's count-in works for line-in recordings.</p>
+
+                    <h3>Skipback</h3>
+                    <p>Schwung continuously maintains a rolling audio buffer (30 s by default, up to 5 min). Press <kbd>Shift</kbd>+<kbd>Capture</kbd> to dump the buffer to disk instantly without interrupting playback — recover happy accidents you weren't recording.</p>
+                    <p>Configure under <strong>Global Settings → Audio</strong>: <em>Skipback</em> changes the shortcut to <em>Sh+Vol+Cap</em> if Shift+Capture conflicts; <em>Skipback Len</em> sets buffer size (30 s, 1 m, 2 m, 3 m, 4 m, 5 m). Resizing preserves whatever's currently in the buffer (oldest samples truncated when shrinking).</p>
+                    <p>Files save to <code>Samples/Schwung/Skipback/YYYY-MM-DD/</code> using the same source setting as the Quantized Sampler.</p>
+
+                    <h3>Feedback protection</h3>
+                    <p class="note warning"><strong>Speaker feedback risk.</strong> When you load a module that uses line input (Line In, AutoSample) while built-in speakers are active and no line-in cable is plugged in, Schwung warns you. Press <em>Jog</em> to proceed (e.g. recording with the internal mic and speakers turned down) or <em>Back</em> to cancel. Plug in headphones or a line-in cable to bypass the warning.</p>
+                </section>
+
+                <section class="manual-section" id="sets">
+                    <h2>10 · Sets &amp; pages</h2>
+
+                    <h3>Per-Set slot state</h3>
+                    <p>Each Move Set carries its own independent slot configuration. Switching Sets saves the outgoing slots and restores the incoming Set's slots — synths, effects, knob assignments, Master FX, and (if RNBO Runner is active) the current RNBO graph and its parameters. Slot audio fades smoothly during the transition. A brief <em>Set Loaded</em> overlay confirms the switch.</p>
+                    <ul>
+                        <li><strong>New Sets</strong> start with empty slots.</li>
+                        <li><strong>Duplicated Sets</strong> (name contains "Copy") inherit the source Set's Schwung state automatically.</li>
+                        <li>To carry a configuration to a brand-new Set, save it as a slot preset first, then load it in the new Set.</li>
+                    </ul>
+
+                    <h3>Set Pages</h3>
+                    <p>Set Pages organize your sets into 8 switchable pages. Each page has its own independent collection of sets — group by project, genre, or live performance.</p>
+                    <ul>
+                        <li><kbd>Shift+Vol</kbd> + <kbd>←</kbd> / <kbd>→</kbd> — switch page. A toast shows <em>Loading Page X/8…</em>; Move restarts to load the new page's sets.</li>
+                        <li>Toggle off in <strong>Global Settings → Set Pages → Set Pages</strong>. Persists across reboots; takes effect immediately.</li>
+                    </ul>
+                    <p>How it works: when switching pages, Schwung saves the current set if dirty, stashes the current page's sets to a per-page directory, moves the target page's sets into <code>Sets/</code>, and restarts Move. Per-set slot state is preserved per-set as usual.</p>
+                </section>
+
+                <section class="manual-section" id="tools">
+                    <h2>11 · Tools menu</h2>
+                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>. Tools are standalone utilities that run outside the slot system. Overtake modules also live here, below a divider.</p>
+
+                    <h3>File Browser</h3>
+                    <p>Browse files and folders on Move. Two starting roots: <strong>User Library</strong> (samples, presets, recordings) and <strong>System Files</strong> (the Schwung directory — shows a warning before entry).</p>
+                    <ul>
+                        <li><strong>Jog</strong> scrolls; <strong>jog click</strong> opens a folder or shows file actions.</li>
+                        <li><strong>Shift + Jog click</strong> shows actions for any item.</li>
+                        <li><strong>Back</strong> goes up a level.</li>
+                        <li>File actions: Play (WAV), Duplicate, Rename, Delete, Copy to…, Move to…, New Folder.</li>
+                        <li>Selecting Play on a .wav previews it through Move's speakers with a progress bar; jog or back to stop.</li>
+                    </ul>
+
+                    <h3>Song Mode</h3>
+                    <p>Sequence clips from your set's clip layout into an ordered list of steps. Each step triggers all 4 tracks simultaneously, advancing automatically by bar timing.</p>
+                    <p><strong>Building a song.</strong> Select a step with the jog or step buttons; tap pads to assign a clip per track. The first pad press on an empty step copies the previous step, so you only change what differs. <kbd>Shift</kbd>+<kbd>Pad</kbd> on steps 2+ marks a track as <em>continue</em> (shown with a trailing quote <code>"</code>) so it won't retrigger and won't contribute to step length calculation.</p>
+                    <p><strong>Playback.</strong> <kbd>Play</kbd> starts from the current step; <kbd>Shift</kbd>+<kbd>Play</kbd> from the beginning; <kbd>Play</kbd> again stops (returning to where playback started). <kbd>Loop</kbd> wraps back to step 1 after the last step (shows <code>[L]</code>); disabled during recording.</p>
+                    <p><strong>Recording.</strong> <kbd>Rec</kbd> records audio from the current step; <kbd>Shift</kbd>+<kbd>Rec</kbd> from the beginning; <kbd>Rec</kbd> again stops. Auto-stops after a configurable tail (default 2 bars) to capture reverb/delay tails — change with the <em>Tail</em> menu item (jog click cycles 0, 1, 2, 4, 8 bars). Files save to <code>Recordings/Song Mode/</code> with the set name in the filename.</p>
+                    <p><strong>Editing.</strong> Hold a step or jog click on it to edit its settings: <em>Repeats</em> (1, 2, 4, 8, 16, 32, 64), <em>Bar Length</em> (<em>Longest</em>, <em>Shortest</em>, or <em>Custom</em>). Step rows show duration as <code>4</code> or <code>4x2</code> (for repeats &gt; 1). <kbd>Copy</kbd> duplicates a step; <kbd>Delete</kbd> removes one; <kbd>Shift</kbd>+<kbd>Delete</kbd> clears the song. <kbd>Shift</kbd>+<kbd>↑/↓</kbd> reorders steps. Up to 20 levels of <kbd>Undo</kbd>.</p>
+                    <p>Step LEDs: green = has content, red = now playing, white = selected. Pad LEDs highlight the current step's assigned clips in red. Songs save automatically per Set.</p>
+                </section>
+
+                <section class="manual-section" id="overtake">
+                    <h2>12 · Overtake modules</h2>
+                    <p>Overtake modules take full control of Move's display and controls. They live in the Tools menu below a divider — open Tools (<kbd>Shift+Vol</kbd>+<kbd>Step 13</kbd>) and select one.</p>
+                    <ul>
+                        <li><strong>Exit</strong>: <kbd>Shift+Vol</kbd> + <kbd>Jog Click</kbd> — works anytime.</li>
+                        <li><strong>Suspend</strong> (keep running in background): <kbd>Shift+Vol</kbd> + <kbd>Back</kbd>.</li>
+                    </ul>
+                    <p class="note"><strong>Heads-up.</strong> After exiting an overtake module, Move's pad and button LEDs won't refresh automatically — change tracks or sets and they'll come back as they light back on.</p>
+
+                    <h3>RNBO Runner</h3>
+                    <p>Hosts <a href="https://rnbo.cycling74.com" target="_blank" rel="noopener">RNBO for Move</a> graphs as an overtake module, running on top of Move with full pad/knob control. Install RNBO for Move separately first (per Cycling '74 instructions), then open Tools and select RNBO Runner.</p>
+                    <ul>
+                        <li><strong>Suspend/resume</strong> — <kbd>Shift+Vol</kbd>+<kbd>Back</kbd> suspends; reopen Tools and re-select to resume with LEDs restored.</li>
+                        <li><strong>MIDI from Move</strong> — RNBO receives Move sequencer MIDI on Channel 16. Sequence RNBO devices from Move, use MIDI capture, etc.</li>
+                        <li><strong>Per-set state</strong> — current RNBO graph + parameter tweaks save automatically per Schwung set.</li>
+                        <li><strong>Resampling and Skipback</strong> include RNBO audio.</li>
+                        <li><strong>Master FX and Volume</strong> — RNBO routes through Schwung's master chain and master volume.</li>
+                        <li><strong>Display mirroring</strong> works with RNBO Runner.</li>
+                    </ul>
+                    <p>Schwung includes a JACK shadow driver (but not JACK itself — RNBO ships JACK). The driver is available if you want to build other JACK applications for Move.</p>
+                </section>
+
+                <section class="manual-section" id="accessibility">
+                    <h2>13 · Accessibility</h2>
+                    <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
+                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or <kbd>Shift</kbd> + <kbd>Note/Session</kbd> when Shadow UI is disabled. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Debounce</em> (0–1000 ms).</p>
+                    <p>The on-device help viewer (<strong>Global Settings → Help…</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
+                </section>
+
+                <section class="manual-section" id="limitations">
+                    <h2>14 · Limitations &amp; gotchas</h2>
+                    <p>Things that aren't bugs, but trip people up:</p>
+                    <ul>
+                        <li><strong>Performance overhead.</strong> Schwung is additional software on Move; even with no synths loaded there is a slight performance impact compared to stock.</li>
+                        <li><strong>Shadow UI is a separate display layer.</strong> After exiting an Overtake module, Move's pad and button LEDs won't refresh until you change track or set.</li>
+                        <li><strong>MIDI FX in <em>Schw+Move</em> mode.</strong> Generator-style MIDI FX (Arp, etc.) emitting the same pitch you're holding on the pad won't retrigger that pitch on Move's native track. Chord works because it emits distinct pitches.</li>
+                        <li><strong>Link Audio bypasses Move's native Master FX</strong> while it's on — Schwung rebuilds the mix from per-track streams.</li>
+                        <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
+                        <li><strong>Link Audio capture sometimes needs a Move restart</strong> after first enabling routing.</li>
+                        <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>), the standalone File Browser (<code>:404</code>), and Display Mirror are all unauthenticated. Anyone on the network can access them — keep that in mind on shared networks.</li>
+                        <li><strong>Module Store updates.</strong> If you upgraded Schwung on-device from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh root@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
+                        <li><strong>Move firmware updates</strong> temporarily disable Schwung. Re-run the installer to repair — modules and settings are kept.</li>
+                        <li><strong>Some modules require external assets</strong> (ROMs, soundfonts, .nam, .clap). Catalog entries flag this under <em>Requires</em>; the installer prompts at install time. We can't and won't help you obtain copyrighted material.</li>
+                    </ul>
+                </section>
+
+                <section class="manual-section" id="analytics">
+                    <h2>15 · Analytics</h2>
+                    <p>Schwung can send anonymous usage statistics to help prioritize development. <strong>Off by default.</strong> On first launch you're prompted to choose; nothing is sent until you opt in. Change at any time under <strong>Settings → Analytics</strong>.</p>
+                    <table class="shortcut-table">
+                        <caption>What's sent when enabled</caption>
+                        <thead><tr><th>Event</th><th>When</th><th>Data</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>app_launched</code></td><td>Schwung starts</td><td>Host version</td></tr>
+                            <tr><td><code>module_census</code></td><td>Schwung starts</td><td>Installed module IDs, count</td></tr>
+                            <tr><td><code>module_added</code></td><td>New module detected at startup</td><td>Module ID, version</td></tr>
+                            <tr><td><code>module_upgraded</code></td><td>Module version changed at startup</td><td>Module ID, old + new version</td></tr>
+                            <tr><td><code>module_loaded</code></td><td>A module is loaded</td><td>Module ID</td></tr>
+                            <tr><td><code>module_installed</code></td><td>Installed from the Module Store</td><td>Module ID, version</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Every event includes a randomly generated anonymous UUID v4 stored at <code>/data/UserData/schwung/anonymous-id</code>. It has no connection to your identity; deleting the file generates a fresh one on next launch.</p>
+                    <p><strong>Not collected:</strong> IP address (explicitly suppressed), personal information, audio, MIDI, performance data, device identifiers, or cross-device tracking.</p>
+                    <p>Events are fire-and-forget HTTP POSTs to <a href="https://posthog.com" target="_blank" rel="noopener">PostHog</a>. No third-party SDK — just a background <code>curl</code> that doesn't block or retry. If it fails, the data is lost.</p>
+                </section>
+
+                <section class="manual-section" id="help">
+                    <h2>16 · Help &amp; community</h2>
+                    <ul>
+                        <li><a href="faqs.html">FAQs</a> — the short answers.</li>
+                        <li><a href="https://github.com/charlesvestal/schwung/blob/main/MANUAL.md" target="_blank" rel="noopener">MANUAL.md</a> — the full upstream manual on GitHub.</li>
+                        <li><a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub Issues</a> — bug reports and feature requests.</li>
+                        <li><a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a> — community chat and quick questions.</li>
+                        <li>Stuck? Try a <em>repair</em> run with the latest installer. If something's seriously wrong, <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Centercode flashes stock firmware back onto your Move.</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+            ·
+            <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
+        </p>
+    </footer>
+</body>
+</html>
