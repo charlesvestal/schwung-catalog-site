@@ -22,12 +22,12 @@
   "radiogarden": 1454,
   "airplay": 1898,
   "streamrtsp": 659,
-  "clap": 1143,
+  "clap": 1144,
   "gate": 1640,
   "control": 1769,
   "chiptune": 1500,
   "keydetect": 1514,
-  "vocoder": 1157,
+  "vocoder": 1158,
   "osirus": 1906,
   "superarp": 1393,
   "eucalypso": 1209,
@@ -63,8 +63,8 @@
   "genera": 705,
   "euclidrum": 335,
   "branchage": 691,
-  "twinsampler": 479,
-  "impressive-chords": 330,
-  "303": 187,
-  "tb3po": 203
+  "twinsampler": 480,
+  "impressive-chords": 332,
+  "303": 188,
+  "tb3po": 205
 }
