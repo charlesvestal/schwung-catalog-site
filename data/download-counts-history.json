@@ -2101,7 +2101,7 @@
     "minijv": 1818,
     "obxd": 1288,
     "cloudseed": 1413,
-    "midiverb": 167,
+    "midiverb": 168,
     "tapescam": 1400,
     "psxverb": 1192,
     "tapedelay": 2070,
@@ -2115,7 +2115,7 @@
     "nam": 1194,
     "ducker": 1304,
     "radiogarden": 1454,
-    "airplay": 1898,
+    "airplay": 1899,
     "streamrtsp": 659,
     "clap": 1144,
     "gate": 1640,
@@ -2156,11 +2156,11 @@
     "wurl": 652,
     "denis": 648,
     "genera": 705,
-    "euclidrum": 335,
+    "euclidrum": 336,
     "branchage": 691,
-    "twinsampler": 480,
-    "impressive-chords": 332,
-    "303": 188,
-    "tb3po": 205
+    "twinsampler": 481,
+    "impressive-chords": 334,
+    "303": 189,
+    "tb3po": 207
   }
 }
