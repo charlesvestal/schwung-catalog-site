@@ -64,7 +64,7 @@
                     <ul>
                         <li><strong>Shadow UI</strong> — a parallel UI you summon with a gesture. Stock Move stays running underneath; you switch back by exiting Shadow.</li>
                         <li><strong>Slots</strong> — four instrument slots (one per Move track) plus a Master FX slot. Each slot is a self-contained signal chain.</li>
-                        <li><strong>Modules</strong> — the synths, audio FX, and MIDI FX that load into a slot. Modules are installed from the Module Store; the catalog is community-maintained.</li>
+                        <li><strong>Modules</strong> — the synths, audio FX, and MIDI FX that load into a slot. Modules are installed from <a href="http://move.local:7700" target="_blank" rel="noopener">Schwung Manager</a> in your browser, or from the desktop installer; the catalog is community-maintained.</li>
                         <li><strong>Overtake modules</strong> — full-screen tools (e.g. RNBO Runner, MIDI controllers) that take over Move's display and pads instead of running in a slot.</li>
                     </ul>
                     <p class="note"><strong>Important.</strong> Schwung is unofficial software that modifies your Move. Back up sets and samples before installing, and read up on <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Centercode in case you need to recover. Move itself is not damaged by Schwung — uninstall and DFU restore both return you to stock.</p>
@@ -375,7 +375,7 @@
                         <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
                         <li><strong>Link Audio capture sometimes needs a Move restart</strong> after first enabling routing.</li>
                         <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>), the standalone File Browser (<code>:404</code>), and Display Mirror are all unauthenticated. Anyone on the network can access them — keep that in mind on shared networks.</li>
-                        <li><strong>Module Store updates.</strong> If you upgraded Schwung on-device from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh root@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
+                        <li><strong>On-device upgrades.</strong> If you upgraded Schwung from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh root@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
                         <li><strong>Move firmware updates</strong> temporarily disable Schwung. Re-run the installer to repair — modules and settings are kept.</li>
                         <li><strong>Some modules require external assets</strong> (ROMs, soundfonts, .nam, .clap). Catalog entries flag this under <em>Requires</em>; the installer prompts at install time. We can't and won't help you obtain copyrighted material.</li>
                     </ul>
@@ -393,7 +393,7 @@
                             <tr><td><code>module_added</code></td><td>New module detected at startup</td><td>Module ID, version</td></tr>
                             <tr><td><code>module_upgraded</code></td><td>Module version changed at startup</td><td>Module ID, old + new version</td></tr>
                             <tr><td><code>module_loaded</code></td><td>A module is loaded</td><td>Module ID</td></tr>
-                            <tr><td><code>module_installed</code></td><td>Installed from the Module Store</td><td>Module ID, version</td></tr>
+                            <tr><td><code>module_installed</code></td><td>A module was installed</td><td>Module ID, version</td></tr>
                         </tbody>
                     </table>
                     <p>Every event includes a randomly generated anonymous UUID v4 stored at <code>/data/UserData/schwung/anonymous-id</code>. It has no connection to your identity; deleting the file generates a fresh one on next launch.</p>
