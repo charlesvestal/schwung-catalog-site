@@ -2214,7 +2214,7 @@
     "dj": 855,
     "slicer": 674,
     "verglas": 755,
-    "guitar-tuner": 24,
+    "guitar-tuner": 26,
     "tuner": 738,
     "dragonfly-hall": 801,
     "punchfx": 937,
@@ -2230,9 +2230,9 @@
     "euclidrum": 348,
     "branchage": 705,
     "twinsampler": 499,
-    "impressive-chords": 368,
-    "ai-manual": 21,
-    "ai-assistant": 23,
+    "impressive-chords": 369,
+    "ai-manual": 23,
+    "ai-assistant": 25,
     "303": 206,
     "tb3po": 243
   }
