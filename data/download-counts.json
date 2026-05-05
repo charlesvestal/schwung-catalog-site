@@ -1,5 +1,5 @@
 {
-  "dexed": 1746,
+  "dexed": 1747,
   "sf2": 1945,
   "sfz": 1128,
   "m8": 1805,
@@ -20,7 +20,7 @@
   "nam": 1201,
   "ducker": 1312,
   "radiogarden": 1463,
-  "airplay": 1910,
+  "airplay": 1911,
   "streamrtsp": 669,
   "clap": 1152,
   "gate": 1648,
@@ -39,7 +39,7 @@
   "nusaw": 1156,
   "usefulity": 1275,
   "samplerobot": 851,
-  "waveform-editor": 1922,
+  "waveform-editor": 1923,
   "stretch": 1364,
   "stems": 1211,
   "plaits": 1150,
@@ -49,7 +49,7 @@
   "dj": 855,
   "slicer": 674,
   "verglas": 755,
-  "guitar-tuner": 23,
+  "guitar-tuner": 24,
   "tuner": 738,
   "dragonfly-hall": 801,
   "punchfx": 937,
@@ -64,10 +64,10 @@
   "genera": 718,
   "euclidrum": 348,
   "branchage": 705,
-  "twinsampler": 498,
-  "impressive-chords": 366,
+  "twinsampler": 499,
+  "impressive-chords": 368,
   "ai-manual": 21,
   "ai-assistant": 23,
   "303": 206,
-  "tb3po": 242
+  "tb3po": 243
 }
