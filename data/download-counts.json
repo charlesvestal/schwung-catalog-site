@@ -44,11 +44,12 @@
   "stems": 1204,
   "plaits": 1140,
   "granular": 1311,
-  "superboom": 959,
+  "superboom": 960,
   "performance-fx": 927,
   "dj": 849,
   "slicer": 665,
   "verglas": 750,
+  "guitar-tuner": 4,
   "tuner": 733,
   "dragonfly-hall": 795,
   "punchfx": 929,
@@ -65,6 +66,8 @@
   "branchage": 695,
   "twinsampler": 487,
   "impressive-chords": 346,
-  "303": 195,
-  "tb3po": 224
+  "ai-manual": 4,
+  "ai-assistant": 6,
+  "303": 196,
+  "tb3po": 225
 }
