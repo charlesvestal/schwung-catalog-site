@@ -39,7 +39,7 @@
   "nusaw": 1160,
   "usefulity": 1280,
   "samplerobot": 856,
-  "waveform-editor": 1933,
+  "waveform-editor": 1934,
   "stretch": 1371,
   "stems": 1217,
   "plaits": 1157,
@@ -49,7 +49,7 @@
   "dj": 859,
   "slicer": 679,
   "verglas": 759,
-  "guitar-tuner": 40,
+  "guitar-tuner": 42,
   "tuner": 742,
   "dragonfly-hall": 806,
   "punchfx": 943,
@@ -65,9 +65,9 @@
   "euclidrum": 355,
   "branchage": 712,
   "twinsampler": 506,
-  "impressive-chords": 382,
-  "ai-manual": 34,
-  "ai-assistant": 35,
+  "impressive-chords": 385,
+  "ai-manual": 36,
+  "ai-assistant": 37,
   "303": 217,
-  "tb3po": 258
+  "tb3po": 260
 }
