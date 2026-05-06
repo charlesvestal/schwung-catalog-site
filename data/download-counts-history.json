@@ -2237,9 +2237,9 @@
     "tb3po": 258
   },
   "2026-05-06": {
-    "dexed": 1770,
+    "dexed": 1771,
     "sf2": 1958,
-    "sfz": 1156,
+    "sfz": 1158,
     "m8": 1818,
     "minijv": 1847,
     "obxd": 1309,
@@ -2267,7 +2267,7 @@
     "keydetect": 1535,
     "vocoder": 1178,
     "osirus": 1938,
-    "superarp": 1415,
+    "superarp": 1416,
     "eucalypso": 1230,
     "granny": 1681,
     "freak": 961,
@@ -2282,12 +2282,12 @@
     "stems": 1228,
     "plaits": 1169,
     "granular": 1336,
-    "superboom": 978,
-    "performance-fx": 948,
+    "superboom": 979,
+    "performance-fx": 949,
     "dj": 867,
-    "slicer": 687,
+    "slicer": 688,
     "verglas": 769,
-    "guitar-tuner": 57,
+    "guitar-tuner": 58,
     "tuner": 751,
     "dragonfly-hall": 814,
     "punchfx": 952,
@@ -2303,10 +2303,10 @@
     "euclidrum": 366,
     "branchage": 723,
     "twinsampler": 518,
-    "impressive-chords": 406,
-    "ai-manual": 52,
-    "ai-assistant": 53,
+    "impressive-chords": 407,
+    "ai-manual": 53,
+    "ai-assistant": 54,
     "303": 232,
-    "tb3po": 282
+    "tb3po": 283
   }
 }
