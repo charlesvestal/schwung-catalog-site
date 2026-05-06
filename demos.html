@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demos · Schwung</title>
+    <meta name="description" content="Video demonstrations of Schwung modules and workflows on the Ableton Move.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-demos">
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html" aria-label="Schwung home">
+                <img src="images/schwung-logo-wordmark.png" alt="Schwung" class="brand-logo">
+            </a>
+            <nav class="nav-links" aria-label="Primary">
+                <a class="nav-link" href="index.html">Overview</a>
+                <a class="nav-link" href="catalog.html">Modules</a>
+                <a class="nav-link active" href="demos.html" aria-current="page">Demos</a>
+                <a class="nav-link" href="install.html">Install</a>
+                <a class="nav-link" href="manual.html">Manual</a>
+                <a class="nav-link" href="faqs.html">FAQs</a>
+                <a class="nav-link" href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="page-heading">
+            <h1>Demos</h1>
+            <p class="subtitle">
+                Schwung modules and workflows in action. Curated from the
+                <a href="https://www.youtube.com/playlist?list=PLlG7OuetKX9kqpqwetSw0lXWhJM2IP39f" target="_blank" rel="noopener">YouTube playlist</a>.
+            </p>
+        </div>
+
+        <div class="demos-grid" id="demos-grid" role="list" aria-busy="true">
+            <p class="demos-status" id="demos-status">Loading demos…</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            <a href="https://github.com/charlesvestal/schwung" target="_blank" rel="noopener">Schwung on GitHub</a>
+            ·
+            <a href="https://discord.gg/GHWaZCC9bQ" target="_blank" rel="noopener">Discord</a>
+        </p>
+    </footer>
+
+    <script>
+        (function () {
+            const grid = document.getElementById('demos-grid');
+            const status = document.getElementById('demos-status');
+            const PLAYLIST_URL = 'https://www.youtube.com/playlist?list=PLlG7OuetKX9kqpqwetSw0lXWhJM2IP39f';
+
+            function showFallback(message) {
+                grid.setAttribute('aria-busy', 'false');
+                grid.innerHTML = '';
+                const p = document.createElement('p');
+                p.className = 'demos-status';
+                p.innerHTML = message + ' <a href="' + PLAYLIST_URL + '" target="_blank" rel="noopener">Watch on YouTube →</a>';
+                grid.appendChild(p);
+            }
+
+            function formatDate(iso) {
+                if (!iso) return '';
+                const d = new Date(iso);
+                if (isNaN(d.getTime())) return '';
+                return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+
+            function renderCards(videos) {
+                grid.innerHTML = '';
+                grid.setAttribute('aria-busy', 'false');
+                videos.forEach(v => {
+                    const card = document.createElement('div');
+                    card.className = 'demo-card';
+                    card.setAttribute('role', 'listitem');
+
+                    const player = document.createElement('div');
+                    player.className = 'demo-player';
+
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'demo-play';
+                    btn.setAttribute('aria-label', 'Play: ' + v.title);
+
+                    const img = document.createElement('img');
+                    img.loading = 'lazy';
+                    img.alt = '';
+                    img.src = v.thumbnail || ('https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg');
+
+                    const overlay = document.createElement('span');
+                    overlay.className = 'demo-play-icon';
+                    overlay.setAttribute('aria-hidden', 'true');
+                    overlay.textContent = '▶';
+
+                    btn.appendChild(img);
+                    btn.appendChild(overlay);
+                    player.appendChild(btn);
+
+                    btn.addEventListener('click', () => {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(v.id) + '?autoplay=1&rel=0';
+                        iframe.title = v.title;
+                        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                        iframe.allowFullscreen = true;
+                        iframe.frameBorder = '0';
+                        player.replaceChild(iframe, btn);
+                    });
+
+                    const meta = document.createElement('div');
+                    meta.className = 'demo-meta';
+
+                    const title = document.createElement('a');
+                    title.className = 'demo-title';
+                    title.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(v.id) + '&list=PLlG7OuetKX9kqpqwetSw0lXWhJM2IP39f';
+                    title.target = '_blank';
+                    title.rel = 'noopener';
+                    title.textContent = v.title;
+
+                    meta.appendChild(title);
+
+                    const date = formatDate(v.publishedAt);
+                    if (date) {
+                        const d = document.createElement('span');
+                        d.className = 'demo-date';
+                        d.textContent = date;
+                        meta.appendChild(d);
+                    }
+
+                    card.appendChild(player);
+                    card.appendChild(meta);
+                    grid.appendChild(card);
+                });
+            }
+
+            fetch('data/demos.json', { cache: 'no-cache' })
+                .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+                .then(data => {
+                    const videos = (data && Array.isArray(data.videos))
+                        ? data.videos.filter(v => v && v.id && v.title && !/^\[?(deleted|private) video\]?$/i.test(v.title))
+                        : [];
+                    if (videos.length === 0) {
+                        showFallback('Demos are still being indexed.');
+                        return;
+                    }
+                    renderCards(videos);
+                })
+                .catch(() => {
+                    showFallback('Could not load demos.');
+                });
+        })();
+    </script>
+</body>
+</html>

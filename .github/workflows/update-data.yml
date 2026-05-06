@@ -202,6 +202,44 @@ jobs:
             done
           done <<< "$repos"
 
+      - name: Fetch demos playlist
+        env:
+          PLAYLIST_ID: PLlG7OuetKX9kqpqwetSw0lXWhJM2IP39f
+        run: |
+          # Use yt-dlp to scrape playlist metadata — no API key required.
+          # --flat-playlist returns just IDs/titles per entry; we synthesize
+          # thumbnail URLs from the standard YouTube CDN path.
+          python3 -m pip install --quiet --upgrade yt-dlp || { echo "yt-dlp install failed"; exit 0; }
+
+          raw=$(mktemp)
+          if ! yt-dlp --flat-playlist --dump-single-json \
+                "https://www.youtube.com/playlist?list=${PLAYLIST_ID}" > "$raw"; then
+            echo "yt-dlp failed; leaving data/demos.json unchanged."
+            rm -f "$raw"
+            exit 0
+          fi
+
+          jq --arg pid "$PLAYLIST_ID" \
+             --arg upd "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '
+            {
+              playlist_id: $pid,
+              updated_at: $upd,
+              videos: [ .entries
+                | to_entries[]
+                | select(.value.id != null)
+                | select((.value.title // "") | test("^\\[?(Deleted|Private) video\\]?$") | not)
+                | {
+                    id: .value.id,
+                    title: .value.title,
+                    publishedAt: null,
+                    position: .key,
+                    thumbnail: ("https://i.ytimg.com/vi/" + .value.id + "/hqdefault.jpg")
+                  } ]
+            }' "$raw" > data/demos.json
+
+          rm -f "$raw"
+          jq . data/demos.json > /dev/null
+
       - name: Build audio preview list
         run: |
           # Map each module id to the extension of its preview file (mp3 or m4a)
