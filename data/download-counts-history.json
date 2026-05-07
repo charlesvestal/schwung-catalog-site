@@ -2312,7 +2312,7 @@
   "2026-05-07": {
     "dexed": 1788,
     "sf2": 1969,
-    "sfz": 1189,
+    "sfz": 1192,
     "m8": 1827,
     "minijv": 1862,
     "obxd": 1322,
@@ -2342,9 +2342,9 @@
     "osirus": 1947,
     "superarp": 1425,
     "eucalypso": 1238,
-    "granny": 1689,
+    "granny": 1690,
     "freak": 973,
-    "mrdrums": 1213,
+    "mrdrums": 1214,
     "rex": 1621,
     "hush1": 1457,
     "nusaw": 1176,
@@ -2360,7 +2360,7 @@
     "dj": 874,
     "slicer": 698,
     "verglas": 779,
-    "guitar-tuner": 73,
+    "guitar-tuner": 74,
     "tuner": 758,
     "dragonfly-hall": 822,
     "punchfx": 963,
@@ -2380,6 +2380,6 @@
     "ai-manual": 65,
     "ai-assistant": 68,
     "303": 250,
-    "tb3po": 303
+    "tb3po": 304
   }
 }
