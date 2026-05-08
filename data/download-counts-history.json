@@ -2326,7 +2326,7 @@
   "2026-05-08": {
     "dexed": 1806,
     "sf2": 1980,
-    "sfz": 1208,
+    "sfz": 1210,
     "m8": 1837,
     "minijv": 1876,
     "obxd": 1336,
@@ -2364,7 +2364,7 @@
     "nusaw": 1191,
     "usefulity": 1307,
     "samplerobot": 883,
-    "waveform-editor": 1977,
+    "waveform-editor": 1978,
     "stretch": 1400,
     "stems": 1249,
     "plaits": 1197,
@@ -2395,6 +2395,6 @@
     "ai-assistant": 82,
     "303": 269,
     "tb3po": 321,
-    "breakbeat": 37
+    "breakbeat": 39
   }
 }
