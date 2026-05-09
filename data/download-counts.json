@@ -1,7 +1,7 @@
 {
   "dexed": 1808,
   "sf2": 1980,
-  "sfz": 1211,
+  "sfz": 1212,
   "m8": 1837,
   "minijv": 1877,
   "obxd": 1336,
@@ -39,7 +39,7 @@
   "nusaw": 1191,
   "usefulity": 1307,
   "samplerobot": 884,
-  "waveform-editor": 1979,
+  "waveform-editor": 1980,
   "stretch": 1402,
   "stems": 1251,
   "plaits": 1198,
@@ -65,10 +65,10 @@
   "euclidrum": 391,
   "branchage": 748,
   "twinsampler": 546,
-  "impressive-chords": 448,
+  "impressive-chords": 450,
   "ai-manual": 81,
   "ai-assistant": 84,
-  "303": 272,
+  "303": 273,
   "tb3po": 322,
   "breakbeat": 44
 }
