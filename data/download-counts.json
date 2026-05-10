@@ -1,7 +1,7 @@
 {
   "dexed": 1831,
   "sf2": 1995,
-  "sfz": 1238,
+  "sfz": 1239,
   "m8": 1851,
   "minijv": 1896,
   "obxd": 1353,
@@ -13,7 +13,7 @@
   "junologue-chorus": 1272,
   "sidcontrol": 1139,
   "braids": 1340,
-  "hera": 1279,
+  "hera": 1280,
   "surge": 1311,
   "moog": 1649,
   "webstream": 2006,
@@ -49,7 +49,7 @@
   "dj": 903,
   "slicer": 727,
   "verglas": 808,
-  "guitar-tuner": 114,
+  "guitar-tuner": 115,
   "tuner": 782,
   "dragonfly-hall": 852,
   "punchfx": 995,
@@ -65,10 +65,10 @@
   "euclidrum": 409,
   "branchage": 772,
   "twinsampler": 569,
-  "impressive-chords": 481,
-  "ai-manual": 105,
-  "ai-assistant": 110,
+  "impressive-chords": 482,
+  "ai-manual": 106,
+  "ai-assistant": 111,
   "303": 301,
-  "tb3po": 350,
-  "breakbeat": 81
+  "tb3po": 351,
+  "breakbeat": 82
 }
