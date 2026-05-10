@@ -1,6 +1,6 @@
 {
   "playlist_id": "PLlG7OuetKX9kqpqwetSw0lXWhJM2IP39f",
-  "updated_at": "2026-05-10T14:32:15Z",
+  "updated_at": "2026-05-10T15:27:28Z",
   "videos": [
     {
       "id": "vYf1vPt3pMc",
@@ -99,13 +99,6 @@
       "publishedAt": null,
       "position": 13,
       "thumbnail": "https://i.ytimg.com/vi/AQ-5RZlg6gw/hqdefault.jpg"
-    },
-    {
-      "id": "m5T0xnJLUEU",
-      "title": null,
-      "publishedAt": null,
-      "position": 14,
-      "thumbnail": "https://i.ytimg.com/vi/m5T0xnJLUEU/hqdefault.jpg"
     }
   ]
 }
