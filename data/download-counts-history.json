@@ -2374,7 +2374,7 @@
     "control": 1825,
     "chiptune": 1565,
     "keydetect": 1569,
-    "vocoder": 1210,
+    "vocoder": 1211,
     "osirus": 1983,
     "superarp": 1453,
     "eucalypso": 1262,
@@ -2392,14 +2392,14 @@
     "plaits": 1219,
     "granular": 1382,
     "superboom": 1015,
-    "performance-fx": 994,
+    "performance-fx": 995,
     "dj": 903,
     "slicer": 727,
     "verglas": 808,
     "guitar-tuner": 115,
     "tuner": 783,
     "dragonfly-hall": 852,
-    "punchfx": 996,
+    "punchfx": 997,
     "structor": 1027,
     "weird-dreams": 1144,
     "dissolver": 935,
@@ -2416,7 +2416,7 @@
     "ai-manual": 106,
     "ai-assistant": 111,
     "303": 301,
-    "tb3po": 351,
-    "breakbeat": 82
+    "tb3po": 352,
+    "breakbeat": 84
   }
 }
