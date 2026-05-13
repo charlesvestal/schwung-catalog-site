@@ -2381,10 +2381,10 @@
   "2026-05-13": {
     "dexed": 1881,
     "sf2": 2027,
-    "sfz": 1304,
+    "sfz": 1306,
     "m8": 1885,
     "minijv": 1942,
-    "obxd": 1406,
+    "obxd": 1410,
     "cloudseed": 1520,
     "midiverb": 293,
     "tapescam": 1501,
@@ -2447,12 +2447,12 @@
     "twinsampler": 610,
     "impressive-chords": 540,
     "ai-manual": 147,
-    "ai-assistant": 153,
-    "303": 360,
+    "ai-assistant": 154,
+    "303": 361,
     "tb3po": 413,
-    "breakbeat": 164,
-    "signal": 11,
-    "krautdrums": 10,
-    "forge": 13
+    "breakbeat": 165,
+    "signal": 13,
+    "krautdrums": 13,
+    "forge": 15
   }
 }
