@@ -2432,7 +2432,7 @@
     "streamrtsp": 764,
     "clap": 1252,
     "gate": 1736,
-    "control": 1875,
+    "control": 1876,
     "chiptune": 1618,
     "keydetect": 1614,
     "vocoder": 1259,
@@ -2446,7 +2446,7 @@
     "hush1": 1538,
     "nusaw": 1253,
     "usefulity": 1369,
-    "samplerobot": 947,
+    "samplerobot": 948,
     "waveform-editor": 2081,
     "stretch": 1473,
     "stems": 1325,
@@ -2481,7 +2481,7 @@
     "breakbeat": 197,
     "signal": 84,
     "krautdrums": 86,
-    "forge": 92,
-    "davebox": 53
+    "forge": 93,
+    "davebox": 55
   }
 }
