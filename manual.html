@@ -82,8 +82,12 @@
                             <tr><td>Open slot editor</td><td>Hold <kbd>Track 1–4</kbd> (500 ms)</td><td><kbd>Shift+Vol</kbd> + <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Open Master FX</td><td>Hold <kbd>Note/Session</kbd> (500 ms)</td><td><kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd></td></tr>
                             <tr><td>Dismiss Shadow UI</td><td>Tap <kbd>Track</kbd> or <kbd>Note/Session</kbd></td><td>—</td></tr>
+                            <tr><td>Toggle module bypass</td><td colspan="2"><kbd>Mute</kbd> + <kbd>Jog Click</kbd> on a focused chain or Master FX module</td></tr>
+                            <tr><td>Toggle slot mute</td><td colspan="2"><kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
+                            <tr><td>Toggle slot solo</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
                         </tbody>
                     </table>
+                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot. Plain <kbd>Mute</kbd> is suppressed while Shadow UI is shown so it doesn't toggle Move's own track mute mid-combo — Mute works normally when Shadow UI is dismissed.</p>
 
                     <h3>Tools, settings &amp; sets</h3>
                     <table class="shortcut-table">
