@@ -75,5 +75,6 @@
   "signal": {"first_release": "2026-04-10", "last_updated": "2026-05-13", "version": "v0.2.1", "release_dates": ["2026-04-10","2026-05-13","2026-05-13"]},
   "krautdrums": {"first_release": "2026-05-13", "last_updated": "2026-05-13", "version": "v0.1.1", "release_dates": ["2026-05-13","2026-05-13"]},
   "forge": {"first_release": "2026-05-13", "last_updated": "2026-05-13", "version": "v0.1.4", "release_dates": ["2026-05-13","2026-05-13","2026-05-13","2026-05-13","2026-05-13"]},
-  "davebox": {"first_release": "2026-05-11", "last_updated": "2026-05-15", "version": "v0.4.0", "release_dates": ["2026-05-11","2026-05-12","2026-05-13","2026-05-13","2026-05-14","2026-05-14","2026-05-15"]}
+  "davebox": {"first_release": "2026-05-11", "last_updated": "2026-05-15", "version": "v0.4.0", "release_dates": ["2026-05-11","2026-05-12","2026-05-13","2026-05-13","2026-05-14","2026-05-14","2026-05-15"]},
+  "mrsample": {"first_release": "2026-05-16", "last_updated": "2026-05-16", "version": "v0.1.1", "release_dates": ["2026-05-16","2026-05-16"]}
 }
