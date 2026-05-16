@@ -9,6 +9,7 @@
   "midiverb": 340,
   "tapescam": 1540,
   "psxverb": 1314,
+  "mverb": 0,
   "tapedelay": 2216,
   "junologue-chorus": 1339,
   "sidcontrol": 1196,
@@ -66,7 +67,7 @@
   "branchage": 856,
   "twinsampler": 664,
   "impressive-chords": 606,
-  "midi-player": 45,
+  "midi-player": 46,
   "ai-manual": 195,
   "ai-assistant": 204,
   "303": 419,
@@ -75,6 +76,6 @@
   "signal": 121,
   "krautdrums": 123,
   "forge": 132,
-  "davebox": 118,
-  "mrsample": 24
+  "davebox": 119,
+  "mrsample": 25
 }
