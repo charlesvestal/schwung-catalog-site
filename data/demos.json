@@ -1,124 +1,131 @@
 {
   "playlist_id": "PLlG7OuetKX9kqpqwetSw0lXWhJM2IP39f",
-  "updated_at": "2026-05-17T11:31:54Z",
+  "updated_at": "2026-05-17T12:30:47Z",
   "videos": [
+    {
+      "id": "iGGGNAfWBpc",
+      "title": "schwung basics",
+      "publishedAt": null,
+      "position": 0,
+      "thumbnail": "https://i.ytimg.com/vi/iGGGNAfWBpc/hqdefault.jpg"
+    },
     {
       "id": "zcRnNxLMWEA",
       "title": "Ableton Move Schwung DJ JUSTO DUB FX Module DEMO Ver 1.0",
       "publishedAt": null,
-      "position": 0,
+      "position": 1,
       "thumbnail": "https://i.ytimg.com/vi/zcRnNxLMWEA/hqdefault.jpg"
     },
     {
       "id": "oPDFq5BqOm4",
       "title": "How to Install Ableton Schwung Hack (Step by Step)",
       "publishedAt": null,
-      "position": 1,
+      "position": 2,
       "thumbnail": "https://i.ytimg.com/vi/oPDFq5BqOm4/hqdefault.jpg"
     },
     {
       "id": "vYf1vPt3pMc",
       "title": "Breakbeat (BB gen) for Ableton Move and Schwung",
       "publishedAt": null,
-      "position": 2,
+      "position": 3,
       "thumbnail": "https://i.ytimg.com/vi/vYf1vPt3pMc/hqdefault.jpg"
     },
     {
       "id": "U37xadcA1IU",
       "title": "Slicing with the Wave Editor on Ableton Move Hacked Firmware",
       "publishedAt": null,
-      "position": 3,
+      "position": 4,
       "thumbnail": "https://i.ytimg.com/vi/U37xadcA1IU/hqdefault.jpg"
     },
     {
       "id": "v8Lp8A64Phc",
       "title": "Acid on Ableton Move: Open303 and TB-3PO on Schwung",
       "publishedAt": null,
-      "position": 4,
+      "position": 5,
       "thumbnail": "https://i.ytimg.com/vi/v8Lp8A64Phc/hqdefault.jpg"
     },
     {
       "id": "H-_gUYTqk8I",
       "title": "Simultaneous RNBO and Move w/ Schwung",
       "publishedAt": null,
-      "position": 5,
+      "position": 6,
       "thumbnail": "https://i.ytimg.com/vi/H-_gUYTqk8I/hqdefault.jpg"
     },
     {
       "id": "IwZ20mGLSfw",
       "title": "Ableton Move Pad Keyboard Concept",
       "publishedAt": null,
-      "position": 6,
+      "position": 7,
       "thumbnail": "https://i.ytimg.com/vi/IwZ20mGLSfw/hqdefault.jpg"
     },
     {
       "id": "_JlwVa2LyOg",
       "title": "Audio Editing and 128 Slices on Ableton Move with Schwung (Move Everything)",
       "publishedAt": null,
-      "position": 7,
+      "position": 8,
       "thumbnail": "https://i.ytimg.com/vi/_JlwVa2LyOg/hqdefault.jpg"
     },
     {
       "id": "omHzxpdG3Dw",
       "title": "Time Stretch and Stem Separation on Ableton Move with Schwung (Move Everything)",
       "publishedAt": null,
-      "position": 8,
+      "position": 9,
       "thumbnail": "https://i.ytimg.com/vi/omHzxpdG3Dw/hqdefault.jpg"
     },
     {
       "id": "oeL9MYe09u8",
       "title": "Song Mode on Ableton Move with Schwung (Move Everything)",
       "publishedAt": null,
-      "position": 9,
+      "position": 10,
       "thumbnail": "https://i.ytimg.com/vi/oeL9MYe09u8/hqdefault.jpg"
     },
     {
       "id": "aiBo4To_o6Y",
       "title": "Schwung (Move Everything): Live Radio Sampling and 404-Style Skipback on Ableton Move",
       "publishedAt": null,
-      "position": 10,
+      "position": 11,
       "thumbnail": "https://i.ytimg.com/vi/aiBo4To_o6Y/hqdefault.jpg"
     },
     {
       "id": "TV0RhQy9bVs",
       "title": "Schwung (Move Everything): Sidechain Ducking on Ableton Move",
       "publishedAt": null,
-      "position": 11,
+      "position": 12,
       "thumbnail": "https://i.ytimg.com/vi/TV0RhQy9bVs/hqdefault.jpg"
     },
     {
       "id": "0969LDX_MJ0",
       "title": "Installing Schwung (Move Everything) on Ableton Move  in under 2 minutes",
       "publishedAt": null,
-      "position": 12,
+      "position": 13,
       "thumbnail": "https://i.ytimg.com/vi/0969LDX_MJ0/hqdefault.jpg"
     },
     {
       "id": "De6GmXATTYI",
       "title": "Schwung (Move Everything): On-device Screen Reader for Ableton Move",
       "publishedAt": null,
-      "position": 13,
+      "position": 14,
       "thumbnail": "https://i.ytimg.com/vi/De6GmXATTYI/hqdefault.jpg"
     },
     {
       "id": "Cnp-ERL9Cu4",
       "title": "Schwung (Move Everything): Keyboard Input Demo for Ableton Move",
       "publishedAt": null,
-      "position": 14,
+      "position": 15,
       "thumbnail": "https://i.ytimg.com/vi/Cnp-ERL9Cu4/hqdefault.jpg"
     },
     {
       "id": "WGT3uA1tbXY",
       "title": "Schwung (Move Everything): On-Device Youtube Sampling for Ableton Move",
       "publishedAt": null,
-      "position": 15,
+      "position": 16,
       "thumbnail": "https://i.ytimg.com/vi/WGT3uA1tbXY/hqdefault.jpg"
     },
     {
       "id": "AQ-5RZlg6gw",
       "title": "Schwung (Move Everything) - New Synths and FX for your Move! (Demo)",
       "publishedAt": null,
-      "position": 16,
+      "position": 17,
       "thumbnail": "https://i.ytimg.com/vi/AQ-5RZlg6gw/hqdefault.jpg"
     }
   ]
