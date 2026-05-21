@@ -2510,7 +2510,7 @@
   "2026-05-21": {
     "dexed": 2009,
     "sf2": 2109,
-    "sfz": 1522,
+    "sfz": 1523,
     "m8": 1965,
     "minijv": 2046,
     "obxd": 1617,
@@ -2565,14 +2565,14 @@
     "punchfx": 1124,
     "structor": 1147,
     "weird-dreams": 1376,
-    "dissolver": 1439,
+    "dissolver": 1440,
     "spectra": 1256,
     "essaim": 1062,
     "chowtape": 914,
     "wurl": 941,
     "denis": 948,
     "genera": 1002,
-    "euclidrum": 863,
+    "euclidrum": 864,
     "branchage": 899,
     "twinsampler": 716,
     "impressive-chords": 675,
@@ -2586,7 +2586,7 @@
     "krautdrums": 202,
     "forge": 212,
     "davebox": 215,
-    "chorddex": 65,
+    "chorddex": 68,
     "mrsample": 147
   }
 }
