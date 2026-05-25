@@ -913,6 +913,18 @@
       "asset_name": "mrsample-module.tar.gz",
       "min_host_version": "0.7.4",
       "requires": "audio files in /data/UserData/UserLibrary/Samples/ (.wav, .mp3, .flac, .aif)"
+    },
+    {
+      "id": "mello",
+      "name": "Mello",
+      "description": "Dual-bank Mellotron tape instrument — in-house WAV sampler, physical-model Rotary speaker, 6 FX chain orderings, Auto Retune, sustain-loop crossfade %",
+      "author": "filliformes",
+      "component_type": "sound_generator",
+      "github_repo": "filliformes/mello-move",
+      "default_branch": "main",
+      "asset_name": "mello-module.tar.gz",
+      "min_host_version": "0.9.0",
+      "requires": "Mellotron WAV samples (place in module’s instruments/<library>/<bank>/ folder) — Leisureland, Sonic Bloom and the 90s Mellotron Archive CD are all free downloads in the community"
     }
   ]
 }
