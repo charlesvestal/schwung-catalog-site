@@ -2630,7 +2630,7 @@
     "sidcontrol": 1384,
     "braids": 1672,
     "hera": 1573,
-    "surge": 1627,
+    "surge": 1628,
     "moog": 1918,
     "webstream": 2361,
     "nam": 1507,
@@ -2671,15 +2671,15 @@
     "punchfx": 1302,
     "structor": 1310,
     "weird-dreams": 1576,
-    "dissolver": 1864,
+    "dissolver": 1865,
     "spectra": 1454,
     "essaim": 1257,
     "chowtape": 1099,
-    "ambiotica": 276,
+    "ambiotica": 277,
     "wurl": 1148,
     "denis": 1146,
     "genera": 1202,
-    "euclidrum": 1264,
+    "euclidrum": 1265,
     "branchage": 1074,
     "twinsampler": 882,
     "impressive-chords": 879,
@@ -2693,8 +2693,8 @@
     "krautdrums": 398,
     "forge": 404,
     "davebox": 406,
-    "chorddex": 330,
+    "chorddex": 331,
     "mrsample": 343,
-    "dronage-tool": 79
+    "dronage-tool": 86
   }
 }
