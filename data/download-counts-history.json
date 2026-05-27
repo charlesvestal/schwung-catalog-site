@@ -2644,7 +2644,7 @@
     "chiptune": 1856,
     "keydetect": 1845,
     "vocoder": 1482,
-    "osirus": 2330,
+    "osirus": 2331,
     "superarp": 1756,
     "eucalypso": 1537,
     "granny": 2034,
@@ -2671,15 +2671,15 @@
     "punchfx": 1302,
     "structor": 1310,
     "weird-dreams": 1576,
-    "dissolver": 1865,
+    "dissolver": 1868,
     "spectra": 1454,
     "essaim": 1257,
     "chowtape": 1099,
-    "ambiotica": 277,
+    "ambiotica": 278,
     "wurl": 1148,
     "denis": 1146,
     "genera": 1202,
-    "euclidrum": 1265,
+    "euclidrum": 1268,
     "branchage": 1074,
     "twinsampler": 882,
     "impressive-chords": 879,
@@ -2693,8 +2693,8 @@
     "krautdrums": 398,
     "forge": 404,
     "davebox": 406,
-    "chorddex": 331,
+    "chorddex": 332,
     "mrsample": 343,
-    "dronage-tool": 86
+    "dronage-tool": 88
   }
 }
