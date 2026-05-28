@@ -2638,7 +2638,7 @@
     "m8": 2126,
     "minijv": 2253,
     "obxd": 1858,
-    "cloudseed": 1799,
+    "cloudseed": 1800,
     "midiverb": 571,
     "tapescam": 1766,
     "psxverb": 1530,
@@ -2700,8 +2700,8 @@
     "euclidrum": 1275,
     "branchage": 1077,
     "twinsampler": 884,
-    "impressive-chords": 882,
-    "midi-player": 344,
+    "impressive-chords": 883,
+    "midi-player": 345,
     "ai-manual": 419,
     "ai-assistant": 428,
     "303": 725,
@@ -2711,7 +2711,7 @@
     "krautdrums": 401,
     "forge": 408,
     "davebox": 409,
-    "chorddex": 339,
+    "chorddex": 340,
     "mrsample": 347,
     "dronage-tool": 93
   }
