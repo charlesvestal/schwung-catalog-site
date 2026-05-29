@@ -95,8 +95,8 @@
                         <tbody>
                             <tr><td>Open Global Settings</td><td><kbd>Shift</kbd> + hold <kbd>Step 2</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 2</kbd></td></tr>
                             <tr><td>Open Tools menu</td><td><kbd>Shift</kbd> + <kbd>Step 13</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd></td></tr>
-                            <tr><td>Open Quantized Sampler</td><td>—</td><td><kbd>Shift</kbd> + <kbd>Sample</kbd></td></tr>
-                            <tr><td>Skipback (save last 30 s)</td><td>—</td><td><kbd>Shift</kbd> + <kbd>Capture</kbd></td></tr>
+                            <tr><td>Open Quantized Sampler</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Sample</kbd></td></tr>
+                            <tr><td>Skipback (save last 30 s)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Capture</kbd></td></tr>
                             <tr><td>Switch Set Page (when enabled)</td><td>—</td><td><kbd>Shift+Vol</kbd> + <kbd>←/→</kbd></td></tr>
                         </tbody>
                     </table>
@@ -111,7 +111,7 @@
                     </table>
 
                     <h3>Knob overlay</h3>
-                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay Knobs</strong>: <em>+Shift</em> (default), <em>+Jog Touch</em>, <em>Off</em>, or <em>Native</em>. Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
+                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay Knobs</strong>: <em>+Shift</em>, <em>+Jog Touch</em>, <em>Off</em>, or <em>Native</em> (default). Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
 
                     <h3>MIDI channel indicator</h3>
                     <p>A small readout in the bottom-right corner shows the external (USB) MIDI channel while you hold a note: <code>i&lt;ch&gt;</code> for the channel a connected controller is sending in, and <code>i&lt;ch&gt; o&lt;ch&gt;</code> when Schwung forwards that note back out (after any MIDI FX or channel remap). Enable under <strong>Global Settings → Display → MIDI Channel</strong>. It monitors your external-gear routing — clip/track MIDI-out isn't shown.</p>
@@ -157,7 +157,7 @@
                             <tr><td>Receive Ch</td><td>MIDI channel the slot listens on. Match this to the Move track's MIDI Out.</td></tr>
                             <tr><td>Forward Ch</td><td>MIDI channel sent to the synth module — see deep-dive below.</td></tr>
                             <tr><td>MIDI FX</td><td><em>Schw</em> (default) or <em>Schw+Move</em> — where the slot's MIDI FX output lands.</td></tr>
-                            <tr><td>LFO 1 / LFO 2</td><td>Per-slot modulation, see <a href="#lfos">§5</a>.</td></tr>
+                            <tr><td>LFO 1 / LFO 2</td><td>Per-slot modulation, see <a href="#lfos">§6</a>.</td></tr>
                         </tbody>
                     </table>
 
@@ -167,7 +167,7 @@
                         <li><strong>Load</strong> — scroll left to the slot overview, click to see saved presets.</li>
                         <li><strong>Delete</strong> — removes a saved preset.</li>
                     </ul>
-                    <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§9</a>.</p>
+                    <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§10</a>.</p>
                 </section>
 
                 <section class="manual-section" id="midi-routing">
@@ -392,7 +392,7 @@
                         <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
                         <li><strong>Link Audio capture sometimes needs a Move restart</strong> after first enabling routing.</li>
                         <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>), the standalone File Browser (<code>:404</code>), and Display Mirror are all unauthenticated. Anyone on the network can access them — keep that in mind on shared networks.</li>
-                        <li><strong>On-device upgrades.</strong> If you upgraded Schwung from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh root@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
+                        <li><strong>On-device upgrades.</strong> If you upgraded Schwung from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh ableton@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
                         <li><strong>Move firmware updates</strong> temporarily disable Schwung. Re-run the installer to repair — modules and settings are kept.</li>
                         <li><strong>Some modules require external assets</strong> (ROMs, soundfonts, .nam, .clap). Catalog entries flag this under <em>Requires</em>; the installer prompts at install time. We can't and won't help you obtain copyrighted material.</li>
                     </ul>
