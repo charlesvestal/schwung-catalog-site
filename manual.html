@@ -180,6 +180,8 @@
                     </ol>
                     <p>Pitch bend, mod wheel, sustain, and other CCs from external controllers are forwarded too.</p>
 
+                    <p class="note"><strong>Knob automation over MIDI.</strong> An external controller can drive a chain slot's eight knob parameters directly: <strong>CC 71–78</strong> act as relative encoders (endless-knob deltas), and <strong>CC 102–109</strong> act as absolute values (0–127 scaled across each parameter's range). Both target the same eight knob mappings as the on-screen knobs, so either kind of controller works.</p>
+
                     <p class="note"><strong>Stop the native synth doubling.</strong> Load an empty Drum Rack or Sampler preset on the Move track. The track still sends MIDI but its own sound is silenced.</p>
 
                     <p class="note"><strong>MIDI clock.</strong> Some modules (e.g. Arp) need MIDI clock for tempo sync. Set Move's <em>MIDI Clock</em> to <em>Out</em> so they pick it up.</p>
@@ -263,6 +265,20 @@
                                 <p>When Move→Schwung is on, Move's per-track audio takes a few milliseconds to round-trip back into Schwung through Link Audio. Schwung's own slot synths render instantly, so by default they fire a few ms <em>ahead</em> of any Move drumrack/synth hitting the same beat — a subtle flam if both sides are on the same downbeat.</p>
                                 <p><strong>Global Settings → Audio → Latency Comp</strong> (default off) delays Schwung's slot synth output by a constant ~9 ms and locks the Link Audio side to the same target, so both arrive on the same DAC sample. Toggle applies immediately; expect a brief audible blip at the moment of toggling (a delay buffer engaging or disengaging mid-stream).</p>
                                 <p>Side effect: live playing through a Schwung slot adds ~9 ms of latency while Latency Comp is on. Leave it off if you're not running Move→Schwung, or if tight live response matters more than aligning with Move tracks.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Speaker EQ: voicing the built-in speaker</summary>
+                            <div class="faq-body">
+                                <p>When Move→Schwung is on, Schwung rebuilds the DAC output itself, which bypasses Move's built-in speaker voicing. Schwung re-applies its own emulation of that EQ so the internal speaker still sounds full — but only on the speaker path; headphones and line-out stay neutral.</p>
+                                <p><strong>Global Settings → Audio → Speaker EQ</strong> controls it:</p>
+                                <ul>
+                                    <li><strong>Auto</strong> (default) — applies the EQ only once the headphone jack has reported "speaker" stably for a few seconds, rejecting boot-time glitches. This avoids the occasional hollow/phasey sound when headphones were already plugged in at boot.</li>
+                                    <li><strong>Off</strong> — never applies the EQ; guaranteed neutral for headphone and line-in users.</li>
+                                    <li><strong>On</strong> — always applies the EQ.</li>
+                                </ul>
+                                <p>The EQ only runs while Move→Schwung is active — with it off, this setting has no audible effect.</p>
                             </div>
                         </details>
                     </div>
