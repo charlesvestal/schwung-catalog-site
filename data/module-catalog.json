@@ -91,6 +91,17 @@
       "min_host_version": "0.3.0"
     },
     {
+      "id": "ottx",
+      "name": "OTTx",
+      "description": "3-band multiband upward+downward compressor (vitOTTx port)",
+      "author": "Matt Tytel (Vital DSP) · Yegor Suslin (vitOTT) · port: legsmechanical",
+      "component_type": "audio_fx",
+      "github_repo": "legsmechanical/schwung-ottx",
+      "default_branch": "main",
+      "asset_name": "ottx-module.tar.gz",
+      "min_host_version": "0.3.0"
+    },
+    {
       "id": "midiverb",
       "name": "Midiverb",
       "description": "Alesis Midiverb / Midifex / Midiverb II emulator (lo-fi 23.4 kHz reverb)",
@@ -978,6 +989,17 @@
       "github_repo": "andree182/schwung-helm",
       "default_branch": "master",
       "asset_name": "helm-module.tar.gz",
+      "min_host_version": "0.8.8"
+    },
+    {
+      "id": "fork",
+      "name": "Fork",
+      "description": "MIDI channel splitter and router module",
+      "author": "andree182",
+      "component_type": "midi_fx",
+      "github_repo": "andree182/schwung-fork",
+      "default_branch": "master",
+      "asset_name": "fork-module.tar.gz",
       "min_host_version": "0.8.8"
     }
   ]
