@@ -6,7 +6,7 @@
   "minijv": 2442,
   "obxd": 2100,
   "cloudseed": 1973,
-  "ottx": 20,
+  "ottx": 22,
   "midiverb": 744,
   "tapescam": 1955,
   "psxverb": 1709,
@@ -66,7 +66,7 @@
   "wurl": 1366,
   "denis": 1358,
   "genera": 1431,
-  "euclidrum": 1899,
+  "euclidrum": 1900,
   "branchage": 1241,
   "twinsampler": 1147,
   "impressive-chords": 1090,
@@ -86,6 +86,6 @@
   "dronage-tool": 524,
   "chordism": 369,
   "juno_control": 232,
-  "helm": 362,
+  "helm": 364,
   "fork": 0
 }
