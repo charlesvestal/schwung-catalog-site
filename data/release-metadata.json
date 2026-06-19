@@ -60,7 +60,7 @@
   "dissolver": {"first_release": "2026-03-26", "last_updated": "2026-05-13", "version": "v0.2.3", "release_dates": ["2026-03-26","2026-03-27","2026-03-27","2026-03-31","2026-05-13"]},
   "spectra": {"first_release": "2026-03-27", "last_updated": "2026-05-13", "version": "v0.2.1", "release_dates": ["2026-03-27","2026-03-31","2026-04-10","2026-05-13"]},
   "essaim": {"first_release": "2026-04-01", "last_updated": "2026-05-13", "version": "v0.2.9", "release_dates": ["2026-04-01","2026-04-06","2026-04-07","2026-05-13"]},
-  "chowtape": {"first_release": "unknown", "last_updated": "unknown", "version": "unknown", "release_dates": []},
+  "chowtape": {"first_release": "2026-03-31", "last_updated": "2026-03-31", "version": "v0.1.0", "release_dates": ["2026-03-31"]},
   "ambiotica": {"first_release": "2026-05-22", "last_updated": "2026-05-26", "version": "v0.2.3", "release_dates": ["2026-05-22","2026-05-22","2026-05-22","2026-05-22","2026-05-26"]},
   "filter": {"first_release": "2026-05-31", "last_updated": "2026-05-31", "version": "v0.2.0", "release_dates": ["2026-05-31"]},
   "wurl": {"first_release": "2026-03-26", "last_updated": "2026-05-13", "version": "v0.1.1", "release_dates": ["2026-03-26","2026-05-13"]},
