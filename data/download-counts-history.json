@@ -3051,8 +3051,8 @@
     "sf2": 2507,
     "sfz": 2076,
     "m8": 2342,
-    "minijv": 2523,
-    "obxd": 2204,
+    "minijv": 2525,
+    "obxd": 2206,
     "cloudseed": 2050,
     "ottx": 211,
     "midiverb": 816,
@@ -3064,7 +3064,7 @@
     "sidcontrol": 1596,
     "braids": 1952,
     "hera": 1827,
-    "surge": 1912,
+    "surge": 1914,
     "moog": 2152,
     "webstream": 2888,
     "nam": 1939,
@@ -3136,6 +3136,6 @@
     "juno_control": 333,
     "helm": 567,
     "fork": 150,
-    "aphex": 9
+    "aphex": 11
   }
 }
