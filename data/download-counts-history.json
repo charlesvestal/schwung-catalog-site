@@ -3062,8 +3062,8 @@
     "sf2": 2512,
     "sfz": 2084,
     "m8": 2345,
-    "minijv": 2561,
-    "obxd": 2244,
+    "minijv": 2562,
+    "obxd": 2245,
     "cloudseed": 2057,
     "ottx": 221,
     "midiverb": 820,
@@ -3075,7 +3075,7 @@
     "sidcontrol": 1601,
     "braids": 1958,
     "hera": 1831,
-    "surge": 1951,
+    "surge": 1952,
     "moog": 2157,
     "webstream": 2895,
     "nam": 1947,
@@ -3120,12 +3120,12 @@
     "spectra": 1744,
     "essaim": 1557,
     "chowtape": 1349,
-    "ambiotica": 765,
+    "ambiotica": 767,
     "filter": 372,
     "wurl": 1473,
     "denis": 1449,
     "genera": 1524,
-    "euclidrum": 2272,
+    "euclidrum": 2274,
     "branchage": 1307,
     "twinsampler": 1352,
     "impressive-chords": 1176,
@@ -3147,6 +3147,6 @@
     "juno_control": 337,
     "helm": 582,
     "fork": 159,
-    "aphex": 45
+    "aphex": 46
   }
 }
