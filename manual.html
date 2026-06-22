@@ -280,13 +280,7 @@
                             <summary>Speaker EQ: voicing the built-in speaker</summary>
                             <div class="faq-body">
                                 <p>When Move→Schwung is on, Schwung rebuilds the DAC output itself, which bypasses Move's built-in speaker voicing. Schwung re-applies its own emulation of that EQ so the internal speaker still sounds full — but only on the speaker path; headphones and line-out stay neutral.</p>
-                                <p><strong>Global Settings → Audio → Speaker EQ</strong> controls it:</p>
-                                <ul>
-                                    <li><strong>Auto</strong> (default) — applies the EQ only once the headphone jack has reported "speaker" stably for a few seconds, rejecting boot-time glitches. This avoids the occasional hollow/phasey sound when headphones were already plugged in at boot.</li>
-                                    <li><strong>Off</strong> — never applies the EQ; guaranteed neutral for headphone and line-in users.</li>
-                                    <li><strong>On</strong> — always applies the EQ.</li>
-                                </ul>
-                                <p>The EQ only runs while Move→Schwung is active — with it off, this setting has no audible effect.</p>
+                                <p>This is fully automatic — it follows the headphone jack, so the speaker gets the voicing and headphones/line-out stay neutral. There's no setting to manage. (Earlier builds had a manual Auto/Off/On toggle as a workaround for occasional hollow/phasey headphone audio at boot; that bug is fixed — Schwung now re-asserts the true jack state a few seconds after startup — so the toggle was removed.)</p>
                             </div>
                         </details>
                     </div>
