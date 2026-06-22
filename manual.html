@@ -87,7 +87,7 @@
                             <tr><td>Toggle slot solo</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
                         </tbody>
                     </table>
-                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot. Plain <kbd>Mute</kbd> is suppressed while Shadow UI is shown so it doesn't toggle Move's own track mute mid-combo — Mute works normally when Shadow UI is dismissed.</p>
+                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. Plain <kbd>Mute</kbd> is suppressed while Shadow UI is shown so it doesn't toggle Move's own track mute mid-combo — Mute works normally when Shadow UI is dismissed.</p>
 
                     <h3>Tools, settings &amp; sets</h3>
                     <table class="shortcut-table">
@@ -263,8 +263,16 @@
                             <summary>Latency Comp: aligning Schwung synths with Move audio</summary>
                             <div class="faq-body">
                                 <p>When Move→Schwung is on, Move's per-track audio takes a few milliseconds to round-trip back into Schwung through Link Audio. Schwung's own slot synths render instantly, so by default they fire a few ms <em>ahead</em> of any Move drumrack/synth hitting the same beat — a subtle flam if both sides are on the same downbeat.</p>
-                                <p><strong>Global Settings → Audio → Latency Comp</strong> (default off) delays Schwung's slot synth output by a constant ~9 ms and locks the Link Audio side to the same target, so both arrive on the same DAC sample. Toggle applies immediately; expect a brief audible blip at the moment of toggling (a delay buffer engaging or disengaging mid-stream).</p>
-                                <p>Side effect: live playing through a Schwung slot adds ~9 ms of latency while Latency Comp is on. Leave it off if you're not running Move→Schwung, or if tight live response matters more than aligning with Move tracks.</p>
+                                <p><strong>Global Settings → Audio → Latency Comp</strong> (default off) delays Schwung's slot synth output by a constant ~16 ms and locks the Link Audio side to the same target, so both arrive on the same DAC sample. Toggle applies immediately; expect a brief audible blip at the moment of toggling (a delay buffer engaging or disengaging mid-stream).</p>
+                                <p>Side effect: live playing through a Schwung slot adds ~16 ms of latency while Latency Comp is on. That target matches how long Move's own tracks actually take to arrive — aligning any tighter would starve the audio buffer and cause dropouts. Leave it off if you're not running Move→Schwung, or if tight live response matters more than aligning with Move tracks.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Muting with Move→Schwung: tracks vs. drum pads</summary>
+                            <div class="faq-body">
+                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button (or tap Mute on its own) to mute that track — Move's track and the matching Schwung slot mute together and stay in sync.</p>
+                                <p>Hold <strong>Mute</strong> and tap a single <strong>drum pad</strong> to mute just that one pad/drum, exactly like stock Move. This no longer mutes the whole Schwung slot — only the pad you press.</p>
                             </div>
                         </details>
 
