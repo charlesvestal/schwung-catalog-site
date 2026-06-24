@@ -3,7 +3,7 @@
   "sf2": 2532,
   "sfz": 2106,
   "m8": 2368,
-  "minijv": 2628,
+  "minijv": 2629,
   "obxd": 2312,
   "cloudseed": 2078,
   "ottx": 254,
@@ -26,7 +26,7 @@
   "streamrtsp": 1214,
   "clap": 2043,
   "gate": 2193,
-  "control": 2569,
+  "control": 2570,
   "chiptune": 2145,
   "keydetect": 2102,
   "vocoder": 1742,
@@ -88,6 +88,6 @@
   "juno_control": 357,
   "helm": 620,
   "fork": 191,
-  "aphex": 103,
-  "war_bells": 67
+  "aphex": 104,
+  "war_bells": 68
 }
