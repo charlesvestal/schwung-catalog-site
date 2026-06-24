@@ -109,6 +109,7 @@
                             <tr><td>Suspend Overtake (keep running)</td><td>—</td><td><kbd>Shift+Vol</kbd> + <kbd>Back</kbd></td></tr>
                         </tbody>
                     </table>
+                    <p class="note"><strong>Co-run.</strong> Some modules support <em>co-run</em>, where an external controller (e.g. a connected USB device) drives the module while Move keeps its own native controls. The module takes over only the buttons and pads it needs and cedes the rest back to Move, so the two play side by side without fighting over the hardware.</p>
 
                     <h3>Knob overlay</h3>
                     <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay Knobs</strong>: <em>+Shift</em>, <em>+Jog Touch</em>, <em>Off</em>, or <em>Native</em> (default). Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
@@ -122,7 +123,8 @@
                     <p>Most day-to-day management lives in the web UI rather than on Move's display. Open <a href="http://move.local:7700" target="_blank" rel="noopener"><code>http://move.local:7700</code></a> from any browser on the same network while Move is on.</p>
                     <ul>
                         <li><strong>Modules</strong> — browse, install, uninstall, update modules. Install custom modules from a GitHub URL or tarball.</li>
-                        <li><strong>Files</strong> — browse, upload, download, rename, delete files on the device. Useful for managing module assets (soundfonts, patches, ROMs).</li>
+                        <li><strong>Files</strong> — browse, upload, download, rename, delete files on the device. Useful for managing module assets (soundfonts, patches, ROMs). Fully keyboard- and screen-reader-accessible: Tab between rows, <kbd>Enter</kbd> opens a folder (or downloads a file), <kbd>Space</kbd> selects, and each row announces its name; a checkbox column handles multi-select.</li>
+                        <li><strong>Remote UI</strong> — drive a slot's module from the browser. Modules that ship a custom interface (e.g. Osirus's signal-flow view) load it here alongside the standard knobs; toggle between them per slot.</li>
                         <li><strong>Config</strong> — adjust display, audio, screen reader, and feature settings. Changes apply instantly.</li>
                         <li><strong>System</strong> — version, debug logs, upgrade Schwung.</li>
                         <li><strong>Help</strong> — on-device help for Schwung and installed modules.</li>
@@ -168,6 +170,14 @@
                         <li><strong>Delete</strong> — removes a saved preset.</li>
                     </ul>
                     <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§10</a>.</p>
+
+                    <h3>Module presets (User Presets)</h3>
+                    <p>Where a <em>slot</em> preset saves the whole chain, a <strong>module preset</strong> saves the sound of a single component — one synth or one effect — so you can reuse it anywhere. Open the component's module list (the same place you change which module is loaded); just beneath the loaded module is an indented <strong>[User Presets]</strong> row.</p>
+                    <ul>
+                        <li><strong>Save</strong> — snapshots the component's current state under a name.</li>
+                        <li><strong>Audition</strong> — scrolling the list applies each preset <em>live</em> so you hear it. <kbd>Back</kbd> returns to your original sound; <strong>Load</strong> commits the highlighted one.</li>
+                        <li><strong>Portable</strong> — presets are tied to the <em>module</em>, not the slot, so a reverb preset you save in one slot shows up wherever that reverb is loaded.</li>
+                    </ul>
                 </section>
 
                 <section class="manual-section" id="midi-routing">
