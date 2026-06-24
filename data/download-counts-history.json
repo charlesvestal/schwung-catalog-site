@@ -3097,8 +3097,8 @@
     "sf2": 2530,
     "sfz": 2104,
     "m8": 2366,
-    "minijv": 2622,
-    "obxd": 2305,
+    "minijv": 2623,
+    "obxd": 2306,
     "cloudseed": 2076,
     "ottx": 251,
     "midiverb": 839,
@@ -3110,7 +3110,7 @@
     "sidcontrol": 1615,
     "braids": 1981,
     "hera": 1852,
-    "surge": 2007,
+    "surge": 2008,
     "moog": 2176,
     "webstream": 2928,
     "nam": 1973,
@@ -3129,7 +3129,7 @@
     "eucalypso": 1790,
     "granny": 2297,
     "freak": 1544,
-    "mrdrums": 1775,
+    "mrdrums": 1776,
     "rex": 2184,
     "hush1": 2058,
     "nusaw": 1729,
@@ -3182,7 +3182,7 @@
     "juno_control": 355,
     "helm": 617,
     "fork": 188,
-    "aphex": 97,
-    "war_bells": 58
+    "aphex": 98,
+    "war_bells": 59
   }
 }
