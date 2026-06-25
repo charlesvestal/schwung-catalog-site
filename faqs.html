@@ -59,6 +59,19 @@
                 </details>
 
                 <details class="faq-item">
+                    <summary>I updated but can't load modules / my slots show empty</summary>
+                    <div class="faq-body">
+                        <p>One core component (the audio "shim") can get left on an older version after a web update, which stops modules from loading. Open <a href="http://move.local:7700/system/repair" target="_blank" rel="noopener">move.local:7700/system/repair</a> — if a repair is needed it will say so and offer two fixes:</p>
+                        <ul>
+                            <li><strong>Run the GUI installer and reinstall</strong> — easiest, no terminal needed (and the right fix if you've never run the installer on this device).</li>
+                            <li>Or run the one-line command it shows you, from a Mac/Linux/WSL/PowerShell terminal on the same network:</li>
+                        </ul>
+                        <pre><code>ssh root@move.local 'chown root:root /data/UserData/schwung/bin/schwung-heal &amp;&amp; chmod 4755 /data/UserData/schwung/bin/schwung-heal &amp;&amp; /data/UserData/schwung/bin/schwung-heal --reboot'</code></pre>
+                        <p>The device reboots once and your modules will load again.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
                     <summary>Will updating my Move break Schwung?</summary>
                     <div class="faq-body">
                         <p>When your Move updates to a new firmware version, Schwung is temporarily disabled. Simply run the installer again, and it will auto-detect your Move's state and offer to repair it, leaving your modules and settings intact. </p>
