@@ -62,8 +62,8 @@
   "spectra": 1809,
   "essaim": 1628,
   "chowtape": 1412,
-  "ambiotica": 918,
-  "filter": 456,
+  "ambiotica": 919,
+  "filter": 457,
   "wurl": 1541,
   "denis": 1519,
   "genera": 1597,
@@ -81,7 +81,7 @@
   "signal": 731,
   "krautdrums": 754,
   "forge": 761,
-  "davebox": 1034,
+  "davebox": 1035,
   "chorddex": 858,
   "mrsample": 692,
   "dronage-tool": 732,
@@ -89,6 +89,6 @@
   "juno_control": 408,
   "helm": 685,
   "fork": 254,
-  "aphex": 206,
-  "war_bells": 209
+  "aphex": 207,
+  "war_bells": 210
 }
