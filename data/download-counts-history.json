@@ -3159,7 +3159,7 @@
   },
   "2026-06-30": {
     "dexed": 2640,
-    "sf2": 2568,
+    "sf2": 2569,
     "sfz": 2155,
     "m8": 2408,
     "minijv": 2737,
@@ -3180,7 +3180,7 @@
     "webstream": 3003,
     "nam": 2030,
     "ducker": 1993,
-    "pushnpull": 73,
+    "pushnpull": 75,
     "radiogarden": 2176,
     "airplay": 2679,
     "streamrtsp": 1248,
@@ -3221,16 +3221,16 @@
     "spectra": 1810,
     "essaim": 1629,
     "chowtape": 1412,
-    "ambiotica": 922,
+    "ambiotica": 924,
     "filter": 458,
     "wurl": 1544,
     "denis": 1519,
     "genera": 1598,
-    "euclidrum": 2561,
+    "euclidrum": 2563,
     "branchage": 1365,
     "twinsampler": 1463,
     "impressive-chords": 1251,
-    "midi-player": 681,
+    "midi-player": 682,
     "ai-manual": 723,
     "ai-assistant": 737,
     "303": 1130,
@@ -3248,7 +3248,7 @@
     "juno_control": 408,
     "helm": 686,
     "fork": 255,
-    "aphex": 208,
-    "war_bells": 212
+    "aphex": 209,
+    "war_bells": 213
   }
 }
