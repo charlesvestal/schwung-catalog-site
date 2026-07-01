@@ -21,7 +21,7 @@
   "webstream": 3030,
   "nam": 2045,
   "ducker": 2006,
-  "pushnpull": 105,
+  "pushnpull": 106,
   "radiogarden": 2191,
   "airplay": 2695,
   "streamrtsp": 1260,
@@ -67,11 +67,11 @@
   "wurl": 1557,
   "denis": 1534,
   "genera": 1614,
-  "euclidrum": 2609,
+  "euclidrum": 2610,
   "branchage": 1379,
   "twinsampler": 1482,
   "impressive-chords": 1267,
-  "midi-player": 716,
+  "midi-player": 717,
   "ai-manual": 737,
   "ai-assistant": 751,
   "303": 1145,
@@ -91,5 +91,5 @@
   "fork": 274,
   "aphex": 232,
   "war_bells": 238,
-  "movy": 17
+  "movy": 18
 }
