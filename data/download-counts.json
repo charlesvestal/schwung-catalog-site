@@ -3,7 +3,7 @@
   "sf2": 2661,
   "sfz": 2270,
   "m8": 2496,
-  "minijv": 2925,
+  "minijv": 2926,
   "obxd": 2676,
   "cloudseed": 2227,
   "ottx": 449,
@@ -62,7 +62,7 @@
   "spectra": 1916,
   "essaim": 1741,
   "chowtape": 1510,
-  "ambiotica": 1157,
+  "ambiotica": 1158,
   "filter": 573,
   "wurl": 1654,
   "denis": 1629,
@@ -81,7 +81,7 @@
   "signal": 836,
   "krautdrums": 862,
   "forge": 970,
-  "davebox": 1206,
+  "davebox": 1207,
   "chorddex": 1076,
   "mrsample": 793,
   "dronage-tool": 974,
@@ -95,6 +95,6 @@
   "magneto": 134,
   "fizzik": 148,
   "palette": 147,
-  "smack": 43,
-  "smack-in": 42
+  "smack": 44,
+  "smack-in": 43
 }
