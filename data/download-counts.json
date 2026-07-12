@@ -27,7 +27,7 @@
   "streamrtsp": 1333,
   "clap": 2213,
   "gate": 2313,
-  "control": 2766,
+  "control": 2767,
   "chiptune": 2279,
   "keydetect": 2232,
   "vocoder": 1868,
@@ -95,6 +95,6 @@
   "magneto": 145,
   "fizzik": 159,
   "palette": 158,
-  "smack": 76,
-  "smack-in": 73
+  "smack": 78,
+  "smack-in": 76
 }
