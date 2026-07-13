@@ -22,7 +22,7 @@
   "nam": 2152,
   "ducker": 2094,
   "pushnpull": 292,
-  "radiogarden": 2396,
+  "radiogarden": 2397,
   "airplay": 2791,
   "streamrtsp": 1335,
   "clap": 2216,
@@ -80,7 +80,7 @@
   "po32-drum": 648,
   "signal": 844,
   "krautdrums": 870,
-  "forge": 991,
+  "forge": 992,
   "davebox": 1222,
   "chorddex": 1096,
   "mrsample": 802,
@@ -92,9 +92,9 @@
   "aphex": 387,
   "war_bells": 399,
   "movy": 243,
-  "magneto": 152,
-  "fizzik": 166,
-  "palette": 165,
-  "smack": 93,
-  "smack-in": 91
+  "magneto": 153,
+  "fizzik": 167,
+  "palette": 166,
+  "smack": 95,
+  "smack-in": 93
 }
