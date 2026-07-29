@@ -103,5 +103,5 @@
   "belt-in": {"first_release": "2026-07-13", "last_updated": "2026-07-24", "version": "v0.2.0", "release_dates": ["2026-07-13","2026-07-14","2026-07-15","2026-07-24"]},
   "mono": {"first_release": "2026-07-16", "last_updated": "2026-07-27", "version": "v0.4.1", "release_dates": ["2026-07-16","2026-07-20","2026-07-20","2026-07-24","2026-07-24","2026-07-27"]},
   "mono-voice": {"first_release": "2026-07-18", "last_updated": "2026-07-24", "version": "v0.4.0", "release_dates": ["2026-07-18","2026-07-24"]},
-  "noisemaker": {"first_release": "2026-07-21", "last_updated": "2026-07-21", "version": "v0.1.0", "release_dates": ["2026-07-21"]}
+  "noisemaker": {"first_release": "2026-07-21", "last_updated": "2026-07-29", "version": "v0.2.0", "release_dates": ["2026-07-21","2026-07-29"]}
 }
