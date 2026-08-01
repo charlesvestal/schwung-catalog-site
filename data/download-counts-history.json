@@ -3642,7 +3642,7 @@
     "fork": 505,
     "aphex": 552,
     "war_bells": 546,
-    "movy": 562,
+    "movy": 563,
     "magneto": 323,
     "fizzik": 343,
     "palette": 348,
@@ -3650,10 +3650,15 @@
     "smack-in": 348,
     "oversmack": 264,
     "mark": 361,
-    "belt": 322,
+    "belt": 325,
     "belt-in": 272,
     "mono": 360,
     "mono-voice": 213,
-    "noisemaker": 181
+    "noisemaker": 181,
+    "work": 20,
+    "work-in": 0,
+    "overwork": 0,
+    "beatbank": 4,
+    "groovebank": 0
   }
 }

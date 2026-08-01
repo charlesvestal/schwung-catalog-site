@@ -103,5 +103,10 @@
   "belt-in": {"first_release": "2026-07-13", "last_updated": "2026-07-30", "version": "v0.2.1", "release_dates": ["2026-07-13","2026-07-14","2026-07-15","2026-07-24","2026-07-30"]},
   "mono": {"first_release": "2026-07-16", "last_updated": "2026-07-30", "version": "v0.4.2", "release_dates": ["2026-07-16","2026-07-20","2026-07-20","2026-07-24","2026-07-24","2026-07-27","2026-07-30"]},
   "mono-voice": {"first_release": "2026-07-18", "last_updated": "2026-07-30", "version": "v0.4.2", "release_dates": ["2026-07-18","2026-07-24","2026-07-30"]},
-  "noisemaker": {"first_release": "2026-07-21", "last_updated": "2026-07-29", "version": "v0.2.2", "release_dates": ["2026-07-21","2026-07-29","2026-07-29","2026-07-29"]}
+  "noisemaker": {"first_release": "2026-07-21", "last_updated": "2026-07-29", "version": "v0.2.2", "release_dates": ["2026-07-21","2026-07-29","2026-07-29","2026-07-29"]},
+  "work": {"first_release": "2026-07-28", "last_updated": "2026-07-30", "version": "v0.9.0", "release_dates": ["2026-07-28","2026-07-28","2026-07-28","2026-07-29","2026-07-29","2026-07-29","2026-07-29","2026-07-30"]},
+  "work-in": {"first_release": "unknown", "last_updated": "unknown", "version": "unknown", "release_dates": []},
+  "overwork": {"first_release": "unknown", "last_updated": "unknown", "version": "unknown", "release_dates": []},
+  "beatbank": {"first_release": "2026-07-01", "last_updated": "2026-07-24", "version": "v0.1.5", "release_dates": ["2026-07-01","2026-07-24","2026-07-24"]},
+  "groovebank": {"first_release": "2026-07-09", "last_updated": "2026-07-24", "version": "v0.1.16", "release_dates": ["2026-07-09","2026-07-24","2026-07-24","2026-07-24"]}
 }
