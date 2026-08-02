@@ -91,7 +91,7 @@
   "fork": 506,
   "aphex": 553,
   "war_bells": 549,
-  "movy": 588,
+  "movy": 589,
   "magneto": 326,
   "fizzik": 347,
   "palette": 352,
@@ -104,9 +104,9 @@
   "mono": 387,
   "mono-voice": 213,
   "noisemaker": 191,
-  "work": 68,
+  "work": 71,
   "work-in": 0,
   "overwork": 0,
-  "beatbank": 16,
-  "groovebank": 14
+  "beatbank": 18,
+  "groovebank": 15
 }
