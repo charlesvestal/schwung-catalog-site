@@ -3695,7 +3695,7 @@
     "sfz": 2431,
     "m8": 2636,
     "minijv": 3172,
-    "obxd": 2950,
+    "obxd": 2951,
     "cloudseed": 2389,
     "ottx": 725,
     "midiverb": 1130,
@@ -3736,7 +3736,7 @@
     "waveform-editor": 2954,
     "stretch": 2281,
     "stems": 2122,
-    "plaits": 2176,
+    "plaits": 2177,
     "granular": 2284,
     "superboom": 1836,
     "performance-fx": 1850,
@@ -3778,7 +3778,7 @@
     "dronage-tool": 1249,
     "chordism": 900,
     "juno_control": 659,
-    "helm": 1008,
+    "helm": 1009,
     "fork": 542,
     "aphex": 604,
     "war_bells": 592,
@@ -3798,7 +3798,7 @@
     "work": 333,
     "work-in": 0,
     "overwork": 0,
-    "beatbank": 109,
+    "beatbank": 110,
     "groovebank": 98
   }
 }
