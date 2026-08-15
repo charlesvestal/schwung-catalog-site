@@ -14,7 +14,7 @@
   "tapedelay": 3100,
   "junologue-chorus": 2153,
   "sidcontrol": 1884,
-  "braids": 2355,
+  "braids": 2356,
   "hera": 2186,
   "surge": 2601,
   "moog": 2472,
@@ -94,7 +94,7 @@
   "movy": 810,
   "magneto": 411,
   "fizzik": 443,
-  "palette": 452,
+  "palette": 453,
   "smack": 930,
   "smack-in": 348,
   "oversmack": 264,
@@ -107,6 +107,6 @@
   "work": 491,
   "work-in": 0,
   "overwork": 0,
-  "beatbank": 169,
+  "beatbank": 170,
   "groovebank": 160
 }
