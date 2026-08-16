@@ -50,7 +50,7 @@
   "superboom": 1883,
   "performance-fx": 1897,
   "dj": 1704,
-  "slicer": 1624,
+  "slicer": 1625,
   "verglas": 1689,
   "guitar-tuner": 1056,
   "tuner": 1580,
@@ -91,7 +91,7 @@
   "fork": 590,
   "aphex": 669,
   "war_bells": 647,
-  "movy": 843,
+  "movy": 844,
   "magneto": 424,
   "fizzik": 455,
   "palette": 467,
@@ -104,9 +104,9 @@
   "mono": 688,
   "mono-voice": 213,
   "noisemaker": 353,
-  "work": 532,
+  "work": 533,
   "work-in": 0,
   "overwork": 0,
-  "beatbank": 186,
-  "groovebank": 176
+  "beatbank": 187,
+  "groovebank": 177
 }
