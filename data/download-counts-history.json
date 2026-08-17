@@ -3852,7 +3852,7 @@
     "superboom": 1887,
     "performance-fx": 1901,
     "dj": 1706,
-    "slicer": 1641,
+    "slicer": 1642,
     "verglas": 1693,
     "guitar-tuner": 1058,
     "tuner": 1582,
@@ -3864,7 +3864,7 @@
     "spectra": 2125,
     "essaim": 1956,
     "chowtape": 1736,
-    "ambiotica": 1735,
+    "ambiotica": 1736,
     "filter": 816,
     "wurl": 1885,
     "denis": 1846,
@@ -3893,7 +3893,7 @@
     "fork": 593,
     "aphex": 677,
     "war_bells": 650,
-    "movy": 867,
+    "movy": 868,
     "magneto": 428,
     "fizzik": 460,
     "palette": 473,
@@ -3911,8 +3911,8 @@
     "overwork": 0,
     "beatbank": 193,
     "groovebank": 184,
-    "rrverb10": 15,
-    "9w9": 15,
-    "chord-finder": 15
+    "rrverb10": 16,
+    "9w9": 16,
+    "chord-finder": 16
   }
 }
