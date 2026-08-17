@@ -3852,7 +3852,7 @@
     "superboom": 1886,
     "performance-fx": 1899,
     "dj": 1706,
-    "slicer": 1635,
+    "slicer": 1636,
     "verglas": 1692,
     "guitar-tuner": 1058,
     "tuner": 1582,
@@ -3882,8 +3882,8 @@
     "po32-drum": 887,
     "signal": 1045,
     "krautdrums": 1084,
-    "forge": 1421,
-    "davebox": 1651,
+    "forge": 1422,
+    "davebox": 1652,
     "chorddex": 1382,
     "mrsample": 1013,
     "dronage-tool": 1307,
@@ -3893,7 +3893,7 @@
     "fork": 592,
     "aphex": 674,
     "war_bells": 649,
-    "movy": 859,
+    "movy": 860,
     "magneto": 427,
     "fizzik": 459,
     "palette": 470,
@@ -3911,8 +3911,8 @@
     "overwork": 0,
     "beatbank": 192,
     "groovebank": 183,
-    "rrverb10": 8,
-    "9w9": 6,
-    "chord-finder": 6
+    "rrverb10": 10,
+    "9w9": 7,
+    "chord-finder": 8
   }
 }
