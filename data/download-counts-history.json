@@ -3853,7 +3853,7 @@
     "radiogarden": 2809,
     "airplay": 3015,
     "streamrtsp": 1507,
-    "clap": 2484,
+    "clap": 2485,
     "gate": 2496,
     "control": 3300,
     "chiptune": 2489,
@@ -3937,8 +3937,8 @@
     "overwork": 0,
     "beatbank": 202,
     "groovebank": 194,
-    "rrverb10": 37,
-    "9w9": 52,
-    "chord-finder": 38
+    "rrverb10": 38,
+    "9w9": 53,
+    "chord-finder": 39
   }
 }
