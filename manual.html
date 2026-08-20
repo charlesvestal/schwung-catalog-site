@@ -137,16 +137,24 @@
 
                 <section class="manual-section" id="slots">
                     <h2>4 · Slots &amp; signal chain</h2>
-                    <p>Each instrument slot holds a fixed signal chain:</p>
-                    <pre>MIDI FX → Sound Generator → Audio FX 1 → Audio FX 2 → Settings</pre>
+                    <p>Each instrument slot holds a signal chain you build:</p>
+                    <pre>MIDI FX ×1–8 → Sound Generator → Audio FX ×1–8 → Settings</pre>
+                    <p>The synth is anchored in the middle; everything either side of it is a list you can grow, shorten and reorder. MIDI FX chain serially, so an arpeggiator can feed a second arpeggiator.</p>
                     <p>Inside a slot:</p>
                     <ul>
                         <li><strong>Jog wheel</strong> — scroll between chain positions.</li>
                         <li><strong>Jog click</strong> — enter the selected position; on an empty position, opens the module picker.</li>
                         <li><strong>Back</strong> — go up one level.</li>
                         <li><strong>Shift + Jog click</strong> on a loaded module — swap it out without clearing the slot first.</li>
+                        <li><strong>Shift + Jog wheel</strong> — move the selected module along the chain.</li>
+                        <li>The two <strong>+</strong> boxes add a module <em>where they are drawn</em> — the MIDI one at the head of the chain, the audio one at the end. Backing out of the picker, or choosing <em>None</em>, adds nothing.</li>
                     </ul>
+                    <p class="note"><strong>Editing the chain never restarts what is already in it.</strong> Adding, removing or moving a module leaves every other module running untouched — a running arpeggiator keeps its phase, a reverb keeps its tail, and nothing loses the parameters you dialled in. Swapping a module out with Shift + Jog click does replace it, so that one starts fresh.</p>
                     <p>Most modules expose a preset browser (jog to scroll, click to select), a parameter menu organized hierarchically, and assignments for knobs 1–8.</p>
+
+                    <h3>Knobs</h3>
+                    <p>Touch or turn a knob in the chain editor and a card appears over the chain showing that knob together with its three neighbours — each with its name, its value, and the dial, switch or curve it actually drives. The knob you are holding is highlighted, and its full parameter name and value sit along the top of the card. Let go and the chain diagram is back.</p>
+                    <p>With no module selected — the whole slot highlighted — the knobs drive the slot's own eight assignments, and the card shows just the name and value for the one you are turning.</p>
 
                     <h3>Slot settings</h3>
                     <p>The last position in each slot is its settings page:</p>
