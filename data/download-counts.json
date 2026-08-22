@@ -31,7 +31,7 @@
   "chiptune": 2511,
   "keydetect": 2512,
   "vocoder": 2084,
-  "osirus": 3349,
+  "osirus": 3350,
   "superarp": 2418,
   "eucalypso": 2138,
   "granny": 2703,
@@ -74,7 +74,7 @@
   "midi-player": 1197,
   "ai-manual": 1038,
   "ai-assistant": 1054,
-  "303": 1547,
+  "303": 1548,
   "tb3po": 1654,
   "breakbeat": 1540,
   "po32-drum": 969,
@@ -110,6 +110,6 @@
   "beatbank": 239,
   "groovebank": 229,
   "rrverb10": 84,
-  "9w9": 127,
+  "9w9": 128,
   "chord-finder": 91
 }
