@@ -3875,7 +3875,7 @@
   "2026-08-23": {
     "dexed": 3077,
     "sf2": 2880,
-    "sfz": 2522,
+    "sfz": 2523,
     "m8": 2714,
     "minijv": 3311,
     "obxd": 3093,
@@ -3885,7 +3885,8 @@
     "tapescam": 2449,
     "psxverb": 2150,
     "mverb": 1022,
-    "tapedelay": 3181,
+    "tapedelay": 3184,
+    "tape-echo2": 17,
     "junologue-chorus": 2203,
     "sidcontrol": 1928,
     "braids": 2508,
@@ -3903,7 +3904,7 @@
     "gate": 2527,
     "control": 3352,
     "chiptune": 2525,
-    "keydetect": 2547,
+    "keydetect": 2549,
     "vocoder": 2099,
     "osirus": 3371,
     "superarp": 2434,
@@ -3922,7 +3923,7 @@
     "plaits": 2280,
     "granular": 2379,
     "superboom": 1922,
-    "performance-fx": 2041,
+    "performance-fx": 2042,
     "dj": 1742,
     "slicer": 1755,
     "verglas": 1733,
@@ -3965,7 +3966,7 @@
     "fork": 635,
     "aphex": 736,
     "war_bells": 696,
-    "movy": 1034,
+    "movy": 1035,
     "magneto": 464,
     "fizzik": 515,
     "palette": 524,
@@ -3984,9 +3985,9 @@
     "beatbank": 260,
     "groovebank": 249,
     "rrverb10": 105,
-    "9w9": 163,
-    "tablor": 28,
+    "9w9": 165,
+    "tablor": 29,
     "chord-finder": 113,
-    "capicola": 13
+    "capicola": 14
   }
 }
