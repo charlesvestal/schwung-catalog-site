@@ -101,6 +101,9 @@
                         </tbody>
                     </table>
 
+                    <p><strong>Global Settings</strong> is seven pages on one jog axis — <em>Display</em>, <em>Audio</em>, <em>Screen Reader</em>, <em>Set Pages</em>, <em>Shortcuts</em>, <em>Services</em> and <em>Updates</em>. Jog between them, click to enter one, then jog to a row and click to change it. <kbd>Shift</kbd> + jog-click opens the section picker from anywhere. <em>Updates</em> is a menu rather than a list of settings: <em>Check Updates</em>, <em>Module Store</em> and <em>Help</em>.</p>
+                    <p>It is always drawn as a list, whatever <strong>Param View</strong> is set to. These are set-once switches rather than things you play, and several of them re-route audio — a knob has no detent to tell you it moved.</p>
+
                     <h3>Overtake modules</h3>
                     <table class="shortcut-table">
                         <thead><tr><th>Action</th><th>Long-press</th><th>Shift+Vol</th></tr></thead>
@@ -112,7 +115,17 @@
 
                     <h3>Param View</h3>
                     <p>When you open a module's parameters, Schwung shows a <strong>knob grid</strong>: eight cells laid out like the hardware, each drawn as the control it actually is — a dial, a fader, an envelope, a switch — and paged with the jog wheel. Touching a knob raises a card showing that row up close. Any parameter with a list of options opens that list on a jog-click, so a 47-model oscillator is a scrolling list rather than 47 detents.</p>
-                    <p>The older <strong>list</strong> view is still there under <strong>Global Settings → Display → Param View</strong>. It reads parameters one per line and is the better choice for a module that publishes no page structure, where the grid can only paginate a flat list. If you previously set this to <em>List</em>, your choice is kept.</p>
+                    <p>Set <strong>Global Settings → Display → Param View</strong> to <em>List</em> and the same pages are drawn as rows instead — one parameter per line, name and value, five at a time. It is the better choice for a module that publishes no page structure, where the grid can only paginate a flat list, and for reading long values that a knob cell has to abbreviate. Everything else is identical: the same pages in the same order, the same sections, the same jog-click, the same option lists. If you previously set this to <em>List</em>, your choice is kept.</p>
+
+                    <h3>Getting around a page</h3>
+                    <p>Every parameter screen — a module's pages, slot settings, Master FX settings, Global Settings — is navigated the same way:</p>
+                    <ul>
+                        <li><strong>Jog</strong> moves between pages.</li>
+                        <li><strong>Jog-click</strong> enters the page you are on. On a list you then get a row cursor: jog to a row, click to change it, <kbd>Back</kbd> to step back out.</li>
+                        <li><strong>Shift + jog-click</strong> opens the section picker from anywhere, so a module with a lot of pages is one gesture away from any of them.</li>
+                        <li><strong>Back</strong> comes out one layer at a time — the picker, then the page, then the screen.</li>
+                    </ul>
+                    <p>Preset browsers and option lists are <em>doors</em>: paging past one does not load anything, so you can jog through a synth's presets without auditioning every one. Clicking in is what commits you.</p>
 
                     <h3>Knob overlay</h3>
                     <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay Knobs</strong>: <em>+Shift</em>, <em>+Jog Touch</em>, <em>Off</em>, or <em>Native</em> (default). Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
@@ -426,7 +439,7 @@
                     <h2>13 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
                     <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or <kbd>Shift</kbd> + <kbd>Note/Session</kbd> when Shadow UI is disabled. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Debounce</em> (0–1000 ms).</p>
-                    <p>The on-device help viewer (<strong>Global Settings → Help…</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
+                    <p>The on-device help viewer (<strong>Global Settings → Updates → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
                 <section class="manual-section" id="limitations">
