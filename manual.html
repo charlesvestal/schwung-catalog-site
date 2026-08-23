@@ -73,7 +73,7 @@
 
                 <section class="manual-section" id="getting-around">
                     <h2>2 · Getting around</h2>
-                    <p>There are two ways to open Shadow UI: a long-press of certain buttons, or a chord with the <strong>Shift</strong> button while touching the volume knob. Pick whichever feels less accidental — or use both. Configure under <strong>Global Settings → Shortcuts → Shadow UI Trigger</strong> (<em>Long Press</em>, <em>Shift+Vol</em>, or <em>Both</em>, default). Shortcuts marked <em>—</em> are only available via the listed gesture.</p>
+                    <p>There are two ways to open Shadow UI: a long-press of certain buttons, or a chord with the <strong>Shift</strong> button while touching the volume knob. Pick whichever feels less accidental — or use both. Configure under <strong>Global Settings → Shortcuts → Open With</strong> (<em>Hold</em>, <em>Sh+Vol</em>, or <em>Both</em>, default). Shortcuts marked <em>—</em> are only available via the listed gesture.</p>
 
                     <h3>Tracks &amp; Master FX</h3>
                     <table class="shortcut-table">
@@ -128,10 +128,10 @@
                     <p>Preset browsers and option lists are <em>doors</em>: paging past one does not load anything, so you can jog through a synth's presets without auditioning every one. Clicking in is what commits you.</p>
 
                     <h3>Knob overlay</h3>
-                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay Knobs</strong>: <em>+Shift</em>, <em>+Jog Touch</em>, <em>Off</em>, or <em>Native</em> (default). Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
+                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay</strong>: <em>Shift</em>, <em>Jog</em>, <em>Off</em>, or <em>Native</em> (default). Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
 
                     <h3>MIDI channel indicator</h3>
-                    <p>A small readout in the bottom-right corner shows the external (USB) MIDI channel while you hold a note: <code>i&lt;ch&gt;</code> for the channel a connected controller is sending in, and <code>i&lt;ch&gt; o&lt;ch&gt;</code> when Schwung forwards that note back out (after any MIDI FX or channel remap). Enable under <strong>Global Settings → Display → MIDI Channel</strong>. It monitors your external-gear routing — clip/track MIDI-out isn't shown.</p>
+                    <p>A small readout in the bottom-right corner shows the external (USB) MIDI channel while you hold a note: <code>i&lt;ch&gt;</code> for the channel a connected controller is sending in, and <code>i&lt;ch&gt; o&lt;ch&gt;</code> when Schwung forwards that note back out (after any MIDI FX or channel remap). Enable under <strong>Global Settings → Display → Show MIDI</strong>. It monitors your external-gear routing — clip/track MIDI-out isn't shown.</p>
                 </section>
 
                 <section class="manual-section" id="manager">
@@ -326,7 +326,7 @@
 
                     <h3>Sampling Schwung into Move (Sample Src)</h3>
                     <p>Feed Schwung's audio into Move's native sampling path so you can capture a Schwung synth, Webstream, AirPlay, Radio Garden, or any other Schwung output straight into a drum pad or sampler clip — using all of Move's normal sampling tools (Auto-Sample, count-in, slicing, drum-pad capture).</p>
-                    <p>Configure under <strong>Global Settings → Audio → Sample Src</strong>:</p>
+                    <p>Configure under <strong>Global Settings → Audio → Resample</strong>:</p>
                     <ul>
                         <li><strong>Native</strong> (default) — Move's sampler uses Move's normal input (line-in / mic).</li>
                         <li><strong>Schwung Mix</strong> — replaces the sampler's input with Schwung's master output, so anything you can hear from Schwung becomes recordable on Move.</li>
@@ -355,7 +355,7 @@
 
                     <h3>Skipback</h3>
                     <p>Schwung continuously maintains a rolling audio buffer (30 s by default, up to 5 min). Press <kbd>Shift</kbd>+<kbd>Capture</kbd> to dump the buffer to disk instantly without interrupting playback — recover happy accidents you weren't recording.</p>
-                    <p>Configure under <strong>Global Settings → Audio</strong>: <em>Skipback</em> changes the shortcut to <em>Sh+Vol+Cap</em> if Shift+Capture conflicts; <em>Skipback Len</em> sets buffer size (30 s, 1 m, 2 m, 3 m, 4 m, 5 m). Resizing preserves whatever's currently in the buffer (oldest samples truncated when shrinking).</p>
+                    <p>Configure under <strong>Global Settings → Audio</strong>: <em>Skipback</em> changes the shortcut to <em>Vol+Cap</em> if Shift+Capture conflicts; <em>Skipback Len</em> sets buffer size (30 s, 1 m, 2 m, 3 m, 4 m, 5 m). Resizing preserves whatever's currently in the buffer (oldest samples truncated when shrinking).</p>
                     <p>Files save to <code>Samples/Schwung/Skipback/YYYY-MM-DD/</code> using the same source setting as the Quantized Sampler.</p>
 
                     <h3>Feedback protection</h3>
@@ -365,7 +365,7 @@
                     <h3>USB-C audio out remembered</h3>
                     <p>Move's <strong>Settings → USB-C Audio Out</strong> chooses what a computer connected over USB-C hears: the <em>microphone</em>, or <em>Main Out</em>. Move forgets this every time it powers off — it always comes back on <em>Mic</em>, so if you record Move into a computer you have to re-pick <em>Main Out</em> at the start of every session.</p>
                     <p>Schwung remembers it for you. Choose the setting once in Move's own menu, and a few seconds after each boot Schwung restores it. Nothing to configure, and nothing happens at all if you're on <em>Mic</em> — that's already Move's default.</p>
-                    <p>Under <strong>Global Settings → Audio</strong>, <em>USB-C Persist</em> turns the restoring on and off, and shows the source currently in use — e.g. <em>On (Main Out)</em>. It is not a second Mic/Main Out switch: Move's own menu still chooses which one you want, and this only decides whether Schwung puts it back after a reboot.</p>
+                    <p>Under <strong>Global Settings → Audio</strong>, <em>USB-C</em> turns the restoring on and off, and shows the source currently in use — e.g. <em>On (Main Out)</em>. It is not a second Mic/Main Out switch: Move's own menu still chooses which one you want, and this only decides whether Schwung puts it back after a reboot.</p>
                     <p class="note"><strong>There's a short gap after boot.</strong> Move starts on <em>Mic</em>, and Schwung switches it over a few seconds later once Move's firmware is up — you'll hear the mic briefly, then Main Out take over. If you're recording the Move from the moment it powers on, the first few seconds will be microphone audio.</p>
                     <p class="note"><strong>Move's screen will still say "Mic".</strong> Move doesn't update its own display when the setting is restored, so the menu shows <em>Mic</em> while the computer is really receiving <em>Main Out</em>. The audio is correct — trust your ears, not the screen. If you open that menu, picking <em>Main Out</em> is harmless; picking <em>Mic</em> will genuinely switch it back to the microphone, even though it looks like you're changing nothing.</p>
                 </section>
@@ -438,7 +438,7 @@
                 <section class="manual-section" id="accessibility">
                     <h2>13 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
-                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or <kbd>Shift</kbd> + <kbd>Note/Session</kbd> when Shadow UI is disabled. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Debounce</em> (0–1000 ms).</p>
+                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or <kbd>Shift</kbd> + <kbd>Note/Session</kbd> when Shadow UI is disabled. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
                     <p>The on-device help viewer (<strong>Global Settings → Updates → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
