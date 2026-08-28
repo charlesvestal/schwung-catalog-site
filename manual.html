@@ -114,10 +114,101 @@
                     </table>
 
                     <h3>Param View</h3>
-                    <p>When you open a module's parameters, Schwung shows a <strong>knob grid</strong>: eight cells laid out like the hardware, each drawn as the control it actually is — a dial, a fader, an envelope, a switch — and paged with the jog wheel. Touching a knob raises a card showing that row up close. Any parameter with a list of options opens that list on a jog-click, so a 47-model oscillator is a scrolling list rather than 47 detents.</p>
+                    <p>When you open a module's parameters, Schwung shows a <strong>knob grid</strong>: eight cells laid out like the hardware, each drawn as the control it actually is — a dial, a fader, an envelope, a switch — and paged with the jog wheel. Touching a knob raises a card showing that row up close. Any parameter with a list of options opens that list on a jog-click, so a 47-model oscillator is a scrolling list rather than 47 detents. A parameter with only <em>two</em> values has nothing to browse, so there the click simply switches it — the footer says <code>CLK FLIP</code> instead of <code>CLK OPEN</code>. In List view the same parameter is focused instead, and the jog changes it, like every other row. Turning a two-value control switches it whichever way you turn — there is nowhere else for it to go — and one flick of the encoder is one change.</p>
+                    <!-- BEGIN generated widgets. Written by schwung's tools/param-pages/widget_sheet.mjs
+                         --manual, from the same code the device draws with.
+                         Do not hand-edit between these markers. -->
+                    <style>
+                    .wg-grid { display: grid; gap: 1rem; margin: 1.25rem 0;
+                               grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
+                               align-items: start; }
+                    .wg-fig { margin: 0; }
+                    .wg-fig img { max-width: 100%; height: auto; display: block;
+                                  image-rendering: pixelated;
+                                  border: 1px solid var(--border); border-radius: 3px;
+                                  background: #000; }
+                    .wg-fig figcaption { margin-top: .4rem; font-size: .85rem;
+                                         color: var(--text-muted); line-height: 1.35; }
+                    </style>
+
+                    <p>You never choose these — a module declares what a parameter
+                    <em>is</em>, and the right control follows.</p>
+                    <div class="wg-grid">
+                        <figure class="wg-fig">
+                            <img src="images/widgets/arc-knob.png" alt="Knob — a continuous value, swept from minimum to maximum." width="256">
+                            <figcaption><strong>Knob</strong> — a continuous value, swept from minimum to maximum.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/big-number.png" alt="Number — a small whole number reads better as itself." width="192">
+                            <figcaption><strong>Number</strong> — a small whole number reads better as itself.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/enum-square.png" alt="Choice — a value that is a word. Click to open the list." width="192">
+                            <figcaption><strong>Choice</strong> — a value that is a word. Click to open the list.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-switch.png" alt="Switch — on/off, with both states drawn." width="64">
+                            <figcaption><strong>Switch</strong> — on/off, with both states drawn.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/button.png" alt="Action — does something rather than holding a value." width="192">
+                            <figcaption><strong>Action</strong> — does something rather than holding a value.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/opaque-box.png" alt="Editor — contents live on another screen. NONE means empty." width="192">
+                            <figcaption><strong>Editor</strong> — contents live on another screen. <em>NONE</em> means empty.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Where several knobs describe one thing, Schwung draws the thing
+                    instead of the knobs, across the cells they occupy.</p>
+                    <div class="wg-grid">
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-envelope.png" alt="Envelope — attack, decay, sustain and release as the shape they make." width="256">
+                            <figcaption><strong>Envelope</strong> — attack, decay, sustain and release as the shape they make.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-filter.png" alt="Filter — the response curve, from cutoff and resonance." width="128">
+                            <figcaption><strong>Filter</strong> — the response curve, from cutoff and resonance.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-lfo.png" alt="LFO — the actual waveform, at its rate and depth." width="192">
+                            <figcaption><strong>LFO</strong> — the actual waveform, at its rate and depth.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-sample.png" alt="Sample — the file's real waveform, play position and loop points." width="128">
+                            <figcaption><strong>Sample</strong> — the file's real waveform, play position and loop points.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Four of them move when their value changes, so a change is visible
+                    rather than just present. <em>(Slowed 5&times; here — on the device
+                    these take a fraction of a second.)</em></p>
+                    <div class="wg-grid">
+                        <figure class="wg-fig">
+                            <img src="images/widgets/motion-waveform.gif" alt="One shape bends into the next." width="64">
+                            <figcaption>One shape bends into the next.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/motion-enum.gif" alt="The square grows to fit the new word." width="64">
+                            <figcaption>The square grows to fit the new word.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/motion-button.gif" alt="Presses, and throws a ring." width="64">
+                            <figcaption>Presses, and throws a ring.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p class="note">Module authors: the full reference — every widget,
+                    the page chrome, and the rule that selects each one — is in
+                    <a href="https://github.com/charlesvestal/schwung/blob/main/docs/MODULES.md#which-widget-a-cell-draws"
+                       target="_blank" rel="noopener">MODULES.md</a>.</p>
+                    <!-- END generated widgets -->
+
                     <p>The eight <strong>encoder rings light up</strong> to show which physical knob drives which drawn cell — knobs 1–4 white, knobs 5–8 amber, each getting brighter as its value rises. A ring that stays dark is a knob with nothing behind it: turning it will do nothing. Leaving the grid hands the rings back to Move.</p>
                     <p><strong>Turn</strong> a parameter that has a list of options and the list appears on its own while you turn, so you can see what is coming without clicking in. It disappears a moment after you stop; Back closes it early. Nothing is being chosen here — the turn has already made the change — so there is no confirmation and nothing to cancel.</p>
-                    <p>Where a module loads a <strong>sample</strong>, the cell draws that file's actual waveform, with the play position cut into it and any loop points bracketed. Granular modules show their spray as a fenced region around the position. When several controls belong to one sample, Schwung seats them side by side and draws a single wider picture across them rather than a row of unrelated dials.</p>
+                    <p>Some parameters are <strong>buttons</strong> rather than values — Clear, Randomise, Recover Loop. They draw as a push button and do nothing until you fire them. Click the jog to fire, or just <strong>turn the knob</strong>, either way. A whole flick of the encoder counts as <em>one</em> press however far you spin it &mdash; it only re-arms once the knob has been still for a moment &mdash; so you cannot randomise a kit a dozen times by accident.</p>
+                    <p>Where a module loads a <strong>sample</strong>, the cell draws that file's actual waveform, with the play position cut into it and any loop points bracketed. Granular modules show their spray as a fenced region around the position. When several controls belong to one sample, Schwung seats them side by side and draws a single wider picture across them rather than a row of unrelated dials — and a click anywhere in that picture opens the full-screen wave editor, which shows the same spray fences. The <strong>file itself</strong> stays a separate cell showing the loaded filename, or <em>NONE</em> when nothing is loaded; clicking it opens the file browser rather than the wave editor. With no sample loaded there is no waveform at all — those cells simply draw as the controls they are, rather than as an empty frame.</p>
                     <p>Set <strong>Global Settings → Display → Param View</strong> to <em>List</em> and the same pages are drawn as rows instead — one parameter per line, name and value, five at a time. It is the better choice for a module that publishes no page structure, where the grid can only paginate a flat list, and for reading long values that a knob cell has to abbreviate. Everything else is identical: the same pages in the same order, the same sections, the same jog-click, the same option lists. If you previously set this to <em>List</em>, your choice is kept.</p>
 
                     <h3>Getting around a page</h3>
@@ -263,7 +354,7 @@
                     <table class="shortcut-table">
                         <thead><tr><th>Setting</th><th>Options</th></tr></thead>
                         <tbody>
-                            <tr><td>Target</td><td>Component + parameter to modulate.</td></tr>
+                            <tr><td>Target</td><td>Component + parameter to modulate. See <em>Choosing a target</em> below.</td></tr>
                             <tr><td>Enabled</td><td>On / Off.</td></tr>
                             <tr><td>Shape</td><td>Sine, Tri, Saw, Square, S&amp;H, Swishy (smooth random walk).</td></tr>
                             <tr><td>Sync</td><td>Free-running (Hz) or tempo-synced (16 bars to 1/32T, including triplets).</td></tr>
@@ -274,6 +365,11 @@
                         </tbody>
                     </table>
                     <p>An indicator (<code>~1</code>, <code>~2</code>, or <code>~1+2</code>) appears above any component being targeted by an LFO. LFOs can also target each other's depth, rate, or phase for compound modulation. Master FX has its own pair of LFOs that operate on the master chain.</p>
+
+                    <h3>Choosing a target</h3>
+                    <p>Picking <strong>Target</strong> asks for the component first, then the parameter. For a module with a lot of parameters, the parameter step is split into the same <strong>sections</strong> the module's knob pages use — <em>Filter</em>, <em>Amp</em>, <em>Tone1/Wave</em> and so on — with the number of parameters in each shown on the right. Anything the module does not file under a section appears under <strong>Other</strong>, so nothing is ever hidden by the grouping.</p>
+                    <p>Small modules skip the section step and go straight to the parameter list, as before.</p>
+                    <p>Re-opening the picker for an LFO that already has a target <strong>lands on that target</strong> — the right component, the right section, the right parameter — instead of at the top of the list.</p>
                 </section>
 
                 <section class="manual-section" id="master-fx">
