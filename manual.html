@@ -87,7 +87,7 @@
                             <tr><td>Toggle slot solo</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
                         </tbody>
                     </table>
-                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. Plain <kbd>Mute</kbd> is suppressed while Shadow UI is shown so it doesn't toggle Move's own track mute mid-combo — Mute works normally when Shadow UI is dismissed.</p>
+                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. <kbd>Mute</kbd> always reaches Move, even while the Shadow UI is shown, so Move's own <kbd>Mute</kbd>+pad drum muting keeps working. The trade-off: a plain <kbd>Mute</kbd> tap also toggles Move's selected track, and <kbd>Mute</kbd>+<kbd>Track</kbd> mutes both the Schwung slot and the Move track.</p>
 
                     <h3>Tools, settings &amp; sets</h3>
                     <table class="shortcut-table">
@@ -358,7 +358,7 @@
                     <p>Where a <em>slot</em> preset saves the whole chain, a <strong>module preset</strong> saves the sound of just one module — a single synth or effect — so you can reuse it anywhere. They live on the module's own <strong>My Presets</strong> page — jog to the end of that module's knob pages and it is the second-to-last one, right before <strong>Module</strong>. (Earlier versions also put a <strong>[User Presets]</strong> row in the module picker; that row is gone, since My Presets sits beside the module's own controls.)</p>
                     <ul>
                         <li><strong>Save</strong> — stores the module's current sound under a name.</li>
-                        <li><strong>Audition</strong> — scrolling the list plays each preset <em>live</em> so you hear it before choosing. <kbd>Back</kbd> returns to your original sound; <strong>Load</strong> keeps the highlighted one.</li>
+                        <li><strong>Audition</strong> — off by default. Turn it on under <strong>Global Settings → Audition</strong> and scrolling the list plays each preset <em>live</em> so you hear it before choosing; <kbd>Back</kbd> returns to your original sound and <strong>Load</strong> keeps the highlighted one. With it off, the list still works — a preset simply loads when you pick it.</li>
                         <li><strong>Portable</strong> — presets follow the <em>module</em>, not the slot, so a reverb preset you save in one slot shows up wherever that reverb is loaded.</li>
                     </ul>
                 </section>
@@ -412,7 +412,7 @@
                             <tr><td>Enabled</td><td>On / Off.</td></tr>
                             <tr><td>Shape</td><td>Sine, Tri, Saw, Square, S&amp;H, Swishy (smooth random walk).</td></tr>
                             <tr><td>Sync</td><td>Free-running (Hz) or tempo-synced (16 bars to 1/32T, including triplets).</td></tr>
-                            <tr><td>Depth</td><td>0–100%.</td></tr>
+                            <tr><td>Depth</td><td>−100% to +100%. Negative depth inverts the shape.</td></tr>
                             <tr><td>Polarity</td><td>Unipolar (0 to depth) or Bipolar (-depth to +depth).</td></tr>
                             <tr><td>Phase</td><td>0–360°.</td></tr>
                             <tr><td>Retrigger</td><td>Reset phase on the first note-on of a new phrase.</td></tr>
@@ -469,7 +469,7 @@
                         <details class="faq-item">
                             <summary>Muting with Move→Schwung: tracks vs. drum pads</summary>
                             <div class="faq-body">
-                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button (or tap Mute on its own) to mute that track — Move's track and the matching Schwung slot mute together and stay in sync.</p>
+                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button to mute that track — Move's track and the matching Schwung slot mute together and stay in sync. Tapping <strong>Mute</strong> on its own only mutes Move's selected track; the Schwung slot is unaffected.</p>
                                 <p>Hold <strong>Mute</strong> and tap a single <strong>drum pad</strong> to mute just that one pad/drum, exactly like stock Move. This no longer mutes the whole Schwung slot — only the pad you press.</p>
                             </div>
                         </details>
@@ -487,16 +487,16 @@
                 <section class="manual-section" id="recording">
                     <h2>9 · Recording &amp; sampling</h2>
 
-                    <h3>Sampling Schwung into Move (Sample Src)</h3>
+                    <h3>Sampling Schwung into Move (Resample)</h3>
                     <p>Feed Schwung's audio into Move's native sampling path so you can capture a Schwung synth, Webstream, AirPlay, Radio Garden, or any other Schwung output straight into a drum pad or sampler clip — using all of Move's normal sampling tools (Auto-Sample, count-in, slicing, drum-pad capture).</p>
                     <p>Configure under <strong>Global Settings → Audio → Resample</strong>:</p>
                     <ul>
                         <li><strong>Native</strong> (default) — Move's sampler uses Move's normal input (line-in / mic).</li>
-                        <li><strong>Schwung Mix</strong> — replaces the sampler's input with Schwung's master output, so anything you can hear from Schwung becomes recordable on Move.</li>
+                        <li><strong>Mix</strong> — replaces the sampler's input with Schwung's master output, so anything you can hear from Schwung becomes recordable on Move.</li>
                     </ul>
-                    <p>Recommended setup to avoid feedback while <em>Schwung Mix</em> is selected:</p>
+                    <p>Recommended setup to avoid feedback while <em>Mix</em> is selected:</p>
                     <ol>
-                        <li>Set <strong>Sample Src</strong> to <strong>Schwung Mix</strong>.</li>
+                        <li>Set <strong>Resample</strong> to <strong>Mix</strong>.</li>
                         <li>In Move's native Sampler, set the source to <strong>Line In</strong>.</li>
                         <li>Set monitoring to <strong>Off</strong>.</li>
                     </ol>
@@ -579,16 +579,19 @@
                 <section class="manual-section" id="overtake">
                     <h2>12 · Overtake modules</h2>
                     <p>Overtake modules take full control of Move's display and controls. They live in the Tools menu below a divider — open Tools (<kbd>Shift+Vol</kbd>+<kbd>Step 13</kbd>) and select one.</p>
+                    <p class="note">The <kbd>Shift+Vol</kbd> combos in this section have no long-press equivalent, so they do nothing if <strong>Global Settings → Shortcuts → Open With</strong> is set to <em>Hold</em>. Leave it on <em>Both</em> (the default) or <em>Sh+Vol</em> to use them.</p>
                     <ul>
-                        <li><strong>Exit</strong>: <kbd>Shift+Vol</kbd> + <kbd>Jog Click</kbd> — works anytime.</li>
-                        <li><strong>Suspend</strong> (keep running in background): <kbd>Shift+Vol</kbd> + <kbd>Back</kbd>.</li>
+                        <li><strong>Close</strong>: <kbd>Shift+Vol</kbd> + <kbd>Jog Click</kbd>, or <kbd>Shift</kbd> + <kbd>Back</kbd>.</li>
+                        <li><strong>Suspend</strong> (leave it running in the background): <kbd>Shift+Vol</kbd> + <kbd>Back</kbd>.</li>
+                        <li><strong>Back on its own</strong> suspends some modules and is handled by the module itself in others — it depends on the module. The two combos above behave the same way everywhere, so use those if you want to be sure.</li>
+                        <li><strong>Resume</strong>: reopen Tools and select the module again, or jump straight back to the last suspended one with a <em>double-tap</em> of <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>, or a long press of <kbd>Shift</kbd> + <kbd>Step 13</kbd>. Either way it picks up where it left off, LEDs restored.</li>
                     </ul>
                     <p class="note"><strong>Heads-up.</strong> After exiting an overtake module, Move's pad and button LEDs won't refresh automatically — change tracks or sets and they'll come back as they light back on.</p>
 
                     <h3>RNBO Runner</h3>
                     <p>Hosts <a href="https://rnbo.cycling74.com" target="_blank" rel="noopener">RNBO for Move</a> graphs as an overtake module, running on top of Move with full pad/knob control. Install RNBO for Move separately first (per Cycling '74 instructions), then open Tools and select RNBO Runner.</p>
                     <ul>
-                        <li><strong>Suspend/resume</strong> — <kbd>Shift+Vol</kbd>+<kbd>Back</kbd> suspends; reopen Tools and re-select to resume with LEDs restored.</li>
+                        <li><strong>Suspend/resume</strong> — <kbd>Shift+Vol</kbd>+<kbd>Back</kbd> suspends; reopen Tools and re-select to resume with LEDs restored, or use the <kbd>Step 13</kbd> shortcuts above.</li>
                         <li><strong>MIDI from Move</strong> — RNBO receives Move sequencer MIDI on Channel 16. Sequence RNBO devices from Move, use MIDI capture, etc.</li>
                         <li><strong>Per-set state</strong> — current RNBO graph + parameter tweaks save automatically per Schwung set.</li>
                         <li><strong>Resampling and Skipback</strong> include RNBO audio.</li>
@@ -601,7 +604,7 @@
                 <section class="manual-section" id="accessibility">
                     <h2>13 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
-                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or <kbd>Shift</kbd> + <kbd>Note/Session</kbd> when Shadow UI is disabled. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
+                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or by <em>double-pressing</em> <kbd>Shift</kbd> + <kbd>Note/Session</kbd> — which works whether or not the Shadow UI is enabled. A <em>single</em> press of the same combo does something else: it opens Master FX when the Shadow UI is on, or the Screen Reader settings when it is off. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
                     <p>The on-device help viewer (<strong>Global Settings → Updates → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
@@ -631,7 +634,6 @@
                         <tbody>
                             <tr><td><code>app_launched</code></td><td>Schwung starts</td><td>Host version</td></tr>
                             <tr><td><code>module_census</code></td><td>Schwung starts</td><td>Installed module IDs, count</td></tr>
-                            <tr><td><code>module_added</code></td><td>New module detected at startup</td><td>Module ID, version</td></tr>
                             <tr><td><code>module_upgraded</code></td><td>Module version changed at startup</td><td>Module ID, old + new version</td></tr>
                             <tr><td><code>module_loaded</code></td><td>A module is loaded</td><td>Module ID</td></tr>
                             <tr><td><code>module_installed</code></td><td>A module was installed</td><td>Module ID, version</td></tr>
