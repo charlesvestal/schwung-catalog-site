@@ -180,6 +180,60 @@
                             <figcaption><strong>Sample</strong> — the file's real waveform, play position and loop points.</figcaption>
                         </figure>
                     </div>
+                    <div class="wg-grid">
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-fader.png" alt="Fader — a level, drawn as the travel it has." width="64">
+                            <figcaption><strong>Fader</strong> — a level, drawn as the travel it has.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-eq.png" alt="EQ band — gain, frequency and Q as one curve." width="192">
+                            <figcaption><strong>EQ band</strong> — gain, frequency and Q as one curve.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/viz-waveform.png" alt="Waveform — an oscillator's shape, drawn as itself." width="64">
+                            <figcaption><strong>Waveform</strong> — an oscillator's shape, drawn as itself.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/arc-knob-modulated.png" alt="Modulated — an LFO on a knob shows the range it sweeps." width="128">
+                            <figcaption><strong>Modulated</strong> — an LFO on a knob shows the range it sweeps.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>The gestures are the same on every page of every module.</p>
+                    <div class="wg-grid">
+                        <figure class="wg-fig">
+                            <img src="images/widgets/chrome-header-held.png" alt="Hold a knob and the header names it and shows its value. Let go and nothing has changed — looking is free." width="256">
+                            <figcaption><strong>Hold a knob</strong> and the header names it and shows its value. Let go and nothing has changed — looking is free.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/brackets.png" alt="Corner brackets mean a door. Hold that knob and jog-click to open what is behind it; a plain cell has nothing to open." width="128">
+                            <figcaption><strong>Corner brackets mean a door.</strong> Hold that knob and jog-click to open what is behind it; a plain cell has nothing to open.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/chrome-bank-bar.png" alt="The bar counts the pages. The filled block is where you are; turn the jog to move along it." width="256">
+                            <figcaption><strong>The bar counts the pages.</strong> The filled block is where you are; turn the jog to move along it.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/chrome-list.png" alt="Click a choice and it opens as a list — the jog scrolls, the click picks." width="256">
+                            <figcaption><strong>Click a choice</strong> and it opens as a list — the jog scrolls, the click picks.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>And the furniture around them.</p>
+                    <div class="wg-grid">
+                        <figure class="wg-fig">
+                            <img src="images/widgets/chrome-header.png" alt="Header — the slot and module you are in, and the page name." width="256">
+                            <figcaption><strong>Header</strong> — the slot and module you are in, and the page name.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/chrome-footer.png" alt="Footer — what the jog, shift and click do on this page." width="256">
+                            <figcaption><strong>Footer</strong> — what the jog, shift and click do on this page.</figcaption>
+                        </figure>
+                        <figure class="wg-fig">
+                            <img src="images/widgets/chrome-label-cell.png" alt="Cell — the control, with its name beneath it." width="192">
+                            <figcaption><strong>Cell</strong> — the control, with its name beneath it.</figcaption>
+                        </figure>
+                    </div>
 
                     <p>Four of them move when their value changes, so a change is visible
                     rather than just present. <em>(Slowed 5&times; here — on the device
@@ -273,7 +327,7 @@
                     <h3>Component actions</h3>
                     <p>Jog past the last knob page of any loaded module — synth, MIDI FX or audio FX — and two more pages appear, so Save and Remove are always one jog-turn away without opening the module picker first:</p>
                     <ul>
-                        <li><strong>User Presets</strong> — the top row shows the preset currently loaded (<em>(none)</em> if none, or its name with a leading <strong>*</strong> once the sound has changed since it was loaded), then <strong>Load…</strong>, <strong>Save</strong> and <strong>Delete</strong> (only shown once a preset is loaded), and <strong>Save As</strong>.</li>
+                        <li><strong>User Presets</strong> — the top row shows the preset currently loaded (<em>(none)</em> if none, or its name with a leading <strong>*</strong> once the sound has changed since it was loaded), and clicking that row opens the preset list to choose from. Below it are <strong>Save</strong> and <strong>Delete</strong> (only shown once a preset is loaded), and <strong>Save As</strong>.</li>
                         <li><strong>Module</strong> — <strong>Swap Module</strong> opens the same picker as Shift + Jog click; <strong>Remove Module</strong> clears the position and closes the gap, same as picking <em>None</em> from that picker.</li>
                     </ul>
                     <p>Both pages are lists: jog to an entry, click to run it. Jogging past one does nothing on its own — nothing fires until you click in.</p>
@@ -301,7 +355,7 @@
                     <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§10</a>.</p>
 
                     <h3>Module presets (User Presets)</h3>
-                    <p>Where a <em>slot</em> preset saves the whole chain, a <strong>module preset</strong> saves the sound of just one module — a single synth or effect — so you can reuse it anywhere. Open that chain position's module picker (the same list you'd use to swap the module); the <strong>[User Presets]</strong> row sits just beneath the loaded module.</p>
+                    <p>Where a <em>slot</em> preset saves the whole chain, a <strong>module preset</strong> saves the sound of just one module — a single synth or effect — so you can reuse it anywhere. They live on the module's own <strong>My Presets</strong> page — jog to the end of that module's knob pages and it is the second-to-last one, right before <strong>Module</strong>. (Earlier versions also put a <strong>[User Presets]</strong> row in the module picker; that row is gone, since My Presets sits beside the module's own controls.)</p>
                     <ul>
                         <li><strong>Save</strong> — stores the module's current sound under a name.</li>
                         <li><strong>Audition</strong> — scrolling the list plays each preset <em>live</em> so you hear it before choosing. <kbd>Back</kbd> returns to your original sound; <strong>Load</strong> keeps the highlighted one.</li>
