@@ -4,8 +4,8 @@
     "name": "Schwung",
     "github_repo": "charlesvestal/schwung",
     "asset_name": "schwung.tar.gz",
-    "latest_version": "0.12.0",
-    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v0.12.0/schwung.tar.gz",
+    "latest_version": "0.12.1",
+    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v0.12.1/schwung.tar.gz",
     "min_host_version": "0.1.0"
   },
   "modules": [
@@ -65,7 +65,7 @@
       "github_repo": "charlesvestal/schwung-jv880",
       "default_branch": "main",
       "asset_name": "minijv-module.tar.gz",
-      "min_host_version": "0.3.0",
+      "min_host_version": "0.13.0",
       "requires": "ROM files (place in module's roms/ folder)"
     },
     {
@@ -149,13 +149,35 @@
     {
       "id": "tapedelay",
       "name": "TapeDelay",
-      "description": "Tape delay with flutter and tone shaping",
-      "author": "Charles Vestal",
+      "description": "Tape delay with flutter and tone shaping. Light on CPU — fits on every slot.",
+      "author": "cyrusasfa (port: charlesvestal)",
       "component_type": "audio_fx",
       "github_repo": "charlesvestal/schwung-space-delay",
       "default_branch": "main",
       "asset_name": "tapedelay-module.tar.gz",
       "min_host_version": "0.3.0"
+    },
+    {
+      "id": "tape-echo2",
+      "name": "Tape Echo 2",
+      "description": "Component-modeled vintage three-head tape echo with spring reverb: 12 head/reverb modes, in-loop tape saturation, wow & flutter, tape age, and tempo sync with the reference machine's leading-head note tables. CPU-heavy: about two instances fit.",
+      "author": "Tape Echo 2 by Dusk Audio (GPL-3.0) · port: athousanddetails",
+      "component_type": "audio_fx",
+      "github_repo": "athousanddetails/schwung-tape-echo2",
+      "default_branch": "main",
+      "asset_name": "tape-echo2-module.tar.gz",
+      "min_host_version": "0.7.13"
+    },
+    {
+      "id": "ruminant",
+      "name": "Ruminant",
+      "description": "Frequency-shifting feedback delay for metallic echoes, phasing, flanging, and inharmonic dub textures",
+      "author": "mestela",
+      "component_type": "audio_fx",
+      "github_repo": "mestela/schwung-ruminant",
+      "default_branch": "main",
+      "asset_name": "ruminant-module.tar.gz",
+      "min_host_version": "0.12.1"
     },
     {
       "id": "junologue-chorus",
@@ -1254,7 +1276,29 @@
       "github_repo": "athousanddetails/schwung-9W9",
       "default_branch": "main",
       "asset_name": "9w9-module.tar.gz",
-      "min_host_version": "0.11.6"
+      "min_host_version": "0.12.1"
+    },
+    {
+      "id": "6w6",
+      "name": "6W6",
+      "description": "TR-606 style drum machine. Every voice synthesized, no samples: kick, snare, low and hi tom, closed and open hat, cymbal, plus a clap. Fitted against recordings of a hardware 606 — the cymbal and the hi-hat metal bank are measured partial tables, and the default pot positions are the machine. Switchable hat choke (off / closed cuts open / mutual), per-voice and master drive/distortion, pad editor, remote web panel that follows the pad you hit, Movy template.",
+      "author": "athousanddetails; voices after 606-Inspired-Synth-Drums (Matthew Fecher / AudioKit Pro)",
+      "component_type": "sound_generator",
+      "github_repo": "athousanddetails/schwung-6W6",
+      "default_branch": "main",
+      "asset_name": "6w6-module.tar.gz",
+      "min_host_version": "0.12.1"
+    },
+    {
+      "id": "tablor",
+      "name": "Tablor",
+      "description": "2-osc wavetable synth. Position morphing, bend, formant shift and 4-voice unison; sub and noise; multimode filter with its own ADSR; 2 envelopes, 2 LFOs, 4-slot mod matrix and 8 assignable macros. 8 voices poly or mono with glide. Unlimited shareable .tblr presets, 115 seeded wavetables, and Serum/Vital/Ableton tables via Move Manager. Web panel with a live display of the loaded wavetable.",
+      "author": "athousanddetails; after Wavetable by Roland Rabien (FigBug)",
+      "component_type": "sound_generator",
+      "github_repo": "athousanddetails/schwung-tablor",
+      "default_branch": "main",
+      "asset_name": "tablor-module.tar.gz",
+      "min_host_version": "0.12.0"
     },
     {
       "id": "chord-finder",
@@ -1267,6 +1311,61 @@
       "asset_name": "chord-finder-module.tar.gz",
       "min_host_version": "0.11.6",
       "requires": "Ableton Move 1.8 or newer; Move/USB-C audition requires matching Move track MIDI routing"
+    },
+    {
+      "id": "capicola",
+      "name": "Capicola",
+      "description": "Live keyframe time stretcher with transient re-anchoring, by Heavylight Industries",
+      "author": "Heavylight Industries (port: charlesvestal)",
+      "component_type": "audio_fx",
+      "github_repo": "charlesvestal/schwung-capicola",
+      "default_branch": "main",
+      "asset_name": "capicola-module.tar.gz",
+      "min_host_version": "0.3.0"
+    },
+    {
+      "id": "4k-eq",
+      "name": "4K EQ",
+      "description": "British console EQ for the master bus: four calibrated bands, stepped high- and low-pass filters, and the Brown and Black circuit revisions with their own control laws and band interactions. About 6.6% of one core at the 2x default.",
+      "author": "4K EQ 2 by Dusk Audio (GPL-3.0) \u00b7 port: athousanddetails",
+      "component_type": "audio_fx",
+      "github_repo": "athousanddetails/schwung-4keq",
+      "default_branch": "main",
+      "asset_name": "4k-eq-module.tar.gz",
+      "min_host_version": "0.12.1"
+    },
+    {
+      "id": "arranger",
+      "name": "Arranger",
+      "description": "A Song Builder, Performance, and Jam module that turns a library of (GM drum) MIDI clips into arranged songs you can compose, rehearse, and perform live",
+      "author": "chaolue",
+      "component_type": "overtake",
+      "github_repo": "chaolue/schwung-arranger",
+      "default_branch": "master",
+      "asset_name": "arranger-module.tar.gz",
+      "min_host_version": "0.12.1"
+    },
+    {
+      "id": "8w8",
+      "name": "8W8",
+      "description": "TR-808 style drum machine. Sixteen voices, all synthesized, no samples — fifteen are circuit models built from the service notes and the published analyses, and the rim shot is a transcription of sc808, kept because two circuit builds lost to it by ear. Decay is loop gain on the kick and the toms rather than an envelope, one free-running metal bank feeds the hats, cymbal and cowbell as the hardware wires it, and velocity reaches most voices as a trigger voltage rather than a gain. Seven distortion characters per voice and on the master, bit-exactly bypassed at zero; reverb and delay sends on every voice but the kick; one-knob bus compressor; pad editor, remote web panel, Movy template.",
+      "author": "athousanddetails; circuit models from the TR-808 service notes and Werner/Abel/Smith; rim shot transcribed from sc808 (Yoshinosuke Horiuchi / Sam Aaron, Sonic Pi)",
+      "component_type": "sound_generator",
+      "github_repo": "athousanddetails/schwung-8W8",
+      "default_branch": "main",
+      "asset_name": "8w8-module.tar.gz",
+      "min_host_version": "0.12.1"
+    },
+    {
+      "id": "forgetful",
+      "name": "Forgetful",
+      "description": "One live input sent by hand into four tape memories, each one already forgetting itself — drifting out of tune, breaking up, until it's gone",
+      "author": "kliegsablaze",
+      "component_type": "audio_fx",
+      "github_repo": "kliegsablaze/forgetful",
+      "default_branch": "main",
+      "asset_name": "forgetful-module.tar.gz",
+      "min_host_version": "0.12.1"
     }
   ]
 }
