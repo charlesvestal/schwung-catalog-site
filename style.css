@@ -186,6 +186,18 @@ input:focus-visible {
     background: rgba(255, 255, 255, 0.08);
 }
 
+.nav-discord {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.nav-discord svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
 .hero-already-installed {
     margin-top: 0.4rem;
     font-size: 0.8rem;
