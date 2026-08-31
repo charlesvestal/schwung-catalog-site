@@ -4,8 +4,8 @@
     "name": "Schwung",
     "github_repo": "charlesvestal/schwung",
     "asset_name": "schwung.tar.gz",
-    "latest_version": "1.0.0",
-    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.0.0/schwung.tar.gz",
+    "latest_version": "1.1.1",
+    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.1.1/schwung.tar.gz",
     "min_host_version": "0.1.0"
   },
   "modules": [
@@ -889,7 +889,7 @@
       "github_repo": "charlesvestal/schwung-tb3po",
       "default_branch": "main",
       "asset_name": "tb3po-module.tar.gz",
-      "min_host_version": "1.0.0"
+      "min_host_version": "1.1.0"
     },
     {
       "id": "breakbeat",
