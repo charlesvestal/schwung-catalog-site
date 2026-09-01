@@ -86,11 +86,14 @@
                             <tr><td>Open slot editor</td><td>Hold <kbd>Track 1–4</kbd> (500 ms)</td><td><kbd>Shift+Vol</kbd> + <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Open Master FX</td><td>Hold <kbd>Note/Session</kbd> (500 ms)</td><td><kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd></td></tr>
                             <tr><td>Dismiss Shadow UI</td><td>Tap <kbd>Track</kbd> or <kbd>Note/Session</kbd></td><td>—</td></tr>
+                            <tr><td>Dismiss Shadow UI (always)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Toggle module bypass</td><td colspan="2"><kbd>Mute</kbd> + <kbd>Jog Click</kbd> on a focused chain or Master FX module</td></tr>
                             <tr><td>Toggle slot mute</td><td colspan="2"><kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Toggle slot solo</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
                         </tbody>
                     </table>
+                    <p class="note"><strong>Staying in Schwung.</strong> Tapping a <kbd>Track</kbd> button hands the screen back to Move, which is what you want when the Shadow UI is somewhere you visit. If it is where you work, set <strong>Global Settings → Display → Track Tap</strong> to <em>Stay</em>: a tap then switches to that slot's editor and keeps you in Schwung. <kbd>Shift</kbd> + <kbd>Track</kbd> still hands the screen back either way, so there is always a way out.</p>
+
                     <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. <kbd>Mute</kbd> always reaches Move, even while the Shadow UI is shown, so Move's own <kbd>Mute</kbd>+pad drum muting keeps working. The trade-off: a plain <kbd>Mute</kbd> tap also toggles Move's selected track, and <kbd>Mute</kbd>+<kbd>Track</kbd> mutes both the Schwung slot and the Move track.</p>
 
                     <h3>Tools, settings &amp; sets</h3>
@@ -531,6 +534,12 @@
                     <p>Schwung continuously maintains a rolling audio buffer (30 s by default, up to 5 min). Press <kbd>Shift</kbd>+<kbd>Capture</kbd> to dump the buffer to disk instantly without interrupting playback — recover happy accidents you weren't recording.</p>
                     <p>Configure under <strong>Global Settings → Audio</strong>: <em>Skipback</em> changes the shortcut to <em>Vol+Cap</em> if Shift+Capture conflicts; <em>Skipback Len</em> sets buffer size (30 s, 1 m, 2 m, 3 m, 4 m, 5 m). Resizing preserves whatever's currently in the buffer (oldest samples truncated when shrinking).</p>
                     <p>Files save to <code>Samples/Schwung/Skipback/YYYY-MM-DD/</code> using the same source setting as the Quantized Sampler.</p>
+
+                    <h3>Snapshot &amp; recall</h3>
+                    <p>Press <kbd>Shift</kbd>+<kbd>Copy</kbd> to take a <strong>snapshot</strong> of every parameter in all four slots and the whole Master FX chain. Tweak as much as you like, then press <kbd>Shift</kbd>+<kbd>Delete</kbd> to put it all back. It works whether or not the Schwung screen is showing.</p>
+                    <p>The snapshot always means one thing: <em>how this set was when you loaded it, or the last time you pressed <kbd>Shift</kbd>+<kbd>Copy</kbd></em>. Loading a set resets it, so you can always get back to where a set started even if you never took a snapshot yourself. There is one snapshot at a time, and it belongs to the set — switching sets gives you that set's, not the one you left behind.</p>
+                    <p>Recall puts back <em>settings</em>, not the modules themselves. Anything still running keeps running, so reverb tails and arpeggiator timing carry straight through instead of cutting out. If you swapped a module out since the snapshot, that one is left alone and the toast tells you how many were skipped — for example <em>&ldquo;Snapshot restored / 2 skipped&rdquo;</em>. A handful of modules don't save their settings at all; those count as skipped too.</p>
+                    <p class="note"><strong>Note:</strong> while Schwung is running, <kbd>Shift</kbd>+<kbd>Copy</kbd> and <kbd>Shift</kbd>+<kbd>Delete</kbd> belong to Schwung and no longer reach Move's own copy and delete.</p>
 
                     <h3>Feedback protection</h3>
                     <p class="note warning"><strong>Speaker feedback risk.</strong> When you load a module that uses line input (Line In, AutoSample) while built-in speakers are active and no line-in cable is plugged in, Schwung warns you. Press <em>Jog</em> to proceed (e.g. recording with the internal mic and speakers turned down) or <em>Back</em> to cancel. Plug in headphones or a line-in cable to bypass the warning.</p>
