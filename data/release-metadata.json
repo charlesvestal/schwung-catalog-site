@@ -125,5 +125,5 @@
   "wayward": {"first_release": "2026-08-30", "last_updated": "2026-09-03", "version": "v0.9.0", "release_dates": ["2026-08-30","2026-09-03"]},
   "maze_seq": {"first_release": "2026-09-01", "last_updated": "2026-09-02", "version": "v1.1.0", "release_dates": ["2026-09-01","2026-09-02"]},
   "maze_seq_lite": {"first_release": "2026-09-01", "last_updated": "2026-09-02", "version": "v1.1.0", "release_dates": ["2026-09-01","2026-09-02"]},
-  "jp8000": {"first_release": "2026-09-04", "last_updated": "2026-09-04", "version": "v0.5.2", "release_dates": ["2026-09-04","2026-09-04","2026-09-04"]}
+  "jp8000": {"first_release": "2026-09-04", "last_updated": "2026-09-05", "version": "v0.5.3", "release_dates": ["2026-09-04","2026-09-04","2026-09-04","2026-09-05"]}
 }
