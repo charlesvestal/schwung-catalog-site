@@ -47,7 +47,7 @@
                     <li><a href="#slots">Slots &amp; signal chain</a></li>
                     <li><a href="#midi-routing">MIDI routing</a></li>
                     <li><a href="#lfos">LFOs</a></li>
-                    <li><a href="#master-fx">Master FX</a></li>
+                    <li><a href="#master-fx">Master FX and sends</a></li>
                     <li><a href="#link-audio">Routing Move audio</a></li>
                     <li><a href="#recording">Recording &amp; sampling</a></li>
                     <li><a href="#sets">Sets &amp; pages</a></li>
@@ -349,6 +349,12 @@
                     <p>A knob that picks from a list — a filter mode, an arpeggiator division, a receive channel — can show you the whole list instead of stepping through it one click at a time. Hold the knob and press the <strong>Jog click</strong>: the options appear as a scrollable list with the current one marked, jog to move through them, click to set, <strong>Back</strong> to leave it exactly as it was. The knob still steps the value in place if that is quicker. The same list opens from a parameter menu by clicking one of these settings.</p>
                     <p>Turning one of these knobs also flashes the list up briefly, so you can see what sits either side of the value you just set. Two things do not do this, because the cell already tells you: a <strong>switch</strong> — an on/off toggle — draws both of its states at once, and a parameter drawn as a wide picture, like a filter curve, redraws that picture as you turn. A knob choosing between two things that are <em>not</em> on and off, such as Mix or Reverb, is not a switch and does show its list.</p>
 
+                    <h3>Buses: splitting a synth's voices</h3>
+                    <p>Some synths can hand their voices out separately &mdash; a drum module's kick, snare and hats. In a slot holding one of those, jog to the <strong>synth box</strong> and press <kbd>Down</kbd>: the <strong>bus list</strong> opens. A synth that can't split its voices shows none of this, and <kbd>Down</kbd> keeps doing what it always did.</p>
+                    <p>A <strong>bus</strong> is a sub-mix inside the slot. <em>New Bus</em> makes one; <em>Voices</em> picks which of the synth's voices play through it; <em>Inserts</em> gives it its own chain of up to eight audio effects, and <kbd>Down</kbd> on a bus row is a shortcut straight to those. So the kick can go through a compressor while the hats don't, out of one instrument in one slot. A voice plays through exactly one bus, so adding it to a bus takes it off whichever bus had it.</p>
+                    <p><strong>Main</strong> is the last row: every voice you didn't assign. It has no chain of its own &mdash; it is the slot's own output &mdash; so clicking it opens the <strong>send mixer</strong> instead: one page per send, with every bus's level on its own knob, which is the thing a list row can't be.</p>
+                    <p>A bus marked <strong>!</strong> is holding a voice the loaded synth no longer has &mdash; you swapped the module, or it changed between versions. The id is kept rather than quietly dropped, so open <em>Voices</em> and click the <strong>!</strong> row to clear it.</p>
+
                     <h3>Component actions</h3>
                     <p>Jog past the last knob page of any loaded module — synth, MIDI FX or audio FX — and two more pages appear, so Save and Remove are always one jog-turn away without opening the module picker first:</p>
                     <ul>
@@ -459,9 +465,15 @@
                 </section>
 
                 <section class="manual-section" id="master-fx">
-                    <h2>7 · Master FX</h2>
-                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). Master FX is a chain of up to <strong>eight</strong> audio effect slots that processes the mixed output of all four instrument slots. The row scrolls to follow your selection, the same way a slot's own chain does, so the chain can be longer than the screen.</p>
-                    <p>Master FX has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in the Master FX menu) that target any parameter of the loaded master effects.</p>
+                    <h2>7 · Master FX and sends</h2>
+                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). That now opens <strong>FX Buses</strong> &mdash; a short list of <em>Master FX</em>, <em>Send A</em> and <em>Send B</em>. Click one to edit it; <kbd>Back</kbd> returns to the list, and <kbd>Back</kbd> from the list leaves Schwung's screen.</p>
+                    <p><strong>Master FX</strong> is a chain of up to <strong>eight</strong> audio effect slots that processes the mixed output of all four instrument slots. The row scrolls to follow your selection, the same way a slot's own chain does, so the chain can be longer than the screen. It has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in its menu) that target any parameter of the loaded master effects.</p>
+
+                    <h3>Send A and Send B</h3>
+                    <p>A <strong>send</strong> is a shared effect the whole device can feed &mdash; one reverb everything goes to, rather than one reverb per slot. Each of the two is eight audio effect slots, built exactly the way Master FX is.</p>
+                    <p>You feed a send from a bus's <em>Send A</em> / <em>Send B</em> rows, or from <em>Main</em> for the rest of a slot &mdash; see <a href="#slots">Buses</a>. Sends are <strong>post-fader</strong>: turn a slot's volume down and it leaves the sends with it, the way a mixing console works, and a muted slot feeds them nothing at all.</p>
+                    <p>Under a send's <em>Settings</em>, <strong>Return</strong> sets how much of it comes back into the mix. Send A also has <strong>&gt;B</strong>, which feeds Send A's output into Send B &mdash; a delay into a reverb, say. It only goes that way: <strong>B can never feed A</strong>, so no combination of the two can howl.</p>
+                    <p>The returns land <em>before</em> Master FX, so a Master FX chain hears them too. In a recording with <em>Save</em> set to stems, each send comes back as its own <code>_SendA</code> / <code>_SendB</code> file.</p>
                 </section>
 
                 <section class="manual-section" id="link-audio">
@@ -577,11 +589,12 @@
                         <li><strong>Both</strong> &mdash; the mix <em>and</em> the tracks, from the same take.</li>
                     </ul>
                     <p>It applies to all three recorders at once: the <strong>Quantized Sampler</strong>, <strong>Skipback</strong>, and <strong>Song Mode</strong>'s Record button. Song Mode's Record row names the mode when it isn't Master, so you can see what you're about to get before you press it.</p>
-                    <p>Stems are saved beside the mix and named after it, so a take called <code>mysong_20260902_143012.wav</code> comes with <code>mysong_20260902_143012_Slot1.wav</code> through <code>_Slot4.wav</code>, and <code>_Move.wav</code>. <strong>A track with nothing on it is never written</strong> &mdash; an empty slot leaves no file rather than a silent one, so you get exactly the stems you played.</p>
+                    <p>Stems are saved beside the mix and named after it, so a take called <code>mysong_20260902_143012.wav</code> comes with <code>mysong_20260902_143012_Slot1.wav</code> through <code>_Slot4.wav</code>, plus <code>_Move.wav</code>, <code>_SendA.wav</code> and <code>_SendB.wav</code>. <strong>A track with nothing on it is never written</strong> &mdash; an empty slot leaves no file rather than a silent one, so you get exactly the stems you played.</p>
                     <p><strong>A stem is a slot.</strong> With <em>Move&rarr;Schwung</em> on, slot 1 holds Move's track 1 <em>plus</em> whatever Schwung synth you loaded into that slot, after the slot's own effects &mdash; they share one effects chain, so there is no way to hand them back separately without handing them back dry. The four slot stems add up to the mix exactly.</p>
+                    <p>The <strong>SendA</strong> and <strong>SendB</strong> stems are the two global sends coming back. A send belongs to no one slot, so without them a reverb fed from a send would be in the mix and in none of the tracks &mdash; and the four slot stems would quietly stop adding up to the mix the moment you used one.</p>
                     <p>The <strong>Move</strong> stem covers the case the other four can't. With <em>Move&rarr;Schwung</em> off, Move gives Schwung one mixed signal with no per-track split available, and the slots carry only Schwung's own synths &mdash; so Move's music goes into its own stem instead of being lost. With <em>Move&rarr;Schwung</em> on it's already inside the four slot stems, so nothing is written for it.</p>
                     <p class="note"><strong>Note:</strong> stems are taken <em>before</em> Master FX and before the volume knob. If you have a Master FX chain loaded, the stems will not add back up to the master file &mdash; the master has been through the chain and the stems haven't.</p>
-                    <p>Two limits worth knowing. <strong>Skipback stems hold 60 seconds at most</strong>, even with <em>Skipback Len</em> set longer &mdash; five rolling buffers of five minutes will not fit in memory. They end at the same instant as the master, so they line up with its tail. And with the sampler's source set to <strong>Move Input</strong> there are no tracks to split, so it records the mix whatever <em>Save</em> says.</p>
+                    <p>Two limits worth knowing. <strong>Skipback stems hold 60 seconds at most</strong>, even with <em>Skipback Len</em> set longer &mdash; seven rolling buffers of five minutes will not fit in memory. They end at the same instant as the master, so they line up with its tail. And with the sampler's source set to <strong>Move Input</strong> there are no tracks to split, so it records the mix whatever <em>Save</em> says.</p>
 
                     <h3>Snapshot &amp; recall</h3>
                     <p>Press <kbd>Shift</kbd>+<kbd>Copy</kbd> to take a <strong>snapshot</strong> of every parameter in all four slots and the whole Master FX chain. Tweak as much as you like, then press <kbd>Shift</kbd>+<kbd>Delete</kbd> to put it all back. It works whether or not the Schwung screen is showing.</p>
