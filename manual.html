@@ -352,7 +352,12 @@
                     <h3>Buses: splitting a synth's voices</h3>
                     <p>Some synths can hand their voices out separately &mdash; a drum module's kick, snare and hats. In a slot holding one of those, open the slot's <strong>Settings</strong> and pick <strong>Buses</strong>: the <strong>bus list</strong> opens. It sits with <em>Knobs</em> and the two LFOs, and a synth that can't split its voices has no such row at all.</p>
                     <p>A <strong>bus</strong> is a sub-mix inside the slot. <em>New Bus</em> makes one; <em>Voices</em> picks which of the synth's voices play through it; <em>Inserts</em> gives it its own chain of up to eight audio effects. So the kick can go through a compressor while the hats don't, out of one instrument in one slot. A voice plays through exactly one bus, so adding it to a bus takes it off whichever bus had it.</p>
-                    <p>Any voice you didn't assign stays on the slot's own output. Below the buses sits a <strong>Sends</strong> row, which opens the <strong>send mixer</strong>: one page per send, with every bus's level on its own knob, which is the thing a list row can't be.</p>
+                    <p>Any voice you didn't assign stays on the slot's own output. <em>Buses</em> is only about making and filling them &mdash; the levels going out to the global sends are a separate <strong>Sends</strong> row beside it.</p>
+
+                    <h3>Sends: what leaves the slot</h3>
+                    <p><strong>Settings → Sends</strong> opens the <strong>send mixer</strong>: one page per send, every source on its own knob. <em>Main</em> comes first &mdash; that is the rest of the slot, everything not routed into a bus, and on a slot with no buses at all it is the only source there is. Each bus you have made follows it.</p>
+                    <p>With <em>Param View</em> set to <em>List</em> (and in every screen-reader session) the mixer is replaced by two plain <strong>Send A</strong> / <strong>Send B</strong> rows on the settings list, which set the same Main levels &mdash; a knob grid has nothing for a screen reader to read out.</p>
+                    <p>A slot's send amounts can be modulated: point <em>LFO 1</em> or <em>LFO 2</em> at <strong>Sends</strong> and pick <em>Send A</em> or <em>Send B</em>. The number on the Sends page stays at what you set &mdash; the LFO rides on top of it rather than overwriting it, so what is saved is still your setting.</p>
                     <p>A bus marked <strong>!</strong> is holding a voice the loaded synth no longer has &mdash; you swapped the module, or it changed between versions. The id is kept rather than quietly dropped, so open <em>Voices</em> and click the <strong>!</strong> row to clear it.</p>
 
                     <h3>Component actions</h3>
@@ -466,14 +471,34 @@
 
                 <section class="manual-section" id="master-fx">
                     <h2>7 · Master FX and sends</h2>
-                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). That now opens <strong>FX Buses</strong> &mdash; a short list of <em>Master FX</em>, <em>Send A</em> and <em>Send B</em>. Click one to edit it; <kbd>Back</kbd> returns to the list, and <kbd>Back</kbd> from the list leaves Schwung's screen.</p>
+                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). That puts you straight on the <strong>Master FX</strong> chain, with <strong>Send A</strong> and <strong>Send B</strong> as the first two boxes of the row &mdash; jog left past <em>FX 1</em> to reach them. <kbd>Back</kbd> from Master FX leaves Schwung's screen; <kbd>Back</kbd> from a send returns to Master FX, and so does the box at the head of a send's own row.</p>
+                    <p>Master FX remembers where you left it, so coming back puts the cursor on the effect you were working on rather than at the start of the row.</p>
                     <p><strong>Master FX</strong> is a chain of up to <strong>eight</strong> audio effect slots that processes the mixed output of all four instrument slots. The row scrolls to follow your selection, the same way a slot's own chain does, so the chain can be longer than the screen. It has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in its menu) that target any parameter of the loaded master effects.</p>
 
+                    <h3>How it all flows</h3>
+                    <p>The sends come back <em>into</em> the master bus, not after it &mdash; which is why they are drawn at the head of the Master FX row rather than tucked in a menu. A compressor or limiter in Master FX hears the reverb:</p>
+                    <pre>Slot 1-4 ─┬─ main ───────────────────────┐
+          │                              │
+          ├─ Send A ─→ FX×8 ─┬─ Return ──┤
+          │                  │           │
+          │          ┌── &gt;B ─┘           │
+          │          ↓                   │
+          └─ Send B ─→ FX×8 ─── Return ──┤
+                                         │
+                                         ↓
+                                   Master FX ×8
+                                         │
+                                         ↓
+                                   master volume
+                                         │
+                                         ↓
+                                        out</pre>
+
                     <h3>Send A and Send B</h3>
-                    <p>A <strong>send</strong> is a shared effect the whole device can feed &mdash; one reverb everything goes to, rather than one reverb per slot. Each of the two is eight audio effect slots, built exactly the way Master FX is.</p>
-                    <p>You feed a send from a bus's <em>Send A</em> / <em>Send B</em> rows, or from <em>Main</em> for the rest of a slot &mdash; see <a href="#slots">Buses</a>. Sends are <strong>post-fader</strong>: turn a slot's volume down and it leaves the sends with it, the way a mixing console works, and a muted slot feeds them nothing at all.</p>
-                    <p>Under a send's <em>Settings</em>, <strong>Return</strong> sets how much of it comes back into the mix. Send A also has <strong>&gt;B</strong>, which feeds Send A's output into Send B &mdash; a delay into a reverb, say. It only goes that way: <strong>B can never feed A</strong>, so no combination of the two can howl.</p>
-                    <p>The returns land <em>before</em> Master FX, so a Master FX chain hears them too. In a recording with <em>Save</em> set to stems, each send comes back as its own <code>_SendA</code> / <code>_SendB</code> file.</p>
+                    <p>A <strong>send</strong> is a shared effect the whole device can feed &mdash; one reverb everything goes to, rather than one reverb per slot. Each of the two is eight audio effect slots, built exactly the way Master FX is, and reordered the same way (<kbd>Shift</kbd> + jog).</p>
+                    <p>You feed a send from a bus's <em>Send A</em> / <em>Send B</em> rows, from a module's own voices, or from <em>Main</em> for the rest of a slot &mdash; see <a href="#slots">Buses and sends</a>. Sends are <strong>post-fader</strong>: turn a slot's volume down and it leaves the sends with it, the way a mixing console works, and a muted slot feeds them nothing at all. They are also <em>post-effects</em> &mdash; a distortion in the slot's chain is in what the send hears.</p>
+                    <p>Each send box shows a small dial of that send's <strong>Return</strong>, so you can see at a glance whether anything is coming back before you dive in. Under a send's <em>Settings</em>, <strong>Return</strong> sets how much of it reaches the mix. Send A also has <strong>&gt;B</strong>, which feeds Send A's output into Send B &mdash; a delay into a reverb, say. It only goes that way: <strong>B can never feed A</strong>, so no combination of the two can howl.</p>
+                    <p>In a recording with <em>Save</em> set to stems, each send comes back as its own <code>_SendA</code> / <code>_SendB</code> file.</p>
                 </section>
 
                 <section class="manual-section" id="link-audio">
