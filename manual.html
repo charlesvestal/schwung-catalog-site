@@ -73,6 +73,11 @@
                         <li><strong>Overtake modules</strong> — full-screen tools (e.g. RNBO Runner, MIDI controllers) that take over Move's display and pads instead of running in a slot.</li>
                     </ul>
                     <p class="note"><strong>Important.</strong> Schwung is unofficial software that modifies your Move. Back up sets and samples before installing, and read up on <a href="https://ableton.centercode.com/" target="_blank" rel="noopener">DFU restore mode</a> on Centercode in case you need to recover. Move itself is not damaged by Schwung — uninstall and DFU restore both return you to stock.</p>
+
+                    <h3>Boot menu</h3>
+                    <p>Every time Move boots, the screen shows <strong>"Loading Schwung — press Back to change"</strong> for about two seconds. Do nothing and it boots into Schwung as usual. Press <kbd>Back</kbd> during that window and a picker opens: jog to scroll, jog-click to boot that target — which also makes it the new default, so the next boot goes straight there — and <kbd>Back</kbd> cancels back to what was already loading.</p>
+                    <p>One of the rows is always <strong>Stock Move</strong>, the factory firmware with no Schwung layer at all. Choosing it boots Move completely untouched; to come back to Schwung, reboot and press <kbd>Back</kbd> during the window to pick it again. Any other installed platform that registers itself as a boot target (see its own docs) appears here too.</p>
+                    <p>If a target fails to start two boots in a row, the picker opens on its own with a "failed to start" message and the cursor on Stock Move — so a broken target can't lock you out of the device.</p>
                 </section>
 
                 <section class="manual-section" id="getting-around">
@@ -112,7 +117,7 @@
                         </tbody>
                     </table>
 
-                    <p><strong>Global Settings</strong> is seven pages on one jog axis — <em>Display</em>, <em>Audio</em>, <em>Screen Reader</em>, <em>Set Pages</em>, <em>Shortcuts</em>, <em>Services</em> and <em>Updates</em>. Jog between them, click to enter one, then jog to a row and click to change it. <kbd>Shift</kbd> + jog-click opens the section picker from anywhere. <em>Updates</em> is a menu rather than a list of settings: <em>Check Updates</em>, <em>Module Store</em> and <em>Help</em>.</p>
+                    <p><strong>Global Settings</strong> is six sections on one jog axis — <em>Display</em>, <em>Audio</em>, <em>Screen Reader</em>, <em>Set Pages</em>, <em>Shortcuts</em> and <em>System</em>. Jog between them, click to enter one, then jog to a row and click to change it. <kbd>Shift</kbd> + jog-click opens the section picker from anywhere. <em>System</em> holds three rows: <em>Analytics</em>, then two that open something rather than change it — <em>Web Manager</em>, which shows this Move’s IP address and a QR code that opens Schwung Manager on your phone, and <em>Help</em>, the on-device help viewer.</p>
                     <p>It is always drawn as a list, whatever <strong>Param View</strong> is set to. These are set-once switches rather than things you play, and several of them re-route audio — a knob has no detent to tell you it moved.</p>
 
                     <h3>Overtake modules</h3>
@@ -712,7 +717,7 @@
                     <h2>13 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
                     <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or by <em>double-pressing</em> <kbd>Shift</kbd> + <kbd>Note/Session</kbd> — which works whether or not the Shadow UI is enabled. A <em>single</em> press of the same combo does something else: it opens Master FX when the Shadow UI is on, or the Screen Reader settings when it is off. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
-                    <p>The on-device help viewer (<strong>Global Settings → Updates → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
+                    <p>The on-device help viewer (<strong>Global Settings → System → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
                 <section class="manual-section" id="limitations">
@@ -725,7 +730,7 @@
                         <li><strong>Link Audio bypasses Move's native Master FX</strong> while it's on — Schwung rebuilds the mix from per-track streams.</li>
                         <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
                         <li><strong>Link Audio capture sometimes needs a Move restart</strong> after first enabling routing.</li>
-                        <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>), the standalone File Browser (<code>:404</code>), and Display Mirror are all unauthenticated. Anyone on the network can access them — keep that in mind on shared networks.</li>
+                        <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>) and Display Mirror are unauthenticated. Anyone on the network can access them — keep that in mind on shared networks.</li>
                         <li><strong>On-device upgrades.</strong> If you upgraded Schwung from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh ableton@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
                         <li><strong>Move firmware updates</strong> temporarily disable Schwung. Re-run the installer to repair — modules and settings are kept.</li>
                         <li><strong>Some modules require external assets</strong> (ROMs, soundfonts, .nam, .clap). Catalog entries flag this under <em>Requires</em>; the installer prompts at install time. We can't and won't help you obtain copyrighted material.</li>
