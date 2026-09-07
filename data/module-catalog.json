@@ -1424,14 +1424,14 @@
       "requires": "JP-8000 v1.5 firmware ROMs: all 8 .mid files in the module's roms/ folder"
     },
     {
-      "id": "hinge",
-      "name": "Hinge",
+      "id": "hank",
+      "name": "Hank",
       "description": "Two-operator FM on eight knobs, one page: ratio, brightness, bite, one envelope pair, noise and a tone sweep. 32 presets",
       "author": "charlesvestal",
       "component_type": "sound_generator",
-      "github_repo": "charlesvestal/schwung-hinge",
+      "github_repo": "charlesvestal/schwung-hank",
       "default_branch": "main",
-      "asset_name": "hinge-module.tar.gz",
+      "asset_name": "hank-module.tar.gz",
       "min_host_version": "1.2.0"
     }
   ]
