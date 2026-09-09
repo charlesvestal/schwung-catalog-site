@@ -129,5 +129,7 @@
   "maze_seq_lite": {"first_release": "2026-09-01", "last_updated": "2026-09-08", "version": "v1.2.1", "release_dates": ["2026-09-01","2026-09-02","2026-09-07","2026-09-08"]},
   "maze-voice": {"first_release": "2026-09-01", "last_updated": "2026-09-08", "version": "v1.2.1", "release_dates": ["2026-09-01","2026-09-02","2026-09-07","2026-09-08"]},
   "jp8000": {"first_release": "2026-09-04", "last_updated": "2026-09-05", "version": "v0.5.3", "release_dates": ["2026-09-04","2026-09-04","2026-09-04","2026-09-05"]},
-  "hank": {"first_release": "2026-09-07", "last_updated": "2026-09-07", "version": "v0.5.0", "release_dates": ["2026-09-07","2026-09-07","2026-09-07","2026-09-07","2026-09-07","2026-09-07"]}
+  "hank": {"first_release": "2026-09-07", "last_updated": "2026-09-07", "version": "v0.5.0", "release_dates": ["2026-09-07","2026-09-07","2026-09-07","2026-09-07","2026-09-07","2026-09-07"]},
+  "pixel-walkers": {"first_release": "2026-09-06", "last_updated": "2026-09-09", "version": "v0.2.0", "release_dates": ["2026-09-06","2026-09-09","2026-09-09"]},
+  "monksynth": {"first_release": "2026-09-09", "last_updated": "2026-09-09", "version": "v0.1.1", "release_dates": ["2026-09-09"]}
 }
