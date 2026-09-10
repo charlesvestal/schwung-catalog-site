@@ -23,6 +23,8 @@ let downloadHistory = {};
 let releaseMetadata = {};
 let historyDayCount = 0;
 let currentFilter = 'all';
+let currentSubFilter = 'all';
+let taxonomy = { subcategories: {}, tags: [] };
 let currentSort = 'popular';
 let currentAudio = null;
 let currentPlayBtn = null;
@@ -37,6 +39,7 @@ async function init() {
         ]);
         const catalogData = await catalogRes.json();
         catalog = catalogData.modules || [];
+        taxonomy = catalogData.taxonomy || { subcategories: {}, tags: [] };
 
         try {
             downloadCounts = await countsRes.json();
@@ -88,6 +91,7 @@ async function init() {
     });
 
     applyFilterFromURL(visibleTypes);
+    buildSubcategoryChips();
     setupControls();
     render();
 }
@@ -99,7 +103,7 @@ function applyFilterFromURL(visibleTypes) {
     if (!visibleTypes.has(requested)) return;
     const target = document.querySelector(`.filter-btn[data-filter="${requested}"]`);
     if (!target) return;
-    document.querySelectorAll('.filter-btn').forEach(b => {
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-pressed', 'false');
     });
@@ -118,10 +122,93 @@ function updateFilterURL(filter) {
     window.history.replaceState({}, '', url);
 }
 
-function setupControls() {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+/* Chips are built from the catalog's own taxonomy block and from what the list
+ * actually holds, keyed on the (component_type, subcategory) PAIR: `sequencer`
+ * exists under midi_fx, tool and overtake, so a chip keyed on the slug alone
+ * would offer it under a category that cannot match it. A slug shared by
+ * several categories gets ONE chip carrying all of its parents, rather than
+ * three identically-labelled buttons side by side under "All". */
+function buildSubcategoryChips() {
+    const row = document.getElementById('subcategory-filters');
+    if (!row) return;
+    const present = new Set(
+        catalog
+            .filter(m => m.component_type !== 'system' && m.component_type !== 'featured')
+            .map(m => m.component_type + '/' + (m.subcategory || ''))
+    );
+    const chips = new Map();
+    for (const [ct, list] of Object.entries(taxonomy.subcategories || {})) {
+        for (const sc of list) {
+            if (!present.has(ct + '/' + sc.id)) continue;
+            const existing = chips.get(sc.id);
+            if (existing) {
+                existing.parents.push(ct);
+                continue;
+            }
+            chips.set(sc.id, { id: sc.id, label: sc.label, parents: [ct] });
+        }
+    }
+    for (const chip of chips.values()) {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.subfilter = chip.id;
+        btn.dataset.parents = chip.parents.join(' ');
+        btn.setAttribute('aria-pressed', 'false');
+        btn.textContent = chip.label;
         btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => {
+            currentSubFilter = chip.id;
+            setActiveChip(row, chip.id);
+            render();
+        });
+        row.appendChild(btn);
+    }
+    row.querySelector('[data-subfilter="all"]').addEventListener('click', () => {
+        currentSubFilter = 'all';
+        setActiveChip(row, 'all');
+        render();
+    });
+    updateSubcategoryChipVisibility();
+}
+
+function setActiveChip(row, id) {
+    row.querySelectorAll('.filter-btn').forEach(b => {
+        const on = b.dataset.subfilter === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+}
+
+/* Show only the chips the CURRENT category filter can satisfy, and release a
+ * subcategory the new category cannot match -- otherwise switching category
+ * lands on an empty list with no visible control that emptied it. */
+function updateSubcategoryChipVisibility() {
+    const row = document.getElementById('subcategory-filters');
+    if (!row) return;
+    let anyShown = false;
+    let currentStillValid = currentSubFilter === 'all';
+    row.querySelectorAll('.filter-btn').forEach(b => {
+        if (b.dataset.subfilter === 'all') return;
+        const parents = (b.dataset.parents || '').split(' ');
+        const on = currentFilter === 'all' || parents.includes(currentFilter);
+        b.hidden = !on;
+        if (on) {
+            anyShown = true;
+            if (b.dataset.subfilter === currentSubFilter) currentStillValid = true;
+        }
+    });
+    if (!currentStillValid) {
+        currentSubFilter = 'all';
+        setActiveChip(row, 'all');
+    }
+    row.hidden = !anyShown;
+}
+
+function setupControls() {
+    // Scoped to [data-filter]: the subcategory chips are also .filter-btn, and
+    // they carry their own handlers from buildSubcategoryChips().
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(b => {
                 b.classList.remove('active');
                 b.setAttribute('aria-pressed', 'false');
             });
@@ -147,6 +234,10 @@ function getFiltered() {
 
     if (currentFilter !== 'all') {
         modules = modules.filter(m => m.component_type === currentFilter);
+    }
+
+    if (currentSubFilter !== 'all') {
+        modules = modules.filter(m => m.subcategory === currentSubFilter);
     }
 
     switch (currentSort) {
@@ -191,6 +282,7 @@ function getFiltered() {
 }
 
 function render() {
+    updateSubcategoryChipVisibility();
     const modules = getFiltered();
     const grid = document.getElementById('module-grid');
     const countEl = document.querySelector('.module-count');
@@ -220,6 +312,7 @@ function cardHTML(m) {
         ? Math.round(downloadsPerRelease(m.id))
         : (downloadCounts[m.id] || 0);
     const badgeLabel = CATEGORY_LABELS[m.component_type] || m.component_type;
+    const subLabel = subcategoryLabel(m);
     const meta = releaseMetadata[m.id] || {};
     const firstDate = meta.first_release && meta.first_release !== 'unknown' ? formatDate(meta.first_release) : null;
     const lastDate = meta.last_updated && meta.last_updated !== 'unknown' ? formatDate(meta.last_updated) : null;
@@ -231,9 +324,13 @@ function cardHTML(m) {
     <div class="module-card">
         <div class="card-header">
             <h3 class="module-name"><a href="${repoUrl}" target="_blank" rel="noopener">${esc(m.name)}</a></h3>
-            <span class="badge badge-${m.component_type}">${esc(badgeLabel)}</span>
+            <div class="card-badges">
+                <span class="badge badge-${m.component_type}">${esc(badgeLabel)}</span>
+                ${subLabel ? `<span class="badge badge-sub">${esc(subLabel)}</span>` : ''}
+            </div>
         </div>
         <div class="module-description">${esc(m.description)}</div>
+        ${(m.tags || []).length ? `<div class="module-tags">${(m.tags || []).map(t => `<span class="tag-pill">${esc(t)}</span>`).join('')}</div>` : ''}
         <div class="module-meta">
             <span class="module-author">by ${esc(m.author)}</span>
             ${version ? `<span class="module-version">${esc(version)}</span>` : ''}
@@ -253,6 +350,15 @@ function cardHTML(m) {
             ` : ''}
         </div>
     </div>`;
+}
+
+/* An unknown slug echoes back rather than rendering blank: a blank badge is
+ * indistinguishable from a module that has no subcategory at all. */
+function subcategoryLabel(m) {
+    if (!m.subcategory) return '';
+    const list = (taxonomy.subcategories || {})[m.component_type] || [];
+    const hit = list.find(sc => sc.id === m.subcategory);
+    return hit ? hit.label : m.subcategory;
 }
 
 function audioExt(id) {
