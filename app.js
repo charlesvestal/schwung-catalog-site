@@ -24,6 +24,7 @@ let releaseMetadata = {};
 let historyDayCount = 0;
 let currentFilter = 'all';
 let currentSubFilter = 'all';
+let currentTagFilter = '';
 let taxonomy = { subcategories: {}, tags: [] };
 let currentSort = 'popular';
 let currentAudio = null;
@@ -92,6 +93,7 @@ async function init() {
 
     applyFilterFromURL(visibleTypes);
     buildSubcategoryChips();
+    buildTagChips();
     setupControls();
     render();
 }
@@ -178,6 +180,72 @@ function setActiveChip(row, id) {
     });
 }
 
+/* Tags are the THIRD chip row, on the same drill-down rule as the second. A
+ * tag pill on a card is a shortcut into this row, not a parallel mechanism --
+ * both carry the selected state, so clicking either shows in both places. */
+function buildTagChips() {
+    const row = document.getElementById('tag-filters');
+    if (!row) return;
+    for (const tag of taxonomy.tags || []) {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.tagfilter = tag;
+        btn.setAttribute('aria-pressed', 'false');
+        btn.textContent = tag;
+        btn.addEventListener('click', () => toggleTagFilter(tag));
+        row.appendChild(btn);
+    }
+}
+
+function toggleTagFilter(tag) {
+    currentTagFilter = (currentTagFilter === tag) ? '' : tag;
+    render();
+}
+
+function syncTagChips() {
+    document.querySelectorAll('#tag-filters .filter-btn').forEach(b => {
+        const on = currentTagFilter !== '' && b.dataset.tagfilter === currentTagFilter;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('.tag-pill').forEach(b => {
+        const on = currentTagFilter !== '' && b.dataset.tag === currentTagFilter;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+}
+
+/* Which tag chips this list can still satisfy. Derived from the set the
+ * CATEGORY and SUBCATEGORY leave, deliberately ignoring the tag filter itself
+ * -- narrowing by the visible set instead would delete every chip that does
+ * not co-occur with the active one, so you could never move from `tape` to
+ * `granular` without first clearing. */
+function updateTagChipVisibility() {
+    const row = document.getElementById('tag-filters');
+    if (!row) return;
+    if (currentFilter === 'all') {
+        currentTagFilter = '';
+        row.hidden = true;
+        syncTagChips();
+        return;
+    }
+    const present = new Set();
+    for (const m of catalog) {
+        if (m.component_type !== currentFilter) continue;
+        if (currentSubFilter !== 'all' && m.subcategory !== currentSubFilter) continue;
+        for (const t of m.tags || []) present.add(t);
+    }
+    let anyShown = false;
+    row.querySelectorAll('.filter-btn').forEach(b => {
+        const on = present.has(b.dataset.tagfilter);
+        b.hidden = !on;
+        if (on) anyShown = true;
+    });
+    if (currentTagFilter !== '' && !present.has(currentTagFilter)) currentTagFilter = '';
+    row.hidden = !anyShown;
+    syncTagChips();
+}
+
 /* Show only the chips the CURRENT category filter can satisfy, and release a
  * subcategory the new category cannot match -- otherwise switching category
  * lands on an empty list with no visible control that emptied it. */
@@ -248,6 +316,9 @@ function getFiltered() {
     if (currentSubFilter !== 'all') {
         modules = modules.filter(m => m.subcategory === currentSubFilter);
     }
+    if (currentTagFilter !== '') {
+        modules = modules.filter(m => (m.tags || []).includes(currentTagFilter));
+    }
 
     switch (currentSort) {
         case 'popular':
@@ -292,6 +363,7 @@ function getFiltered() {
 
 function render() {
     updateSubcategoryChipVisibility();
+    updateTagChipVisibility();
     const modules = getFiltered();
     const grid = document.getElementById('module-grid');
     const countEl = document.querySelector('.module-count');
@@ -308,6 +380,14 @@ function render() {
     grid.querySelectorAll('.progress-bar').forEach(bar => {
         bar.addEventListener('click', e => seekAudio(e, bar));
     });
+
+    /* The pills are rewritten by the innerHTML above, so they are bound and
+     * put in step with the chip row HERE -- syncTagChips() ran at the top of
+     * render(), before these elements existed. */
+    grid.querySelectorAll('.tag-pill').forEach(pill => {
+        pill.addEventListener('click', () => toggleTagFilter(pill.dataset.tag));
+    });
+    syncTagChips();
 }
 
 function cardHTML(m) {
@@ -339,7 +419,7 @@ function cardHTML(m) {
             </div>
         </div>
         <div class="module-description">${esc(m.description)}</div>
-        ${(m.tags || []).length ? `<div class="module-tags">${(m.tags || []).map(t => `<span class="tag-pill">${esc(t)}</span>`).join('')}</div>` : ''}
+        ${(m.tags || []).length ? `<div class="module-tags">${(m.tags || []).map(t => `<button type="button" class="tag-pill" data-tag="${esc(t)}" aria-pressed="false" title="Filter by ${esc(t)}">${esc(t)}</button>`).join('')}</div>` : ''}
         <div class="module-meta">
             <span class="module-author">by ${esc(m.author)}</span>
             ${version ? `<span class="module-version">${esc(version)}</span>` : ''}
