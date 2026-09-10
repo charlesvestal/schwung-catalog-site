@@ -1418,3 +1418,63 @@ footer a:hover,
         padding: 1rem;
     }
 }
+
+/* Subcategory chips and tag pills. Quieter than the category badge, which
+   stays the primary axis. */
+.filters-sub .filter-btn { font-size: 0.85em; }
+.filters-tag .filter-btn { font-size: 0.8em; opacity: 0.85; }
+.filters-tag .filter-btn.active { opacity: 1; }
+
+/* `.filters` sets display:flex, which OUTRANKS the user-agent's
+   `[hidden] { display: none }` -- so `row.hidden = true` set the property and
+   painted the row anyway, 72px of chips with nothing reading them. The
+   individual chips are unaffected (no rule sets their display), which is what
+   made this look like it worked. */
+.filters[hidden] { display: none; }
+
+/* The badges wrap as a group: .badge is nowrap + flex-shrink:0, so a second
+   one as a direct child of the flex header overflows the module name. */
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.25rem;
+}
+
+.badge-sub {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+}
+
+.module-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.tag-pill {
+    /* A <button>, so the UA chrome comes off -- it reads as a label until you
+       notice it is clickable, and it is the SAME control as the chip row. */
+    appearance: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    padding: 0 0.45em;
+    border-radius: 0.75em;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* A tag has a CHIP in the toolbar and a PILL on each card; one control in two
+   places, so they carry the same selected state. */
+.tag-pill.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+}
+.tag-pill:hover { opacity: 1; }
