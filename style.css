@@ -1423,6 +1423,13 @@ footer a:hover,
    stays the primary axis. */
 .filters-sub .filter-btn { font-size: 0.85em; }
 
+/* `.filters` sets display:flex, which OUTRANKS the user-agent's
+   `[hidden] { display: none }` -- so `row.hidden = true` set the property and
+   painted the row anyway, 72px of chips with nothing reading them. The
+   individual chips are unaffected (no rule sets their display), which is what
+   made this look like it worked. */
+.filters[hidden] { display: none; }
+
 /* The badges wrap as a group: .badge is nowrap + flex-shrink:0, so a second
    one as a direct child of the flex header overflows the module name. */
 .card-badges {

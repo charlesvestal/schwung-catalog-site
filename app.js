@@ -184,6 +184,15 @@ function setActiveChip(row, id) {
 function updateSubcategoryChipVisibility() {
     const row = document.getElementById('subcategory-filters');
     if (!row) return;
+    // The row is a DRILL-DOWN and is hidden under "All": every subcategory of
+    // every category at once is 33 chips over four rows, so the module list
+    // starts below the fold on the page whose whole job is showing modules.
+    if (currentFilter === 'all') {
+        currentSubFilter = 'all';
+        setActiveChip(row, 'all');
+        row.hidden = true;
+        return;
+    }
     let anyShown = false;
     let currentStillValid = currentSubFilter === 'all';
     row.querySelectorAll('.filter-btn').forEach(b => {
