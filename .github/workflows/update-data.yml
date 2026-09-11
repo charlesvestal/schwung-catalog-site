@@ -57,42 +57,69 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo '{' > data/release-metadata.json
+          # The four original fields keep their exact shape. app.js does
+          # `new Date(meta.last_updated + 'T00:00:00Z')` and .sort()s
+          # release_dates as bare strings, so those stay day-truncated,
+          # and `version` stays "newest release, whatever it is" -- an
+          # older Schwung Manager reads that field and filtering it would
+          # silently downgrade what every existing install is offered.
+          #
+          # Everything new goes in NEW keys. Go's encoding/json drops
+          # unknown fields, so older managers ignore them entirely.
+          #
+          #   releases  full published_at timestamps. The manager needs
+          #             to order two releases cut on the SAME DAY, and
+          #             the ties are real: davebox shipped v1.0b and
+          #             v1.0b2 nine hours apart, and beta.7 / beta.8
+          #             fourteen. Day strings tie on exactly the
+          #             comparisons that matter.
+          #   channels  newest stable / newest prerelease, keyed on
+          #             GitHub's prerelease FLAG and never on the tag
+          #             NAME. Reading the name treats davebox's
+          #             v1.0-beta.8 as a prerelease and hands its stable
+          #             channel to v1.0b4 -- a module whose author has
+          #             simply never cut a 1.0. The flag is what an
+          #             author opts into; absent it, nothing changes.
+          #             Emitted only when a repo has BOTH, which is the
+          #             only case the channel feature is about.
+          #
+          # --paginate: the un-paginated call caps at 30 releases, which
+          # silently truncated the three longest histories and left their
+          # first_release wrong. A complete list is also what lets the
+          # manager date an OLD installed version rather than only a
+          # recent one.
 
-          repos=$(jq -r '.modules[] | "\(.id)|\(.github_repo)"' data/module-catalog.json)
+          echo '{}' > data/release-metadata.json
 
-          first=true
-          while IFS='|' read -r id repo; do
+          jq -r '.modules[] | "\(.id)\t\(.github_repo)"' data/module-catalog.json |
+          while IFS="$(printf '\t')" read -r id repo; do
             [ -z "$repo" ] && continue
 
-            # Get all releases sorted by date
-            releases=$(gh api "repos/${repo}/releases" --jq 'sort_by(.published_at)' 2>/dev/null || echo "[]")
+            releases=$(gh api "repos/${repo}/releases" --paginate \
+              --jq '[.[] | {tag: .tag_name, published_at: .published_at, prerelease: .prerelease}]' \
+              2>/dev/null | jq -s 'add // []' 2>/dev/null)
+            [ -z "$releases" ] && releases='[]'
 
-            first_date=$(echo "$releases" | jq -r '.[0].published_at // empty' | cut -c1-10)
-            [ -z "$first_date" ] && first_date="unknown"
-
-            latest_date=$(echo "$releases" | jq -r '.[-1].published_at // empty' | cut -c1-10)
-            [ -z "$latest_date" ] && latest_date="unknown"
-
-            latest_version=$(echo "$releases" | jq -r '.[-1].tag_name // empty')
-            [ -z "$latest_version" ] && latest_version="unknown"
-
-            # Collect all release dates as JSON array
-            all_dates=$(echo "$releases" | jq -c '[.[].published_at | . [:10]] | map(select(. != null))')
-            [ -z "$all_dates" ] || [ "$all_dates" = "null" ] && all_dates="[]"
-
-            if [ "$first" = true ]; then
-              first=false
-            else
-              echo ',' >> data/release-metadata.json
-            fi
-            printf '  "%s": {"first_release": "%s", "last_updated": "%s", "version": "%s", "release_dates": %s}' \
-              "$id" "$first_date" "$latest_date" "$latest_version" "$all_dates" >> data/release-metadata.json
-
-          done <<< "$repos"
-
-          echo '' >> data/release-metadata.json
-          echo '}' >> data/release-metadata.json
+            jq --arg id "$id" --argjson rel "$releases" '
+              ($rel | map(select(.published_at != null)) | sort_by(.published_at)) as $r
+              | ($r | map(select(.prerelease | not))) as $stable
+              | ($r | map(select(.prerelease)))       as $beta
+              | .[$id] = (
+                  {
+                    first_release: (if ($r|length) > 0 then $r[0].published_at[:10]  else "unknown" end),
+                    last_updated:  (if ($r|length) > 0 then $r[-1].published_at[:10] else "unknown" end),
+                    version:       (if ($r|length) > 0 then $r[-1].tag               else "unknown" end),
+                    release_dates: ($r | map(.published_at[:10])),
+                    releases:      $r
+                  }
+                  + (if ($stable|length) > 0 and ($beta|length) > 0 then
+                       {channels: {stable: {version: $stable[-1].tag},
+                                   beta:   {version: $beta[-1].tag}}}
+                     else {} end)
+                )
+            ' data/release-metadata.json > data/release-metadata.tmp
+            mv data/release-metadata.tmp data/release-metadata.json
+          done
 
           jq . data/release-metadata.json > /dev/null
 
