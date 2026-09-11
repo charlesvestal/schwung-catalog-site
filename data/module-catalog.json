@@ -6,7 +6,13 @@
     "asset_name": "schwung.tar.gz",
     "latest_version": "1.4.0",
     "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.4.0/schwung.tar.gz",
-    "min_host_version": "0.1.0"
+    "min_host_version": "0.1.0",
+    "channels": {
+      "stable": {
+        "version": "1.4.0",
+        "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.4.0/schwung.tar.gz"
+      }
+    }
   },
   "taxonomy": {
     "taxonomy_version": 1,
@@ -2128,6 +2134,21 @@
       "default_branch": "main",
       "asset_name": "busdriver-module.tar.gz",
       "min_host_version": "0.9.0"
+    },
+    {
+      "id": "sophie",
+      "name": "Sophie",
+      "description": "Sixteen-pad metallic FM percussion synthesizer with per-pad synthesis, filtering, distortion, and resonant ring delay",
+      "author": "mestela",
+      "component_type": "sound_generator",
+      "subcategory": "drum-machine",
+      "tags": [
+        "fm"
+      ],
+      "github_repo": "mestela/schwung-sophie",
+      "default_branch": "main",
+      "asset_name": "sophie-module.tar.gz",
+      "min_host_version": "1.0.0"
     }
   ]
 }
