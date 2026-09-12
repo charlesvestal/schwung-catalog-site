@@ -7120,12 +7120,13 @@
   },
   "kit-builder": {
     "first_release": "2026-09-10",
-    "last_updated": "2026-09-11",
-    "version": "v1.0.1",
+    "last_updated": "2026-09-12",
+    "version": "v1.1.0",
     "release_dates": [
       "2026-09-10",
       "2026-09-11",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-12"
     ],
     "releases": [
       {
@@ -7142,6 +7143,11 @@
         "prerelease": false,
         "published_at": "2026-09-11T12:55:57Z",
         "tag": "v1.0.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-12T12:51:28Z",
+        "tag": "v1.1.0"
       }
     ]
   },
