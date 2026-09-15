@@ -3041,13 +3041,14 @@
   "weird-dreams": {
     "first_release": "2026-03-20",
     "last_updated": "2026-09-15",
-    "version": "v0.2.7",
+    "version": "v0.2.8",
     "release_dates": [
       "2026-03-20",
       "2026-03-20",
       "2026-03-24",
       "2026-04-07",
       "2026-05-13",
+      "2026-09-15",
       "2026-09-15"
     ],
     "releases": [
@@ -3080,6 +3081,11 @@
         "prerelease": false,
         "published_at": "2026-09-15T02:06:47Z",
         "tag": "v0.2.7"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-15T15:30:11Z",
+        "tag": "v0.2.8"
       }
     ]
   },
@@ -4010,7 +4016,7 @@
   "forge": {
     "first_release": "2026-05-13",
     "last_updated": "2026-09-15",
-    "version": "v0.2.6",
+    "version": "v0.2.7",
     "release_dates": [
       "2026-05-13",
       "2026-05-13",
@@ -4020,6 +4026,7 @@
       "2026-07-05",
       "2026-07-21",
       "2026-09-08",
+      "2026-09-15",
       "2026-09-15"
     ],
     "releases": [
@@ -4067,6 +4074,11 @@
         "prerelease": false,
         "published_at": "2026-09-15T02:06:36Z",
         "tag": "v0.2.6"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-15T15:30:10Z",
+        "tag": "v0.2.7"
       }
     ]
   },
@@ -4910,11 +4922,12 @@
   "magneto": {
     "first_release": "2026-07-01",
     "last_updated": "2026-09-15",
-    "version": "v0.1.3",
+    "version": "v0.1.4",
     "release_dates": [
       "2026-07-01",
       "2026-07-02",
       "2026-07-02",
+      "2026-09-15",
       "2026-09-15"
     ],
     "releases": [
@@ -4937,6 +4950,11 @@
         "prerelease": true,
         "published_at": "2026-09-15T02:06:52Z",
         "tag": "v0.1.3"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-15T15:30:31Z",
+        "tag": "v0.1.4"
       }
     ]
   },
