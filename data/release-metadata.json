@@ -6937,14 +6937,15 @@
   },
   "maze_seq": {
     "first_release": "2026-09-01",
-    "last_updated": "2026-09-11",
-    "version": "v1.3.4",
+    "last_updated": "2026-09-20",
+    "version": "v1.4.0",
     "release_dates": [
       "2026-09-01",
       "2026-09-02",
       "2026-09-07",
       "2026-09-08",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-20"
     ],
     "releases": [
       {
@@ -6971,19 +6972,25 @@
         "prerelease": false,
         "published_at": "2026-09-11T12:32:37Z",
         "tag": "v1.3.4"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-20T06:43:53Z",
+        "tag": "v1.4.0"
       }
     ]
   },
   "maze_seq_lite": {
     "first_release": "2026-09-01",
-    "last_updated": "2026-09-11",
-    "version": "v1.3.4",
+    "last_updated": "2026-09-20",
+    "version": "v1.4.0",
     "release_dates": [
       "2026-09-01",
       "2026-09-02",
       "2026-09-07",
       "2026-09-08",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-20"
     ],
     "releases": [
       {
@@ -7010,19 +7017,25 @@
         "prerelease": false,
         "published_at": "2026-09-11T12:32:37Z",
         "tag": "v1.3.4"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-20T06:43:53Z",
+        "tag": "v1.4.0"
       }
     ]
   },
   "maze-voice": {
     "first_release": "2026-09-01",
-    "last_updated": "2026-09-11",
-    "version": "v1.3.4",
+    "last_updated": "2026-09-20",
+    "version": "v1.4.0",
     "release_dates": [
       "2026-09-01",
       "2026-09-02",
       "2026-09-07",
       "2026-09-08",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-20"
     ],
     "releases": [
       {
@@ -7049,6 +7062,11 @@
         "prerelease": false,
         "published_at": "2026-09-11T12:32:37Z",
         "tag": "v1.3.4"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-20T06:43:53Z",
+        "tag": "v1.4.0"
       }
     ]
   },
