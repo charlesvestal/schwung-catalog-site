@@ -7444,5 +7444,70 @@
         "tag": "v0.9.1"
       }
     ]
+  },
+  "simian": {
+    "first_release": "2026-09-21",
+    "last_updated": "2026-09-21",
+    "version": "v0.1.0",
+    "release_dates": [
+      "2026-09-21"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-09-21T04:07:03Z",
+        "tag": "v0.1.0"
+      }
+    ]
+  },
+  "trance-gate": {
+    "first_release": "2026-09-20",
+    "last_updated": "2026-09-20",
+    "version": "v0.3.0-beta.1",
+    "release_dates": [
+      "2026-09-20",
+      "2026-09-20",
+      "2026-09-20"
+    ],
+    "releases": [
+      {
+        "prerelease": true,
+        "published_at": "2026-09-20T14:19:29Z",
+        "tag": "v0.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-20T16:33:41Z",
+        "tag": "v0.2.0"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-20T16:40:15Z",
+        "tag": "v0.3.0-beta.1"
+      }
+    ],
+    "channels": {
+      "stable": {
+        "version": "v0.2.0"
+      },
+      "beta": {
+        "version": "v0.3.0-beta.1"
+      }
+    }
+  },
+  "chonk": {
+    "first_release": "2026-09-21",
+    "last_updated": "2026-09-21",
+    "version": "v0.1.0",
+    "release_dates": [
+      "2026-09-21"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-09-21T04:06:12Z",
+        "tag": "v0.1.0"
+      }
+    ]
   }
 }
