@@ -298,6 +298,20 @@ main {
     gap: 1rem;
 }
 
+/* Sort: Type -- a heading spans the whole grid row above its group. */
+.group-heading {
+    grid-column: 1 / -1;
+    margin: 1rem 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.35rem;
+}
+.group-heading:first-child {
+    margin-top: 0;
+}
+
 /* Card */
 .module-card {
     background: var(--bg-card);

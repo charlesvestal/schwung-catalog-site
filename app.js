@@ -356,6 +356,9 @@ function getFiltered() {
         case 'author':
             modules.sort((a, b) => a.author.localeCompare(b.author));
             break;
+        case 'type':
+            modules.sort((a, b) => typeRank(a) - typeRank(b) || a.name.localeCompare(b.name));
+            break;
     }
 
     return modules;
@@ -370,7 +373,7 @@ function render() {
 
     countEl.textContent = `${modules.length} module${modules.length !== 1 ? 's' : ''}`;
 
-    grid.innerHTML = modules.map(m => cardHTML(m)).join('');
+    grid.innerHTML = gridHTML(modules);
 
     // Bind audio players
     grid.querySelectorAll('.play-btn').forEach(btn => {
@@ -439,6 +442,38 @@ function cardHTML(m) {
             ` : ''}
         </div>
     </div>`;
+}
+
+/* Sort: Type -- category in the filter-button order, then the taxonomy's own
+ * subcategory order (the order its chips are in), then A-Z. A module with no
+ * subcategory, or one the taxonomy does not know, sorts after its category's
+ * known ones rather than disappearing. */
+const TYPE_ORDER = ['sound_generator', 'audio_fx', 'midi_fx', 'overtake', 'tool', 'utility'];
+function typeRank(m) {
+    const ct = TYPE_ORDER.indexOf(m.component_type);
+    const list = (taxonomy.subcategories || {})[m.component_type] || [];
+    const sc = list.findIndex(s => s.id === m.subcategory);
+    return (ct < 0 ? TYPE_ORDER.length : ct) * 1000 + (sc < 0 ? 999 : sc);
+}
+
+/* The heading a card sits under in Sort: Type. The category is named only
+ * while the list spans several -- under a category filter it is on the chip
+ * row already. */
+function typeHeading(m) {
+    const sub = subcategoryLabel(m) || 'Other';
+    if (currentFilter !== 'all') return sub;
+    return `${CATEGORY_LABELS[m.component_type] || m.component_type} · ${sub}`;
+}
+
+function gridHTML(modules) {
+    if (currentSort !== 'type') return modules.map(m => cardHTML(m)).join('');
+    let last = null;
+    return modules.map(m => {
+        const h = typeHeading(m);
+        const head = h !== last ? `<h2 class="group-heading">${esc(h)}</h2>` : '';
+        last = h;
+        return head + cardHTML(m);
+    }).join('');
 }
 
 /* An unknown slug echoes back rather than rendering blank: a blank badge is
