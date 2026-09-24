@@ -7486,12 +7486,13 @@
   },
   "trance-gate": {
     "first_release": "2026-09-20",
-    "last_updated": "2026-09-20",
-    "version": "v0.3.0-beta.1",
+    "last_updated": "2026-09-24",
+    "version": "v1.0.0",
     "release_dates": [
       "2026-09-20",
       "2026-09-20",
-      "2026-09-20"
+      "2026-09-20",
+      "2026-09-24"
     ],
     "releases": [
       {
@@ -7508,11 +7509,16 @@
         "prerelease": true,
         "published_at": "2026-09-20T16:40:15Z",
         "tag": "v0.3.0-beta.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-24T14:43:28Z",
+        "tag": "v1.0.0"
       }
     ],
     "channels": {
       "stable": {
-        "version": "v0.2.0"
+        "version": "v1.0.0"
       },
       "beta": {
         "version": "v0.3.0-beta.1"
