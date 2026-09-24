@@ -484,11 +484,12 @@
   },
   "ottx": {
     "first_release": "2026-06-09",
-    "last_updated": "2026-07-29",
-    "version": "v0.2.0",
+    "last_updated": "2026-09-24",
+    "version": "v0.2.1",
     "release_dates": [
       "2026-06-09",
-      "2026-07-29"
+      "2026-07-29",
+      "2026-09-24"
     ],
     "releases": [
       {
@@ -500,6 +501,11 @@
         "prerelease": false,
         "published_at": "2026-07-29T14:43:26Z",
         "tag": "v0.2.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-24T00:23:38Z",
+        "tag": "v0.2.1"
       }
     ]
   },
