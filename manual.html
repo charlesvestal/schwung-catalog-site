@@ -98,13 +98,14 @@
                             <tr><td>Toggle module bypass</td><td colspan="2"><kbd>Mute</kbd> + <kbd>Jog Click</kbd> on a focused chain or Master FX module</td></tr>
                             <tr><td>Toggle slot mute</td><td colspan="2"><kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Toggle slot solo</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Mute</kbd> + <kbd>Track 1–4</kbd></td></tr>
+                            <tr><td>Start / stop CC learn</td><td>—</td><td><kbd>Shift+Vol</kbd> + <kbd>Sample</kbd> (see <a href="#surfaces">CC map</a>)</td></tr>
                         </tbody>
                     </table>
                     <p class="note"><strong>Holding a <kbd>Track</kbd> button goes both ways.</strong> From Move it opens that slot's editor; from the Shadow UI it hands the screen back to Move <em>on that track</em>. It is its own reverse, so you can hold your way back and forth between the two without learning a second gesture — and because the track follows, the pads you land on are the ones the editor was about.</p>
 
                     <p class="note"><strong>Keep Schwung.</strong> Tapping a <kbd>Track</kbd> button switches to that slot's editor and keeps you in Schwung — a track button selects a track, the same as everywhere else on the hardware. If you would rather it hand the screen straight back to Move, turn off <strong>Global Settings → Display → Keep Schwung</strong>. Either way <kbd>Shift</kbd> + <kbd>Track</kbd> hands the screen back, and <kbd>Note/Session</kbd> always dismisses, so there is more than one way out.</p>
 
-                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. <kbd>Mute</kbd> always reaches Move, even while the Shadow UI is shown, so Move's own <kbd>Mute</kbd>+pad drum muting keeps working. The trade-off: a plain <kbd>Mute</kbd> tap also toggles Move's selected track, and <kbd>Mute</kbd>+<kbd>Track</kbd> mutes both the Schwung slot and the Move track.</p>
+                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. <kbd>Mute</kbd> always reaches Move, even while the Shadow UI is shown, so Move's own <kbd>Mute</kbd>+pad drum muting keeps working. Each Schwung slot's mute and solo <strong>follow the matching Move track</strong>: <kbd>Mute</kbd>+<kbd>Track</kbd>, <kbd>Shift</kbd>+<kbd>Mute</kbd>+<kbd>Track</kbd> and a plain <kbd>Mute</kbd> tap all leave the slot matching whatever Move's track ends up as, and loading a Set (or starting up) takes the mutes and solos saved in that Set. Solo is exclusive on both sides, as it is in Move.</p>
 
                     <h3>Tools, settings &amp; sets</h3>
                     <table class="shortcut-table">
@@ -118,7 +119,7 @@
                         </tbody>
                     </table>
 
-                    <p><strong>Global Settings</strong> is six sections on one jog axis — <em>Display</em>, <em>Audio</em>, <em>Screen Reader</em>, <em>Set Pages</em>, <em>Shortcuts</em> and <em>System</em>. Jog between them, click to enter one, then jog to a row and click to change it. <kbd>Shift</kbd> + jog-click opens the section picker from anywhere. <em>System</em> holds three rows: <em>Analytics</em>, then two that open something rather than change it — <em>Web Manager</em>, which shows this Move’s IP address and a QR code that opens Schwung Manager on your phone, and <em>Help</em>, the on-device help viewer.</p>
+                    <p><strong>Global Settings</strong> is seven sections on one jog axis — <em>Display</em>, <em>Audio</em>, <em>Screen Reader</em>, <em>Set Pages</em>, <em>Shortcuts</em>, <em>Surfaces</em> (see <a href="#surfaces">Control surfaces</a>) and <em>System</em>. Jog between them, click to enter one, then jog to a row and click to change it. <kbd>Shift</kbd> + jog-click opens the section picker from anywhere. <em>System</em> holds three rows: <em>Analytics</em>, then two that open something rather than change it — <em>Web Manager</em>, which shows this Move’s IP address and a QR code that opens Schwung Manager on your phone, and <em>Help</em>, the on-device help viewer.</p>
                     <p>It is always drawn as a list, whatever <strong>Param View</strong> is set to. These are set-once switches rather than things you play, and several of them re-route audio — a knob has no detent to tell you it moved.</p>
 
                     <h3>Overtake modules</h3>
@@ -312,7 +313,8 @@
                     <h2>3 · Schwung Manager (web)</h2>
                     <p>Most day-to-day management lives in the web UI rather than on Move's display. Open <a href="http://move.local:7700" target="_blank" rel="noopener"><code>http://move.local:7700</code></a> from any browser on the same network while Move is on.</p>
                     <ul>
-                        <li><strong>Modules</strong> — browse, install, uninstall, update modules. Install custom modules from a GitHub URL or tarball.</li>
+                        <li><strong>Modules</strong> — browse, install, uninstall, update modules. Narrow the list by <em>Category</em>, then <em>Type</em> (Polysynth, Drum Machine, Tape…) and <em>Tag</em>; clicking a tag on a module jumps to it. Install custom modules from a GitHub URL or tarball.</li>
+                        <li><strong>Controls</strong> — edit the current Set's custom surface pages and CC map from the browser (see <a href="#surfaces">Control surfaces &amp; CC map</a>).</li>
                         <li><strong>Files</strong> — browse, upload, download, rename, delete files on the device. Useful for managing module assets (soundfonts, patches, ROMs). Fully keyboard- and screen-reader-accessible: Tab between rows, <kbd>Enter</kbd> opens a folder (or downloads a file), <kbd>Space</kbd> selects, and each row announces its name; a checkbox column handles multi-select.</li>
                         <li><strong>Remote UI</strong> — control a slot's module from your browser. Some modules include their own interface (e.g. Osirus's signal-flow view); it loads here next to the standard knob controls, and you can switch between the two for each slot.</li>
                         <li><strong>Config</strong> — adjust display, audio, screen reader, and feature settings. Changes apply instantly.</li>
@@ -561,7 +563,7 @@
                         <details class="faq-item">
                             <summary>Muting with Move→Schwung: tracks vs. drum pads</summary>
                             <div class="faq-body">
-                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button to mute that track — Move's track and the matching Schwung slot mute together and stay in sync. Tapping <strong>Mute</strong> on its own only mutes Move's selected track; the Schwung slot is unaffected.</p>
+                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button to mute that track — Move's track and the matching Schwung slot mute together and stay in sync. Tapping <strong>Mute</strong> on its own mutes Move's selected track, and the matching slot follows it once you have pressed a <strong>Track</strong> button to select one.</p>
                                 <p>Hold <strong>Mute</strong> and tap a single <strong>drum pad</strong> to mute just that one pad/drum, exactly like stock Move. This no longer mutes the whole Schwung slot — only the pad you press.</p>
                             </div>
                         </details>
