@@ -53,6 +53,7 @@
                     <li><a href="#sets">Sets &amp; pages</a></li>
                     <li><a href="#tools">Tools menu</a></li>
                     <li><a href="#overtake">Overtake modules</a></li>
+                    <li><a href="#surfaces">Control surfaces &amp; CC map</a></li>
                     <li><a href="#accessibility">Accessibility</a></li>
                     <li><a href="#limitations">Limitations &amp; gotchas</a></li>
                     <li><a href="#analytics">Analytics</a></li>
@@ -714,15 +715,71 @@
                     <p>Schwung includes a JACK shadow driver (but not JACK itself — RNBO ships JACK). The driver is available if you want to build other JACK applications for Move.</p>
                 </section>
 
+                <section class="manual-section" id="surfaces">
+                    <h2>13 · Control surfaces &amp; CC map</h2>
+                    <p>A controller on Move's USB-A port can drive Schwung's parameters in two ways. An <strong>OXI E16</strong> or a <strong>Faderfox EC4</strong> can be a full <em>surface</em>: its knobs edit what you are looking at, with names and values on the device's own screen. <strong>Any</strong> MIDI controller can be used through the <strong>CC map</strong>, which binds a controller knob to one parameter.</p>
+                    <p>Choose in <strong>Global Settings → Surfaces → Surface</strong>: <em>CC Only</em> (no surface; the CC map still works), <em>E16</em> or <em>EC4</em>.</p>
+
+                    <h3>Connecting</h3>
+                    <ul>
+                        <li><strong>OXI E16</strong> — first turn off its <em>USB Multi Port</em> (on the E16: <kbd>Shift</kbd> → Conf → MIDI → USB Multi Port → Off). Move's USB-A port cannot send SysEx to a multi-port device. Once plugged in, the E16 switches into remote mode by itself and recovers from an unplug.</li>
+                        <li><strong>Faderfox EC4</strong> — needs Schwung's setup installed once: <strong>Global Settings → Surfaces → EC4 Setup</strong>, then follow the steps on screen. The setup goes into EC4 setup 13 by default. Selecting another setup on the EC4 releases it, and selecting 13 again brings Schwung back.</li>
+                    </ul>
+                    <p><strong>Follow Focus</strong> (same section) makes the surface follow whatever module Move's screen is showing, instead of navigating on its own.</p>
+
+                    <h3>Layouts</h3>
+                    <p><strong>Surface Nav</strong> chooses how the knobs are arranged, separately for each device:</p>
+                    <table class="shortcut-table">
+                        <thead><tr><th>Layout</th><th>What the knobs do</th></tr></thead>
+                        <tbody>
+                            <tr><td>Map <em>(E16 default)</em></td><td>All 16 knobs edit parameters, two pages at a time. Hold <kbd>Shift</kbd> for the <strong>slot map</strong>: the top row is the four slots, below it that slot's modules. Push one to jump to it. <kbd>Shift</kbd>+turn pages the parameters.</td></tr>
+                            <tr><td>Knobs <em>(EC4 default)</em></td><td>The top eight knobs are the page Move's screen shows (a push acts like a click on the grid). The bottom eight are labelled controls: page back and forward, slot, module, and the slot's volume (push to mute) and pan (push to centre).</td></tr>
+                            <tr><td>Custom</td><td>Your own pages of 16 knobs, each on any parameter of any slot, Master FX or the mixer. Saved with the Set. See below.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Custom layout</h3>
+                    <ul>
+                        <li><strong>Assign a knob</strong> — hold the knob until it shows LEARN, then move a parameter on Move. That knob now drives it. To clear it, push again or turn right; turn left to cancel.</li>
+                        <li><strong>Pages</strong> — hold <kbd>Shift</kbd> for the page map. Push a page to go to it, or an empty cell to add one. <kbd>Shift</kbd>+turn steps through pages.</li>
+                        <li>Pushing an assigned knob performs that parameter's click. A knob whose module has been removed shows <code>--</code> and does nothing until the module is back.</li>
+                        <li>Pages can also be edited in <strong>Master FX Settings → Surface Layout</strong>, or in the web manager's <strong>Controls</strong> page.</li>
+                    </ul>
+
+                    <h3>Mixer</h3>
+                    <p>A quick <em>tap</em> of <kbd>Shift</kbd> on either surface switches between the module's knobs and the <strong>Mixer</strong>: one column per slot.</p>
+                    <table class="shortcut-table">
+                        <thead><tr><th>Row</th><th>Turn</th><th>Push</th><th><kbd>Shift</kbd></th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Level (the same value as Move's track volume)</td><td>Mute</td><td>turn: pan · push: solo</td></tr>
+                            <tr><td>2</td><td>Send A</td><td>Off / back on</td><td>push: 100%</td></tr>
+                            <tr><td>3</td><td>Send B</td><td>Off / back on</td><td>push: 100%</td></tr>
+                            <tr><td>4</td><td>Return A · Return B · — · Master filter</td><td>Off / back on · Skipback save · filter to centre</td><td></td></tr>
+                        </tbody>
+                    </table>
+                    <p>Switching a control off keeps its setting: the knob shows it greyed, you can still turn it while it is off, and a second push brings it back. The <strong>master filter</strong> is a DJ-style sweep, low-pass to the left and high-pass to the right, and is also in <strong>Master FX Settings → Filter</strong>.</p>
+
+                    <h3>CC map (any controller)</h3>
+                    <ul>
+                        <li><strong>Learn</strong> — press <kbd>Shift+Vol</kbd>+<kbd>Sample</kbd> from anywhere. The footer shows LEARN. Move a parameter on Move, then a knob on your controller, and they are bound. Repeat for as many as you like, then press <kbd>Shift+Vol</kbd>+<kbd>Sample</kbd> again to finish.</li>
+                        <li>Each parameter takes one CC; binding a second CC moves the binding. A bound CC is taken away from Move and the slots.</li>
+                        <li>Drum modules' per-pad parameters can be learned too ("Pad 3 Width"). If a parameter cannot be bound, Schwung says so.</li>
+                        <li><strong>Master FX Settings → CC Map</strong> lists the bindings. Click one to set its <em>Mode</em> (Absolute, or Relative for endless encoders) or delete it. The CC map is saved with the Set.</li>
+                    </ul>
+
+                    <h3>Editing from the web</h3>
+                    <p>The <a href="#manager">Schwung Manager</a>'s <strong>Controls</strong> page edits the current Set's custom pages and CC map from a browser, with a searchable list of every parameter. Changes reach the device straight away, and edits made on the device show up there too.</p>
+                </section>
+
                 <section class="manual-section" id="accessibility">
-                    <h2>13 · Accessibility</h2>
+                    <h2>14 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
                     <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or by <em>double-pressing</em> <kbd>Shift</kbd> + <kbd>Note/Session</kbd> — which works whether or not the Shadow UI is enabled. A <em>single</em> press of the same combo does something else: it opens Master FX when the Shadow UI is on, or the Screen Reader settings when it is off. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
                     <p>The on-device help viewer (<strong>Global Settings → System → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
                 <section class="manual-section" id="limitations">
-                    <h2>14 · Limitations &amp; gotchas</h2>
+                    <h2>15 · Limitations &amp; gotchas</h2>
                     <p>Things that aren't bugs, but trip people up:</p>
                     <ul>
                         <li><strong>Performance overhead.</strong> Schwung is additional software on Move; even with no synths loaded there is a slight performance impact compared to stock.</li>
@@ -739,7 +796,7 @@
                 </section>
 
                 <section class="manual-section" id="analytics">
-                    <h2>15 · Analytics</h2>
+                    <h2>16 · Analytics</h2>
                     <p>Schwung can send anonymous usage statistics to help prioritize development. <strong>Off by default.</strong> On first launch you're prompted to choose; nothing is sent until you opt in. Change at any time under <strong>Settings → Analytics</strong>.</p>
                     <table class="shortcut-table">
                         <caption>What's sent when enabled</caption>
@@ -758,7 +815,7 @@
                 </section>
 
                 <section class="manual-section" id="help">
-                    <h2>16 · Help &amp; community</h2>
+                    <h2>17 · Help &amp; community</h2>
                     <ul>
                         <li><a href="faqs.html">FAQs</a> — the short answers.</li>
                         <li><a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub Issues</a> — bug reports and feature requests.</li>
