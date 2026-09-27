@@ -112,6 +112,7 @@
                         <thead><tr><th>Action</th><th>Long-press</th><th>Shift+Vol</th></tr></thead>
                         <tbody>
                             <tr><td>Open Global Settings</td><td><kbd>Shift</kbd> + hold <kbd>Step 2</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 2</kbd></td></tr>
+                            <tr><td>Open Scenes</td><td><kbd>Shift</kbd> + hold <kbd>Step 3</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 3</kbd></td></tr>
                             <tr><td>Open Tools menu</td><td><kbd>Shift</kbd> + <kbd>Step 13</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd></td></tr>
                             <tr><td>Open Quantized Sampler</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Sample</kbd></td></tr>
                             <tr><td>Skipback (save last 30 s)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Capture</kbd></td></tr>
@@ -636,6 +637,25 @@
                     <p>Recall puts back <em>settings</em>, not the modules themselves. Anything still running keeps running, so reverb tails and arpeggiator timing carry straight through instead of cutting out. If you swapped a module out since the snapshot, that one is left alone and the toast tells you how many were skipped — for example <em>&ldquo;Snapshot restored / 2 skipped&rdquo;</em>. A handful of modules don't save their settings at all; those count as skipped too.</p>
                     <p><strong>Recall Quantize.</strong> Under <strong>Global Settings &rarr; Shortcuts</strong>, <em>Recall Q</em> chooses when a recall actually happens: <em>Off</em> (immediately, the default), or on the next <em>Beat</em>, <em>Bar</em> or <em>2 Bars</em>. Set one up mid-phrase and let it drop in time with what is playing. A <strong>Q</strong> appears in the top-right corner while a recall is waiting; press <kbd>Shift</kbd>+<kbd>Delete</kbd> again to call it off. With the transport stopped there is no clock to wait for, so the recall just happens straight away whatever the setting says.</p>
                     <p class="note"><strong>Note:</strong> while Schwung is running, <kbd>Shift</kbd>+<kbd>Copy</kbd> and <kbd>Shift</kbd>+<kbd>Delete</kbd> belong to Schwung and no longer reach Move's own copy and delete.</p>
+
+                    <h3>Scenes</h3>
+                    <p>A <strong>scene</strong> is a set of parameter settings you have <em>locked</em> &mdash; on any of the four slots, the Master FX chain or either send. There are sixteen. Put one scene on end <strong>A</strong> and another on end <strong>B</strong>, and one crossfader morphs every locked parameter smoothly between them, the way scenes work on an Elektron Octatrack. Open the Scenes screen with <kbd>Shift+Vol</kbd>+<kbd>Step 3</kbd> (or <kbd>Shift</kbd> + hold <kbd>Step 3</kbd>), or from <strong>Master FX Settings &rarr; Scenes</strong>.</p>
+                    <table>
+                        <tr><th>On the Scenes screen</th><th>Does</th></tr>
+                        <tr><td><kbd>Jog</kbd> or <kbd>Knob 8</kbd></td><td>Moves the crossfader (hold <kbd>Shift</kbd> for fine steps)</td></tr>
+                        <tr><td><kbd>Jog click</kbd></td><td>Snaps the fader to the nearer end</td></tr>
+                        <tr><td><kbd>Knob 1</kbd> / <kbd>Knob 2</kbd></td><td>Choose scene A / scene B</td></tr>
+                        <tr><td>Tap a <kbd>Step</kbd></td><td>Puts that scene on the end the fader is <em>not</em> at, ready for the next move</td></tr>
+                        <tr><td>Hold a <kbd>Step</kbd></td><td>Edit that scene (hold or tap it again to stop)</td></tr>
+                        <tr><td><kbd>Copy</kbd> + two steps</td><td>Copy a scene onto another</td></tr>
+                        <tr><td><kbd>Delete</kbd> + step</td><td>Clear a scene</td></tr>
+                        <tr><td><kbd>Undo</kbd></td><td>Undo that copy or clear (press again to redo)</td></tr>
+                        <tr><td><kbd>Shift</kbd> + <kbd>Jog click</kbd></td><td>Map a controller fader to the crossfader: then just move the fader</td></tr>
+                    </table>
+                    <p><strong>Editing a scene.</strong> While a scene is being edited, <strong>SCN</strong> and its number show in the top-right corner of every Schwung screen. Turn any knob, on any slot, module or Master FX page, and that parameter is locked into the scene at the value you set &mdash; you hear the scene while you edit it. To take a parameter back out, hold <kbd>Delete</kbd> and turn its knob. If a scene cannot take a parameter the corner flashes <strong>FULL</strong> (a slot, Master FX or send can hold 64 different locked parameters across all sixteen scenes) or <strong>N/A</strong>, and the knob simply works as normal.</p>
+                    <p>A parameter locked in only one of the two scenes morphs towards <em>its knob</em> at the other end, so you can keep turning it while you fade. Settings with named choices (a filter type, a waveform) switch halfway across. If you swap a module out, its locks are kept but sleep until that module comes back.</p>
+                    <p>Scenes are saved with the set. The crossfader always starts at A when a set loads. Scenes are separate from the snapshot: a recall changes your knobs, and the scenes carry on morphing from wherever those knobs now are.</p>
+                    <p class="note"><strong>Note:</strong> <kbd>Shift</kbd> + <kbd>Step</kbd> belongs to Move, so on the Scenes screen scene B is chosen with <kbd>Knob 2</kbd>.</p>
 
                     <h3>Feedback protection</h3>
                     <p class="note warning"><strong>Speaker feedback risk.</strong> When you load a module that uses line input (Line In, AutoSample) while built-in speakers are active and no line-in cable is plugged in, Schwung warns you. Press <em>Jog</em> to proceed (e.g. recording with the internal mic and speakers turned down) or <em>Back</em> to cancel. Plug in headphones or a line-in cable to bypass the warning.</p>
