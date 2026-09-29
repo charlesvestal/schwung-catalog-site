@@ -7567,6 +7567,33 @@
       }
     ]
   },
+  "drums-practice": {
+    "first_release": "2026-09-28",
+    "last_updated": "2026-09-29",
+    "version": "v0.9.0",
+    "release_dates": [
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-29"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-09-28T19:46:42Z",
+        "tag": "v0.8.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-29T07:39:51Z",
+        "tag": "v0.8.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-29T08:03:50Z",
+        "tag": "v0.9.0"
+      }
+    ]
+  },
   "scratch": {
     "first_release": "2026-09-28",
     "last_updated": "2026-09-28",
