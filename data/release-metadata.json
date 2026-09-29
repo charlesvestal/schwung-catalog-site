@@ -6241,11 +6241,12 @@
   },
   "rrverb10": {
     "first_release": "2026-08-04",
-    "last_updated": "2026-09-04",
-    "version": "v0.3.1",
+    "last_updated": "2026-09-28",
+    "version": "v0.3.2",
     "release_dates": [
       "2026-08-04",
-      "2026-09-04"
+      "2026-09-04",
+      "2026-09-28"
     ],
     "releases": [
       {
@@ -6257,6 +6258,11 @@
         "prerelease": false,
         "published_at": "2026-09-04T15:42:37Z",
         "tag": "v0.3.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-28T02:56:28Z",
+        "tag": "v0.3.2"
       }
     ]
   },
@@ -7180,13 +7186,14 @@
   },
   "dr32": {
     "first_release": "2026-09-09",
-    "last_updated": "2026-09-27",
-    "version": "v0.4.0",
+    "last_updated": "2026-09-28",
+    "version": "v0.4.1",
     "release_dates": [
       "2026-09-09",
       "2026-09-09",
       "2026-09-09",
-      "2026-09-27"
+      "2026-09-27",
+      "2026-09-28"
     ],
     "releases": [
       {
@@ -7208,6 +7215,11 @@
         "prerelease": false,
         "published_at": "2026-09-27T17:44:16Z",
         "tag": "v0.4.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-28T18:12:19Z",
+        "tag": "v0.4.1"
       }
     ]
   },
@@ -7552,6 +7564,66 @@
         "prerelease": false,
         "published_at": "2026-09-24T19:09:19Z",
         "tag": "v1.4.0"
+      }
+    ]
+  },
+  "scratch": {
+    "first_release": "2026-09-28",
+    "last_updated": "2026-09-28",
+    "version": "v1.0.2",
+    "release_dates": [
+      "2026-09-28",
+      "2026-09-28",
+      "2026-09-28"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-09-28T07:55:48Z",
+        "tag": "v1.0.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-28T08:26:07Z",
+        "tag": "v1.0.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-28T08:43:08Z",
+        "tag": "v1.0.2"
+      }
+    ]
+  },
+  "snake": {
+    "first_release": "2026-09-23",
+    "last_updated": "2026-09-23",
+    "version": "v0.4.2",
+    "release_dates": [
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23",
+      "2026-09-23"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-09-23T18:45:43Z",
+        "tag": "v0.3.3"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-23T18:53:13Z",
+        "tag": "v0.4.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-23T18:57:39Z",
+        "tag": "v0.4.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-09-23T19:06:24Z",
+        "tag": "v0.4.2"
       }
     ]
   }
