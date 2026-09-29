@@ -334,7 +334,9 @@
                     <p class="note">A module that runs its sound in separate helper programs — JE-8086 is the one that does today — cannot be found by name in the frame budget, so its share is worked out from the family of programs it started, and shown as an estimate.</p>
 
                     <h3>Display Mirror</h3>
-                    <p>Streams Move's 128×64 OLED to any browser at ~30 fps — both stock Move UI and Shadow UI. Off by default. Toggle on at <strong>Global Settings → Display → Mirror Display</strong>, then open <a href="http://move.local:7700/mirror" target="_blank" rel="noopener"><code>move.local:7700/mirror</code></a> (or <code>move.local:7681</code>). Up to 8 simultaneous viewers. Setting persists across reboots.</p>
+                    <p>Streams Move's 128×64 OLED to any browser at ~30 fps — both stock Move UI and Shadow UI. Off by default. Toggle on at <strong>Global Settings → Display → Mirror Display</strong>, then open <a href="http://move.local:7700/mirror" target="_blank" rel="noopener"><code>move.local:7700/mirror</code></a> (or <code>move.local:7681</code> for the screen alone). Setting persists across reboots.</p>
+                    <p>Under the large screen, <code>/mirror</code> draws the <strong>whole device</strong>: every pad, step, button and knob LED as it is lit right now, the same screen in its place, and what your hands are doing — held pads and buttons outlined, pad pressure as a bar, touched knobs ringed, and each knob's pointer turning as you turn it. <strong>Log</strong> lists the last presses. <strong>Save PNG</strong> and <strong>Record</strong> capture the screen, the device, or both (pick which from the menu beside them); a recording saves as a video file, with the device's sound in it, when you press <strong>Stop</strong>. The sound is the same full mix Skipback records, at full level whatever the volume knob says. <strong>Unmute</strong> plays it in the browser too; it starts muted, and muting never takes it out of a recording. Blinking and pulsing LEDs are drawn at 120 BPM whatever the set's tempo.</p>
+                    <p>If the Wi-Fi drops, the page reconnects by itself — it notices when the device goes quiet, even when the browser does not — so there is no need to reload.</p>
                 </section>
 
                 <section class="manual-section" id="slots">
@@ -576,7 +578,14 @@
                             <summary>Speaker EQ: voicing the built-in speaker</summary>
                             <div class="faq-body">
                                 <p>When Move→Schwung is on, Schwung rebuilds the DAC output itself, which bypasses Move's built-in speaker voicing. Schwung re-applies its own emulation of that EQ so the internal speaker still sounds full — but only on the speaker path; headphones and line-out stay neutral.</p>
-                                <p>This is fully automatic — it follows the headphone jack, so the speaker gets the voicing and headphones/line-out stay neutral. There's no setting to manage. (Earlier builds had a manual Auto/Off/On toggle as a workaround for occasional hollow/phasey headphone audio at boot; that bug is fixed — Schwung now re-asserts the true jack state a few seconds after startup — so the toggle was removed.)</p>
+                                <p><strong>Global Settings → Audio → Spkr EQ</strong>:</p>
+                                <ul>
+                                    <li><strong>Auto</strong> (default) — follows the headphone jack: the built-in speaker gets the voicing, headphones and line-out stay neutral.</li>
+                                    <li><strong>Off</strong> — never applies it.</li>
+                                    <li><strong>On</strong> — always applies it, whatever the jack reads.</li>
+                                </ul>
+                                <p>Auto is right for almost everyone and errs toward leaving the EQ off, because a wrong jack reading is far more noticeable on headphones (hollow, phasey) than on the speaker (a little less bass). The other two options are there for a Move whose jack detection reads wrong in one direction — pick <em>Off</em> if headphones ever sound hollow, or <em>On</em> if the speaker never gets its voicing.</p>
+                                <p>In every mode the EQ applies only while Move→Schwung is on. Switch that off and Move's own voicing is back in the path, so the two never double up.</p>
                             </div>
                         </details>
                     </div>
