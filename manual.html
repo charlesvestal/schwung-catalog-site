@@ -47,6 +47,7 @@
                     <li><a href="#slots">Slots &amp; signal chain</a></li>
                     <li><a href="#midi-routing">MIDI routing</a></li>
                     <li><a href="#lfos">LFOs</a></li>
+                    <li><a href="#automation">Automation</a></li>
                     <li><a href="#master-fx">Master FX and sends</a></li>
                     <li><a href="#link-audio">Routing Move audio</a></li>
                     <li><a href="#recording">Recording &amp; sampling</a></li>
@@ -105,7 +106,7 @@
 
                     <p class="note"><strong>Keep Schwung.</strong> Tapping a <kbd>Track</kbd> button switches to that slot's editor and keeps you in Schwung — a track button selects a track, the same as everywhere else on the hardware. If you would rather it hand the screen straight back to Move, turn off <strong>Global Settings → Display → Keep Schwung</strong>. Either way <kbd>Shift</kbd> + <kbd>Track</kbd> hands the screen back, and <kbd>Note/Session</kbd> always dismisses, so there is more than one way out.</p>
 
-                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. <kbd>Mute</kbd> always reaches Move, even while the Shadow UI is shown, so Move's own <kbd>Mute</kbd>+pad drum muting keeps working. Each Schwung slot's mute and solo <strong>follow the matching Move track</strong>: <kbd>Mute</kbd>+<kbd>Track</kbd>, <kbd>Shift</kbd>+<kbd>Mute</kbd>+<kbd>Track</kbd> and a plain <kbd>Mute</kbd> tap all leave the slot matching whatever Move's track ends up as, and loading a Set (or starting up) takes the mutes and solos saved in that Set. Solo is exclusive on both sides, as it is in Move.</p>
+                    <p class="note"><strong>Module bypass</strong> skips one module without removing it. Audio FX pass through dry, MIDI FX become passthrough, and a bypassed synth goes silent while still consuming MIDI so downstream FX tails ring out and unbypass is clean. A small <strong>B</strong> appears above the module's box (same style as the LFO <em>~</em> marker). Bypass state is preserved across reboot (via per-slot autosave); loading a patch from the library starts unbypassed. <kbd>Mute</kbd> always reaches Move, even while the Shadow UI is shown, so Move's own <kbd>Mute</kbd>+pad drum muting keeps working. Each Schwung slot's mute, solo and volume <strong>follow the matching Move track</strong>, read live from Move itself: <kbd>Mute</kbd>+<kbd>Track</kbd>, <kbd>Shift</kbd>+<kbd>Mute</kbd>+<kbd>Track</kbd>, a plain <kbd>Mute</kbd> tap and a change to the track's volume all leave the slot matching whatever Move's track ends up as, within a fraction of a second. Loading a Set (or starting up) takes that Set's mutes and solos; slot volumes keep the levels saved in the Set until you next change the track's volume. Between Move's changes, the slot's own mute and volume controls still work. Solo is exclusive on both sides, as it is in Move.</p>
 
                     <h3>Tools, settings &amp; sets</h3>
                     <table class="shortcut-table">
@@ -114,7 +115,7 @@
                             <tr><td>Open Global Settings</td><td><kbd>Shift</kbd> + hold <kbd>Step 2</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 2</kbd></td></tr>
                             <tr><td>Open Scenes</td><td><kbd>Shift</kbd> + hold <kbd>Step 3</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 3</kbd></td></tr>
                             <tr><td>Edit the scene's A / B</td><td colspan="2"><kbd>Shift</kbd> + <kbd>&minus;</kbd> / <kbd>Shift</kbd> + <kbd>+</kbd> (any Schwung screen)</td></tr>
-                            <tr><td>Scene crossfader</td><td colspan="2"><kbd>Shift</kbd> + turn the volume knob (any screen)</td></tr>
+                            <tr><td>Scene crossfader</td><td colspan="2"><kbd>Shift</kbd> + turn the volume knob (any screen; on by default, see <a href="#scenes">Scenes</a>)</td></tr>
                             <tr><td>Open Tools menu</td><td><kbd>Shift</kbd> + <kbd>Step 13</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd></td></tr>
                             <tr><td>Open Quantized Sampler</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Sample</kbd></td></tr>
                             <tr><td>Skipback (save last 30 s)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Capture</kbd></td></tr>
@@ -409,7 +410,7 @@
                         <li><strong>Load</strong> — scroll left to the slot overview, click to see saved presets.</li>
                         <li><strong>Delete</strong> — removes a saved preset.</li>
                     </ul>
-                    <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§10</a>.</p>
+                    <p>Presets and per-Set state are not the same thing. Loading a preset <em>copies</em> it into the current Set; tweaks afterwards live in the Set, not the preset. See <a href="#sets">§11</a>.</p>
 
                     <h3>Module presets (User Presets)</h3>
                     <p>Where a <em>slot</em> preset saves the whole chain, a <strong>module preset</strong> saves the sound of just one module — a single synth or effect — so you can reuse it anywhere. They live on the module's own <strong>My Presets</strong> page — jog to the end of that module's knob pages and it is the second-to-last one, right before <strong>Module</strong>. (Earlier versions also put a <strong>[User Presets]</strong> row in the module picker; that row is gone, since My Presets sits beside the module's own controls.)</p>
@@ -484,8 +485,20 @@
                     <p>Re-opening the picker for an LFO that already has a target <strong>lands on that target</strong> — the right component, the right section, the right parameter — instead of at the top of the list.</p>
                 </section>
 
+                <section class="manual-section" id="automation">
+                    <h2>7 · Automation</h2>
+                    <p>Schwung records knob moves into the Move clip that is playing, and plays them back every loop &mdash; the same idea as Move's own per-step automation, for any parameter of any module in a slot. It is on by default.</p>
+                    <p><strong>Recording a move.</strong> Arm Move's <kbd>Record</kbd> button, then turn a knob on any module in that track's slot. Turn <kbd>Record</kbd> off and the move repeats every time the clip comes round. Turning a knob with <kbd>Record</kbd> off still does what you expect: you hear your hand until the clip loops back to the automation.</p>
+                    <p><strong>Locking a step (p-lock).</strong> Hold a step button and turn a knob to set a value on just that step; it ends where the step ends. Hold the step and you see what is locked on it. A quick <em>tap</em> of a step still toggles its note in Move; a <em>hold</em> does not, so a step can carry a lock with no note on it.</p>
+                    <p><strong>Removing a lock.</strong> Hold the step and press <kbd>Delete</kbd>: touching a knob clears just that knob's lock, releasing without touching one clears the whole step.</p>
+                    <p><strong>It follows the clip.</strong> Automation is stored in clip time, so moving or resizing the loop keeps it on the notes it was recorded against &mdash; points past the loop end go quiet and come back if you lengthen it. Step and page copy, Double Loop (<kbd>Shift</kbd> + <kbd>Step 15</kbd>), duplicating or deleting a clip all carry the automation along exactly as Move carries its notes. On a drum track a step paste copies only the selected pad's automation, the same way Move copies only that pad's notes.</p>
+                    <p><strong>One Undo.</strong> Move's <kbd>Undo</kbd> undoes your last edit whichever side made it: a recorded pass, a p-lock or a clear made in Schwung is undone by the same button as a note edit made in Move, in the order you made them.</p>
+                    <p><strong>Clearing.</strong> <strong>Slot Settings &rarr; Automation</strong> has <em>Clear This Clip</em>, <em>Clear All Clips</em> and <em>Undo Last Edit</em> (press again to redo). A module's own <em>Module</em> page clears just that module's automation. Automation is saved with the Set, and <kbd>Shift</kbd>+<kbd>Copy</kbd> snapshots include it. While a scene snapshot is being edited, <kbd>Delete</kbd> + knob unlocks the scene instead of clearing automation.</p>
+                    <p class="note"><strong>Turning it off.</strong> If you need automation out of the way entirely, create the file <code>/data/UserData/schwung/lanes_off</code> over SSH (<code>ssh ableton@move.local "touch /data/UserData/schwung/lanes_off"</code>). Anything that was playing lets go of its parameter, and nothing records or plays back until you delete the file again. No restart is needed either way, and your recorded automation is kept.</p>
+                </section>
+
                 <section class="manual-section" id="master-fx">
-                    <h2>7 · Master FX and sends</h2>
+                    <h2>8 · Master FX and sends</h2>
                     <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). That puts you straight on the <strong>Master FX</strong> chain, with <strong>Send A</strong> and <strong>Send B</strong> as the first two boxes of the row &mdash; jog left past <em>FX 1</em> to reach them. <kbd>Back</kbd> from Master FX leaves Schwung's screen; <kbd>Back</kbd> from a send returns to Master FX, and so does the box at the head of a send's own row.</p>
                     <p>Master FX remembers where you left it, so coming back puts the cursor on the effect you were working on rather than at the start of the row.</p>
                     <p><strong>Master FX</strong> is a chain of up to <strong>eight</strong> audio effect slots that processes the mixed output of all four instrument slots. The row scrolls to follow your selection, the same way a slot's own chain does, so the chain can be longer than the screen. It has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in its menu) that target any parameter of the loaded master effects.</p>
@@ -517,7 +530,7 @@
                 </section>
 
                 <section class="manual-section" id="link-audio">
-                    <h2>8 · Routing Move audio (Link Audio)</h2>
+                    <h2>9 · Routing Move audio (Link Audio)</h2>
                     <p>By default, Schwung synths run in parallel to Move and are mixed in. To run <em>Move's own track audio</em> through Schwung effects (e.g. CloudSeed reverb on a Move drum kit), enable Link Audio. Requires Move firmware <strong>2.0.0+</strong>; off by default.</p>
                     <ol>
                         <li>On Move: <em>Settings → Link</em> → toggle on.</li>
@@ -569,7 +582,7 @@
                         <details class="faq-item">
                             <summary>Muting with Move→Schwung: tracks vs. drum pads</summary>
                             <div class="faq-body">
-                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button to mute that track — Move's track and the matching Schwung slot mute together and stay in sync. Tapping <strong>Mute</strong> on its own mutes Move's selected track, and the matching slot follows it once you have pressed a <strong>Track</strong> button to select one.</p>
+                                <p>Hold <strong>Mute</strong> and tap a <strong>track</strong> button to mute that track — Move's track and the matching Schwung slot mute together and stay in sync. Tapping <strong>Mute</strong> on its own mutes Move's selected track, and the matching slot follows it.</p>
                                 <p>Hold <strong>Mute</strong> and tap a single <strong>drum pad</strong> to mute just that one pad/drum, exactly like stock Move. This no longer mutes the whole Schwung slot — only the pad you press.</p>
                             </div>
                         </details>
@@ -592,7 +605,7 @@
                 </section>
 
                 <section class="manual-section" id="recording">
-                    <h2>9 · Recording &amp; sampling</h2>
+                    <h2>10 · Recording &amp; sampling</h2>
 
                     <h3>Sampling Schwung into Move (Resample)</h3>
                     <p>Feed Schwung's audio into Move's native sampling path so you can capture a Schwung synth, Webstream, AirPlay, Radio Garden, or any other Schwung output straight into a drum pad or sampler clip — using all of Move's normal sampling tools (Auto-Sample, count-in, slicing, drum-pad capture).</p>
@@ -674,25 +687,21 @@
                     <p>The screen draws the pads as they sit under your hands: a filled box is a snapshot with locks, an empty one has none, a dot marks the snapshots the active scene uses, and a box inside a box is the one you are editing. The pads and steps go back to Move as soon as you leave the Scenes screen; <kbd>Shift</kbd> + step always reaches Move.</p>
                     <p><strong>Editing a snapshot.</strong> While a snapshot is being edited, its name (<strong>EDIT A3</strong>) shows in the top-right corner of every Schwung screen. Turn any knob &mdash; on a slot, a module, Master FX, Slot Settings &mdash; and that setting is locked into the snapshot at the value you set; you hear the snapshot while you edit it. To take a setting back out, hold <kbd>Delete</kbd> and turn its knob. If a snapshot cannot take a setting the corner flashes <strong>FULL</strong> (a slot, Master FX, a send or Schwung's own settings can each hold 64 different locked settings across all 32 snapshots) or <strong>N/A</strong>, and the knob simply works as normal.</p>
                     <p><strong>From any Schwung screen</strong>, <kbd>Shift</kbd>+<kbd>&minus;</kbd> edits the active scene's A and <kbd>Shift</kbd>+<kbd>+</kbd> its B (if the scene has none, it takes the snapshot with its own number). Tap to start editing and tap again to stop, or hold it and turn knobs for a quick edit that ends when you let go.</p>
-                    <p><strong>The crossfader from anywhere.</strong> <kbd>Shift</kbd> + the volume knob moves the crossfader from any screen, Move's own included (turn it off in <strong>Global Settings &rarr; Shortcuts &rarr; Scene Fader</strong>). When the fader moves anywhere but the Scenes screen, a small A&ndash;B slider slides up over the bottom of the screen so you can see where it is.</p>
+                    <p><strong>The crossfader from anywhere.</strong> <kbd>Shift</kbd> + the volume knob moves the crossfader from any screen, Move's own included. This is <strong>on by default</strong>, which means <kbd>Shift</kbd> + volume no longer reaches Move while it is &mdash; turn it off in <strong>Global Settings &rarr; Shortcuts &rarr; Scene Fader</strong> to get Move's own gesture back. When the fader moves anywhere but the Scenes screen, a small A&ndash;B slider slides up over the bottom of the screen so you can see where it is.</p>
                     <p><strong>Playing it live.</strong> A setting locked in only one end morphs towards <em>its knob</em> at the other end. If you turn a knob that a scene is driving, you hear it straight away: the setting follows your hand from where the fader is, and moving the fader then glides from there towards whichever end you head for. Reaching either end hands the setting back to the scene. Settings with named choices (a filter type, a waveform) switch halfway across. If you swap a module out, its locks are kept but sleep until that module comes back.</p>
-                    <p><strong>From a sequencer.</strong> Program Change messages on channel 16 (change it in <strong>Global Settings &rarr; Shortcuts &rarr; Scene PC Ch</strong>) control scenes from an external MIDI device: program 0&ndash;15 selects scene 1&ndash;16, program 126 takes a snapshot (like <kbd>Shift</kbd>+<kbd>Copy</kbd>) and program 127 recalls it (like <kbd>Shift</kbd>+<kbd>Delete</kbd>, honouring Recall Q). A mapped CC can play the crossfader at the same time. Program changes on that channel are kept away from your slots, so a synth listening on all channels will not change preset.</p>
+                    <p><strong>From a sequencer.</strong> Program Change messages on channel 16 (change it in <strong>Global Settings &rarr; Shortcuts &rarr; Scene PC Ch</strong>) control scenes from an external MIDI device: program 0&ndash;15 selects scene 1&ndash;16, program 126 takes a snapshot (like <kbd>Shift</kbd>+<kbd>Copy</kbd>) and program 127 recalls it (like <kbd>Shift</kbd>+<kbd>Delete</kbd>, honouring Recall Q). A mapped CC can play the crossfader at the same time. Programs 0&ndash;15, 126 and 127 on that channel are kept away from your slots <em>and</em> Move's tracks, so a synth listening on all channels will not change preset. If a controller already sends program changes on channel 16 to a slot or a Move track, pick another channel or set <em>Scene PC Ch</em> to <em>Off</em>.</p>
                     <p>Scenes are saved with the set, and each set has its own. The crossfader always starts at A when a set loads. Scenes never change your knobs: saving, a preset or a snapshot always records the knob, not wherever the fader happens to be. Scenes are separate from the snapshot (<kbd>Shift</kbd>+<kbd>Copy</kbd>): a recall changes your knobs, and the scenes carry on morphing from wherever those knobs now are.</p>
 
                     <h3>Feedback protection</h3>
                     <p class="note warning"><strong>Speaker feedback risk.</strong> When you load a module that uses line input (Line In, AutoSample) while built-in speakers are active and no line-in cable is plugged in, Schwung warns you. Press <em>Jog</em> to proceed (e.g. recording with the internal mic and speakers turned down) or <em>Back</em> to cancel. Plug in headphones or a line-in cable to bypass the warning.</p>
                     <p><strong>Continuous protection.</strong> Schwung watches for this risk at all times. Whenever the built-in speakers are active with no line-in cable plugged in, any slot using line input is automatically <strong>bypassed</strong> (you'll see the <strong>B</strong> bypass glyph on it) so it can't feed back — this happens at startup <em>and</em> the moment you unplug your headphones. A <strong>"Feedback Risk"</strong> notice appears (and is read aloud) telling you audio monitoring is disabled — plug in headphones (or a line-in cable) and the slot re-enables on its own, dismissing the notice. If you really want it live on the speakers anyway, press <em>Jog</em> to override (or un-bypass it yourself with Mute + Jog-click); Schwung won't keep re-bypassing it until the next time it's safe or you reboot.</p>
 
-                    <h3>USB-C audio out remembered</h3>
-                    <p>Move's <strong>Settings → USB-C Audio Out</strong> chooses what a computer connected over USB-C hears: the <em>microphone</em>, or <em>Main Out</em>. Move forgets this every time it powers off — it always comes back on <em>Mic</em>, so if you record Move into a computer you have to re-pick <em>Main Out</em> at the start of every session.</p>
-                    <p>Schwung remembers it for you. Choose the setting once in Move's own menu, and a few seconds after each boot Schwung restores it. Nothing to configure, and nothing happens at all if you're on <em>Mic</em> — that's already Move's default.</p>
-                    <p>Under <strong>Global Settings → Audio</strong>, <em>USB-C</em> turns the restoring on and off, and shows the source currently in use — e.g. <em>On (Main Out)</em>. It is not a second Mic/Main Out switch: Move's own menu still chooses which one you want, and this only decides whether Schwung puts it back after a reboot.</p>
-                    <p class="note"><strong>There's a short gap after boot.</strong> Move starts on <em>Mic</em>, and Schwung switches it over a few seconds later once Move's firmware is up — you'll hear the mic briefly, then Main Out take over. If you're recording the Move from the moment it powers on, the first few seconds will be microphone audio.</p>
-                    <p class="note"><strong>Move's screen will still say "Mic".</strong> Move doesn't update its own display when the setting is restored, so the menu shows <em>Mic</em> while the computer is really receiving <em>Main Out</em>. The audio is correct — trust your ears, not the screen. If you open that menu, picking <em>Main Out</em> is harmless; picking <em>Mic</em> will genuinely switch it back to the microphone, even though it looks like you're changing nothing.</p>
+                    <h3>USB-C audio out</h3>
+                    <p>Move's <strong>Settings → USB-C Audio Out</strong> chooses what a computer connected over USB-C hears: the <em>microphone</em>, or <em>Main Out</em>. Move forgets it at every power-off and comes back on <em>Mic</em>. Earlier Schwung versions put your choice back after a reboot; since 1.3.2 they no longer do, because restoring it could leave USB-C carrying the microphone while Move reported Main Out, or mute the built-in speaker. Pick <em>Main Out</em> in Move's own menu at the start of a session.</p>
                 </section>
 
                 <section class="manual-section" id="sets">
-                    <h2>10 · Sets &amp; pages</h2>
+                    <h2>11 · Sets &amp; pages</h2>
 
                     <h3>Per-Set slot state</h3>
                     <p>Each Move Set carries its own independent slot configuration. Switching Sets saves the outgoing slots and restores the incoming Set's slots — synths, effects, knob assignments, Master FX, and (if RNBO Runner is active) the current RNBO graph and its parameters. Slot audio fades smoothly during the transition. A brief <em>Set Loaded</em> overlay confirms the switch.</p>
@@ -712,7 +721,7 @@
                 </section>
 
                 <section class="manual-section" id="tools">
-                    <h2>11 · Tools menu</h2>
+                    <h2>12 · Tools menu</h2>
                     <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>. Tools are standalone utilities that run outside the slot system. Overtake modules also live here, below a divider.</p>
 
                     <h3>File Browser</h3>
@@ -735,7 +744,7 @@
                 </section>
 
                 <section class="manual-section" id="overtake">
-                    <h2>12 · Overtake modules</h2>
+                    <h2>13 · Overtake modules</h2>
                     <p>Overtake modules take full control of Move's display and controls. They live in the Tools menu below a divider — open Tools (<kbd>Shift+Vol</kbd>+<kbd>Step 13</kbd>) and select one.</p>
                     <p class="note">The <kbd>Shift+Vol</kbd> combos in this section have no long-press equivalent, so they do nothing if <strong>Global Settings → Shortcuts → Open With</strong> is set to <em>Hold</em>. Leave it on <em>Both</em> (the default) or <em>Sh+Vol</em> to use them.</p>
                     <ul>
@@ -760,7 +769,7 @@
                 </section>
 
                 <section class="manual-section" id="surfaces">
-                    <h2>13 · Control surfaces &amp; CC map</h2>
+                    <h2>14 · Control surfaces &amp; CC map</h2>
                     <p>A controller on Move's USB-A port can drive Schwung's parameters in two ways. An <strong>OXI E16</strong> or a <strong>Faderfox EC4</strong> can be a full <em>surface</em>: its knobs edit what you are looking at, with names and values on the device's own screen. <strong>Any</strong> MIDI controller can be used through the <strong>CC map</strong>, which binds a controller knob to one parameter.</p>
                     <p>Choose in <strong>Global Settings → Surfaces → Surface</strong>: <em>CC Only</em> (no surface; the CC map still works), <em>E16</em> or <em>EC4</em>.</p>
 
@@ -816,14 +825,14 @@
                 </section>
 
                 <section class="manual-section" id="accessibility">
-                    <h2>14 · Accessibility</h2>
+                    <h2>15 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
                     <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or by <em>double-pressing</em> <kbd>Shift</kbd> + <kbd>Note/Session</kbd> — which works whether or not the Shadow UI is enabled. A <em>single</em> press of the same combo does something else: it opens Master FX when the Shadow UI is on, or the Screen Reader settings when it is off. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
                     <p>The on-device help viewer (<strong>Global Settings → System → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
                 <section class="manual-section" id="limitations">
-                    <h2>15 · Limitations &amp; gotchas</h2>
+                    <h2>16 · Limitations &amp; gotchas</h2>
                     <p>Things that aren't bugs, but trip people up:</p>
                     <ul>
                         <li><strong>Performance overhead.</strong> Schwung is additional software on Move; even with no synths loaded there is a slight performance impact compared to stock.</li>
@@ -832,7 +841,7 @@
                         <li><strong>Link Audio bypasses Move's native Master FX</strong> while it's on — Schwung rebuilds the mix from per-track streams.</li>
                         <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
                         <li><strong>Link Audio capture sometimes needs a Move restart</strong> after first enabling routing.</li>
-                        <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>) and Display Mirror are unauthenticated. Anyone on the network can access them — keep that in mind on shared networks.</li>
+                        <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>) and Display Mirror are unauthenticated. Anyone on the network can access them — keep that in mind on shared networks. While <em>Mirror Display</em> is on, that includes <strong>the device's sound</strong>: the mirror streams the full mix, and with a Line In slot that means whatever the microphone or line input is picking up. Turn Mirror Display off when you don't need it.</li>
                         <li><strong>On-device upgrades.</strong> If you upgraded Schwung from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh ableton@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
                         <li><strong>Move firmware updates</strong> temporarily disable Schwung. Re-run the installer to repair — modules and settings are kept.</li>
                         <li><strong>Some modules require external assets</strong> (ROMs, soundfonts, .nam, .clap). Catalog entries flag this under <em>Requires</em>; the installer prompts at install time. We can't and won't help you obtain copyrighted material.</li>
@@ -840,7 +849,7 @@
                 </section>
 
                 <section class="manual-section" id="analytics">
-                    <h2>16 · Analytics</h2>
+                    <h2>17 · Analytics</h2>
                     <p>Schwung can send anonymous usage statistics to help prioritize development. <strong>Off by default.</strong> On first launch you're prompted to choose; nothing is sent until you opt in. Change at any time under <strong>Settings → Analytics</strong>.</p>
                     <table class="shortcut-table">
                         <caption>What's sent when enabled</caption>
@@ -859,7 +868,7 @@
                 </section>
 
                 <section class="manual-section" id="help">
-                    <h2>17 · Help &amp; community</h2>
+                    <h2>18 · Help &amp; community</h2>
                     <ul>
                         <li><a href="faqs.html">FAQs</a> — the short answers.</li>
                         <li><a href="https://github.com/charlesvestal/schwung/issues" target="_blank" rel="noopener">GitHub Issues</a> — bug reports and feature requests.</li>
