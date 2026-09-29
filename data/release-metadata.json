@@ -7479,45 +7479,19 @@
     ]
   },
   "trance-gate": {
-    "first_release": "2026-09-20",
-    "last_updated": "2026-09-24",
-    "version": "v1.0.0",
+    "first_release": "2026-09-29",
+    "last_updated": "2026-09-29",
+    "version": "trance-gate-v1.0.1",
     "release_dates": [
-      "2026-09-20",
-      "2026-09-20",
-      "2026-09-20",
-      "2026-09-24"
+      "2026-09-29"
     ],
     "releases": [
       {
-        "prerelease": true,
-        "published_at": "2026-09-20T14:19:29Z",
-        "tag": "v0.1.0"
-      },
-      {
         "prerelease": false,
-        "published_at": "2026-09-20T16:33:41Z",
-        "tag": "v0.2.0"
-      },
-      {
-        "prerelease": true,
-        "published_at": "2026-09-20T16:40:15Z",
-        "tag": "v0.3.0-beta.1"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-24T14:43:28Z",
-        "tag": "v1.0.0"
+        "published_at": "2026-09-29T08:32:21Z",
+        "tag": "trance-gate-v1.0.1"
       }
-    ],
-    "channels": {
-      "stable": {
-        "version": "v1.0.0"
-      },
-      "beta": {
-        "version": "v0.3.0-beta.1"
-      }
-    }
+    ]
   },
   "chonk": {
     "first_release": "2026-09-21",
