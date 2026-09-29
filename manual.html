@@ -574,7 +574,14 @@
                             <summary>Speaker EQ: voicing the built-in speaker</summary>
                             <div class="faq-body">
                                 <p>When Move→Schwung is on, Schwung rebuilds the DAC output itself, which bypasses Move's built-in speaker voicing. Schwung re-applies its own emulation of that EQ so the internal speaker still sounds full — but only on the speaker path; headphones and line-out stay neutral.</p>
-                                <p>This is fully automatic — it follows the headphone jack, so the speaker gets the voicing and headphones/line-out stay neutral. There's no setting to manage. (Earlier builds had a manual Auto/Off/On toggle as a workaround for occasional hollow/phasey headphone audio at boot; that bug is fixed — Schwung now re-asserts the true jack state a few seconds after startup — so the toggle was removed.)</p>
+                                <p><strong>Global Settings → Audio → Spkr EQ</strong>:</p>
+                                <ul>
+                                    <li><strong>Auto</strong> (default) — follows the headphone jack: the built-in speaker gets the voicing, headphones and line-out stay neutral.</li>
+                                    <li><strong>Off</strong> — never applies it.</li>
+                                    <li><strong>On</strong> — always applies it, whatever the jack reads.</li>
+                                </ul>
+                                <p>Auto is right for almost everyone and errs toward leaving the EQ off, because a wrong jack reading is far more noticeable on headphones (hollow, phasey) than on the speaker (a little less bass). The other two options are there for a Move whose jack detection reads wrong in one direction — pick <em>Off</em> if headphones ever sound hollow, or <em>On</em> if the speaker never gets its voicing.</p>
+                                <p>In every mode the EQ applies only while Move→Schwung is on. Switch that off and Move's own voicing is back in the path, so the two never double up.</p>
                             </div>
                         </details>
                     </div>
