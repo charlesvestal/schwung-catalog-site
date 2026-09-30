@@ -79,7 +79,7 @@
                     <h3>Boot menu</h3>
                     <p>Every time Move boots, the screen shows <strong>"Loading Schwung — press Back to change"</strong> for about two seconds. Do nothing and it boots into Schwung as usual. Press <kbd>Back</kbd> during that window and a picker opens: jog to scroll, jog-click to boot that target — which also makes it the new default, so the next boot goes straight there — and <kbd>Back</kbd> cancels back to what was already loading.</p>
                     <p>One of the rows is always <strong>Stock Move</strong>, the factory firmware with no Schwung layer at all. Choosing it boots Move completely untouched; to come back to Schwung, reboot and press <kbd>Back</kbd> during the window to pick it again. Any other installed platform that registers itself as a boot target (see its own docs) appears here too.</p>
-                    <p>If a target fails to start two boots in a row, the picker opens on its own with a "failed to start" message and the cursor on Stock Move — so a broken target can't lock you out of the device.</p>
+                    <p>If a target fails to start three boots in a row, the picker opens on its own with a "failed to start" message and the cursor on Stock Move — so a broken target can't lock you out of the device.</p>
                 </section>
 
                 <section class="manual-section" id="getting-around">
@@ -93,6 +93,7 @@
                             <tr><td>Open slot editor</td><td>Hold <kbd>Track 1–4</kbd> (500 ms)</td><td><kbd>Shift+Vol</kbd> + <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Back to that Move track</td><td>Hold <kbd>Track 1–4</kbd> (500 ms) again</td><td>—</td></tr>
                             <tr><td>Open Master FX</td><td>Hold <kbd>Note/Session</kbd> (500 ms)</td><td><kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd></td></tr>
+                            <tr><td>Open Master FX (from anywhere)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Note/Session</kbd>. A quick double press toggles the screen reader instead.</td></tr>
                             <tr><td>Switch to another slot</td><td colspan="2">Tap <kbd>Track 1–4</kbd></td></tr>
                             <tr><td>Dismiss Shadow UI</td><td>Tap <kbd>Note/Session</kbd></td><td>—</td></tr>
                             <tr><td>Dismiss Shadow UI (always)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Track 1–4</kbd></td></tr>
@@ -118,7 +119,7 @@
                             <tr><td>Scene crossfader</td><td colspan="2"><kbd>Shift</kbd> + turn the volume knob (any screen; on by default, see <a href="#scenes">Scenes</a>)</td></tr>
                             <tr><td>Open Tools menu</td><td><kbd>Shift</kbd> + <kbd>Step 13</kbd></td><td><kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd></td></tr>
                             <tr><td>Open Quantized Sampler</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Sample</kbd></td></tr>
-                            <tr><td>Skipback (save last 30 s)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Capture</kbd></td></tr>
+                            <tr><td>Skipback (save the last 30 s by default)</td><td colspan="2"><kbd>Shift</kbd> + <kbd>Capture</kbd>, or <kbd>Shift+Vol</kbd> + <kbd>Capture</kbd> &mdash; the combo and the length are set under Global Settings → Shortcuts</td></tr>
                             <tr><td>Switch Set Page (when enabled)</td><td>—</td><td><kbd>Shift+Vol</kbd> + <kbd>←/→</kbd></td></tr>
                         </tbody>
                     </table>
@@ -306,8 +307,8 @@
                     <p>Preset browsers and option lists are <em>doors</em>: paging past one does not load anything, so you can jog through a synth's presets without auditioning every one. Clicking in is what commits you.</p>
                     <p>Any list longer than the screen shows a <strong>scrollbar</strong> down the right edge. The block on it is sized to how much of the list you can see and sits where you are in it — so a long list looks long, and you can tell at a glance whether you are near the top or most of the way down. Lists that fit the screen show nothing.</p>
 
-                    <h3>Knob overlay</h3>
-                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay</strong>: <em>Shift</em>, <em>Jog</em>, <em>Off</em>, or <em>Native</em> (default). Switch this to <em>+Jog Touch</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
+                    <h3 id="knob-overlay">Knob overlay</h3>
+                    <p>The knob parameter overlay shown in native Move mode has its own trigger setting under <strong>Global Settings → Display → Overlay</strong>: <em>Shift</em>, <em>Jog</em>, <em>Off</em>, or <em>Native</em> (default). <em>Native</em> uses Move's own <strong>Schwung Slot</strong> preset: load it on a Move track and its eight macros turn that slot's knobs. <em>Shift</em> makes you hold Shift while turning, and <em>Jog</em> makes you touch the jog wheel. Switch to <em>Jog</em> or <em>Off</em> if Move's stock Shift+Knob actions (like fine control) are getting blocked.</p>
 
                     <h3>MIDI channel indicator</h3>
                     <p>A small readout in the bottom-right corner shows the external (USB) MIDI channel while you hold a note: <code>i&lt;ch&gt;</code> for the channel a connected controller is sending in, and <code>i&lt;ch&gt; o&lt;ch&gt;</code> when Schwung forwards that note back out (after any MIDI FX or channel remap). Enable under <strong>Global Settings → Display → Show MIDI</strong>. It monitors your external-gear routing — clip/track MIDI-out isn't shown.</p>
@@ -317,11 +318,12 @@
                     <h2>3 · Schwung Manager (web)</h2>
                     <p>Most day-to-day management lives in the web UI rather than on Move's display. Open <a href="http://move.local:7700" target="_blank" rel="noopener"><code>http://move.local:7700</code></a> from any browser on the same network while Move is on.</p>
                     <ul>
-                        <li><strong>Modules</strong> — browse, install, uninstall, update modules. Narrow the list by <em>Category</em>, then <em>Type</em> (Polysynth, Drum Machine, Tape…) and <em>Tag</em>; clicking a tag on a module jumps to it. Install custom modules from a GitHub URL or tarball.</li>
+                        <li><strong>Modules</strong> — browse, install, uninstall, update modules. Narrow the list by <em>Category</em>, then <em>Type</em> (Polysynth, Drum Machine, Tape…) and <em>Tag</em>; clicking a tag on a module jumps to it. Install custom modules from a GitHub URL or tarball. If the device can't reach the internet, the page says <em>Offline</em> and shows how old its saved catalog is; where module authors offer pre-releases, a <em>Stable / Beta</em> switch lets you opt in.</li>
                         <li><strong>Controls</strong> — edit the current Set's custom surface pages and CC map from the browser (see <a href="#surfaces">Control surfaces &amp; CC map</a>).</li>
                         <li><strong>Files</strong> — browse, upload, download, rename, delete files on the device. Useful for managing module assets (soundfonts, patches, ROMs). Fully keyboard- and screen-reader-accessible: Tab between rows, <kbd>Enter</kbd> opens a folder (or downloads a file), <kbd>Space</kbd> selects, and each row announces its name; a checkbox column handles multi-select.</li>
                         <li><strong>Remote UI</strong> — control a slot's module from your browser. Some modules include their own interface (e.g. Osirus's signal-flow view); it loads here next to the standard knob controls, and you can switch between the two for each slot.</li>
                         <li><strong>Config</strong> — adjust display, audio, screen reader, and feature settings. Changes apply instantly.</li>
+                        <li><strong>Boot</strong> — choose what this Move boots into: the same choice as the on-device boot picker, with a <em>Set default</em> button.</li>
                         <li><strong>CPU</strong> — where the device's processing time is going, by module and by process (<strong>System &rarr; Open CPU view</strong>).</li>
                         <li><strong>System</strong> — version, debug logs, upgrade Schwung. If a core component (the audio shim) is left out of date by an update — which can stop modules from loading — a repair banner appears here with a one-click fix (see <a href="faqs.html">FAQs</a>).</li>
                         <li><strong>Help</strong> — on-device help for Schwung and installed modules.</li>
@@ -369,7 +371,7 @@
                     <p>Any voice you didn't assign stays on the slot's own output. <em>Buses</em> is only about making and filling them &mdash; the levels going out to the global sends are a separate <strong>Sends</strong> row beside it.</p>
 
                     <h3>Sends: what leaves the slot</h3>
-                    <p><strong>Settings → Sends</strong> opens the <strong>send mixer</strong>: one page per send, every source on its own knob. <em>Main</em> comes first &mdash; that is the rest of the slot, everything not routed into a bus, and on a slot with no buses at all it is the only source there is. Each bus you have made follows it.</p>
+                    <p><strong>Settings → Sends</strong> holds the slot's <strong>Send A</strong>, <strong>Send B</strong> and <strong>Pan</strong> &mdash; the levels for everything in the slot that isn't routed into a bus. Each bus you have made has its own <em>Send A</em> and <em>Send B</em> on that bus's menu.</p>
                     <p>With <em>Param View</em> set to <em>List</em> (and in every screen-reader session) the mixer is replaced by two plain <strong>Send A</strong> / <strong>Send B</strong> rows on the settings list, which set the same Main levels &mdash; a knob grid has nothing for a screen reader to read out.</p>
                     <p>A slot's send amounts can be modulated: point <em>LFO 1</em> or <em>LFO 2</em> at <strong>Sends</strong> and pick <em>Send A</em> or <em>Send B</em>. The number on the Sends page stays at what you set &mdash; the LFO rides on top of it rather than overwriting it, so what is saved is still your setting.</p>
                     <p>A bus marked <strong>!</strong> is holding a voice the loaded synth no longer has &mdash; you swapped the module, or it changed between versions. The id is kept rather than quietly dropped, so open <em>Voices</em> and click the <strong>!</strong> row to clear it.</p>
@@ -377,29 +379,34 @@
                     <h3>Component actions</h3>
                     <p>Jog past the last knob page of any loaded module — synth, MIDI FX or audio FX — and two more pages appear, so Save and Remove are always one jog-turn away without opening the module picker first:</p>
                     <ul>
-                        <li><strong>User Presets</strong> — the top row shows the preset currently loaded (<em>(none)</em> if none, or its name with a leading <strong>*</strong> once the sound has changed since it was loaded), and clicking that row opens the preset list to choose from. Below it are <strong>Save</strong> and <strong>Delete</strong> (only shown once a preset is loaded), and <strong>Save As</strong>.</li>
-                        <li><strong>Module</strong> — <strong>Module Help</strong> opens that module's own help pages, and appears only for modules that ship help; <strong>Add to List</strong> files the module into Favorites or a list of your own; <strong>Swap Module</strong> opens the same picker as Shift + Jog click; <strong>Remove Module</strong> clears the position and closes the gap, same as picking <em>None</em> from that picker.</li>
+                        <li><strong>My Presets</strong> — the top row shows the preset currently loaded (<em>(none)</em> if none, or its name with a leading <strong>*</strong> once the sound has changed since it was loaded), and clicking that row opens the preset list to choose from. Below it are <strong>Save</strong> and <strong>Delete</strong> (only shown once a preset is loaded), and <strong>Save As</strong>.</li>
+                        <li><strong>Module</strong> — <strong>Module Help</strong> opens that module's own help pages, and appears only for modules that ship help; <strong>Add to List</strong> files the module into Favorites or a list of your own; <strong>Clear Automation</strong> clears this module's automation on the current clip; <strong>Swap Module</strong> opens the same picker as Shift + Jog click; <strong>Remove Module</strong> clears the position and closes the gap, same as picking <em>None</em> from that picker.</li>
                     </ul>
                     <p>Both pages are lists: jog to an entry, click to run it. Jogging past one does nothing on its own — nothing fires until you click in.</p>
-                    <p><strong>Module Help</strong> is the same help pages you would reach through Global Settings → Help → Modules, opened straight at the module you are editing. <strong>Back</strong> from the top of them returns you to the module, not up into the rest of the help.</p>
-                    <p>Every module built into Schwung now ships help — Signal Chain itself, Chord, Arpeggiator, Freeverb, Line In, Velocity Scale, RNBO Runner, and the File Browser and Song Mode tools. Modules you install from the store are up to their authors, so the row appears for some and not others; if a module you use has no help, that is worth raising with whoever wrote it.</p>
+                    <p><strong>Module Help</strong> is the same help pages you would reach through Global Settings → System → Help → Modules, opened straight at the module you are editing. <strong>Back</strong> from the top of them returns you to the module, not up into the rest of the help.</p>
+                    <p>Most modules built into Schwung ship help — Signal Chain itself, Chord, Arpeggiator, Freeverb, Line In, RNBO Runner, and the File Browser and Song Mode tools. Modules you install from the store are up to their authors, so the row appears for some and not others; if a module you use has no help, that is worth raising with whoever wrote it.</p>
 
                     <h3>Module lists</h3>
                     <p><strong>Add to List</strong> is how you cut a long picker down to the handful of modules you actually reach for. It shows every list you have, with a mark against the ones this module is already in; clicking a list adds or removes it, and the change is saved straight away. <strong>Favorites</strong> is there from the start. <strong>New List…</strong> opens the on-screen keyboard to name another.</p>
                     <p><strong>Edit Lists…</strong> manages the lists themselves — pick one to <strong>Rename</strong>, <strong>Delete</strong> or <strong>Clear</strong> it. Favorites can be cleared but not renamed or deleted, so those two rows simply are not offered for it.</p>
                     <p>The payoff is in <strong>Swap Module</strong>: its top row now reads <strong>List</strong>, and clicking it cycles through <em>All</em> and each of your lists, showing only the modules in the one you land on. Lists are shared across the whole device rather than kept per position, so a picker only offers lists that actually contain something it could load — an effects-only list never comes up when you are choosing a synth. The choice sticks as you move between positions, and if you open a picker where it would show nothing, it drops back to <em>All</em> and tells you it has. <em>None</em>, the move rows and <em>[Get more…]</em> are always there whatever list you are on.</p>
-                    <p>The row under it reads <strong>Sort</strong>. Click it to switch between <em>A-Z</em> and <em>Type</em>. <em>Type</em> groups the modules under their category (Drum Machine, Polysynth, Sampler &amp; Rompler and so on), each with a heading line. The jog wheel skips the headings. Categories come from the module catalog that Schwung Manager keeps on the device, so a module the catalog doesn't know goes under <em>Other</em> at the bottom. Like the list filter, the sort stays the same as you move between positions.</p>
+                    <p>The row under it reads <strong>Sort</strong>. Click it to switch between <em>A-Z</em> and <em>Type</em>. <em>A-Z</em> ignores capitals and counts numbers properly, so <em>Set 9</em> comes before <em>Set 10</em>. <em>Type</em> groups the modules under their category (Drum Machine, Polysynth, Sampler &amp; Rompler and so on), each with a heading line. The jog wheel skips the headings. Categories come from the module catalog that Schwung Manager keeps on the device, so a module the catalog doesn't know goes under <em>Other</em> at the bottom. Like the list filter, the sort stays the same as you move between positions.</p>
 
                     <h3>Slot settings</h3>
                     <p>The last position in each slot is its settings page:</p>
                     <table class="shortcut-table">
                         <thead><tr><th>Setting</th><th>Description</th></tr></thead>
                         <tbody>
-                            <tr><td>Knob 1–8</td><td>Assign any module parameter to a knob. Works in normal Move mode too — hold Shift and turn the knob.</td></tr>
-                            <tr><td>Volume</td><td>Slot volume.</td></tr>
+                            <tr><td>Knob 1–8</td><td>Assign any module parameter to a knob. Works in normal Move mode too — see <a href="#knob-overlay">Knob overlay</a> for how (Move's <em>Schwung Slot</em> preset by default, or Shift + knob).</td></tr>
+                            <tr><td>Volume</td><td>Slot volume. Volume and pan changes glide rather than jump, so a scene morph or a fader sweep doesn't zipper.</td></tr>
+                            <tr><td>Mute / Solo</td><td>The slot's mute and solo (they also follow the Move track's).</td></tr>
+                            <tr><td>Transpose</td><td>±12 semitones.</td></tr>
                             <tr><td>Receive Ch</td><td>MIDI channel the slot listens on. Match this to the Move track's MIDI Out.</td></tr>
                             <tr><td>Forward Ch</td><td>MIDI channel sent to the synth module — see deep-dive below.</td></tr>
-                            <tr><td>MIDI FX</td><td><em>Schw</em> (default) or <em>Schw+Move</em> — where the slot's MIDI FX output lands.</td></tr>
+                            <tr><td>MIDI FX</td><td><em>Schw</em> (default) or <em>Schw+Move</em> — where the slot's MIDI FX output lands. On the knob grid this is the <em>MFX Pre</em> cell: Off is <em>Schw</em>, On is <em>Schw+Move</em>.</td></tr>
+                            <tr><td>MPE</td><td>On / Off (see <a href="#midi-routing">MIDI routing</a>).</td></tr>
+                            <tr><td>Sends</td><td>Send A, Send B and Pan — see <em>Sends</em> above.</td></tr>
+                            <tr><td>Automation</td><td>Clear This Clip, Clear All Clips, Undo Last Edit — see <a href="#automation">Automation</a>.</td></tr>
                             <tr><td>LFO 1 / LFO 2</td><td>Per-slot modulation, see <a href="#lfos">§6</a>.</td></tr>
                         </tbody>
                     </table>
@@ -416,7 +423,7 @@
                     <p>Where a <em>slot</em> preset saves the whole chain, a <strong>module preset</strong> saves the sound of just one module — a single synth or effect — so you can reuse it anywhere. They live on the module's own <strong>My Presets</strong> page — jog to the end of that module's knob pages and it is the second-to-last one, right before <strong>Module</strong>. (Earlier versions also put a <strong>[User Presets]</strong> row in the module picker; that row is gone, since My Presets sits beside the module's own controls.)</p>
                     <ul>
                         <li><strong>Save</strong> — stores the module's current sound under a name.</li>
-                        <li><strong>Audition</strong> — off by default. Turn it on under <strong>Global Settings → Audition</strong> and scrolling the list plays each preset <em>live</em> so you hear it before choosing; <kbd>Back</kbd> returns to your original sound and <strong>Load</strong> keeps the highlighted one. With it off, the list still works — a preset simply loads when you pick it.</li>
+                        <li><strong>Audition</strong> — off by default. Turn it on under <strong>Global Settings → Audio → Audition</strong> and scrolling the list plays each preset <em>live</em> so you hear it before choosing; <kbd>Back</kbd> returns to your original sound and <strong>Load</strong> keeps the highlighted one. With it off, the list still works — a preset simply loads when you pick it.</li>
                         <li><strong>Portable</strong> — presets follow the <em>module</em>, not the slot, so a reverb preset you save in one slot shows up wherever that reverb is loaded.</li>
                     </ul>
                 </section>
@@ -442,7 +449,7 @@
                             <summary>Forward Channel modes (Auto / Thru / 1–16)</summary>
                             <div class="faq-body">
                                 <ul>
-                                    <li><strong>Auto</strong> (default) — remaps incoming MIDI to the slot's Receive Ch. If Receive Ch is set to <em>All</em>, MIDI passes through unchanged.</li>
+                                    <li><strong>Auto</strong> (default) — remaps incoming MIDI to the slot's Receive Ch, or to the module's own preferred channel if it has one (MiniJV, for example, listens on channel 1). If Receive Ch is set to <em>All</em>, MIDI passes through unchanged.</li>
                                     <li><strong>Thru</strong> — passes the original MIDI channel through unchanged. Useful for multitimbral synths that respond differently per channel.</li>
                                     <li><strong>1–16</strong> — forces all MIDI to a specific channel regardless of what was received.</li>
                                 </ul>
@@ -471,9 +478,10 @@
                             <tr><td>Shape</td><td>Sine, Tri, Saw, Square, S&amp;H, Swishy (smooth random walk).</td></tr>
                             <tr><td>Sync</td><td>Free-running (Hz) or tempo-synced (16 bars to 1/32T, including triplets).</td></tr>
                             <tr><td>Depth</td><td>−100% to +100%. Negative depth inverts the shape.</td></tr>
-                            <tr><td>Polarity</td><td>Unipolar (0 to depth) or Bipolar (-depth to +depth).</td></tr>
+                            <tr><td>Rate</td><td>0.1–20 Hz when free-running; 16 bars to 1/32T when synced.</td></tr>
+                            <tr><td>Mode</td><td>Unipolar (0 to depth) or Bipolar (−depth to +depth).</td></tr>
                             <tr><td>Phase</td><td>0–360°.</td></tr>
-                            <tr><td>Retrigger</td><td>Reset phase on the first note-on of a new phrase.</td></tr>
+                            <tr><td>Retrigger</td><td>Reset phase on the first note-on of a new phrase (slot LFOs only).</td></tr>
                         </tbody>
                     </table>
                     <p>An indicator (<code>~1</code>, <code>~2</code>, or <code>~1+2</code>) appears above any component being targeted by an LFO. LFOs can also target each other's depth, rate, or phase for compound modulation. Master FX has its own pair of LFOs that operate on the master chain.</p>
@@ -490,14 +498,17 @@
                     <p>Schwung records knob moves into the Move clip that is playing, and plays them back every loop &mdash; the same idea as Move's own per-step automation, for any parameter of any module in a slot. It is on by default.</p>
                     <p><strong>Recording a move.</strong> Arm Move's <kbd>Record</kbd> button, then turn a knob on any module in that track's slot. Turn <kbd>Record</kbd> off and the move repeats every time the clip comes round. Turning a knob with <kbd>Record</kbd> off still does what you expect: you hear your hand until the clip loops back to the automation.</p>
                     <p><strong>Locking a step (p-lock).</strong> Hold a step button and turn a knob to set a value on just that step; it ends where the step ends. Hold the step and you see what is locked on it. A quick <em>tap</em> of a step still toggles its note in Move; a <em>hold</em> does not, so a step can carry a lock with no note on it.</p>
-                    <p><strong>Removing a lock.</strong> Hold the step and press <kbd>Delete</kbd>: touching a knob clears just that knob's lock, releasing without touching one clears the whole step.</p>
-                    <p><strong>Step chance.</strong> Hold a step and press <kbd>Menu</kbd>: a small menu opens over Move's screen with that step's <em>Chance</em>, and a bar for every step on the page underneath &mdash; so you can see at a glance which steps have a condition and how strong. Turn the jog to change it; let go of the step to close it. <em>100%</em> always plays; <em>99%</em> down to <em>1%</em> roll the dice each time round; then the Elektron-style <em>A:B</em> conditions &mdash; <em>1:4</em> plays on the first of every four passes through the clip, <em>3:4</em> on the third, up to <em>8:8</em>. A:B is not random: it counts loops from when the clip was launched. On the page, a percentage is a bar of that height and an A:B step a hollow bar. A chord on one step drops as a whole; on a drum track, chance applies to the selected pad's note. Chance travels with your notes the way Move's own edits do: nudging a note, copying a step or page, <em>Double Loop</em>, duplicating a clip, and <kbd>Undo</kbd> / <kbd>Redo</kbd> of those (including deleting a whole clip) all carry it along. Two things do not: a clip copied to a <em>different track</em> arrives without its chance, and a single note you delete loses its chance even if you Undo the delete.</p>
-                    <p><strong>Length and velocity.</strong> Press <kbd>Menu</kbd> again, still holding the step, for <em>Length</em> and then <em>Velocity</em>. These are Move's own &mdash; the jog edits the note exactly as Move's hold-step + jog and hold-step + Volume do, so the change is in Move's clip and Move's Undo. Here the jog <strong>accelerates</strong>: turn slowly for Move's fine 0.1-step changes, spin it to reach long notes in a few turns.</p>
-                    <p class="note"><strong>Chance only affects Schwung's instruments.</strong> It decides whether a note reaches the Schwung slot on that track; Move's own instrument on the same track still plays every note. It is at its best on a Move track driving a Schwung synth &mdash; the track's <em>MIDI Out</em> (<kbd>Shift</kbd> + Track button) must be set to the slot's channel, or no notes reach the slot at all. On a track whose slot has no Schwung synth, Chance shows <em>Move only</em>. Conditions are saved with the Set.</p>
+                    <p><strong>Removing a lock.</strong> Hold the step and press <kbd>Delete</kbd>: touching a knob clears just that knob's lock, releasing without touching one clears the whole step. Press <kbd>Undo</kbd> while still holding the step to take back the lock you just made.</p>
                     <p><strong>It follows the clip.</strong> Automation is stored in clip time, so moving or resizing the loop keeps it on the notes it was recorded against &mdash; points past the loop end go quiet and come back if you lengthen it. Step and page copy, Double Loop (<kbd>Shift</kbd> + <kbd>Step 15</kbd>), duplicating or deleting a clip all carry the automation along exactly as Move carries its notes. On a drum track a step paste copies only the selected pad's automation, the same way Move copies only that pad's notes.</p>
-                    <p><strong>One Undo.</strong> Move's <kbd>Undo</kbd> undoes your last edit whichever side made it: a recorded pass, a p-lock or a clear made in Schwung is undone by the same button as a note edit made in Move, in the order you made them.</p>
+                    <p><strong>One Undo.</strong> Move's <kbd>Undo</kbd> undoes your last edit whichever side made it: a recorded pass, a p-lock or a clear made in Schwung is undone by the same button as a note edit made in Move, in the order you made them. (While <kbd>Record</kbd> is armed, or on a module that uses <kbd>Undo</kbd> itself, <kbd>Undo</kbd> works as it normally would.)</p>
                     <p><strong>Clearing.</strong> <strong>Slot Settings &rarr; Automation</strong> has <em>Clear This Clip</em>, <em>Clear All Clips</em> and <em>Undo Last Edit</em> (press again to redo). A module's own <em>Module</em> page clears just that module's automation. Automation is saved with the Set, and <kbd>Shift</kbd>+<kbd>Copy</kbd> snapshots include it. While a scene snapshot is being edited, <kbd>Delete</kbd> + knob unlocks the scene instead of clearing automation.</p>
-                    <p class="note"><strong>Turning it off.</strong> If you need automation out of the way entirely, create the file <code>/data/UserData/schwung/lanes_off</code> over SSH (<code>ssh ableton@move.local "touch /data/UserData/schwung/lanes_off"</code>). Anything that was playing lets go of its parameter, and nothing records or plays back until you delete the file again. No restart is needed either way, and your recorded automation is kept.</p>
+                    <p class="note"><strong>Turning it off.</strong> If you need automation out of the way entirely, create the file <code>/data/UserData/schwung/lanes_off</code> over SSH (<code>ssh ableton@move.local "touch /data/UserData/schwung/lanes_off"</code>). Anything that was playing lets go of its parameter, and nothing records or plays back until you delete the file again. No restart is needed either way, and your recorded automation is kept. Step chance is not affected &mdash; it keeps working with automation off.</p>
+                    <h3 id="step-chance">Step chance, length and velocity</h3>
+                    <p>In Move's step sequencer, <strong>hold a step and press <kbd>Menu</kbd></strong>: a small menu opens over Move's screen showing that step's <em>Chance</em>, with a bar for every step on the page underneath &mdash; so you can see at a glance which steps have a condition and how strong it is. Turn the jog to change it; let go of the step to close the menu. It works while Move's own screen is showing; with Schwung's screen up, holding a step locks knobs instead (see above).</p>
+                    <p><strong>Chance</strong> works like an Elektron trig condition. <em>100%</em> always plays. Next come 21 percentages from <em>99%</em> down to <em>1%</em> (Elektron's own ladder), which roll the dice each time the step comes round. After those are the <em>A:B</em> conditions, from <em>1:2</em> up to <em>8:8</em>: <em>1:4</em> plays on the first of every four passes through the clip, <em>3:4</em> on the third. A:B is not random &mdash; it counts loops from when the clip was launched. On the page, a percentage is a bar of that height and an A:B step is a hollow bar. A chord on one step drops as a whole; on a drum track, chance applies to the selected pad's note.</p>
+                    <p><strong>Length and velocity.</strong> Press <kbd>Menu</kbd> again, still holding the step, for <em>Length</em> and then <em>Velocity</em>. These are Move's own &mdash; the jog edits the note exactly as Move's hold-step + jog and hold-step + Volume do, so the change is in Move's clip and Move's Undo. Here the jog <strong>accelerates</strong>: turn slowly for Move's fine 0.1-step changes, spin it to reach long notes in a few turns. When a step holds a chord, the value shows as a range (<em>2.0-16.0</em>), as it does on Move.</p>
+                    <p><strong>It follows your edits.</strong> Chance travels with your notes the way Move's own edits do: nudging a note, copying a step or page, <em>Double Loop</em>, duplicating or copying a clip on the same track, and <kbd>Undo</kbd> / <kbd>Redo</kbd> of those (including deleting a whole clip) all carry it along. Two things do not: a clip copied to a <em>different track</em> arrives without its chance, and a single note you delete loses its chance even if you Undo the delete.</p>
+                    <p class="note"><strong>Chance only affects Schwung's instruments.</strong> It decides whether a note reaches the Schwung slot on that track; Move's own instrument on the same track still plays every note. It is at its best on a Move track driving a Schwung synth &mdash; the track's <em>MIDI Out</em> (<kbd>Shift</kbd> + Track button) must be set to the slot's channel, or no notes reach the slot at all. On a track whose slot has no Schwung synth, Chance shows <em>Move only</em>. Conditions are saved with the Set.</p>
                 </section>
 
                 <section class="manual-section" id="master-fx">
@@ -528,7 +539,7 @@
                     <h3>Send A and Send B</h3>
                     <p>A <strong>send</strong> is a shared effect the whole device can feed &mdash; one reverb everything goes to, rather than one reverb per slot. Each of the two is eight audio effect slots, built exactly the way Master FX is, and reordered the same way (<kbd>Shift</kbd> + jog).</p>
                     <p>You feed a send from a bus's <em>Send A</em> / <em>Send B</em> rows, from a module's own voices, or from <em>Main</em> for the rest of a slot &mdash; see <a href="#slots">Buses and sends</a>. Sends are <strong>post-fader</strong>: turn a slot's volume down and it leaves the sends with it, the way a mixing console works, and a muted slot feeds them nothing at all. They are also <em>post-effects</em> &mdash; a distortion in the slot's chain is in what the send hears.</p>
-                    <p>Each send box shows a small dial of that send's <strong>Return</strong>, so you can see at a glance whether anything is coming back before you dive in. Under a send's <em>Settings</em>, <strong>Return</strong> sets how much of it reaches the mix. Send A also has <strong>&gt;B</strong>, which feeds Send A's output into Send B &mdash; a delay into a reverb, say. It only goes that way: <strong>B can never feed A</strong>, so no combination of the two can howl.</p>
+                    <p>Each send box shows a small dial of that send's <strong>Return</strong>, so you can see at a glance whether anything is coming back before you dive in. Under a send's <em>Settings</em>, <strong>Return</strong> sets how much of it reaches the mix. Send A also has <strong>-&gt; Send B</strong>, which feeds Send A's output into Send B &mdash; a delay into a reverb, say. It only goes that way: <strong>B can never feed A</strong>, so no combination of the two can howl.</p>
                     <p>In a recording with <em>Save</em> set to stems, each send comes back as its own <code>_SendA</code> / <code>_SendB</code> file.</p>
                 </section>
 
@@ -541,6 +552,7 @@
                         <li>In Schwung: <strong>Global Settings → Audio</strong> → toggle <strong>Move→Schwung</strong> on.</li>
                     </ol>
                     <p>Each Move track is captured separately and routed through the matching slot's audio FX. A slot can have both a synth (triggered by MIDI) and audio FX (processing the Move track's audio) running at once.</p>
+                    <p>The other direction is <strong>Schwung-&gt;Link</strong> (Global Settings → Audio, off by default): it sends each slot's audio back out as its own Link Audio channel (<em>ME-1</em> to <em>ME-4</em>), so other Link Audio apps can record or process it.</p>
 
                     <p class="note warning"><strong>Restart may be needed.</strong> If you don't hear Move tracks being processed after enabling routing, restart Move — the Link Audio subscriber sometimes needs a fresh boot to start capturing.</p>
 
@@ -641,7 +653,7 @@
 
                     <h3>Skipback</h3>
                     <p>Schwung continuously maintains a rolling audio buffer (30 s by default, up to 5 min). Press <kbd>Shift</kbd>+<kbd>Capture</kbd> to dump the buffer to disk instantly without interrupting playback — recover happy accidents you weren't recording.</p>
-                    <p>Configure under <strong>Global Settings → Shortcuts</strong>: <em>Skipback</em> changes the shortcut to <em>Vol+Cap</em> if Shift+Capture conflicts; <em>Skipback Len</em> sets buffer size (30 s, 1 m, 2 m, 3 m, 4 m, 5 m). Resizing preserves whatever's currently in the buffer (oldest samples truncated when shrinking).</p>
+                    <p>Configure under <strong>Global Settings → Shortcuts</strong>: <em>Skipback</em> can change the shortcut to <kbd>Shift+Vol</kbd> + <kbd>Capture</kbd> (shown as <em>Vol+Cap</em>) if Shift+Capture conflicts; <em>Skipback Len</em> sets buffer size (30 s, 1 m, 2 m, 3 m, 4 m, 5 m). Resizing preserves whatever's currently in the buffer (oldest samples truncated when shrinking).</p>
                     <p>Files save to <code>Samples/Schwung/Skipback/YYYY-MM-DD/</code> using the same source setting as the Quantized Sampler.</p>
 
                     <h3>Save stems</h3>
@@ -679,7 +691,7 @@
                         <tr><td>Step buttons 1&ndash;16</td><td>Choose the active scene. The active step is yellow; a step is lit when its scene has something locked.</td></tr>
                         <tr><td>Top two rows of pads</td><td>Snapshots A1&ndash;A16. Tap one to use it as this scene's A; tap the lit one again for none.</td></tr>
                         <tr><td>Bottom two rows of pads</td><td>Snapshots B1&ndash;B16, the same way for B</td></tr>
-                        <tr><td>Hold a pad</td><td>Edit that snapshot (tap it again to stop)</td></tr>
+                        <tr><td>Hold a pad</td><td>Pair it and start editing that snapshot (tap it again to stop). A tap takes effect as the pad goes down, so a switch lands on time.</td></tr>
                         <tr><td><kbd>Jog</kbd> or <kbd>Knob 8</kbd></td><td>Moves the crossfader (hold <kbd>Shift</kbd> for fine steps)</td></tr>
                         <tr><td><kbd>Jog click</kbd></td><td>Snaps the fader to the nearer end</td></tr>
                         <tr><td><kbd>Copy</kbd> + two steps / two pads</td><td>Copy a scene's pairing / copy a snapshot</td></tr>
@@ -707,10 +719,10 @@
                     <h2>11 · Sets &amp; pages</h2>
 
                     <h3>Per-Set slot state</h3>
-                    <p>Each Move Set carries its own independent slot configuration. Switching Sets saves the outgoing slots and restores the incoming Set's slots — synths, effects, knob assignments, Master FX, and (if RNBO Runner is active) the current RNBO graph and its parameters. Slot audio fades smoothly during the transition. A brief <em>Set Loaded</em> overlay confirms the switch.</p>
+                    <p>Each Move Set carries its own independent slot configuration. Switching Sets saves the outgoing slots and restores the incoming Set's slots — synths, effects, knob assignments, Master FX, scenes, the snapshot, automation and step chance, your custom surface pages and CC map, your Song Mode song, and (if RNBO Runner is active) the current RNBO graph and its parameters. Slot audio fades smoothly during the transition. A brief <em>Set Loaded</em> overlay confirms the switch.</p>
                     <ul>
                         <li><strong>New Sets</strong> start with empty slots.</li>
-                        <li><strong>Duplicated Sets</strong> (name contains "Copy") inherit the source Set's Schwung state automatically.</li>
+                        <li><strong>Duplicated Sets</strong> (name contains "Copy") inherit the source Set's slots, Master FX, surface pages and CC map. Scenes are not copied, so a duplicate starts with none.</li>
                         <li>To carry a configuration to a brand-new Set, save it as a slot preset first, then load it in the new Set.</li>
                     </ul>
 
@@ -725,7 +737,7 @@
 
                 <section class="manual-section" id="tools">
                     <h2>12 · Tools menu</h2>
-                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>. Tools are standalone utilities that run outside the slot system. Overtake modules also live here, below a divider.</p>
+                    <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>, or just <kbd>Shift</kbd> + <kbd>Step 13</kbd>. Tools are standalone utilities that run outside the slot system. Overtake modules also live here, below a divider.</p>
 
                     <h3>File Browser</h3>
                     <p>Browse files and folders on Move. Two starting roots: <strong>User Library</strong> (samples, presets, recordings) and <strong>System Files</strong> (the Schwung directory — shows a warning before entry).</p>
@@ -751,7 +763,7 @@
                     <p>Overtake modules take full control of Move's display and controls. They live in the Tools menu below a divider — open Tools (<kbd>Shift+Vol</kbd>+<kbd>Step 13</kbd>) and select one.</p>
                     <p class="note">The <kbd>Shift+Vol</kbd> combos in this section have no long-press equivalent, so they do nothing if <strong>Global Settings → Shortcuts → Open With</strong> is set to <em>Hold</em>. Leave it on <em>Both</em> (the default) or <em>Sh+Vol</em> to use them.</p>
                     <ul>
-                        <li><strong>Close</strong>: <kbd>Shift+Vol</kbd> + <kbd>Jog Click</kbd>, or <kbd>Shift</kbd> + <kbd>Back</kbd>.</li>
+                        <li><strong>Close</strong>: <kbd>Shift+Vol</kbd> + <kbd>Jog Click</kbd>, which works in every module. In modules where <kbd>Back</kbd> on its own suspends, <kbd>Shift</kbd> + <kbd>Back</kbd> closes too.</li>
                         <li><strong>Suspend</strong> (leave it running in the background): <kbd>Shift+Vol</kbd> + <kbd>Back</kbd>.</li>
                         <li><strong>Back on its own</strong> suspends some modules and is handled by the module itself in others — it depends on the module. The two combos above behave the same way everywhere, so use those if you want to be sure.</li>
                         <li><strong>Resume</strong>: reopen Tools and select the module again, or jump straight back to the last suspended one with a <em>double-tap</em> of <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>, or a long press of <kbd>Shift</kbd> + <kbd>Step 13</kbd>. Either way it picks up where it left off, LEDs restored.</li>
@@ -817,7 +829,7 @@
 
                     <h3>CC map (any controller)</h3>
                     <ul>
-                        <li><strong>Learn</strong> — press <kbd>Shift+Vol</kbd>+<kbd>Sample</kbd> from anywhere. The footer shows LEARN. Move a parameter on Move, then a knob on your controller, and they are bound. Repeat for as many as you like, then press <kbd>Shift+Vol</kbd>+<kbd>Sample</kbd> again to finish.</li>
+                        <li><strong>Learn</strong> — press <kbd>Shift+Vol</kbd>+<kbd>Sample</kbd> from anywhere. The footer shows LEARN. Move a parameter on Move, then a knob on your controller, and they are bound. Repeat for as many as you like, then press <kbd>Shift+Vol</kbd>+<kbd>Sample</kbd> again to finish. Learn needs <em>Open With</em> set to <em>Both</em> or <em>Sh+Vol</em>, and ends on its own after two minutes of nothing being moved. The CC map listens to a controller on USB-A, and pauses while an overtake module is open.</li>
                         <li>Each parameter takes one CC; binding a second CC moves the binding. A bound CC is taken away from Move and the slots.</li>
                         <li>Drum modules' per-pad parameters can be learned too ("Pad 3 Width"). If a parameter cannot be bound, Schwung says so.</li>
                         <li><strong>Master FX Settings → CC Map</strong> lists the bindings. Click one to set its <em>Mode</em> (Absolute, or Relative for endless encoders) or delete it. The CC map is saved with the Set.</li>
@@ -830,7 +842,7 @@
                 <section class="manual-section" id="accessibility">
                     <h2>15 · Accessibility</h2>
                     <p>Schwung includes an optional screen reader that announces UI elements via text-to-speech. Move is, as far as we know, the first musical instrument with an on-device screen reader.</p>
-                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or by <em>double-pressing</em> <kbd>Shift</kbd> + <kbd>Note/Session</kbd> — which works whether or not the Shadow UI is enabled. A <em>single</em> press of the same combo does something else: it opens Master FX when the Shadow UI is on, or the Screen Reader settings when it is off. Settings: <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
+                    <p>Toggle from <strong>Global Settings → Screen Reader</strong>, or by <em>double-pressing</em> <kbd>Shift</kbd> + <kbd>Note/Session</kbd> — which works whether or not the Shadow UI is enabled. A <em>single</em> press of the same combo does something else: it opens Master FX when the Shadow UI is on, or the Screen Reader settings when it is off. Settings: <em>Engine</em> (eSpeak or Flite), <em>Speed</em> (0.5×–6.0×), <em>Pitch</em> (80–180 Hz), <em>Volume</em> (0–100%), <em>Speak Delay</em> (0–1000 ms).</p>
                     <p>The on-device help viewer (<strong>Global Settings → System → Help</strong>) is read aloud automatically when the screen reader is on. To install Schwung from the command line in screen-reader-friendly mode, see the <a href="install.html#main">Install</a> page.</p>
                 </section>
 
@@ -853,7 +865,7 @@
 
                 <section class="manual-section" id="analytics">
                     <h2>17 · Analytics</h2>
-                    <p>Schwung can send anonymous usage statistics to help prioritize development. <strong>Off by default.</strong> On first launch you're prompted to choose; nothing is sent until you opt in. Change at any time under <strong>Settings → Analytics</strong>.</p>
+                    <p>Schwung can send anonymous usage statistics to help prioritize development. <strong>Off by default.</strong> On first launch you're prompted to choose; nothing is sent until you opt in. Change at any time under <strong>Global Settings → System → Analytics</strong>.</p>
                     <table class="shortcut-table">
                         <caption>What's sent when enabled</caption>
                         <thead><tr><th>Event</th><th>When</th><th>Data</th></tr></thead>
@@ -861,8 +873,7 @@
                             <tr><td><code>app_launched</code></td><td>Schwung starts</td><td>Host version</td></tr>
                             <tr><td><code>module_census</code></td><td>Schwung starts</td><td>Installed module IDs, count</td></tr>
                             <tr><td><code>module_upgraded</code></td><td>Module version changed at startup</td><td>Module ID, old + new version</td></tr>
-                            <tr><td><code>module_loaded</code></td><td>A module is loaded</td><td>Module ID</td></tr>
-                            <tr><td><code>module_installed</code></td><td>A module was installed</td><td>Module ID, version</td></tr>
+                            <tr><td><code>module_loaded</code></td><td>A module is loaded</td><td>Module ID, and where it was loaded from</td></tr>
                         </tbody>
                     </table>
                     <p>Every event includes a randomly generated anonymous UUID v4 stored at <code>/data/UserData/schwung/anonymous-id</code>. It has no connection to your identity; deleting the file generates a fresh one on next launch.</p>
