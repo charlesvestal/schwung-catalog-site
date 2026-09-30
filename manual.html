@@ -371,7 +371,7 @@
                     <p>Any voice you didn't assign stays on the slot's own output. <em>Buses</em> is only about making and filling them &mdash; the levels going out to the global sends are a separate <strong>Sends</strong> row beside it.</p>
 
                     <h3>Sends: what leaves the slot</h3>
-                    <p><strong>Settings → Sends</strong> holds the slot's <strong>Send A</strong>, <strong>Send B</strong> and <strong>Pan</strong> &mdash; the levels for everything in the slot that isn't routed into a bus. Each bus you have made has its own <em>Send A</em> and <em>Send B</em> on that bus's menu.</p>
+                    <p>The two sends are split between where they leave and where they come back. <strong>Slot Settings → Sends</strong> holds how much of the slot goes to <strong>Send A</strong> and <strong>Send B</strong> (and its <strong>Pan</strong>); a bus you have made has its own Send A / Send B levels on that bus's menu. What comes <em>back</em> &mdash; each send's <strong>Return</strong> &mdash; is in <strong>Master FX Settings</strong>, under that send (see <a href="#master-fx">Master FX and sends</a>).</p>
                     <p>With <em>Param View</em> set to <em>List</em> (and in every screen-reader session) the mixer is replaced by two plain <strong>Send A</strong> / <strong>Send B</strong> rows on the settings list, which set the same Main levels &mdash; a knob grid has nothing for a screen reader to read out.</p>
                     <p>A slot's send amounts can be modulated: point <em>LFO 1</em> or <em>LFO 2</em> at <strong>Sends</strong> and pick <em>Send A</em> or <em>Send B</em>. The number on the Sends page stays at what you set &mdash; the LFO rides on top of it rather than overwriting it, so what is saved is still your setting.</p>
                     <p>A bus marked <strong>!</strong> is holding a voice the loaded synth no longer has &mdash; you swapped the module, or it changed between versions. The id is kept rather than quietly dropped, so open <em>Voices</em> and click the <strong>!</strong> row to clear it.</p>
@@ -768,7 +768,6 @@
                         <li><strong>Back on its own</strong> suspends some modules and is handled by the module itself in others — it depends on the module. The two combos above behave the same way everywhere, so use those if you want to be sure.</li>
                         <li><strong>Resume</strong>: reopen Tools and select the module again, or jump straight back to the last suspended one with a <em>double-tap</em> of <kbd>Shift+Vol</kbd> + <kbd>Step 13</kbd>, or a long press of <kbd>Shift</kbd> + <kbd>Step 13</kbd>. Either way it picks up where it left off, LEDs restored.</li>
                     </ul>
-                    <p class="note"><strong>Heads-up.</strong> After exiting an overtake module, Move's pad and button LEDs won't refresh automatically — change tracks or sets and they'll come back as they light back on.</p>
 
                     <h3>RNBO Runner</h3>
                     <p>Hosts <a href="https://rnbo.cycling74.com" target="_blank" rel="noopener">RNBO for Move</a> graphs as an overtake module, running on top of Move with full pad/knob control. Install RNBO for Move separately first (per Cycling '74 instructions), then open Tools and select RNBO Runner.</p>
@@ -851,7 +850,6 @@
                     <p>Things that aren't bugs, but trip people up:</p>
                     <ul>
                         <li><strong>Performance overhead.</strong> Schwung is additional software on Move; even with no synths loaded there is a slight performance impact compared to stock.</li>
-                        <li><strong>Shadow UI is a separate display layer.</strong> After exiting an Overtake module, Move's pad and button LEDs won't refresh until you change track or set.</li>
                         <li><strong>MIDI FX in <em>Schw+Move</em> mode.</strong> Generator-style MIDI FX (Arp, etc.) emitting the same pitch you're holding on the pad won't retrigger that pitch on Move's native track. Chord works because it emits distinct pitches.</li>
                         <li><strong>Link Audio bypasses Move's native Master FX</strong> while it's on — Schwung rebuilds the mix from per-track streams.</li>
                         <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
