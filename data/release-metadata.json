@@ -7582,12 +7582,13 @@
   },
   "scratch": {
     "first_release": "2026-09-28",
-    "last_updated": "2026-09-28",
-    "version": "v1.0.2",
+    "last_updated": "2026-10-01",
+    "version": "v1.0.3",
     "release_dates": [
       "2026-09-28",
       "2026-09-28",
-      "2026-09-28"
+      "2026-09-28",
+      "2026-10-01"
     ],
     "releases": [
       {
@@ -7604,6 +7605,11 @@
         "prerelease": false,
         "published_at": "2026-09-28T08:43:08Z",
         "tag": "v1.0.2"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-01T01:04:36Z",
+        "tag": "v1.0.3"
       }
     ]
   },
