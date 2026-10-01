@@ -857,6 +857,21 @@
       }
     ]
   },
+  "munchi-delay": {
+    "first_release": "2026-10-01",
+    "last_updated": "2026-10-01",
+    "version": "v0.1.0",
+    "release_dates": [
+      "2026-10-01"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-10-01T09:10:53Z",
+        "tag": "v0.1.0"
+      }
+    ]
+  },
   "junologue-chorus": {
     "first_release": "2026-02-14",
     "last_updated": "2026-03-02",
