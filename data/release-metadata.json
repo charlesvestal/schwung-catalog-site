@@ -2,8 +2,10 @@
   "omega": {
     "first_release": "2026-10-01",
     "last_updated": "2026-10-01",
-    "version": "v0.2.1",
+    "version": "v0.3.1",
     "release_dates": [
+      "2026-10-01",
+      "2026-10-01",
       "2026-10-01",
       "2026-10-01"
     ],
@@ -17,6 +19,16 @@
         "prerelease": false,
         "published_at": "2026-10-01T06:34:31Z",
         "tag": "v0.2.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-01T22:40:46Z",
+        "tag": "v0.3.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-01T23:09:18Z",
+        "tag": "v0.3.1"
       }
     ]
   },
