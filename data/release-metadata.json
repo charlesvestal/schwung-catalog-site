@@ -1,13 +1,14 @@
 {
   "omega": {
     "first_release": "2026-10-01",
-    "last_updated": "2026-10-01",
-    "version": "v0.3.1",
+    "last_updated": "2026-10-02",
+    "version": "v0.3.2",
     "release_dates": [
       "2026-10-01",
       "2026-10-01",
       "2026-10-01",
-      "2026-10-01"
+      "2026-10-01",
+      "2026-10-02"
     ],
     "releases": [
       {
@@ -29,6 +30,11 @@
         "prerelease": false,
         "published_at": "2026-10-01T23:09:18Z",
         "tag": "v0.3.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-02T06:36:34Z",
+        "tag": "v0.3.2"
       }
     ]
   },
@@ -3901,8 +3907,8 @@
   },
   "breakbeat": {
     "first_release": "2026-05-05",
-    "last_updated": "2026-10-01",
-    "version": "v0.4.20",
+    "last_updated": "2026-10-02",
+    "version": "v0.4.31",
     "release_dates": [
       "2026-05-05",
       "2026-05-05",
@@ -3914,7 +3920,9 @@
       "2026-05-31",
       "2026-08-23",
       "2026-09-30",
-      "2026-10-01"
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-02"
     ],
     "releases": [
       {
@@ -3971,6 +3979,16 @@
         "prerelease": false,
         "published_at": "2026-10-01T07:17:57Z",
         "tag": "v0.4.20"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-02T04:16:55Z",
+        "tag": "v0.4.29"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-02T04:57:11Z",
+        "tag": "v0.4.31"
       }
     ]
   },
