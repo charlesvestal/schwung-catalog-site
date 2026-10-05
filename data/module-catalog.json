@@ -2051,6 +2051,21 @@
       "min_host_version": "1.6.2"
     },
     {
+      "id": "quilt",
+      "name": "Quilt",
+      "description": "Thirty-eight soft instruments, from felt pianos and vibraphones to bowed cello, breathy flute and choir, all synthesised and played with pad pressure",
+      "author": "kliegsablaze",
+      "component_type": "sound_generator",
+      "subcategory": "physical-modeling",
+      "tags": [
+        "polyphonic"
+      ],
+      "github_repo": "kliegsablaze/quilt",
+      "default_branch": "main",
+      "asset_name": "quilt-module.tar.gz",
+      "min_host_version": "1.6.3"
+    },
+    {
       "id": "maze_seq",
       "name": "Maze",
       "description": "Dual generative sequencer (Moog Labyrinth style) with pad + step-button control. Overtake tool.",
@@ -2355,6 +2370,22 @@
       "min_host_version": "0.9.18"
     },
     {
+      "id": "setbfree-organ",
+      "name": "setBfree Tonewheel Organ",
+      "description": "Emulation of the classic Hammond B3 organ, providing rich organ sounds and customizable drawbar settings.",
+      "author": "Robin Gareus, Fredrik Kilander (port: Pascal Dubucq)",
+      "component_type": "sound_generator",
+      "subcategory": "physical-modeling",
+      "tags": [
+        "polyphonic",
+        "vintage-emulation"
+      ],
+      "github_repo": "pdubucq/schwung-setbfree",
+      "default_branch": "main",
+      "asset_name": "setbfree-organ-module.tar.gz",
+      "min_host_version": "1.6.0"
+    },
+    {
       "id": "move-bitwig",
       "name": "Move Bitwig",
       "description": "Bitwig Controller: play instruments, sequence notes and drum expressions, browse devices, and launch clips and scenes.",
@@ -2382,6 +2413,18 @@
       "default_branch": "main",
       "asset_name": "oktonik-module.tar.gz",
       "min_host_version": "1.6.2"
+    },
+    {
+      "id": "stereoid",
+      "name": "Stereoid",
+      "description": "Stereo widener with four engines: Comb (mono-safe, no lean), Haas (a delayed side with character), Disperse (all-pass and comb, modelled from measurement) and M/S (scales the width a stereo source already has)",
+      "author": "legsmechanical",
+      "component_type": "audio_fx",
+      "subcategory": "utility",
+      "github_repo": "legsmechanical/schwung-stereoid",
+      "default_branch": "main",
+      "asset_name": "stereoid-module.tar.gz",
+      "min_host_version": "1.5.0"
     }
   ]
 }
