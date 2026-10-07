@@ -7792,13 +7792,15 @@
   },
   "piano-practice": {
     "first_release": "2026-09-24",
-    "last_updated": "2026-09-24",
-    "version": "v1.4.0",
+    "last_updated": "2026-10-07",
+    "version": "v1.5.1",
     "release_dates": [
       "2026-09-24",
       "2026-09-24",
       "2026-09-24",
-      "2026-09-24"
+      "2026-09-24",
+      "2026-10-07",
+      "2026-10-07"
     ],
     "releases": [
       {
@@ -7820,6 +7822,16 @@
         "prerelease": false,
         "published_at": "2026-09-24T19:09:19Z",
         "tag": "v1.4.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-07T15:01:22Z",
+        "tag": "v1.5.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-07T15:20:05Z",
+        "tag": "v1.5.1"
       }
     ]
   },
