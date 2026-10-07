@@ -7180,16 +7180,22 @@
   },
   "quilt": {
     "first_release": "2026-10-05",
-    "last_updated": "2026-10-05",
-    "version": "v1.0.0",
+    "last_updated": "2026-10-07",
+    "version": "v1.1.0",
     "release_dates": [
-      "2026-10-05"
+      "2026-10-05",
+      "2026-10-07"
     ],
     "releases": [
       {
         "prerelease": false,
         "published_at": "2026-10-05T08:20:10Z",
         "tag": "v1.0.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-07T03:33:58Z",
+        "tag": "v1.1.0"
       }
     ]
   },
