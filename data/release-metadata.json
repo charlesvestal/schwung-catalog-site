@@ -7769,9 +7769,11 @@
   "trance-gate": {
     "first_release": "2026-09-29",
     "last_updated": "2026-10-08",
-    "version": "side-chain-v2026.10.08.2",
+    "version": "listen-in-v2026.10.08.2",
     "release_dates": [
       "2026-09-29",
+      "2026-10-08",
+      "2026-10-08",
       "2026-10-08",
       "2026-10-08"
     ],
@@ -7790,6 +7792,16 @@
         "prerelease": false,
         "published_at": "2026-10-08T15:39:16Z",
         "tag": "side-chain-v2026.10.08.2"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-08T16:55:02Z",
+        "tag": "spectrogram-v2026.10.08.2"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-08T17:22:17Z",
+        "tag": "listen-in-v2026.10.08.2"
       }
     ]
   },
@@ -7810,15 +7822,16 @@
   },
   "piano-practice": {
     "first_release": "2026-09-24",
-    "last_updated": "2026-10-07",
-    "version": "v1.5.1",
+    "last_updated": "2026-10-08",
+    "version": "v1.8.1",
     "release_dates": [
       "2026-09-24",
       "2026-09-24",
       "2026-09-24",
       "2026-09-24",
       "2026-10-07",
-      "2026-10-07"
+      "2026-10-07",
+      "2026-10-08"
     ],
     "releases": [
       {
@@ -7850,18 +7863,26 @@
         "prerelease": false,
         "published_at": "2026-10-07T15:20:05Z",
         "tag": "v1.5.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-08T17:27:43Z",
+        "tag": "v1.8.1"
       }
     ]
   },
   "drums-practice": {
     "first_release": "2026-09-28",
-    "last_updated": "2026-09-29",
-    "version": "v1.0.0",
+    "last_updated": "2026-10-08",
+    "version": "v1.2.1",
     "release_dates": [
       "2026-09-28",
       "2026-09-29",
       "2026-09-29",
-      "2026-09-29"
+      "2026-09-29",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-08"
     ],
     "releases": [
       {
@@ -7883,6 +7904,21 @@
         "prerelease": false,
         "published_at": "2026-09-29T08:22:56Z",
         "tag": "v1.0.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-08T18:25:56Z",
+        "tag": "v1.2.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-08T18:26:05Z",
+        "tag": "v1.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-08T18:45:37Z",
+        "tag": "v1.2.1"
       }
     ]
   },
