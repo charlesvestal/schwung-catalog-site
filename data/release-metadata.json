@@ -7774,14 +7774,22 @@
   },
   "trance-gate": {
     "first_release": "2026-09-29",
-    "last_updated": "2026-10-08",
-    "version": "listen-in-v2026.10.08.2",
+    "last_updated": "2026-10-09",
+    "version": "listen-in-v2026.10.09.1",
     "release_dates": [
       "2026-09-29",
       "2026-10-08",
       "2026-10-08",
       "2026-10-08",
-      "2026-10-08"
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-09"
     ],
     "releases": [
       {
@@ -7808,6 +7816,46 @@
         "prerelease": false,
         "published_at": "2026-10-08T17:22:17Z",
         "tag": "listen-in-v2026.10.08.2"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T09:49:28Z",
+        "tag": "trance-gate-v2026.10.08.3"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T09:50:44Z",
+        "tag": "side-chain-v2026.10.08.3"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T10:10:17Z",
+        "tag": "chord-detector-v2026.10.08.3"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T12:45:16Z",
+        "tag": "trance-gate-v2026.10.09.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T12:47:05Z",
+        "tag": "side-chain-v2026.10.09.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T13:08:15Z",
+        "tag": "chord-detector-v2026.10.09.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T13:11:10Z",
+        "tag": "spectrogram-v2026.10.09.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T13:17:35Z",
+        "tag": "listen-in-v2026.10.09.1"
       }
     ]
   },
