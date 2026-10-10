@@ -7781,13 +7781,14 @@
   "trance-gate": {
     "first_release": "2026-09-29",
     "last_updated": "2026-10-09",
-    "version": "listen-in-v2026.10.09.1",
+    "version": "side-chain-v2026.10.10.1",
     "release_dates": [
       "2026-09-29",
       "2026-10-08",
       "2026-10-08",
       "2026-10-08",
       "2026-10-08",
+      "2026-10-09",
       "2026-10-09",
       "2026-10-09",
       "2026-10-09",
@@ -7862,6 +7863,11 @@
         "prerelease": false,
         "published_at": "2026-10-09T13:17:35Z",
         "tag": "listen-in-v2026.10.09.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-09T22:20:03Z",
+        "tag": "side-chain-v2026.10.10.1"
       }
     ]
   },
