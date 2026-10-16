@@ -8286,12 +8286,13 @@
   },
   "tinyk": {
     "first_release": "2026-10-08",
-    "last_updated": "2026-10-12",
-    "version": "v1.0.1",
+    "last_updated": "2026-10-16",
+    "version": "v1.0.2",
     "release_dates": [
       "2026-10-08",
       "2026-10-10",
-      "2026-10-12"
+      "2026-10-12",
+      "2026-10-16"
     ],
     "releases": [
       {
@@ -8308,11 +8309,16 @@
         "prerelease": false,
         "published_at": "2026-10-12T20:53:00Z",
         "tag": "v1.0.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-16T11:10:50Z",
+        "tag": "v1.0.2"
       }
     ],
     "channels": {
       "stable": {
-        "version": "v1.0.1"
+        "version": "v1.0.2"
       },
       "beta": {
         "version": "v0.9.0"
