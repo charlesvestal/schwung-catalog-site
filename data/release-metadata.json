@@ -4340,104 +4340,154 @@
       }
     ]
   },
-  "davebox": {
-    "first_release": "2026-05-11",
-    "last_updated": "2026-07-21",
-    "version": "v1.0-beta.8",
+  "davebox-sa": {
+    "first_release": "2026-09-28",
+    "last_updated": "2026-10-20",
+    "version": "v1.0.0",
     "release_dates": [
-      "2026-05-11",
-      "2026-05-12",
-      "2026-05-13",
-      "2026-05-13",
-      "2026-05-14",
-      "2026-05-14",
-      "2026-05-15",
-      "2026-05-30",
-      "2026-05-30",
-      "2026-05-31",
-      "2026-06-07",
-      "2026-06-24",
-      "2026-06-25",
-      "2026-07-21",
-      "2026-07-21"
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-29",
+      "2026-09-30",
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-06",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08",
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-09",
+      "2026-10-11",
+      "2026-10-12",
+      "2026-10-19",
+      "2026-10-20"
     ],
     "releases": [
       {
-        "prerelease": false,
-        "published_at": "2026-05-11T15:01:02Z",
-        "tag": "v0.1.0"
+        "prerelease": true,
+        "published_at": "2026-09-28T22:45:45Z",
+        "tag": "v0.0.1"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-29T01:14:25Z",
+        "tag": "v0.0.2"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-29T04:53:33Z",
+        "tag": "v0.0.3"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-29T14:47:54Z",
+        "tag": "v0.0.4"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-29T20:59:12Z",
+        "tag": "v0.0.5"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-29T22:39:08Z",
+        "tag": "v0.0.6"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-29T23:25:47Z",
+        "tag": "v0.0.7"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-30T18:59:18Z",
+        "tag": "v0.0.8"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-09-30T20:44:20Z",
+        "tag": "v0.0.9"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-01T18:24:07Z",
+        "tag": "v0.0.10"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-02T16:51:00Z",
+        "tag": "v0.0.11"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-06T00:47:04Z",
+        "tag": "v0.0.12"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-06T05:01:22Z",
+        "tag": "v0.0.13"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-07T03:27:27Z",
+        "tag": "v0.0.14"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-08T14:15:16Z",
+        "tag": "v0.0.15"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-08T20:46:06Z",
+        "tag": "v0.0.16"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-09T13:36:20Z",
+        "tag": "v0.0.17"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-09T17:51:06Z",
+        "tag": "v0.0.18"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-11T01:53:22Z",
+        "tag": "v0.0.19"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-12T04:23:48Z",
+        "tag": "v0.0.20"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-19T03:23:43Z",
+        "tag": "v0.0.21"
       },
       {
         "prerelease": false,
-        "published_at": "2026-05-12T01:06:06Z",
-        "tag": "v0.2.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-13T04:16:02Z",
-        "tag": "v0.3.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-13T17:16:34Z",
-        "tag": "v0.3.5"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-14T11:08:14Z",
-        "tag": "v0.3.6"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-14T15:58:27Z",
-        "tag": "v0.3.7"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-15T18:01:54Z",
-        "tag": "v0.4.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-30T01:47:25Z",
-        "tag": "v1.0b"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-30T17:16:08Z",
-        "tag": "v1.0b2"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-05-31T01:37:42Z",
-        "tag": "v1.0b3"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-06-07T23:00:11Z",
-        "tag": "v1.0b4"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-06-24T17:46:32Z",
-        "tag": "v1.0-beta.5"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-06-25T16:19:18Z",
-        "tag": "v1.0-beta.6"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-07-21T00:14:05Z",
-        "tag": "v1.0-beta.7"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-07-21T14:48:40Z",
-        "tag": "v1.0-beta.8"
+        "published_at": "2026-10-20T14:47:02Z",
+        "tag": "v1.0.0"
       }
-    ]
+    ],
+    "channels": {
+      "stable": {
+        "version": "v1.0.0"
+      },
+      "beta": {
+        "version": "v0.0.21"
+      }
+    }
   },
   "chorddex": {
     "first_release": "2026-04-17",
@@ -8349,6 +8399,45 @@
       }
     }
   },
+  "tinypro5": {
+    "first_release": "2026-10-17",
+    "last_updated": "2026-10-20",
+    "version": "v1.2.1",
+    "release_dates": [
+      "2026-10-17",
+      "2026-10-19",
+      "2026-10-19",
+      "2026-10-20",
+      "2026-10-20"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-10-17T12:46:56Z",
+        "tag": "v1.0.5"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-19T09:28:15Z",
+        "tag": "v1.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-19T13:45:48Z",
+        "tag": "v1.1.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-20T08:08:40Z",
+        "tag": "v1.2.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-20T11:37:52Z",
+        "tag": "v1.2.1"
+      }
+    ]
+  },
   "tinyvoice": {
     "first_release": "2026-10-11",
     "last_updated": "2026-10-14",
@@ -8445,6 +8534,42 @@
         "prerelease": false,
         "published_at": "2026-10-15T19:36:29Z",
         "tag": "Version_1.0.1"
+      }
+    ]
+  },
+  "tenebrae": {
+    "first_release": "2026-10-19",
+    "last_updated": "2026-10-19",
+    "version": "v1.0.0",
+    "release_dates": [
+      "2026-10-19"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-10-19T16:28:56Z",
+        "tag": "v1.0.0"
+      }
+    ]
+  },
+  "concat": {
+    "first_release": "2026-09-03",
+    "last_updated": "2026-10-20",
+    "version": "v0.2.0",
+    "release_dates": [
+      "2026-09-03",
+      "2026-10-20"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-09-03T03:17:43Z",
+        "tag": "v0.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-20T04:29:09Z",
+        "tag": "v0.2.0"
       }
     ]
   }
