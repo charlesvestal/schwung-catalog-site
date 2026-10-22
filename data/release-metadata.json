@@ -8268,12 +8268,13 @@
   },
   "oktonik": {
     "first_release": "2026-09-29",
-    "last_updated": "2026-10-02",
-    "version": "v0.1.0",
+    "last_updated": "2026-10-22",
+    "version": "v0.2.0",
     "release_dates": [
       "2026-09-29",
       "2026-09-30",
-      "2026-10-02"
+      "2026-10-02",
+      "2026-10-22"
     ],
     "releases": [
       {
@@ -8290,11 +8291,16 @@
         "prerelease": false,
         "published_at": "2026-10-02T19:34:39Z",
         "tag": "v0.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-22T21:22:06Z",
+        "tag": "v0.2.0"
       }
     ],
     "channels": {
       "stable": {
-        "version": "v0.1.0"
+        "version": "v0.2.0"
       },
       "beta": {
         "version": "v0.1.0-rc.4"
