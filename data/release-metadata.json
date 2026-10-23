@@ -8584,5 +8584,26 @@
         "tag": "v0.2.0"
       }
     ]
+  },
+  "bloom": {
+    "first_release": "2026-10-22",
+    "last_updated": "2026-10-22",
+    "version": "v0.10.1",
+    "release_dates": [
+      "2026-10-22",
+      "2026-10-22"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-10-22T17:12:11Z",
+        "tag": "v0.10.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-22T17:19:24Z",
+        "tag": "v0.10.1"
+      }
+    ]
   }
 }
