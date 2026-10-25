@@ -4342,8 +4342,8 @@
   },
   "davebox-sa": {
     "first_release": "2026-09-28",
-    "last_updated": "2026-10-20",
-    "version": "v1.0.0",
+    "last_updated": "2026-10-25",
+    "version": "v1.1.0",
     "release_dates": [
       "2026-09-28",
       "2026-09-29",
@@ -4366,7 +4366,8 @@
       "2026-10-11",
       "2026-10-12",
       "2026-10-19",
-      "2026-10-20"
+      "2026-10-20",
+      "2026-10-25"
     ],
     "releases": [
       {
@@ -4478,11 +4479,16 @@
         "prerelease": false,
         "published_at": "2026-10-20T14:47:02Z",
         "tag": "v1.0.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-25T20:30:04Z",
+        "tag": "v1.1.0"
       }
     ],
     "channels": {
       "stable": {
-        "version": "v1.0.0"
+        "version": "v1.1.0"
       },
       "beta": {
         "version": "v0.0.21"
