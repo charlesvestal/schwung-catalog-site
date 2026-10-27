@@ -4343,7 +4343,7 @@
   "davebox-sa": {
     "first_release": "2026-09-28",
     "last_updated": "2026-10-27",
-    "version": "v1.1.1-test.1",
+    "version": "v1.1.2",
     "release_dates": [
       "2026-09-28",
       "2026-09-29",
@@ -4368,6 +4368,7 @@
       "2026-10-19",
       "2026-10-20",
       "2026-10-25",
+      "2026-10-27",
       "2026-10-27",
       "2026-10-27"
     ],
@@ -4496,6 +4497,11 @@
         "prerelease": true,
         "published_at": "2026-10-27T04:27:04Z",
         "tag": "v1.1.1-test.1"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-10-27T11:35:12Z",
+        "tag": "v1.1.2"
       }
     ],
     "channels": {
@@ -4503,7 +4509,7 @@
         "version": "v1.1.1"
       },
       "beta": {
-        "version": "v1.1.1-test.1"
+        "version": "v1.1.2"
       }
     }
   },
@@ -6611,188 +6617,44 @@
     ]
   },
   "9w9": {
-    "first_release": "2026-08-15",
-    "last_updated": "2026-09-19",
-    "version": "v2.7.0",
+    "first_release": "2026-10-27",
+    "last_updated": "2026-10-27",
+    "version": "v2.7.2",
     "release_dates": [
-      "2026-08-15",
-      "2026-08-15",
-      "2026-08-21",
-      "2026-08-22",
-      "2026-08-22",
-      "2026-08-23",
-      "2026-08-25",
-      "2026-08-25",
-      "2026-08-26",
-      "2026-08-27",
-      "2026-08-27",
-      "2026-08-27",
-      "2026-08-28",
-      "2026-09-03",
-      "2026-09-04",
-      "2026-09-04",
-      "2026-09-19"
+      "2026-10-27",
+      "2026-10-27"
     ],
     "releases": [
       {
         "prerelease": false,
-        "published_at": "2026-08-15T18:56:52Z",
-        "tag": "v0.6.0"
+        "published_at": "2026-10-27T12:06:50Z",
+        "tag": "v2.7.1"
       },
       {
         "prerelease": false,
-        "published_at": "2026-08-15T23:16:45Z",
-        "tag": "v0.6.1"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-21T15:53:57Z",
-        "tag": "v0.7.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-22T18:14:14Z",
-        "tag": "v1.0.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-22T18:18:11Z",
-        "tag": "v1.0.1"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-23T16:41:40Z",
-        "tag": "v1.1.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-25T13:15:07Z",
-        "tag": "v1.2.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-25T23:44:00Z",
-        "tag": "v2.0.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-26T23:20:03Z",
-        "tag": "v2.0.1"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-27T19:14:34Z",
-        "tag": "v2.0.2"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-27T22:43:16Z",
-        "tag": "v2.1.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-27T23:06:30Z",
-        "tag": "v2.2.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-28T00:21:25Z",
-        "tag": "v2.3.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-03T10:10:32Z",
-        "tag": "v2.4.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-04T10:20:21Z",
-        "tag": "v2.5.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-04T21:37:25Z",
-        "tag": "v2.6.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-19T13:54:22Z",
-        "tag": "v2.7.0"
+        "published_at": "2026-10-27T12:55:11Z",
+        "tag": "v2.7.2"
       }
     ]
   },
   "6w6": {
-    "first_release": "2026-08-23",
-    "last_updated": "2026-09-19",
-    "version": "v1.8.0",
+    "first_release": "2026-10-27",
+    "last_updated": "2026-10-27",
+    "version": "v1.8.2",
     "release_dates": [
-      "2026-08-23",
-      "2026-08-26",
-      "2026-08-26",
-      "2026-08-26",
-      "2026-08-28",
-      "2026-08-30",
-      "2026-09-02",
-      "2026-09-03",
-      "2026-09-04",
-      "2026-09-07",
-      "2026-09-19"
+      "2026-10-27",
+      "2026-10-27"
     ],
     "releases": [
       {
         "prerelease": false,
-        "published_at": "2026-08-23T10:42:16Z",
-        "tag": "v1.0.0"
+        "published_at": "2026-10-27T12:41:14Z",
+        "tag": "v1.8.1"
       },
       {
         "prerelease": false,
-        "published_at": "2026-08-26T01:27:24Z",
-        "tag": "v1.1.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-26T01:47:37Z",
-        "tag": "v1.1.1"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-26T23:29:14Z",
-        "tag": "v1.2.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-28T01:59:18Z",
-        "tag": "v1.3.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-08-30T09:59:59Z",
-        "tag": "v1.4.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-02T06:55:59Z",
-        "tag": "v1.4.1"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-03T10:43:52Z",
-        "tag": "v1.5.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-04T10:47:24Z",
-        "tag": "v1.6.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-07T20:19:49Z",
-        "tag": "v1.7.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-19T13:57:03Z",
-        "tag": "v1.8.0"
+        "published_at": "2026-10-27T12:57:38Z",
+        "tag": "v1.8.2"
       }
     ]
   },
@@ -7181,47 +7043,23 @@
     ]
   },
   "cw78": {
-    "first_release": "2026-08-29",
-    "last_updated": "2026-09-22",
-    "version": "v1.5.0",
+    "first_release": "2026-10-27",
+    "last_updated": "2026-10-27",
+    "version": "v1.5.2",
     "release_dates": [
-      "2026-08-29",
-      "2026-09-03",
-      "2026-09-04",
-      "2026-09-04",
-      "2026-09-19",
-      "2026-09-22"
+      "2026-10-27",
+      "2026-10-27"
     ],
     "releases": [
       {
         "prerelease": false,
-        "published_at": "2026-08-29T18:58:19Z",
-        "tag": "v1.0.0"
+        "published_at": "2026-10-27T12:37:25Z",
+        "tag": "v1.5.1"
       },
       {
         "prerelease": false,
-        "published_at": "2026-09-03T10:16:33Z",
-        "tag": "v1.1.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-04T10:42:40Z",
-        "tag": "v1.2.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-04T21:47:55Z",
-        "tag": "v1.3.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-19T14:01:08Z",
-        "tag": "v1.4.0"
-      },
-      {
-        "prerelease": false,
-        "published_at": "2026-09-22T12:10:24Z",
-        "tag": "v1.5.0"
+        "published_at": "2026-10-27T12:56:28Z",
+        "tag": "v1.5.2"
       }
     ]
   },
