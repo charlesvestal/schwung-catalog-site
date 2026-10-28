@@ -77,6 +77,18 @@ jobs:
             mv counts.tmp data/download-counts.json
           done < release-repos.tsv
 
+          # Downloads GitHub no longer reports. Deleting a release deletes its
+          # download counts with it, so an author who re-cuts every release
+          # would restart from zero. Each offset is the module's last total
+          # before its old releases were deleted, added on top of what
+          # GitHub reports now.
+          if [ -f data/download-counts-offsets.json ]; then
+            jq --slurpfile off data/download-counts-offsets.json '
+              with_entries(.value += ($off[0][.key] // 0))
+            ' data/download-counts.json > counts.tmp
+            mv counts.tmp data/download-counts.json
+          fi
+
           # Validate JSON
           jq . data/download-counts.json > /dev/null
 
@@ -147,13 +159,15 @@ jobs:
           # manager date an OLD installed version rather than only a
           # recent one.
 
+          # Copied BEFORE the reset below, or the floor reads an empty file.
+          cp data/release-metadata.json prev-metadata.json 2>/dev/null || echo '{}' > prev-metadata.json
+
           echo '{}' > data/release-metadata.json
 
           # Previous run's metadata: a first_release only ever moves EARLIER.
           # An author who deletes and re-cuts every release (9W9, 6W6, 8W8
           # and CW-78 on 2026-10-27) otherwise turns a two-month-old module
           # into the newest one in the catalog.
-          cp data/release-metadata.json prev-metadata.json 2>/dev/null || echo '{}' > prev-metadata.json
 
           while IFS="$(printf '\t')" read -r id repo asset shared; do
             # In a shared repo, only the releases that carry this module's
