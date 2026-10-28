@@ -340,18 +340,10 @@ function getFiltered() {
             modules.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case 'newest':
-            modules.sort((a, b) => {
-                const da = (releaseMetadata[a.id] || {}).first_release || '0000';
-                const db = (releaseMetadata[b.id] || {}).first_release || '0000';
-                return db.localeCompare(da);
-            });
+            modules.sort((a, b) => metaDate(b.id, 'first_release').localeCompare(metaDate(a.id, 'first_release')));
             break;
         case 'updated':
-            modules.sort((a, b) => {
-                const da = (releaseMetadata[a.id] || {}).last_updated || '0000';
-                const db = (releaseMetadata[b.id] || {}).last_updated || '0000';
-                return db.localeCompare(da);
-            });
+            modules.sort((a, b) => metaDate(b.id, 'last_updated').localeCompare(metaDate(a.id, 'last_updated')));
             break;
         case 'author':
             modules.sort((a, b) => a.author.localeCompare(b.author));
@@ -586,6 +578,14 @@ function esc(s) {
     const el = document.createElement('span');
     el.textContent = s;
     return el.innerHTML;
+}
+
+// A date field for sorting. The workflow writes the literal "unknown" when it
+// finds no releases, and "unknown" sorts AFTER every "2026-..." string, so a
+// module with no release history used to head the Newest list.
+function metaDate(id, field) {
+    const d = (releaseMetadata[id] || {})[field];
+    return d && d !== 'unknown' ? d : '0000';
 }
 
 function downloadsPerRelease(id) {
