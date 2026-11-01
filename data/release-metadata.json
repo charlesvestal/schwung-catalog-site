@@ -8788,5 +8788,65 @@
         "tag": "v0.1.5"
       }
     ]
+  },
+  "quark": {
+    "first_release": "2026-10-31",
+    "last_updated": "2026-10-31",
+    "version": "v0.3.0",
+    "release_dates": [
+      "2026-10-31"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-10-31T23:10:16Z",
+        "tag": "v0.3.0"
+      }
+    ]
+  },
+  "s3g-thru": {
+    "first_release": "2026-10-21",
+    "last_updated": "2026-10-31",
+    "version": "v0.29.1",
+    "release_dates": [
+      "2026-10-21",
+      "2026-10-22",
+      "2026-10-25",
+      "2026-10-29",
+      "2026-10-31",
+      "2026-10-31"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-10-21T18:10:44Z",
+        "tag": "v0.25.1"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-22T16:25:51Z",
+        "tag": "v0.26.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-25T02:47:50Z",
+        "tag": "v0.27.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-29T04:28:52Z",
+        "tag": "v0.28.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-31T14:20:13Z",
+        "tag": "v0.29.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-10-31T14:32:40Z",
+        "tag": "v0.29.1"
+      }
+    ]
   }
 }
