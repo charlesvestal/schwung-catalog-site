@@ -8791,16 +8791,22 @@
   },
   "quark": {
     "first_release": "2026-10-31",
-    "last_updated": "2026-10-31",
-    "version": "v0.3.0",
+    "last_updated": "2026-11-01",
+    "version": "v0.4.0",
     "release_dates": [
-      "2026-10-31"
+      "2026-10-31",
+      "2026-11-01"
     ],
     "releases": [
       {
         "prerelease": false,
         "published_at": "2026-10-31T23:10:16Z",
         "tag": "v0.3.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-01T20:10:35Z",
+        "tag": "v0.4.0"
       }
     ]
   },
