@@ -8695,11 +8695,13 @@
   },
   "amino": {
     "first_release": "2026-10-27",
-    "last_updated": "2026-10-30",
-    "version": "v1.1.0",
+    "last_updated": "2026-11-03",
+    "version": "v1.2.1",
     "release_dates": [
       "2026-10-27",
-      "2026-10-30"
+      "2026-10-30",
+      "2026-11-03",
+      "2026-11-03"
     ],
     "releases": [
       {
@@ -8711,31 +8713,54 @@
         "prerelease": false,
         "published_at": "2026-10-30T12:54:32Z",
         "tag": "v1.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-03T20:21:55Z",
+        "tag": "v1.2.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-03T22:15:38Z",
+        "tag": "v1.2.1"
       }
     ]
   },
   "bizar": {
     "first_release": "2026-10-27",
-    "last_updated": "2026-10-27",
-    "version": "v0.8.2",
+    "last_updated": "2026-11-03",
+    "version": "v0.9.1",
     "release_dates": [
-      "2026-10-27"
+      "2026-10-27",
+      "2026-11-03",
+      "2026-11-03"
     ],
     "releases": [
       {
         "prerelease": false,
         "published_at": "2026-10-27T14:14:05Z",
         "tag": "v0.8.2"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-03T19:02:38Z",
+        "tag": "v0.9.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-03T22:15:14Z",
+        "tag": "v0.9.1"
       }
     ]
   },
   "crest": {
     "first_release": "2026-10-27",
-    "last_updated": "2026-10-30",
-    "version": "v0.2.0",
+    "last_updated": "2026-11-03",
+    "version": "v0.3.0",
     "release_dates": [
       "2026-10-27",
-      "2026-10-30"
+      "2026-10-30",
+      "2026-11-03"
     ],
     "releases": [
       {
@@ -8747,6 +8772,11 @@
         "prerelease": false,
         "published_at": "2026-10-30T12:54:40Z",
         "tag": "v0.2.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-03T22:16:06Z",
+        "tag": "v0.3.0"
       }
     ]
   },
@@ -8797,15 +8827,16 @@
   },
   "quark": {
     "first_release": "2026-10-31",
-    "last_updated": "2026-11-02",
-    "version": "v0.4.4",
+    "last_updated": "2026-11-03",
+    "version": "v0.4.5",
     "release_dates": [
       "2026-10-31",
       "2026-11-01",
       "2026-11-02",
       "2026-11-02",
       "2026-11-02",
-      "2026-11-02"
+      "2026-11-02",
+      "2026-11-03"
     ],
     "releases": [
       {
@@ -8837,6 +8868,11 @@
         "prerelease": false,
         "published_at": "2026-11-02T23:17:10Z",
         "tag": "v0.4.4"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-03T20:00:27Z",
+        "tag": "v0.4.5"
       }
     ]
   },
