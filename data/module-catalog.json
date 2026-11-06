@@ -4,13 +4,13 @@
     "name": "Schwung",
     "github_repo": "charlesvestal/schwung",
     "asset_name": "schwung.tar.gz",
-    "latest_version": "1.9.1",
-    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.1/schwung.tar.gz",
+    "latest_version": "1.9.2",
+    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.2/schwung.tar.gz",
     "min_host_version": "0.1.0",
     "channels": {
       "stable": {
-        "version": "1.9.1",
-        "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.1/schwung.tar.gz"
+        "version": "1.9.2",
+        "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.2/schwung.tar.gz"
       }
     }
   },
@@ -996,7 +996,7 @@
       "github_repo": "charlesvestal/schwung-performance-fx",
       "default_branch": "main",
       "asset_name": "performance-fx-module.tar.gz",
-      "min_host_version": "0.7.0"
+      "min_host_version": "0.12.0"
     },
     {
       "id": "dj",
