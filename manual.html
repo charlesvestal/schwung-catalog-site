@@ -518,7 +518,7 @@
                     <h2>8 · Master FX and sends</h2>
                     <p>Open with <kbd>Shift+Vol</kbd> + <kbd>Note/Session</kbd> (or long-press <kbd>Note/Session</kbd>). That puts you straight on the <strong>Master FX</strong> chain, with <strong>Send A</strong> and <strong>Send B</strong> as the first two boxes of the row &mdash; jog left past <em>FX 1</em> to reach them. <kbd>Back</kbd> from Master FX leaves Schwung's screen; <kbd>Back</kbd> from a send returns to Master FX, and so does the box at the head of a send's own row.</p>
                     <p>Master FX remembers where you left it, so coming back puts the cursor on the effect you were working on rather than at the start of the row.</p>
-                    <p><strong>Master FX</strong> is a chain of up to <strong>eight</strong> audio effect slots that processes the mixed output of all four instrument slots. The row scrolls to follow your selection, the same way a slot's own chain does, so the chain can be longer than the screen. It has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in its menu) that target any parameter of the loaded master effects.</p>
+                    <p><strong>Master FX</strong> is a chain of up to <strong>eight</strong> audio effect slots that processes the mixed output of all four instrument slots. It processes <em>Move's own tracks</em> as well only while <strong>Move→Schwung</strong> is on (see <a href="#link-audio">Routing Move audio</a>); with it off, Move's sound passes Schwung's Master FX by untouched. The row scrolls to follow your selection, the same way a slot's own chain does, so the chain can be longer than the screen. It has its own pair of LFOs (<em>LFO 1</em> and <em>LFO 2</em> in its menu) that target any parameter of the loaded master effects.</p>
 
                     <h3>How it all flows</h3>
                     <p>The sends come back <em>into</em> the master bus, not after it &mdash; which is why they are drawn at the head of the Master FX row rather than tucked in a menu. A compressor or limiter in Master FX hears the reverb:</p>
@@ -558,6 +558,7 @@
                     <p>The other direction is <strong>Schwung-&gt;Link</strong> (Global Settings → Audio, off by default): it sends each slot's audio back out as its own Link Audio channel (<em>ME-1</em> to <em>ME-4</em>), so other Link Audio apps can record or process it.</p>
 
                     <p class="note warning"><strong>Restart may be needed.</strong> If you don't hear Move tracks being processed after enabling routing, restart Move — the Link Audio subscriber sometimes needs a fresh boot to start capturing.</p>
+                    <p class="note warning"><strong>Schwung 1.9.2 and earlier: your Move must be called <code>move</code>.</strong> Move→Schwung silently does nothing if your Move has any other network name, for example <code>move-2.local</code> (which Move picks by itself when a second Move is on the same network) or a name you set in Move's settings. Rename it back to <code>move</code>, or update to a later Schwung, where any name works.</p>
 
                     <div class="faq-list">
                         <details class="faq-item">
@@ -568,7 +569,7 @@
                                     <li>Move's <strong>native Master FX is bypassed</strong> when Link Audio is on. Schwung's Master FX still applies to the combined output.</li>
                                     <li>Pressing Play introduces a brief delay (Move syncs to the Link quantum).</li>
                                 </ul>
-                                <p>With Link Audio off, Move's audio runs its normal path including native Master FX, then everything is summed into Schwung Master FX.</p>
+                                <p>With Link Audio off, Move's audio runs its normal path, including Move's native Master FX, and Schwung leaves it alone: Schwung's Master FX processes only Schwung's own slots, and the two are added together after it. Move's audio only reaches Schwung's slot effects and Master FX while Move→Schwung is on. Schwung can't reprocess Move's mix in this mode because Move's audio arrives already finished and turned down by the volume knob, so a reverb or compressor would react to where the knob is.</p>
                             </div>
                         </details>
 
@@ -860,6 +861,7 @@
                         <li><strong>Link Audio bypasses Move's native Master FX</strong> while it's on — Schwung rebuilds the mix from per-track streams.</li>
                         <li><strong>Link Audio play delay.</strong> Move syncs to the Link quantum, introducing a brief delay when pressing Play.</li>
                         <li><strong>Link Audio capture sometimes needs a Move restart</strong> after first enabling routing.</li>
+                        <li><strong>Move→Schwung needs the network name <code>move</code></strong> on Schwung 1.9.2 and earlier. A Move named anything else, such as <code>move-2.local</code>, gets no routing and shows no error.</li>
                         <li><strong>No authentication on web services.</strong> Schwung Manager (<code>:7700</code>) and Display Mirror are unauthenticated. Anyone on the network can access them — keep that in mind on shared networks. While <em>Mirror Display</em> is on, that includes <strong>the device's sound</strong>: the mirror streams the full mix, and with a Line In slot that means whatever the microphone or line input is picking up. Turn Mirror Display off when you don't need it.</li>
                         <li><strong>On-device upgrades.</strong> If you upgraded Schwung from an older version and Schwung Manager (<code>move.local:7700</code>) is unreachable afterwards, run once over SSH: <code>ssh ableton@move.local "sh /data/UserData/schwung/scripts/post-update.sh && reboot"</code>. Move will reboot and the manager should come back.</li>
                         <li><strong>Move firmware updates</strong> temporarily disable Schwung. Re-run the installer to repair — modules and settings are kept.</li>
