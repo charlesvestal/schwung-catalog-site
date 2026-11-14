@@ -4,13 +4,13 @@
     "name": "Schwung",
     "github_repo": "charlesvestal/schwung",
     "asset_name": "schwung.tar.gz",
-    "latest_version": "1.9.2",
-    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.2/schwung.tar.gz",
+    "latest_version": "1.9.3",
+    "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.3/schwung.tar.gz",
     "min_host_version": "0.1.0",
     "channels": {
       "stable": {
-        "version": "1.9.2",
-        "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.2/schwung.tar.gz"
+        "version": "1.9.3",
+        "download_url": "https://github.com/charlesvestal/schwung/releases/download/v1.9.3/schwung.tar.gz"
       }
     }
   },
@@ -255,6 +255,22 @@
       "asset_name": "dexed-module.tar.gz",
       "min_host_version": "0.3.0",
       "requires": "Optional additional .syx patch banks (place in module's banks/ folder)"
+    },
+    {
+      "id": "frodhes",
+      "name": "Frodhes",
+      "description": "Physical-model electric piano, vibraphone and marimba with drive, filter, compressor, chorus, phaser, delay and reverb, an arpeggiator and its own full-screen pages",
+      "author": "leo Mirabal",
+      "component_type": "sound_generator",
+      "subcategory": "physical-modeling",
+      "tags": [
+        "polyphonic",
+        "vintage-emulation"
+      ],
+      "github_repo": "leonardoMirabal/frodhes",
+      "default_branch": "main",
+      "asset_name": "frodhes-module.tar.gz",
+      "min_host_version": "1.8.2"
     },
     {
       "id": "sf2",
@@ -2568,6 +2584,18 @@
       "min_host_version": "0.12.0"
     },
     {
+      "id": "dubstarmoonicon",
+      "name": "DubStarMooniCon",
+      "description": "Two-oscillator subharmonic voice: 3-limit dividers, five band-limited waveforms, resonant SVF filter, ADSR with aftertouch release.",
+      "author": "Moongriffin",
+      "component_type": "sound_generator",
+      "subcategory": "polysynth",
+      "github_repo": "elliotmross-max/dubstarmoonicon",
+      "default_branch": "main",
+      "asset_name": "dubstarmoonicon-module.tar.gz",
+      "min_host_version": "0.3.0"
+    },
+    {
       "id": "tenebrae",
       "name": "Tenebrae",
       "description": "Dark, retro macro synth with an edge: snarling basses, drifting pads, screaming leads and long, moving echoes. 8 oscillator models, three-zone drive, chorus, phaser, tempo pump, VHS, tape delay and shimmer reverb. 163 presets",
@@ -2646,6 +2674,18 @@
       "min_host_version": "1.7.3"
     },
     {
+      "id": "crest-fx",
+      "name": "Crest FX",
+      "description": "Crest's effects chain for any slot: distortion, chorus, tempo-synced delay and reverb in parallel or any serial order, with dry/wet. Bit-exact passthrough when off. 8 presets",
+      "author": "AI & Klaine",
+      "component_type": "audio_fx",
+      "subcategory": "multi-fx",
+      "github_repo": "klaine/crest-fx",
+      "default_branch": "main",
+      "asset_name": "crest-fx-module.tar.gz",
+      "min_host_version": "1.7.3"
+    },
+    {
       "id": "chord-display",
       "name": "Chord Display",
       "description": "Shows the chord you play, or a clip plays, on any track, with its roman numeral in the Set's key. Reads any MIDI channel.",
@@ -2702,6 +2742,19 @@
       "min_host_version": "1.0.0"
     },
     {
+      "id": "tinysid",
+      "name": "TinySID",
+      "description": "Plays C64 .sid tunes on a live 6502 + SID emulation locked to Move's clock: borrow one tune's sounds for another, send the three voices as MIDI to other tracks, loop, retune, and play the song's own instruments from the pads",
+      "author": "fleshinachair",
+      "component_type": "sound_generator",
+      "subcategory": "chiptune-retro",
+      "tags": ["vintage-emulation"],
+      "github_repo": "fleshinachair/TinySID",
+      "default_branch": "main",
+      "asset_name": "TinySID.tar.gz",
+      "min_host_version": "1.8.0"
+    },
+    {
       "id": "machinemodule",
       "name": "Machinemodule",
       "description": "Elektron Machinedrum SPS-1 UW sound engine, emulated: 16 tracks on the 16 pads, with track effects, mixer and master effects. The editor follows the pad you hit",
@@ -2714,6 +2767,19 @@
       "asset_name": "machinemodule-module.tar.gz",
       "min_host_version": "1.7.3",
       "requires": "Your own Machinedrum UW OS 1.63 .syx (required, free from Elektron); optional flash image .bin for factory kits and ROM machines, and your own kit .syx dumps. Upload them on the module's page in Schwung Manager"
+    },
+        {
+      "id": "flukedrums",
+      "name": "FlukeDrums",
+      "description": "A drum machine built on happy accidents: random kits from your sample library. Roll, lock the keepers, reroll the rest, save the kit",
+      "author": "aTanguay",
+      "component_type": "sound_generator",
+      "subcategory": "drum-machine",
+      "tags": ["generative", "sample-based"],
+      "github_repo": "aTanguay/Schwung_FlukeDrums",
+      "default_branch": "main",
+      "asset_name": "flukedrums-module.tar.gz",
+      "min_host_version": "1.0.0"
     }
   ]
 }
