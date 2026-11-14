@@ -8761,13 +8761,14 @@
   },
   "dubstarmoonicon": {
     "first_release": "2026-10-25",
-    "last_updated": "2026-11-04",
-    "version": "v1.1.5",
+    "last_updated": "2026-11-14",
+    "version": "v1.1.6",
     "release_dates": [
       "2026-10-25",
       "2026-11-03",
       "2026-11-03",
-      "2026-11-04"
+      "2026-11-04",
+      "2026-11-14"
     ],
     "releases": [
       {
@@ -8789,6 +8790,11 @@
         "prerelease": false,
         "published_at": "2026-11-04T16:51:25Z",
         "tag": "v1.1.5"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-14T17:06:41Z",
+        "tag": "v1.1.6"
       }
     ]
   },
