@@ -4495,8 +4495,8 @@
   },
   "davebox-sa": {
     "first_release": "2026-09-28",
-    "last_updated": "2026-10-28",
-    "version": "v1.1.3",
+    "last_updated": "2026-11-16",
+    "version": "v2.0.0",
     "release_dates": [
       "2026-09-28",
       "2026-09-29",
@@ -4524,7 +4524,8 @@
       "2026-10-27",
       "2026-10-27",
       "2026-10-27",
-      "2026-10-28"
+      "2026-10-28",
+      "2026-11-16"
     ],
     "releases": [
       {
@@ -4661,6 +4662,11 @@
         "prerelease": false,
         "published_at": "2026-10-28T13:48:53Z",
         "tag": "v1.1.3"
+      },
+      {
+        "prerelease": true,
+        "published_at": "2026-11-16T15:59:01Z",
+        "tag": "v2.0.0"
       }
     ],
     "channels": {
@@ -4668,7 +4674,7 @@
         "version": "v1.1.3"
       },
       "beta": {
-        "version": "v1.1.2"
+        "version": "v2.0.0"
       }
     }
   },
@@ -9181,16 +9187,22 @@
   },
   "tinysid": {
     "first_release": "2026-11-03",
-    "last_updated": "2026-11-03",
-    "version": "v0.9.0",
+    "last_updated": "2026-11-16",
+    "version": "v0.9.1",
     "release_dates": [
-      "2026-11-03"
+      "2026-11-03",
+      "2026-11-16"
     ],
     "releases": [
       {
         "prerelease": false,
         "published_at": "2026-11-03T09:01:42Z",
         "tag": "v0.9.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-16T10:28:07Z",
+        "tag": "v0.9.1"
       }
     ]
   },
