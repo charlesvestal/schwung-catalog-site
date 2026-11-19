@@ -2714,7 +2714,7 @@
     {
       "id": "s3g-thru",
       "name": "s3g Thru",
-      "description": "Four-lane stereo sampler with thirteen playback engines, Single, Split, Shared Dual and Quad layouts, performance-data looping, live recording, and configurable effects.",
+      "description": "Four-lane stereo sampler with fifteen engines, seven performance modes, Euclidean and Onset sequencing, live recording, performance looping and effects.",
       "author": "s3g",
       "component_type": "overtake",
       "subcategory": "sampler-looper",
@@ -2780,6 +2780,30 @@
       "default_branch": "main",
       "asset_name": "flukedrums-module.tar.gz",
       "min_host_version": "1.0.0"
+    },
+    {
+      "id": "moveremote",
+      "name": "Move Remote",
+      "description": "The whole Move as a control surface for a computer, phone or tablet, over USB or Wi-Fi. Every pad (velocity, aftertouch), button, knob and touch goes out raw; every LED, the screen, audio and USB-A MIDI come back. Includes a browser page at move.local:7720",
+      "author": "Quixotic7",
+      "component_type": "tool",
+      "subcategory": "performance",
+      "github_repo": "Quixotic7/abletonmoveremote",
+      "default_branch": "main",
+      "asset_name": "moveremote-module.tar.gz",
+      "min_host_version": "1.6.0"
+    },
+    {
+      "id": "beat_repeat",
+      "name": "Beet Repeat",
+      "description": "Tempo-synced stutter/repeat FX in the style of Live's Beat Repeat",
+      "author": "BarfCity",
+      "component_type": "audio_fx",
+      "subcategory": "looper-sampler-fx",
+      "github_repo": "inpoliteco/beetrepeet",
+      "default_branch": "main",
+      "asset_name": "beat_repeat-module.tar.gz",
+      "min_host_version": "1.9.3"
     }
   ]
 }

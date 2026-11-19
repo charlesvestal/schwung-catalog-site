@@ -9277,5 +9277,41 @@
         "tag": "v1.0.0"
       }
     ]
+  },
+  "moveremote": {
+    "first_release": "2026-11-17",
+    "last_updated": "2026-11-18",
+    "version": "v0.1.1",
+    "release_dates": [
+      "2026-11-17",
+      "2026-11-18"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-11-17T21:14:04Z",
+        "tag": "v0.1.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-18T18:54:14Z",
+        "tag": "v0.1.1"
+      }
+    ]
+  },
+  "beat_repeat": {
+    "first_release": "2026-11-13",
+    "last_updated": "2026-11-13",
+    "version": "v0.1.0",
+    "release_dates": [
+      "2026-11-13"
+    ],
+    "releases": [
+      {
+        "prerelease": false,
+        "published_at": "2026-11-13T22:25:47Z",
+        "tag": "v0.1.0"
+      }
+    ]
   }
 }
