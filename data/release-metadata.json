@@ -5331,8 +5331,8 @@
   },
   "movy": {
     "first_release": "2026-06-30",
-    "last_updated": "2026-10-19",
-    "version": "v0.37.0",
+    "last_updated": "2026-11-22",
+    "version": "v0.38.0",
     "release_dates": [
       "2026-06-30",
       "2026-06-30",
@@ -5352,7 +5352,8 @@
       "2026-09-09",
       "2026-10-09",
       "2026-10-17",
-      "2026-10-19"
+      "2026-10-19",
+      "2026-11-22"
     ],
     "releases": [
       {
@@ -5449,6 +5450,11 @@
         "prerelease": false,
         "published_at": "2026-10-19T07:55:33Z",
         "tag": "v0.37.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-22T12:55:31Z",
+        "tag": "v0.38.0"
       }
     ]
   },
@@ -9238,8 +9244,8 @@
   },
   "tinyhouse": {
     "first_release": "2026-11-17",
-    "last_updated": "2026-11-21",
-    "version": "v0.9.12",
+    "last_updated": "2026-11-22",
+    "version": "v0.9.15",
     "release_dates": [
       "2026-11-17",
       "2026-11-17",
@@ -9249,7 +9255,10 @@
       "2026-11-19",
       "2026-11-20",
       "2026-11-20",
-      "2026-11-21"
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-22",
+      "2026-11-22"
     ],
     "releases": [
       {
@@ -9296,6 +9305,21 @@
         "prerelease": false,
         "published_at": "2026-11-21T09:36:20Z",
         "tag": "v0.9.12"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-22T12:37:47Z",
+        "tag": "v0.9.13"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-22T15:11:46Z",
+        "tag": "v0.9.14"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-22T16:25:44Z",
+        "tag": "v0.9.15"
       }
     ]
   },
@@ -9599,11 +9623,12 @@
   "melodee-move": {
     "first_release": "2026-11-21",
     "last_updated": "2026-11-22",
-    "version": "v0.3.0",
+    "version": "v0.4.0",
     "release_dates": [
       "2026-11-21",
       "2026-11-21",
       "2026-11-21",
+      "2026-11-22",
       "2026-11-22"
     ],
     "releases": [
@@ -9626,6 +9651,11 @@
         "prerelease": false,
         "published_at": "2026-11-22T04:19:41Z",
         "tag": "v0.3.0"
+      },
+      {
+        "prerelease": false,
+        "published_at": "2026-11-22T13:50:11Z",
+        "tag": "v0.4.0"
       }
     ]
   }
